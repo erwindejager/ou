@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:edj.ou.InvokeIncrementProcess="http://edj.ou.InvokeIncrementProcess" xmlns:transform.ws.ou.edj="http://transform.ws.ou.edj">
+  <process name="edj.ou.InvokeIncrementProcess:InvokeIncrementProcess">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="edj.ou.InvokeIncrementProcess:InvokeIncrementProcessService" port="InvokeIncrementProcessPort"/>
+    </provide>
+    <invoke partnerLink="IncrementPL">
+      <service name="transform.ws.ou.edj:IncrementService" port="Increment"/>
+    </invoke>
+  </process>
+</deploy>

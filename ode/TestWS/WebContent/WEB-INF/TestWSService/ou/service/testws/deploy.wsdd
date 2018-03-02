@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TestWSService WSDL service -->
+
+  <service name="TestWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://testws.service.ou"/>
+      <parameter name="wsdlServiceElement" value="TestWSService"/>
+      <parameter name="schemaQualified" value="http://testws.service.ou"/>
+      <parameter name="wsdlServicePort" value="TestWS"/>
+      <parameter name="className" value="ou.service.testws.TestWS"/>
+      <parameter name="wsdlPortType" value="TestWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://testws.service.ou" xmlns:retNS="http://testws.service.ou" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="incValue" qname="operNS:incValue" returnQName="retNS:incValueReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://testws.service.ou" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:i" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="incValue"/>
+
+  </service>
+</deployment>

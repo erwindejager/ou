@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from LoanApprovalService WSDL service -->
+
+  <service name="LoanApproval" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://transform.ws.ou.edj"/>
+      <parameter name="wsdlServiceElement" value="LoanApprovalService"/>
+      <parameter name="schemaQualified" value="http://transform.ws.ou.edj"/>
+      <parameter name="wsdlServicePort" value="LoanApproval"/>
+      <parameter name="className" value="edj.ou.ws.transform.LoanApproval"/>
+      <parameter name="wsdlPortType" value="LoanApproval"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://transform.ws.ou.edj" xmlns:retNS="http://transform.ws.ou.edj" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="check" qname="operNS:check" returnQName="retNS:checkReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://transform.ws.ou.edj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:clientId" type="tns:string"/>
+        <parameter xmlns:pns="http://transform.ws.ou.edj" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:amount" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="check"/>
+
+  </service>
+</deployment>

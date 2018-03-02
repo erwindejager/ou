@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:mypick.ou="htt:/mypick.ou">
+  <process name="mypick.ou:myPick">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="mypick.ou:myPickService" port="myPickPort"/>
+    </provide>
+  </process>
+</deploy>

@@ -1,0 +1,9 @@
+operation BPEL!t_receive expand() {
+	self.println();
+	self.a_name.println();
+} 
+
+operation BPEL!t_receive transform(sb : Any, context : Map) {
+	newline(sb); terminal(sb, self.a_name);
+	
+} 

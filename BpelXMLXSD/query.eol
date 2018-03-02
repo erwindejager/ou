@@ -1,0 +1,7 @@
+operation BPEL!t_query expand() {
+	self.println();
+}
+ 
+operation BPEL!t_query transform(sb : Any, context : Map) {
+//	transformChildren(sb, self);
+}

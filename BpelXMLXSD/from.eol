@@ -1,0 +1,22 @@
+import "literal.eol";
+import "query.eol";
+
+operation BPEL!t_from expand() {
+	self.println();
+	if (self.a_variable.length > 0) {
+ 		self.a_variable.println();
+ 	}
+	expandChildren(self);
+} 
+
+
+operation getFrom(parent : Any) : BPEL!t_from {
+ 	return parent.children.select(o|o.isTypeOf(BPEL!t_from)).first();
+}
+
+operation BPEL!t_from transform(sb : Any, context : Map) {
+	if (self.a_variable.length > 0) {
+		sb.append(self.a_variable);
+ 	}
+	transformChildren(sb, context, self);
+}

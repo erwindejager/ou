@@ -1,0 +1,14 @@
+import "copy.eol";
+
+operation BPEL!t_assign expand() {
+	self.println();
+	self.a_name.println();
+	expandChildren(self);
+} 
+
+operation BPEL!t_assign transform(sb : Any, context : Map) {
+	newline(sb); newline(sb); terminal(sb, self.a_name); newline(sb);
+	sb.append("{");
+	transformChildren(sb, context, self);
+	newline(sb); sb.append("}");
+} 

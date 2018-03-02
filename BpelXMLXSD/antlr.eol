@@ -1,0 +1,45 @@
+operation antlrHeader(sb : Any) {
+  	sb.append("@header {"); newline(sb);
+  	sb.append("import java.util.HashMap;"); newline(sb);
+  	sb.append("import java.util.Map;"); newline(sb);
+  	sb.append("}"); newline(sb); newline(sb);
+}
+
+operation antlrMembers(sb : Any) {
+  	sb.append("@members {"); newline(sb);
+  	getVariables().transformMembers(sb);
+  	antlrVerify(sb);
+  	sb.append("}"); newline(sb); newline(sb);
+}
+
+operation antlrVerify(sb : Any) {
+	sb.append("Map<String,String> varMap = new HashMap<>();\n"); 
+	sb.append("Map<String,String> vMap = new HashMap();\n");
+	newline(sb);
+	sb.append("	boolean verify() {\n");
+	sb.append("		boolean result = true;\n");
+	sb.append("		for (String key : varMap.keySet()) {\n");
+	sb.append("			if (!varMap.get(key).equals(vMap.get(key + \"_\"))) {\n");
+	sb.append("				System.out.println(key + \" : \" + varMap.get(key) + \" <> \" + key + \"_ : \" + vMap.get(key + \"_\"));\n");
+	sb.append("				result = false;	\n");
+	sb.append("			}\n");
+	sb.append("		}\n");
+	sb.append("		return result;\n");
+	sb.append("	}\n");
+}
+
+operation antlrCallVerify(sb : Any) {
+	newline(sb);
+	sb.append("if (!verify()) {\n");
+	sb.append("	System.out.println(\"ERROR: unexpected output\");\n"); 
+    sb.append("}\n");
+}
+operation antlrOptions(sb : Any) {
+  	sb.append("options {language=Java;}"); newline(sb); newline(sb);
+}
+
+operation antlrTypes(sb : Any) {
+	newline(sb); newline(sb);
+  	sb.append("INT 	: ([0-9|?])+ ;\n");
+  	sb.append("WS 	: [ \\t\\r\\n]+ -> skip ;\n");
+}

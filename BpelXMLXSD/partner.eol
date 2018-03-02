@@ -1,0 +1,33 @@
+import "util.eol";
+
+//--------------------------------------------------------
+// <xsd:element ref="variables" minOccurs="0"/>
+//--------------------------------------------------------
+operation getPartners() : Collection {
+ 	BPEL!t_partnerLink.all().first().println();
+ 	return BPEL!t_partnerLink.all;
+}
+ 
+operation getPartnerNames() : Collection {
+	return getPartners().collect(v|v.a_name);
+}
+ 
+operation BPEL!t_partnerLinks expand() {
+	self.println();
+	expandChildren(self);
+} 
+
+operation BPEL!t_partnerLink expand() {
+	self.println();
+	self.a_name.println();
+	expandChildren(self);
+} 
+
+operation BPEL!t_partnerLinks transform(sb : Any) {
+	transformChildren(sb, self);
+} 
+
+operation BPEL!t_partnerLink transform(sb : Any) {
+	transformChildren(sb, self);
+} 
+ 

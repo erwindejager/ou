@@ -1,0 +1,31 @@
+import "antlr.eol";
+import "context.eol";
+import "process.eol";
+import "partner.eol";
+import "variables.eol";
+import "activity.eol";
+
+var sb := new Native("java.lang.StringBuilder");
+var context : Map;
+
+getProcess().transformStartSymbolGrammar(sb);
+antlrOptions(sb);
+antlrHeader(sb);
+antlrMembers(sb);
+getProcess().transformStartSymbol(sb);
+getMainSequence().transform(sb, context); newline(sb); sb.append("v;");
+getVariables().transformV0(sb);
+getVariables().transformV(sb);
+getVariables().transformTerminal(sb);
+getVariables().transformTerminal_(sb);
+antlrTypes(sb);
+
+
+//getProcess().transform(sb);
+//getPartnerNames().println();
+
+//getVariableNames().println();
+
+//getMainSequence().expand();
+sb.toString().println();
+

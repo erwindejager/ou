@@ -1,0 +1,28 @@
+import "condition.eol";
+
+operation BPEL!t_if expand() {
+	self.println();
+	self.a_name.println();
+	expandChildren(self);
+} 
+
+operation BPEL!t_if transform(sb : Any, context : Map) {
+	newline(sb); newline(sb); sb.append("("); space(sb); terminal(sb, self.a_name); newline(sb);
+	transformChildren(sb, context, self);
+	newline(sb); sb.append(")");
+}
+
+operation BPEL!t_else expand() {
+	self.println();
+	self.tagname.println();
+	expandChildren(self);	
+} 
+
+operation BPEL!t_else transform(sb : Any, context : Map) {
+	newline(sb);newline(sb); sb.append("|"); space(sb); terminal(sb, "else"); newline(sb);
+	var cond = getCondition(context);
+	sb.append("{ if (");
+	sb.append(cond);
+	sb.append(") System.out.println(\"ERROR: " + escapeQuotes(cond) + "\"); }");
+	transformChildren(sb, context, self);
+}

@@ -1,0 +1,91 @@
+import "util.eol";
+//--------------------------------------------------------
+// <xsd:element ref="variables" minOccurs="0"/>
+//--------------------------------------------------------
+ operation getVariables() : BPEL!t_variables {
+ 	return BPEL!t_variables.all().first();
+ }
+ 
+ operation getVariableNames() : Collection {
+ 	return getVariables().collect(v|v.a_name);
+ }
+
+operation getVariablesAsList() : Collection {
+ 	return getVariables().getVarList();
+}
+ 
+operation BPEL!t_variables getVarList() : Collection {
+ 	return self.children.collect(v|v.a_name);
+}
+
+operation BPEL!t_variables expand() {
+	self.println();
+	expandChildren(self);
+} 
+
+operation BPEL!t_variable expand() {
+	self.println();
+	self.a_name.println();
+} 
+
+operation BPEL!t_variables transform(sb : Any) {
+	newline(sb); newline(sb); sb.append("v0 : '(' ");
+	transformChildrenCS(sb, self);
+	sb.append(" ')'; ");
+} 
+
+operation BPEL!t_variables transformV0(sb : Any) {
+	newline(sb); newline(sb); sb.append("v0 : '(' ");
+	transformChildrenCS(sb, self);
+	sb.append(" ')'; ");
+} 
+
+operation BPEL!t_variables transformV(sb : Any) {
+	newline(sb); newline(sb); sb.append("v : '(' ");
+	transformChildrenCS_(sb, self);
+	sb.append(" ')'"); newline(sb);
+	sb.append("{"); newline(sb);
+	transformChildrenVarMap(sb, self);
+	transformChildrenVMap(sb, self);
+	antlrCallVerify(sb);
+	sb.append("};"); newline(sb);
+} 
+
+operation BPEL!t_variables transformTerminal(sb : Any) {
+	transformChildrenTerminal(sb, self);
+} 
+
+operation BPEL!t_variables transformTerminal_(sb : Any) {
+	transformChildrenTerminal_(sb, self);
+} 
+
+operation BPEL!t_variables transformMembers(sb : Any) {
+	transformChildrenMembers(sb, self);
+} 
+operation BPEL!t_variable transform(sb : Any) {
+	sb.append(self.a_name);
+} 
+
+operation BPEL!t_variable transform_(sb : Any) {
+	sb.append(self.a_name + "_");
+} 
+
+operation BPEL!t_variable transformTerminal(sb : Any) {
+	newline(sb); sb.append(self.a_name + " : INT { " + self.a_name + "=$INT.text; };");
+} 
+
+operation BPEL!t_variable transformTerminal_(sb : Any) {
+	newline(sb); sb.append(self.a_name + "_ : INT;");
+} 
+
+operation BPEL!t_variable transformMembers(sb : Any) {
+	sb.append("String " + self.a_name + ";"); newline(sb);
+} 
+
+operation BPEL!t_variable transformVarMap(sb : Any) {
+	sb.append("varMap.put(\"" + self.a_name + "\", " + self.a_name + ");"); newline(sb);
+} 
+
+operation BPEL!t_variable transformVMap(sb : Any) {
+	sb.append("vMap.put(\"" + self.a_name + "_\", $" + self.a_name + "_.text);"); newline(sb);
+} 

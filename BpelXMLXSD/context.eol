@@ -1,0 +1,29 @@
+operation addCondition(m : Map, condition : String) {
+	addToMap(m, condition, "COND_", "CONDNR");
+}
+
+$pre m.size() > 0
+operation getCondition(m : Map) : String {
+	return getFromMap(m, "COND_", "CONDNR");
+}
+
+operation addToMap(m : Map, value : String, keyPrefix : String, counterKey : String) {
+	var conditionCounter : Integer = 0;
+	if (m.containsKey(counterKey)) {
+		conditionCounter = m.get(counterKey) + 1;
+	}
+	m.put(counterKey, conditionCounter);
+	m.put(keyPrefix + conditionCounter.asString(), value);
+}
+
+operation getFromMap(m : Map, keyPrefix : String, counterKey : String) : String {
+	var conditionCounter : Integer = 0;
+	var resultValue : String = "";
+	if (m.containsKey(counterKey)) {
+		conditionCounter = m.get(counterKey);
+		resultValue = m.get(keyPrefix + conditionCounter.asString());
+		m.remove(keyPrefix + conditionCounter.asString());
+		m.put(counterKey, conditionCounter - 1);
+	}
+	return resultValue;
+}

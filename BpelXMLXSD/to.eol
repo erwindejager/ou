@@ -1,0 +1,16 @@
+operation BPEL!t_to expand() {
+	self.println();
+	self.a_variable.println();
+	expandChildren(self);
+} 
+
+operation getTo(parent : Any) : BPEL!t_to {
+ 	return parent.children.select(o|o.isTypeOf(BPEL!t_to)).first();
+}
+
+operation BPEL!t_to transform(sb : Any, context : Map) {
+	if (self.a_variable.length > 0) {
+		sb.append(self.a_variable);
+ 	}
+	transformChildren(sb, context, self);
+}

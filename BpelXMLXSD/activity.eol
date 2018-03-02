@@ -1,0 +1,58 @@
+import "util.eol";
+import "assign.eol";
+import "if.eol";
+import "invoke.eol";
+import "receive.eol";
+import "reply.eol";
+import "sequence.eol";
+
+//--------------------------------------------------------
+// <xsd:group ref="activity" minOccurs="1"/>
+//<xsd:group name="activity">
+//		<xsd:choice>
+//			<xsd:element ref="assign"/>
+//			<xsd:element ref="compensate"/>
+//			<xsd:element ref="compensateScope"/>
+//			<xsd:element ref="empty"/>
+//			<xsd:element ref="exit"/>
+//			<xsd:element ref="extensionActivity"/>
+//			<xsd:element ref="flow"/>
+//			<xsd:element ref="forEach"/>
+//			<xsd:element ref="if"/>
+//			<xsd:element ref="invoke"/>
+//			<xsd:element ref="pick"/>
+//			<xsd:element ref="receive"/>
+//			<xsd:element ref="repeatUntil"/>
+//			<xsd:element ref="reply"/>
+//			<xsd:element ref="rethrow"/>
+//			<xsd:element ref="scope"/>
+//			<xsd:element ref="sequence"/>
+//			<xsd:element ref="throw"/>
+//			<xsd:element ref="validate"/>
+//			<xsd:element ref="wait"/>
+//			<xsd:element ref="while"/>
+//		</xsd:choice>
+//	</xsd:group>
+//--------------------------------------------------------
+
+ 
+operation BPEL!t_pick expand() {
+	expandChildrenSpecificType(self, BPEL!t_onMessage);
+// 	for (c in self.children.select(o|o.isTypeOf(BPEL!t_onMessage))) {
+//	  	c.expand();
+//	}
+}
+
+
+operation BPEL!t_onMessage expand() {
+	self.println();
+	self.a_operation.println();
+	expandChildren(self);
+} 
+
+
+
+
+
+
+

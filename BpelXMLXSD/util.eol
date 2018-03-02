@@ -1,0 +1,85 @@
+operation expandLeaf(e : Any) {
+	if (e.children.size == 0) {
+		e.text.println();
+	} else {
+		for (c in e.children) {
+	 		expandLeaf(c);
+		}
+	}
+}
+ 
+operation expandChildren(e : Any) {
+	for (c in e.children) {
+ 		c.expand();
+	}
+}
+ 
+// operation expandChildrenSpecificType(e : Any, t : Any) {
+// 	for (c in e.children.select(o|o.isTypeOf(t))) {
+// 		c.expand();
+//	}	
+//} 
+
+
+operation transformChildren(sb : Any, context : Map, e : Any) {
+	for (c in e.children) {
+ 		c.transform(sb, context);
+	}
+}
+ 
+operation transformChildrenTerminal(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformTerminal(sb);
+	}
+}
+
+operation transformChildrenTerminal_(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformTerminal_(sb);
+	}
+}
+
+operation transformChildrenMembers(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformMembers(sb);
+	}
+}
+
+operation transformChildrenVarMap(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformVarMap(sb);
+	}
+}
+
+operation transformChildrenVMap(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformVMap(sb);
+	}
+}
+
+operation transformChildrenCS(sb : Any, e : Any) {
+	if (not e.children.isEmpty()) {
+		var seq = e.children;
+		var last = seq.last();
+		seq.remove(seq.last()); 
+		for (c in seq) {
+ 			c.transform(sb);
+ 			terminalComma(sb);
+		}
+		last.transform(sb);
+	}
+}
+  
+operation transformChildrenCS_(sb : Any, e : Any) {
+	if (not e.children.isEmpty()) {
+		var seq = e.children;
+		var last = seq.last();
+		seq.remove(seq.last()); 
+		for (c in seq) {
+ 			c.transform_(sb);
+ 			terminalComma(sb);
+		}
+		last.transform_(sb);
+	}
+}
+  

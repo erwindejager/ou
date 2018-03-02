@@ -1,0 +1,17 @@
+import "from.eol";
+import "to.eol";
+
+
+operation BPEL!t_copy expand() {
+	self.println();
+	expandChildren(self);
+} 
+
+operation BPEL!t_copy transform(sb : Any, context : Map) {
+	newline(sb);
+	getTo(self).transform(sb, context);
+	sb.append("=");
+	getFrom(self).transform(sb, context);
+	sb.append(";");
+//	transformChildren(sb, self);
+} 

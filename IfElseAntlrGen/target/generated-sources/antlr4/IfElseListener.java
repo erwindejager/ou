@@ -2,6 +2,7 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.jxpath.JXPathContext;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -41,43 +42,53 @@ public interface IfElseListener extends ParseTreeListener {
 	 */
 	void exitV(IfElseParser.VContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link IfElseParser#input}.
+	 * Enter a parse tree produced by {@link IfElseParser#kvpi}.
 	 * @param ctx the parse tree
 	 */
-	void enterInput(IfElseParser.InputContext ctx);
+	void enterKvpi(IfElseParser.KvpiContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link IfElseParser#input}.
+	 * Exit a parse tree produced by {@link IfElseParser#kvpi}.
 	 * @param ctx the parse tree
 	 */
-	void exitInput(IfElseParser.InputContext ctx);
+	void exitKvpi(IfElseParser.KvpiContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link IfElseParser#output}.
+	 * Enter a parse tree produced by {@link IfElseParser#kvpo}.
 	 * @param ctx the parse tree
 	 */
-	void enterOutput(IfElseParser.OutputContext ctx);
+	void enterKvpo(IfElseParser.KvpoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link IfElseParser#output}.
+	 * Exit a parse tree produced by {@link IfElseParser#kvpo}.
 	 * @param ctx the parse tree
 	 */
-	void exitOutput(IfElseParser.OutputContext ctx);
+	void exitKvpo(IfElseParser.KvpoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link IfElseParser#input_}.
+	 * Enter a parse tree produced by {@link IfElseParser#key}.
 	 * @param ctx the parse tree
 	 */
-	void enterInput_(IfElseParser.Input_Context ctx);
+	void enterKey(IfElseParser.KeyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link IfElseParser#input_}.
+	 * Exit a parse tree produced by {@link IfElseParser#key}.
 	 * @param ctx the parse tree
 	 */
-	void exitInput_(IfElseParser.Input_Context ctx);
+	void exitKey(IfElseParser.KeyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link IfElseParser#output_}.
+	 * Enter a parse tree produced by {@link IfElseParser#value}.
 	 * @param ctx the parse tree
 	 */
-	void enterOutput_(IfElseParser.Output_Context ctx);
+	void enterValue(IfElseParser.ValueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link IfElseParser#output_}.
+	 * Exit a parse tree produced by {@link IfElseParser#value}.
 	 * @param ctx the parse tree
 	 */
-	void exitOutput_(IfElseParser.Output_Context ctx);
+	void exitValue(IfElseParser.ValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IfElseParser#varname}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarname(IfElseParser.VarnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IfElseParser#varname}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarname(IfElseParser.VarnameContext ctx);
 }

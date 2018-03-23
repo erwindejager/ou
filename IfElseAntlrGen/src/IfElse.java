@@ -22,12 +22,22 @@ public class IfElse {
     public static void main(String[] args) throws Exception {
     	List<String> requirements = new ArrayList<>();
     	
-    	requirements.add("(0,?) receive If_0 Assign_1 replyIf (0,1)");
-    	requirements.add("(1,?) receive else Assign_0 ReplyElse (1,0)");
-    	requirements.add("(0,?) receive If_0 Assign_1 replyIf (0,0)");   // ERROR: unexpected output
-    	requirements.add("(1,?) receive else Assign_0 ReplyElse (1,1)"); // ERROR: unexpected output
-    	requirements.add("(1,?) receive If_0 Assign_1 replyIf (0,1)");   // ERROR: if_0 : input!=0
-    	requirements.add("(0,?) receive else Assign_0 ReplyElse (1,0)"); // ERROR: else : input==0
+    	requirements.add("([input.payload.input, '0'],[output.payload.result,'?']) receive If_0 Assign_1 replyIf" +   
+    			         "([input.payload.input, '0'],[output.payload.result,'1'])");
+    	requirements.add("([input.payload.input, '1'],[output.payload.result,'?']) receive else Assign_0 ReplyElse" +  
+    			         "([input.payload.input, '1'],[output.payload.result,'0'])");
+    	// ERROR: unexpected output
+    	requirements.add("([input.payload.input, '0'],[output.payload.result,'?']) receive If_0 Assign_1 replyIf" + 
+    					 "([input.payload.input, '0'],[output.payload.result,'0'])");
+    	// ERROR: unexpected output
+    	requirements.add("([input.payload.input, '1'],[output.payload.result,'?']) receive else Assign_0 ReplyElse" +
+    					 "([input.payload.input, '1'],[output.payload.result,'1'])");
+    	// ERROR: if_0 : input!=0
+    	requirements.add("([input.payload.input, '1'],[output.payload.result,'?']) receive If_0 Assign_1 replyIf" + 
+    					 "([input.payload.input, '0'],[output.payload.result,'1'])");
+    	// ERROR: else : input==0
+    	requirements.add("([input.payload.input, '0'],[output.payload.result,'?']) receive else Assign_0 ReplyElse" +
+    					 "([input.payload.input, '1'],[output.payload.result,'0'])");
     	
     	for (String s : requirements) {
         	testRequirement(s);    		

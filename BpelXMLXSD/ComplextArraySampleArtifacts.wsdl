@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<definitions name="myPick"
-        targetNamespace="htt:/mypick.ou"
-        xmlns:tns="htt:/mypick.ou"
+<definitions name="ComplextArraySample"
+        targetNamespace="http://complexarray.bpel.tps"
+        xmlns:tns="http://complexarray.bpel.tps"
         xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
         xmlns="http://schemas.xmlsoap.org/wsdl/"
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:p="http://www.w3.org/2001/XMLSchema">
+        >
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      TYPE DEFINITION - List of types participating in this BPEL process 
@@ -15,38 +15,32 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
     <types>
         <schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-                targetNamespace="htt:/mypick.ou" 
+                targetNamespace="http://complexarray.bpel.tps" 
                 xmlns="http://www.w3.org/2001/XMLSchema">
 
-            <element name="myPickRequest">
+            <element name="ComplextArraySampleRequest">
                 <complexType>
-                    <sequence>
-                        <element name="input" type="string"/>
+                    <sequence minOccurs="1" maxOccurs="unbounded">
+                        <element name="input" type="tns:People"/>
                     </sequence>
                 </complexType>
             </element>
 
-            <element name="myPickResponse">
+            <element name="ComplextArraySampleResponse">
                 <complexType>
                     <sequence>
-                        <element name="result" type="string"/>
+                    	<element name="result" type="tns:People" />
+                    	<element name="total" type="int"></element>
                     </sequence>
                 </complexType>
             </element>
-            <element name="hello">
-            	<complexType>
-            		<sequence>
-            			<element name="in" type="string"></element>
-            		</sequence>
-            	</complexType>
-            </element>
-            <element name="helloResponse">
-            	<complexType>
-            		<sequence>
-            			<element name="out" type="string"></element>
-            		</sequence>
-            	</complexType>
-            </element>
+        
+            <complexType name="People">
+            	<sequence>
+            		<element name="name" type="string"></element>
+            		<element name="age" type="int"></element>
+            	</sequence>
+            </complexType>
         </schema>
     </types>
 
@@ -55,11 +49,11 @@
      MESSAGE TYPE DEFINITION - Definition of the message types used as 
      part of the port type defintions
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
-    <message name="myPickRequestMessage">
-        <part name="payload" element="tns:myPickRequest"/>
+    <message name="ComplextArraySampleRequestMessage">
+        <part name="payload" element="tns:ComplextArraySampleRequest"/>
     </message>
-    <message name="myPickResponseMessage">
-        <part name="payload" element="tns:myPickResponse"/>
+    <message name="ComplextArraySampleResponseMessage">
+        <part name="payload" element="tns:ComplextArraySampleResponse"/>
     </message>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,28 +61,18 @@
      a logical service unit.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
 
-    <!-- portType implemented by the myPick BPEL process -->
-    <message name="helloRequest">
-    	<part name="parameters" element="tns:hello"></part>
-    </message>
-    <message name="helloResponse">
-    	<part name="parameters" element="tns:helloResponse"></part>
-    </message>
-    <portType name="myPick">
+    <!-- portType implemented by the ComplextArraySample BPEL process -->
+    <portType name="ComplextArraySample">
         <operation name="process">
-            <input  message="tns:myPickRequestMessage" />
-            <output message="tns:myPickResponseMessage"/>
-        </operation>
-        <operation name="hello">
-        	<input message="tns:helloRequest"></input>
-        	<output message="tns:helloResponse"></output>
+            <input  message="tns:ComplextArraySampleRequestMessage" />
+            <output message="tns:ComplextArraySampleResponseMessage"/>
         </operation>
     </portType>   
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      PARTNER LINK TYPE DEFINITION
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
-    <plnk:partnerLinkType name="myPick">
-        <plnk:role name="myPickProvider" portType="tns:myPick"/>
+    <plnk:partnerLinkType name="ComplextArraySample">
+        <plnk:role name="ComplextArraySampleProvider" portType="tns:ComplextArraySample"/>
     </plnk:partnerLinkType>
     
 
@@ -96,20 +80,13 @@
      BINDING DEFINITION - Defines the message format and protocol details
      for a web service.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <binding name="myPickBinding" type="tns:myPick">
+    <binding name="ComplextArraySampleBinding"
+    	type="tns:ComplextArraySample">
     	<soap:binding style="document"
     		transport="http://schemas.xmlsoap.org/soap/http" />
     	<operation name="process">
-    		<soap:operation soapAction="htt:/mypick.ou/process" />
-    		<input>
-    			<soap:body use="literal" />
-    		</input>
-    		<output>
-    			<soap:body use="literal" />
-    		</output>
-    	</operation>
-    	<operation name="hello">
-    		<soap:operation soapAction="htt:/mypick.ou/hello" />
+    		<soap:operation
+    			soapAction="http://complexarray.bpel.tps/process" />
     		<input>
     			<soap:body use="literal" />
     		</input>
@@ -123,9 +100,9 @@
      SERVICE DEFINITION - A service groups a set of ports into
      a service unit.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <service name="myPickService">
-    	<port name="myPickPort" binding="tns:myPickBinding">
-    		<soap:address location="http://localhost:8080/ode/processes/myPick" />
+    <service name="ComplextArraySampleService">
+    	<port name="ComplextArraySamplePort" binding="tns:ComplextArraySampleBinding">
+    		<soap:address location="http://localhost:8080/ode/processes/ComplextArraySample" />
     	</port>
     </service>
 </definitions>

@@ -1,4 +1,4 @@
-operation expandLeaf(e : Any) {
+/*operation expandLeaf(e : Any) {
 	if (e.children.size == 0) {
 		e.text.println();
 	} else {
@@ -13,20 +13,63 @@ operation expandChildren(e : Any) {
  		c.expand();
 	}
 }
- 
+*/ 
 // operation expandChildrenSpecificType(e : Any, t : Any) {
 // 	for (c in e.children.select(o|o.isTypeOf(t))) {
 // 		c.expand();
 //	}	
 //} 
 
+operation trimNs(s : String) : String {
+	var result = s;
+	if (result.contains(":")) {
+		result = s.split(":").last();
+	}
+	return result;
+}
+
+operation trimAllNs(s : String) : String {
+	var path = s.split("\\.");
+	path = path.collect(o | trimNs(o));
+	return path.concat(".");
+}
+
+operation trimLiteral(s : String) : String {
+	var result = s;
+	if (s <> null and s.length() > 0) {
+		result = s.replace("literal.","");
+		result = result.replace("literal","");
+	}
+	return result;
+}
+
+operation replaceSlash(s : String) : String {
+	return s.replace("/",".");
+}
 
 operation transformChildren(sb : Any, context : Map, e : Any) {
 	for (c in e.children) {
  		c.transform(sb, context);
 	}
 }
- 
+
+operation transformChildrenPath(sb : Any, context : Map, e : Any) {
+	var path : String = getPath(context);
+	if (path <> null and path.length() > 0) {
+		path = path + ".";
+	}
+	addPath(context, path + trimNs(e.tagname).firstToLowerCase());
+	for (c in e.children) {
+ 		transformChildrenPath(sb, context, c);
+	}
+}
+
+//operation transformChildrenDecl(sb : Any, context : Map, e : Any) {
+//	for (c in e.children) {
+// 		c.transformDecl(sb, context);
+//	}
+//}
+
 operation transformChildrenTerminal(sb : Any, e : Any) {
 	for (c in e.children) {
  		c.transformTerminal(sb);
@@ -39,24 +82,7 @@ operation transformChildrenTerminal_(sb : Any, e : Any) {
 	}
 }
 
-operation transformChildrenMembers(sb : Any, e : Any) {
-	for (c in e.children) {
- 		c.transformMembers(sb);
-	}
-}
-
-operation transformChildrenVarMap(sb : Any, e : Any) {
-	for (c in e.children) {
- 		c.transformVarMap(sb);
-	}
-}
-
-operation transformChildrenVMap(sb : Any, e : Any) {
-	for (c in e.children) {
- 		c.transformVMap(sb);
-	}
-}
-
+/*
 operation transformChildrenCS(sb : Any, e : Any) {
 	if (not e.children.isEmpty()) {
 		var seq = e.children;
@@ -82,4 +108,4 @@ operation transformChildrenCS_(sb : Any, e : Any) {
 		last.transform_(sb);
 	}
 }
-  
+*/  

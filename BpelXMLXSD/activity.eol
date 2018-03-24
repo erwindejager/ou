@@ -2,9 +2,11 @@ import "util.eol";
 import "assign.eol";
 import "if.eol";
 import "invoke.eol";
+import "pick.eol";
 import "receive.eol";
 import "reply.eol";
 import "sequence.eol";
+import "throw.eol";
 
 //--------------------------------------------------------
 // <xsd:group ref="activity" minOccurs="1"/>
@@ -36,19 +38,19 @@ import "sequence.eol";
 //--------------------------------------------------------
 
  
-operation BPEL!t_pick expand() {
-	expandChildrenSpecificType(self, BPEL!t_onMessage);
+//operation BPEL!t_pick expand() {
+//	expandChildrenSpecificType(self, BPEL!t_onMessage);
 // 	for (c in self.children.select(o|o.isTypeOf(BPEL!t_onMessage))) {
 //	  	c.expand();
 //	}
-}
+//}
 
 
-operation BPEL!t_onMessage expand() {
-	self.println();
-	self.a_operation.println();
-	expandChildren(self);
-} 
+//operation BPEL!t_onMessage expand() {
+//	self.println();
+//	self.a_operation.println();
+//	expandChildren(self);
+//} 
 
 
 

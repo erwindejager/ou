@@ -7,6 +7,15 @@ operation getCondition(m : Map) : String {
 	return getFromMap(m, "COND_", "CONDNR");
 }
 
+operation addPath(m : Map, path : String) {
+	addToMap(m, path, "PATH_", "PATHNR");
+}
+
+//$pre m.size() > 0
+operation getPath(m : Map) : String {
+	return getFromMap(m, "PATH_", "PATHNR");
+}
+
 operation addToMap(m : Map, value : String, keyPrefix : String, counterKey : String) {
 	var conditionCounter : Integer = 0;
 	if (m.containsKey(counterKey)) {
@@ -23,7 +32,10 @@ operation getFromMap(m : Map, keyPrefix : String, counterKey : String) : String 
 		conditionCounter = m.get(counterKey);
 		resultValue = m.get(keyPrefix + conditionCounter.asString());
 		m.remove(keyPrefix + conditionCounter.asString());
-		m.put(counterKey, conditionCounter - 1);
+		if (conditionCounter > 0) {
+			conditionCounter = conditionCounter - 1;
+		}
+		m.put(counterKey, conditionCounter);
 	}
 	return resultValue;
 }

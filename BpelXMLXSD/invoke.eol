@@ -1,7 +1,7 @@
-operation BPEL!t_invoke expand() {
-	self.println();
-	self.a_name.println();
-} 
+//operation BPEL!t_invoke expand() {
+//	self.println();
+//	self.a_name.println();
+//} 
 
 operation BPEL!t_invoke transform(sb : Any, context : Map) {
 	newline(sb); terminal(sb, self.a_name); newline(sb);

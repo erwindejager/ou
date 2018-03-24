@@ -1,11 +1,11 @@
 import "variables.eol";
 
 
-operation BPEL!t_condition expand() {
-	self.println();
-	self.text.println();
-	expandChildren(self);
-} 
+//operation BPEL!t_condition expand() {
+//	self.println();
+//	self.text.println();
+//	expandChildren(self);
+//} 
 
 // var logical operator value
 operation BPEL!t_condition transform(sb : Any, context : Map) {
@@ -13,19 +13,21 @@ operation BPEL!t_condition transform(sb : Any, context : Map) {
 	var expr : Sequence = self.text.split(operator);
 	var cond = getLRValue(expr.first()) + tranlateComparisonOperatorToJava(operator, getLRValue(expr.second()));
 	addCondition(context, cond);
-	sb.append("{ if (!");
-	sb.append(cond);
-	sb.append(") System.out.println(\"ERROR: NOT " + escapeQuotes(cond) + "\"); }");
+	sb.append("{ " + cond + " }?");
+//	sb.append(cond);
+//	sb.append(") System.out.println(\"ERROR: NOT " + escapeQuotes(cond) + "\"); }");
 }
 
 operation getLRValue(value : String) : String {
-	var result = getVariablesAsList().select(e|value.matches(".*" + e + ".*"));
-	if (result.size() > 0) {
-		result = result.first();
-	} else {
-		result = value;
-	}
-	return result;
+//	var result = getVariablesAsList().select(e|value.matches(".*" + e + ".*"));
+//	if (result.size() > 0) {
+//		result = result.first();
+//	} else {
+//		result = value;
+//	}
+	var result = trimXpathPrefix(value);
+	result = replaceSlash(result);
+	return trimAllNs(result);
 }
 
 operation getComparisonOperator(expr : String) : String {

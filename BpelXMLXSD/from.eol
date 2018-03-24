@@ -1,13 +1,25 @@
 import "literal.eol";
 import "query.eol";
+import "xpath.eol";
 
-operation BPEL!t_from expand() {
-	self.println();
-	if (self.a_variable.length > 0) {
- 		self.a_variable.println();
- 	}
-	expandChildren(self);
-} 
+//operation BPEL!t_from expand() {
+//	"1".println();
+//	self.println();
+//	"2".println();
+// 
+//	if (self.a_variable.length > 0) {
+// 		self.a_variable.println();
+//	"3".println();
+// 		
+// 	}
+// 	if (self.children.size() == 0) {
+//	"4".println();
+// 		self.text.println();
+// 		"5".println();
+// 	} else {
+//		expandChildren(self);
+//	}
+//} 
 
 
 operation getFrom(parent : Any) : BPEL!t_from {
@@ -16,7 +28,20 @@ operation getFrom(parent : Any) : BPEL!t_from {
 
 operation BPEL!t_from transform(sb : Any, context : Map) {
 	if (self.a_variable.length > 0) {
-		sb.append(self.a_variable);
+		sb.append(self.a_variable.firstToLowerCase());
+ 	} else { // CDATA
+	 	if (self.children.size() == 0) {
+	 		sb.append(xpath(self.text.trim()));
+ 		}
  	}
 	transformChildren(sb, context, self);
+}
+
+operation getFromPath(sb : Any, context : Map, parent : Any) : String {
+	var result = "";
+ 	var from = parent.children.select(o|o.isTypeOf(BPEL!t_from)).first();
+	for (c in from.children) {
+		transformChildrenPath(sb, context, c);
+	}
+	return trimLiteral(getPath(context));
 }

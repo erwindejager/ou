@@ -1,0 +1,45 @@
+//<![CDATA[concat("Hello ",$input.payload/tns:input)]]>
+operation xpath(expr : String) : String {
+  	var result : String = expr;
+  	if (expr.matches("concat\\(.*\\)")) {
+  		result = evalConcat(expr);
+  	} else if (expr.startsWith("$")) {
+  		result = evalXpathReference1(expr);
+  	}
+	return result;
+}
+
+// concat(p1,p2)
+operation evalConcat(expr : String) : String {
+	var lrValue = expr.split(",");
+	var par1 : String = lrValue.first().split("\\(").second();
+	return xpath(par1) + " + " + xpath(lrValue.second());
+}
+
+//$path
+operation evalXpathReference(expr : String) : String {
+	var lrValue = expr.split("\\.");
+	var ref : String = lrValue.first().toLowercase(); 
+	return ref.substring(1);
+}
+
+operation evalXpathReference1(expr : String) : String {
+  	var result : String = "";
+	var tokens = expr.split("/");
+	for(t in tokens) {
+		var sep = "";
+		if (result.length() > 0) {
+			sep = ".";
+		}
+		result = result + sep + trimNs(t);
+	}
+	return result.substring(1).replace("\\)","");
+}
+
+operation trimXpathPrefix(s : String) : String {
+	var result = s;
+	if(result.startsWith("$")) {
+		result = s.substring(1);
+	}
+	return result;
+}

@@ -1,7 +1,7 @@
 import "util.eol";
 import "format.eol";
 import "import.eol";
-
+import "variables.eol";
 //--------------------------------------------------------
 // Main tag <xsd:element name="process" type="tProcess">
 //--------------------------------------------------------
@@ -15,19 +15,29 @@ operation getProcess() : BPEL!t_process {
  	return getProcess().a_name;
  }
   
- operation BPEL!t_process expand() {
-	self.println();
-	self.tagname.println();
-	expandChildren(self);
-} 
+// operation BPEL!t_process expand() {
+//	self.println();
+//	self.tagname.println();
+//	expandChildren(self);
+//}
+ 
 operation BPEL!t_process transformStartSymbolGrammar(sb : Any) {
   	sb.append("grammar " + self.a_name + ";"); newline(sb); newline(sb); 
 }
 operation BPEL!t_process transformStartSymbol(sb : Any) {
-  	sb.append(self.a_name.toLowerCase() + " : v0 "); newline(sb); 
+  	sb.append(self.a_name.toLowerCase() + " :"); newline(sb);
+  	sb.append("{\n"); 
+	transformChildrenVarMap(sb, getVariables());
+  	sb.append("}\n"); 
+  	newline(sb); sb.append("v0"); newline(sb); 
 }
 
 operation BPEL!t_process transform(sb : Any) {
   	sb.append(self.a_name + " : v0 "); newline(sb); 
   	transformChildren(sb, self);
+}
+operation transformChildrenVarMap(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformVarMap(sb);
+	}
 }

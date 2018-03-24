@@ -17,6 +17,7 @@ operation BPEL!t_partnerLinks expand() {
 	expandChildren(self);
 } 
 
+/*
 operation BPEL!t_partnerLink expand() {
 	self.println();
 	self.a_name.println();
@@ -26,7 +27,7 @@ operation BPEL!t_partnerLink expand() {
 operation BPEL!t_partnerLinks transform(sb : Any) {
 	transformChildren(sb, self);
 } 
-
+*/
 operation BPEL!t_partnerLink transform(sb : Any) {
 	transformChildren(sb, self);
 } 

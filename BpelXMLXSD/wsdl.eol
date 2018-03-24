@@ -1,0 +1,90 @@
+operation getTypes() : WSDL!t_types {
+ 	return WSDL!t_types.all().first();
+}
+
+operation WSDL!t_types transform(sb : Any, context : Map) {
+	transformChildren(sb, context, self);
+}
+
+operation WSDL!t_schema transform(sb : Any, context : Map) {
+	transformChildren(sb, context, self);
+}
+
+operation WSDL!t_sequence transform(sb : Any, context : Map) {
+	transformChildren(sb, context, self);
+}
+
+operation WSDL!t_complexType transform(sb : Any, context : Map) {
+	if (self.a_name.length > 0) {
+		sb.append("public class " + self.a_name);sb.append(" {");newline(sb);
+	}
+	transformChildren(sb, context, self);
+	if (self.a_name.length > 0) {
+		sb.append("}");newline(sb);
+	}
+}
+
+operation WSDL!t_element transform(sb : Any, context : Map) {
+	if (self.a_type.length > 0) { // primitive type / leaf
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));space(sb);
+		sb.append(self.a_name.firstToLowerCase() + ";");newline(sb);
+		sb.append("public String get" + self.a_name.toLowercase().firstToUpperCase() + "() { return ");
+		sb.append(self.a_name.firstToLowerCase() + "; }\n");
+		sb.append("public void set" + self.a_name.toLowercase().firstToUpperCase() + "(String s) { ");
+		sb.append(self.a_name.firstToLowerCase() + " = s; }\n");
+ 	} else {
+		sb.append("public class " + self.a_name.firstToUpperCase());sb.append(" {");newline(sb);
+ 	}
+	transformChildren(sb, context, self);
+	if (self.a_type.length == 0) {
+		sb.append("}");newline(sb);
+		sb.append(self.a_name.firstToUpperCase());space(sb);	
+		sb.append(self.a_name.firstToLowerCase());
+		sb.append(" = new ");	
+		sb.append(self.a_name.firstToUpperCase() + "();");newline(sb);newline(sb);	
+ 	}
+}
+
+operation transformMessages(sb : Any, context : Map)  {
+	for (c in WSDL!t_message.all()) {
+ 		c.transform(sb, context);
+	}
+}
+
+operation WSDL!t_message transform(sb : Any, context : Map) {
+	sb.append("public class " + self.a_name.firstToUpperCase() + "_");space(sb);
+	sb.append("{");newline(sb);
+	transformChildren(sb, context, self);
+	sb.append("}");newline(sb);
+	
+	sb.append(self.a_name.firstToUpperCase() + "_");space(sb);	
+	sb.append(self.a_name.firstToLowerCase() + "_");
+	sb.append(" = new ");	
+	sb.append(self.a_name.firstToUpperCase() + "_();");newline(sb);newline(sb);		
+}
+
+operation WSDL!t_part transform(sb : Any, context : Map) {
+	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_element)).firstToUpperCase());space(sb);
+	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_name.firstToLowerCase())) + " = new ");
+	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_element).firstToUpperCase()) + "();");newline(sb);	
+	sb.append("public " + tranlateXmlPrimitiveTypesToJava(trimNs(self.a_element).firstToUpperCase()) + " get");
+	sb.append(self.a_name.toLowercase().firstToUpperCase() + "() { return "+ self.a_name.firstToLowerCase() + "; }\n");
+}
+
+//operation WSDL!t_part transformDecl(sb : Any, context : Map) {
+//	sb.append(trimNs(self.a_name.firstToLowerCase()) + " = ");
+//	sb.append(trimNs(self.a_element.firstToLowerCase()) + ";");
+//	newline(sb);
+//}
+
+operation getXmlPrimitiveTypes() : Sequence {
+	return "string, ".split(",");
+}
+
+operation tranlateXmlPrimitiveTypesToJava(xmlPrimitiveType : String) : String {
+	var result = xmlPrimitiveType;
+	if (result = "string") {
+		result = "String";
+	}
+	return result;
+}

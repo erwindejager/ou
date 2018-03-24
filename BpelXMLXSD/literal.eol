@@ -1,7 +1,7 @@
-operation BPEL!t_literal expand() {
-	self.println();
-	expandLeaf(self);
-} 
+//operation BPEL!t_literal expand() {
+//	self.println();
+//	expandLeaf(self);
+//} 
 
 operation BPEL!t_literal transform(sb : Any, context : Map) {
 	sb.append("\"" + self.text.trim() + "\"");

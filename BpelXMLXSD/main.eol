@@ -15,7 +15,7 @@ getProcess().transformStartSymbolGrammar(sb);
 antlrOptions(sb);
 antlrHeader(sb);
 antlrMembers(sb);
-getProcess().transformStartSymbol(sb);
+getProcess().transformStartSymbol(sb, context);
 getMainSequence().transform(sb, context); newline(sb); sb.append("v;");
 antlrV(sb);
 antlrKV(sb);

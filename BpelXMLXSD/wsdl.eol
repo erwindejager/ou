@@ -6,12 +6,27 @@ operation WSDL!t_types transform(sb : Any, context : Map) {
 	transformChildren(sb, context, self);
 }
 
+operation WSDL!t_types getType(path : String) : String {
+	return getTypeChildren(path, self);
+}
+
 operation WSDL!t_schema transform(sb : Any, context : Map) {
 	transformChildren(sb, context, self);
 }
 
+operation WSDL!t_schema getType(path : String) : String {
+	return getTypeChildren(path, self);
+}
+
 operation WSDL!t_sequence transform(sb : Any, context : Map) {
+	if (self.a_maxOccurs <> null and self.a_maxOccurs.length() > 0) {
+		addCollection(context, "WSDL");
+	}
 	transformChildren(sb, context, self);
+}
+
+operation WSDL!t_sequence getType(path : String) : String {
+	return getTypeChildren(path, self);
 }
 
 operation WSDL!t_complexType transform(sb : Any, context : Map) {
@@ -24,14 +39,49 @@ operation WSDL!t_complexType transform(sb : Any, context : Map) {
 	}
 }
 
+operation WSDL!t_complexType getType(path : String) : String {
+	return getTypeChildren(path, self);
+}
+
 operation WSDL!t_element transform(sb : Any, context : Map) {
 	if (self.a_type.length > 0) { // primitive type / leaf
-		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));space(sb);
-		sb.append(self.a_name.firstToLowerCase() + ";");newline(sb);
-		sb.append("public String get" + self.a_name.toLowercase().firstToUpperCase() + "() { return ");
-		sb.append(self.a_name.firstToLowerCase() + "; }\n");
-		sb.append("public void set" + self.a_name.toLowercase().firstToUpperCase() + "(String s) { ");
-		sb.append(self.a_name.firstToLowerCase() + " = s; }\n");
+		var coll = getCollection(context);
+		if (coll <> null and coll.length() > 0) {
+			//	List<?> <var> = new ArrayList<?>();
+			addCollectionType(context, tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));
+			addCollectionName(context, self.a_name);
+			addCollectionNameUpper(context, self.a_name.firstToUpperCase());
+			sb.append("List<"); 
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));
+			sb.append(">");space(sb);
+			sb.append(self.a_name.firstToLowerCase() + " = new ArrayList<");
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));
+			sb.append(">();");newline(sb);
+			//public List<?> get<var>() { return <var>; }
+			sb.append("public List<"); 
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));
+			sb.append("> get");
+			sb.append(self.a_name.toLowercase().firstToUpperCase() + "() { return ");
+			sb.append(self.a_name.firstToLowerCase() + "; }\n");
+			//public void set<var>Input(? s) { <var>.add(s); }
+			sb.append("public void set"); 
+			sb.append(self.a_name.toLowercase().firstToUpperCase() + "(");
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())) + " s" + ") { ");
+			sb.append(self.a_name.firstToLowerCase() + ".add(s); }\n");
+		}	
+		else {
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())));space(sb);
+			sb.append(self.a_name.firstToLowerCase());
+			if (isPrimitiveXmlType(trimNs(self.a_type))) {
+				sb.append(";");newline(sb);
+			} else {
+				sb.append(" = new " + tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())) + "();");newline(sb);			
+			}
+			sb.append("public " + tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase())) +" get" + self.a_name.toLowercase().firstToUpperCase() + "() { return ");
+			sb.append(self.a_name.firstToLowerCase() + "; }\n");
+			sb.append("public void set" + self.a_name.toLowercase().firstToUpperCase() + "(" + tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type.firstToLowerCase()))+ " s) { ");
+			sb.append(self.a_name.firstToLowerCase() + " = s; }\n");		
+		}	
  	} else {
 		sb.append("public class " + self.a_name.firstToUpperCase());sb.append(" {");newline(sb);
  	}
@@ -42,7 +92,30 @@ operation WSDL!t_element transform(sb : Any, context : Map) {
 		sb.append(self.a_name.firstToLowerCase());
 		sb.append(" = new ");	
 		sb.append(self.a_name.firstToUpperCase() + "();");newline(sb);newline(sb);	
- 	}
+		
+		//class PeopleFactory extends AbstractFactory {
+		var facType = getCollectionType(context);
+		if (facType <> null) {
+			var varName = getCollectionName(context); 
+			var varNameUpper = getCollectionNameUpper(context); 
+			sb.append("class " + facType + "Factory extends AbstractFactory {\n");
+			sb.append("public boolean createObject(JXPathContext context, Pointer pointer, Object parent, String name, int index) {\n");
+			sb.append("if ((parent instanceof " + self.a_name.firstToUpperCase() + ") && name.equals(\""); 
+			sb.append(varName + "\")) { ((" + self.a_name.firstToUpperCase() + ")parent).set" + varNameUpper); 
+			sb.append("(new " + facType + "()); return true; }\n"); 
+			sb.append("return false; }}"); 
+			newline(sb);newline(sb);
+			addFactory(context, facType + "Factory");
+		}	
+ 	}		
+}
+
+operation WSDL!t_element getType(path : String) : String {
+	if (path.equals(self.a_name.firstToLowerCase())) {
+		return tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type));
+	} else {
+		return getTypeChildren(path, self);
+	}
 }
 
 operation transformMessages(sb : Any, context : Map)  {
@@ -71,20 +144,24 @@ operation WSDL!t_part transform(sb : Any, context : Map) {
 	sb.append(self.a_name.toLowercase().firstToUpperCase() + "() { return "+ self.a_name.firstToLowerCase() + "; }\n");
 }
 
-//operation WSDL!t_part transformDecl(sb : Any, context : Map) {
-//	sb.append(trimNs(self.a_name.firstToLowerCase()) + " = ");
-//	sb.append(trimNs(self.a_element.firstToLowerCase()) + ";");
-//	newline(sb);
-//}
-
 operation getXmlPrimitiveTypes() : Sequence {
-	return "string, ".split(",");
+	return "string,int".split(",");
 }
 
 operation tranlateXmlPrimitiveTypesToJava(xmlPrimitiveType : String) : String {
 	var result = xmlPrimitiveType;
-	if (result = "string") {
+	if ("string".equals(result)) {
 		result = "String";
 	}
+	return result;
+}
+
+operation isPrimitiveXmlType(xmlPrimitiveType : String) : Boolean {
+	var result = false;
+	if ("string".equals(xmlPrimitiveType)) {
+		result = true;
+	} else 	if ("int".equals(xmlPrimitiveType)) {
+		result = true;
+	} 
 	return result;
 }

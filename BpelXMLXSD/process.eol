@@ -15,19 +15,13 @@ operation getProcess() : BPEL!t_process {
  	return getProcess().a_name;
  }
   
-// operation BPEL!t_process expand() {
-//	self.println();
-//	self.tagname.println();
-//	expandChildren(self);
-//}
- 
 operation BPEL!t_process transformStartSymbolGrammar(sb : Any) {
   	sb.append("grammar " + self.a_name + ";"); newline(sb); newline(sb); 
 }
-operation BPEL!t_process transformStartSymbol(sb : Any) {
+operation BPEL!t_process transformStartSymbol(sb : Any, context : Map) {
   	sb.append(self.a_name.toLowerCase() + " :"); newline(sb);
   	sb.append("{\n"); 
-	transformChildrenVarMap(sb, getVariables());
+	transformChildrenVarMap(sb, getVariables(), context);
   	sb.append("}\n"); 
   	newline(sb); sb.append("v0"); newline(sb); 
 }
@@ -36,8 +30,8 @@ operation BPEL!t_process transform(sb : Any) {
   	sb.append(self.a_name + " : v0 "); newline(sb); 
   	transformChildren(sb, self);
 }
-operation transformChildrenVarMap(sb : Any, e : Any) {
+operation transformChildrenVarMap(sb : Any, e : Any, context : Map) {
 	for (c in e.children) {
- 		c.transformVarMap(sb);
+ 		c.transformVarMap(sb, context);
 	}
 }

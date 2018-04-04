@@ -16,6 +16,51 @@ operation getPath(m : Map) : String {
 	return getFromMap(m, "PATH_", "PATHNR");
 }
 
+operation addCollection(m : Map, c : String) {
+	addToMap(m, c, "COLLECTION_", "COLLECTIONNR");
+}
+
+//$pre m.size() > 0
+operation getCollection(m : Map) : String {
+	return getFromMap(m, "COLLECTION_", "COLLECTIONNR");
+}
+
+operation addCollectionType(m : Map, t : String) {
+	addToMap(m, t, "COLLECTIONTYPE_", "COLLECTIONTYPENR");
+}
+
+//$pre m.size() > 0
+operation getCollectionType(m : Map) : String {
+	return getFromMap(m, "COLLECTIONTYPE_", "COLLECTIONTYPENR");
+}
+
+operation addCollectionName(m : Map, n : String) {
+	addToMap(m, n, "COLLECTIONNAME_", "COLLECTIONNAMENR");
+}
+
+//$pre m.size() > 0
+operation getCollectionName(m : Map) : String {
+ 	return getFromMap(m, "COLLECTIONNAME_", "COLLECTIONNAMENR");
+}
+
+operation addCollectionNameUpper(m : Map, n : String) {
+	addToMap(m, n, "COLLECTIONNAMEUPPER_", "COLLECTIONNAMEUPPERNR");
+}
+
+//$pre m.size() > 0
+operation getCollectionNameUpper(m : Map) : String {
+ 	return getFromMap(m, "COLLECTIONNAMEUPPER_", "COLLECTIONNAMEUPPERNR");
+}
+
+operation addFactory(m : Map, f : String) {
+	addToMap(m, f, "FACTORY_", "FACTORYNR");
+}
+
+//$pre m.size() > 0
+operation getFactory(m : Map) : String {
+ 	return getFromMap(m, "FACTORY_", "FACTORYNR");
+}
+
 operation addToMap(m : Map, value : String, keyPrefix : String, counterKey : String) {
 	var conditionCounter : Integer = 0;
 	if (m.containsKey(counterKey)) {

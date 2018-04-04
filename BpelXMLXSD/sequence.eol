@@ -2,13 +2,6 @@ operation getMainSequence() : BPEL!t_sequence {
  	return BPEL!t_sequence.all().first();
 }
 
-//operation BPEL!t_sequence expand() {
-//	if (self.a_name.length > 0) {
-// 		self.a_name.println();
-// 	}
-//	expandChildren(self);
-// }
-
 operation BPEL!t_sequence transform(sb : Any, context : Map) {
 	transformChildren(sb, context, self);
 }

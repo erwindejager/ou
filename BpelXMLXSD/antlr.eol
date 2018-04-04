@@ -2,7 +2,11 @@ operation antlrHeader(sb : Any) {
   	sb.append("@header {"); newline(sb);
   	sb.append("import java.util.HashMap;"); newline(sb);
   	sb.append("import java.util.Map;"); newline(sb);
+  	sb.append("import java.util.List;"); newline(sb);
+  	sb.append("import java.util.ArrayList;"); newline(sb);
+  	sb.append("import org.apache.commons.jxpath.AbstractFactory;"); newline(sb);
   	sb.append("import org.apache.commons.jxpath.JXPathContext;"); newline(sb);
+  	sb.append("import org.apache.commons.jxpath.Pointer;"); newline(sb);
   	sb.append("}"); newline(sb); newline(sb);
 }
 
@@ -14,12 +18,13 @@ operation antlrMembers(sb : Any) {
   	getTypes().transform(sb,context);
   	transformMessages(sb,context);
   	getVariables().transformMembers(sb);newline(sb);
-  	antlrVerify(sb);newline(sb);
-  	antlrQuote(sb);newline(sb);
-  	antlrXPath(sb);
+  	//antlrVerify(sb);newline(sb);
+  	//antlrQuote(sb);newline(sb);
+  	//antlrXPath(sb);
   	sb.append("}"); newline(sb); newline(sb);
 }
 
+/*
 operation antlrVerify(sb : Any) {
 	sb.append("	boolean verify() {\n");
 	sb.append("		boolean result = true;\n");
@@ -50,9 +55,9 @@ operation antlrXPath(sb : Any) {
 	sb.append("void setVarValue(String path, String value) { getCtx(path).setValue(getxPath(path), value); }\n");
  	sb.append("String getVarValue(String path) { return (String)getCtx(path).getValue(getxPath(path)); }\n");
 }
-
+*/
 operation antlrCallVerify(sb : Any) {
-	sb.append("  if (!verify()) {\n");
+	sb.append("  if (!Utils.verify(vMap, varMap)) {\n");
 	sb.append("	    System.out.println(\"ERROR: unexpected output\");\n"); 
     sb.append("  }\n");
 }
@@ -71,11 +76,11 @@ operation antlrV(sb : Any) {
 
 operation antlrKV(sb : Any) {
 	newline(sb); 
-  	sb.append("kvpi : '[' key ',' value ']'\n");
+  	sb.append("kvpi : '<' key ',' value '>'\n");
   	sb.append("{\n");
-    sb.append("setVarValue($key.text, trimQuote($value.text));\n");
+    sb.append("Utils.setVarValue($key.text, Utils.trimQuote($value.text), varMap);\n");
     sb.append("};\n\n");
-  	sb.append("kvpo : '[' key ',' value ']'\n");
+  	sb.append("kvpo : '<' key ',' value '>'\n");
   	sb.append("{\n");
     sb.append("vMap.put($key.text, $value.text);\n");
     sb.append("};\n");
@@ -85,9 +90,10 @@ operation antlrTypes(sb : Any) {
 	newline(sb); 
   	sb.append("key : varname ;\n");
   	sb.append("value : STRING ;\n");
-  	sb.append("varname  : (LETTERS | ALFA) (LETTERS | NUMBER | ALFA)* ;\n");
+  	sb.append("index : '[' NUMBER ']' ;\n");
+  	sb.append("varname  : (LETTERS | ALFA) (LETTERS | NUMBER | ALFA | index)* ;\n");
   	sb.append("LETTERS : ('a' .. 'z' | 'A' .. 'Z') + ;\n");
-  	sb.append("NUMBER  : ('1' .. '9') + ('0' .. '9') + ;\n");
+  	sb.append("NUMBER  : ('1' .. '9') + ;\n");
   	sb.append("ALFA	: ('_' | '.') + ;\n");
   	sb.append("INT 	: ([0-9|?])+ ;\n");
   	sb.append("STRING : '\\'' .*? '\\'';\n");
@@ -100,16 +106,3 @@ operation transformChildrenMembers(sb : Any, e : Any) {
  		c.transformMembers(sb);
 	}
 }
-/*
-operation transformChildrenVarMap(sb : Any, e : Any) {
-	for (c in e.children) {
- 		c.transformVarMap(sb);
-	}
-}
-
-operation transformChildrenVMap(sb : Any, e : Any) {
-	for (c in e.children) {
- 		c.transformVMap(sb);
-	}
-}
-*/

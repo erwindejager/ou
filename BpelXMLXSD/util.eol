@@ -1,25 +1,3 @@
-/*operation expandLeaf(e : Any) {
-	if (e.children.size == 0) {
-		e.text.println();
-	} else {
-		for (c in e.children) {
-	 		expandLeaf(c);
-		}
-	}
-}
- 
-operation expandChildren(e : Any) {
-	for (c in e.children) {
- 		c.expand();
-	}
-}
-*/ 
-// operation expandChildrenSpecificType(e : Any, t : Any) {
-// 	for (c in e.children.select(o|o.isTypeOf(t))) {
-// 		c.expand();
-//	}	
-//} 
-
 operation trimNs(s : String) : String {
 	var result = s;
 	if (result.contains(":")) {
@@ -34,6 +12,10 @@ operation trimAllNs(s : String) : String {
 	return path.concat(".");
 }
 
+operation getLeaf(s : String) : String {
+	return s.split("\\.").last();
+}
+
 operation trimLiteral(s : String) : String {
 	var result = s;
 	if (s <> null and s.length() > 0) {
@@ -43,13 +25,59 @@ operation trimLiteral(s : String) : String {
 	return result;
 }
 
+operation isFirstChildSingleLiteral(e : Any) : Boolean {
+ 	var result = false;
+ 	if (e.children.size() == 1 and trimNs(e.children.first().tagname).startsWith("literal")) { 
+		result = true;
+	}
+	return result;
+}
+
 operation replaceSlash(s : String) : String {
 	return s.replace("/",".");
+}
+
+operation makePath(s : String) : String {
+	return s.replace("\\.","/");
 }
 
 operation transformChildren(sb : Any, context : Map, e : Any) {
 	for (c in e.children) {
  		c.transform(sb, context);
+	}
+}
+
+operation getTypeChildren(path : String, e : Any) : String{
+	for (c in e.children) {
+		var result = c.getType(path);
+		if (not "".equals(result)) {
+			return result;
+		}
+	}
+	return "";
+}
+
+operation transformLiteralChildren(sb : Any, context : Map, e : Any) {
+	var path : String = getPath(context);
+	if (path <> null and path.length() > 0) {
+		path = path + ".";
+	}
+	if (e.children.size() == 0) {
+		sb.append(trimLiteral(path + trimNs(e.tagname).firstToLowerCase()));
+		sb.append(" = ");
+		if ("String".equals(getTypes().getType(getLeaf(trimNs(e.tagname).firstToLowerCase())))) {
+			sb.append("\"" + e.text + "\"");
+		} else {
+			sb.append(e.text);
+		}
+		sb.append(";");
+		newline(sb);
+	}
+	else {
+		for (c in e.children) {
+			addPath(context, path + trimNs(e.tagname).firstToLowerCase());
+	 		transformLiteralChildren(sb, context, c);
+		}
 	}
 }
 
@@ -64,12 +92,6 @@ operation transformChildrenPath(sb : Any, context : Map, e : Any) {
 	}
 }
 
-//operation transformChildrenDecl(sb : Any, context : Map, e : Any) {
-//	for (c in e.children) {
-// 		c.transformDecl(sb, context);
-//	}
-//}
-
 operation transformChildrenTerminal(sb : Any, e : Any) {
 	for (c in e.children) {
  		c.transformTerminal(sb);
@@ -81,31 +103,3 @@ operation transformChildrenTerminal_(sb : Any, e : Any) {
  		c.transformTerminal_(sb);
 	}
 }
-
-/*
-operation transformChildrenCS(sb : Any, e : Any) {
-	if (not e.children.isEmpty()) {
-		var seq = e.children;
-		var last = seq.last();
-		seq.remove(seq.last()); 
-		for (c in seq) {
- 			c.transform(sb);
- 			terminalComma(sb);
-		}
-		last.transform(sb);
-	}
-}
-  
-operation transformChildrenCS_(sb : Any, e : Any) {
-	if (not e.children.isEmpty()) {
-		var seq = e.children;
-		var last = seq.last();
-		seq.remove(seq.last()); 
-		for (c in seq) {
- 			c.transform_(sb);
- 			terminalComma(sb);
-		}
-		last.transform_(sb);
-	}
-}
-*/  

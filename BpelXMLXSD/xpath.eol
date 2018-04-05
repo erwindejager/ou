@@ -40,7 +40,10 @@ operation evalXpathReference(expr : String) : String {
 		}
 		result = result + sep + trimNs(t);
 	}
-	
+	result = trimXpathPrefix(result);
+	if (result.endsWith(")")) {
+		result = result.replace("\\)", "");	
+	}
 	var theType = getReturnType(trimIndex(result));
 	result = createReturnValue(theType, makePath(trimXpathPrefix(trimAllNs(replaceSlash(result)))));
 	return result;

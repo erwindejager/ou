@@ -95,7 +95,7 @@ operation WSDL!t_element transform(sb : Any, context : Map) {
 		
 		//class PeopleFactory extends AbstractFactory {
 		var facType = getCollectionType(context);
-		if (facType <> null) {
+		if (facType <> null and facType.length() > 0) {
 			var varName = getCollectionName(context); 
 			var varNameUpper = getCollectionNameUpper(context); 
 			sb.append("class " + facType + "Factory extends AbstractFactory {\n");

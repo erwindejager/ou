@@ -2,7 +2,11 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import org.apache.commons.jxpath.AbstractFactory;
 import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.Pointer;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -81,6 +85,16 @@ public interface PickSampleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue(PickSampleParser.ValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PickSampleParser#index}.
+	 * @param ctx the parse tree
+	 */
+	void enterIndex(PickSampleParser.IndexContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PickSampleParser#index}.
+	 * @param ctx the parse tree
+	 */
+	void exitIndex(PickSampleParser.IndexContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PickSampleParser#varname}.
 	 * @param ctx the parse tree

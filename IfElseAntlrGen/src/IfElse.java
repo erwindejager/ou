@@ -1,11 +1,3 @@
-/***
- * Excerpted from "The Definitive ANTLR Reference",
- * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material, 
- * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose. 
- * Visit http://www.pragmaticprogrammer.com/titles/tpantlr for more book information.
-***/
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
@@ -22,22 +14,22 @@ public class IfElse {
     public static void main(String[] args) throws Exception {
     	List<String> requirements = new ArrayList<>();
     	
-    	requirements.add("([input.payload.input, '0'],[output.payload.result,'?']) receive If_0 Assign_1 replyIf" +   
-    			         "([input.payload.input, '0'],[output.payload.result,'1'])");
-    	requirements.add("([input.payload.input, '1'],[output.payload.result,'?']) receive else Assign_0 ReplyElse" +  
-    			         "([input.payload.input, '1'],[output.payload.result,'0'])");
+    	requirements.add("(<input.payload.input, '0'>,<output.payload.result,'?'>) receive If_0 Assign_1 replyIf" +   
+    			         "(<input.payload.input, '0'>,<output.payload.result,'1'>)");
+    	requirements.add("(<input.payload.input, '1'>,<output.payload.result,'?'>) receive else Assign_0 ReplyElse" +  
+    			         "(<input.payload.input, '1'>,<output.payload.result,'0'>)");
     	// ERROR: unexpected output
-    	requirements.add("([input.payload.input, '0'],[output.payload.result,'?']) receive If_0 Assign_1 replyIf" + 
-    					 "([input.payload.input, '0'],[output.payload.result,'0'])");
+    	requirements.add("(<input.payload.input, '0'>,<output.payload.result,'?'>) receive If_0 Assign_1 replyIf" + 
+    					 "(<input.payload.input, '0'>,<output.payload.result,'0'>)");
     	// ERROR: unexpected output
-    	requirements.add("([input.payload.input, '1'],[output.payload.result,'?']) receive else Assign_0 ReplyElse" +
-    					 "([input.payload.input, '1'],[output.payload.result,'1'])");
+    	requirements.add("(<input.payload.input, '1'>,<output.payload.result,'?'>) receive else Assign_0 ReplyElse" +
+    					 "(<input.payload.input, '1'>,<output.payload.result,'1'>)");
     	// ERROR: if_0 : input!=0
-    	requirements.add("([input.payload.input, '1'],[output.payload.result,'?']) receive If_0 Assign_1 replyIf" + 
-    					 "([input.payload.input, '0'],[output.payload.result,'1'])");
+    	requirements.add("(<input.payload.input, '1'>,<output.payload.result,'?'>) receive If_0 Assign_1 replyIf" + 
+    					 "(<input.payload.input, '0'>,<output.payload.result,'1'>)");
     	// ERROR: else : input==0
-    	requirements.add("([input.payload.input, '0'],[output.payload.result,'?']) receive else Assign_0 ReplyElse" +
-    					 "([input.payload.input, '1'],[output.payload.result,'0'])");
+    	requirements.add("(<input.payload.input, '0'>,<output.payload.result,'?'>) receive else Assign_0 ReplyElse" +
+    					 "(<input.payload.input, '1'>,<output.payload.result,'0'>)");
     	
     	for (String s : requirements) {
         	testRequirement(s);    		

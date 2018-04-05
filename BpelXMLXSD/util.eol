@@ -28,6 +28,7 @@ operation trimLiteral(s : String) : String {
 operation isFirstChildSingleLiteral(e : Any) : Boolean {
  	var result = false;
  	if (e.children.size() == 1 and trimNs(e.children.first().tagname).startsWith("literal")) { 
+ 		if (e.children.first().children.size() > 0) // literal value
 		result = true;
 	}
 	return result;

@@ -2,7 +2,11 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import org.apache.commons.jxpath.AbstractFactory;
 import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.Pointer;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -81,6 +85,16 @@ public interface IfElseListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue(IfElseParser.ValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IfElseParser#index}.
+	 * @param ctx the parse tree
+	 */
+	void enterIndex(IfElseParser.IndexContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IfElseParser#index}.
+	 * @param ctx the parse tree
+	 */
+	void exitIndex(IfElseParser.IndexContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link IfElseParser#varname}.
 	 * @param ctx the parse tree

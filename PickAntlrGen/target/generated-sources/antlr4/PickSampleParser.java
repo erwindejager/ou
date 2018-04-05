@@ -2,7 +2,11 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import org.apache.commons.jxpath.AbstractFactory;
 import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.Pointer;
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -22,22 +26,23 @@ public class PickSampleParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, LETTERS=13, NUMBER=14, ALFA=15, INT=16, STRING=17, 
-		WS=18;
+		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, LETTERS=15, NUMBER=16, 
+		ALFA=17, INT=18, STRING=19, WS=20;
 	public static final int
 		RULE_picksample = 0, RULE_v0 = 1, RULE_v = 2, RULE_kvpi = 3, RULE_kvpo = 4, 
-		RULE_key = 5, RULE_value = 6, RULE_varname = 7;
+		RULE_key = 5, RULE_value = 6, RULE_index = 7, RULE_varname = 8;
 	public static final String[] ruleNames = {
-		"picksample", "v0", "v", "kvpi", "kvpo", "key", "value", "varname"
+		"picksample", "v0", "v", "kvpi", "kvpo", "key", "value", "index", "varname"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'Pick'", "'sayHello'", "'AssignHello'", "'replyHello'", "'sayGoodbye'", 
-		"'AssignGoodbye'", "'ReplyBye'", "'('", "','", "')'", "'['", "']'"
+		"'AssignGoodbye'", "'ReplyBye'", "'('", "','", "')'", "'<'", "'>'", "'['", 
+		"']'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, "LETTERS", "NUMBER", "ALFA", "INT", "STRING", "WS"
+		null, null, null, "LETTERS", "NUMBER", "ALFA", "INT", "STRING", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -145,32 +150,6 @@ public class PickSampleParser extends Parser {
 	SayGoodbyeRequest_ clientRequest = sayGoodbyeRequest_;
 	SayGoodbyeResponse_ clientResponse = sayGoodbyeResponse_;
 
-	 boolean verify() {
-	  boolean result = true;
-	  for (String key : vMap.keySet()) {
-	   String expectedVal = trimQuote(vMap.get(key));
-	   String actualValue = getVarValue(key);
-	   if (!expectedVal.equals(actualValue)) {
-	    System.out.println("Actual: " + key + " : " + actualValue + " <> Expected: " + key + " : " + expectedVal);
-	    result = false; 
-	   }
-	  }
-	  return result;
-	 }
-
-	String addQuote(String s) { return "'" + s +"'"; }
-	String trimQuote(String s) { return s.replace("'",""); }
-
-	JXPathContext getCtx(String varPath) {
-	String s = varPath.substring(0, varPath.indexOf('.'));
-	return JXPathContext.newContext(varMap.get(s)); }
-
-	String getxPath(String varPath) {
-	String path = varPath.substring(varPath.indexOf('.') + 1);
-	return path.replace(".", "/"); }
-
-	void setVarValue(String path, String value) { getCtx(path).setValue(getxPath(path), value); }
-	String getVarValue(String path) { return (String)getCtx(path).getValue(getxPath(path)); }
 
 	public PickSampleParser(TokenStream input) {
 		super(input);
@@ -204,50 +183,56 @@ public class PickSampleParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
-			varMap.put("input", input);
-			varMap.put("output", output);
-			varMap.put("clientRequest", clientRequest);
-			varMap.put("clientResponse", clientResponse);
+			JXPathContext inputCtx = JXPathContext.newContext(input);
+			varMap.put("input", inputCtx);
+			JXPathContext outputCtx = JXPathContext.newContext(output);
+			varMap.put("output", outputCtx);
+			JXPathContext clientRequestCtx = JXPathContext.newContext(clientRequest);
+			varMap.put("clientRequest", clientRequestCtx);
+			JXPathContext clientResponseCtx = JXPathContext.newContext(clientResponse);
+			varMap.put("clientResponse", clientResponseCtx);
 
-			setState(17);
+			setState(19);
 			v0();
-			setState(18);
+			setState(20);
 			match(T__0);
-			setState(27);
+			setState(29);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__1:
 				{
-				setState(19);
+				setState(21);
 				match(T__1);
-				setState(20);
+				setState(22);
 				match(T__2);
 
-				pickSampleResponse.result="tns:result";
-				output.payload.result="Hello " + input.payload.input;
+				pickSampleResponse.result = "tns:result";
 
-				setState(22);
+				output.payload.result = "Hello " + (String) Utils.getVarValue("input/payload/input", varMap);
+
+				setState(24);
 				match(T__3);
 				}
 				break;
 			case T__4:
 				{
-				setState(23);
+				setState(25);
 				match(T__4);
-				setState(24);
+				setState(26);
 				match(T__5);
 
-				sayGoodbyeResponse.out="tns:out";
-				clientResponse.parameters.out="Goodbye " + clientRequest.parameters.in;
+				sayGoodbyeResponse.out = "tns:out";
 
-				setState(26);
+				clientResponse.parameters.out = "Goodbye " + (String) Utils.getVarValue("clientRequest/parameters/in", varMap);
+
+				setState(28);
 				match(T__6);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(29);
+			setState(31);
 			v();
 			}
 		}
@@ -290,27 +275,27 @@ public class PickSampleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(31);
+			setState(33);
 			match(T__7);
-			setState(32);
+			setState(34);
 			kvpi();
-			setState(35); 
+			setState(37); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(33);
+				setState(35);
 				match(T__8);
-				setState(34);
+				setState(36);
 				kvpi();
 				}
 				}
-				setState(37); 
+				setState(39); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__8 );
-			setState(39);
+			setState(41);
 			match(T__9);
 			}
 		}
@@ -353,30 +338,30 @@ public class PickSampleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(41);
+			setState(43);
 			match(T__7);
-			setState(42);
+			setState(44);
 			kvpo();
-			setState(45); 
+			setState(47); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(43);
+				setState(45);
 				match(T__8);
-				setState(44);
+				setState(46);
 				kvpo();
 				}
 				}
-				setState(47); 
+				setState(49); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__8 );
-			setState(49);
+			setState(51);
 			match(T__9);
 
-			  if (!verify()) {
+			  if (!Utils.verify(vMap, varMap)) {
 			     System.out.println("ERROR: unexpected output");
 			  }
 
@@ -422,18 +407,18 @@ public class PickSampleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52);
-			match(T__10);
-			setState(53);
-			((KvpiContext)_localctx).key = key();
 			setState(54);
-			match(T__8);
+			match(T__10);
 			setState(55);
-			((KvpiContext)_localctx).value = value();
+			((KvpiContext)_localctx).key = key();
 			setState(56);
+			match(T__8);
+			setState(57);
+			((KvpiContext)_localctx).value = value();
+			setState(58);
 			match(T__11);
 
-			setVarValue((((KvpiContext)_localctx).key!=null?_input.getText(((KvpiContext)_localctx).key.start,((KvpiContext)_localctx).key.stop):null), trimQuote((((KvpiContext)_localctx).value!=null?_input.getText(((KvpiContext)_localctx).value.start,((KvpiContext)_localctx).value.stop):null)));
+			Utils.setVarValue((((KvpiContext)_localctx).key!=null?_input.getText(((KvpiContext)_localctx).key.start,((KvpiContext)_localctx).key.stop):null), Utils.trimQuote((((KvpiContext)_localctx).value!=null?_input.getText(((KvpiContext)_localctx).value.start,((KvpiContext)_localctx).value.stop):null)), varMap);
 
 			}
 		}
@@ -477,15 +462,15 @@ public class PickSampleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
-			match(T__10);
-			setState(60);
-			((KvpoContext)_localctx).key = key();
 			setState(61);
-			match(T__8);
+			match(T__10);
 			setState(62);
-			((KvpoContext)_localctx).value = value();
+			((KvpoContext)_localctx).key = key();
 			setState(63);
+			match(T__8);
+			setState(64);
+			((KvpoContext)_localctx).value = value();
+			setState(65);
 			match(T__11);
 
 			vMap.put((((KvpoContext)_localctx).key!=null?_input.getText(((KvpoContext)_localctx).key.start,((KvpoContext)_localctx).key.stop):null), (((KvpoContext)_localctx).value!=null?_input.getText(((KvpoContext)_localctx).value.start,((KvpoContext)_localctx).value.stop):null));
@@ -527,7 +512,7 @@ public class PickSampleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(66);
+			setState(68);
 			varname();
 			}
 		}
@@ -564,8 +549,49 @@ public class PickSampleParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68);
+			setState(70);
 			match(STRING);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class IndexContext extends ParserRuleContext {
+		public TerminalNode NUMBER() { return getToken(PickSampleParser.NUMBER, 0); }
+		public IndexContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_index; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof PickSampleListener ) ((PickSampleListener)listener).enterIndex(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof PickSampleListener ) ((PickSampleListener)listener).exitIndex(this);
+		}
+	}
+
+	public final IndexContext index() throws RecognitionException {
+		IndexContext _localctx = new IndexContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_index);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(72);
+			match(T__12);
+			setState(73);
+			match(NUMBER);
+			setState(74);
+			match(T__13);
 			}
 		}
 		catch (RecognitionException re) {
@@ -592,6 +618,12 @@ public class PickSampleParser extends Parser {
 		public TerminalNode NUMBER(int i) {
 			return getToken(PickSampleParser.NUMBER, i);
 		}
+		public List<IndexContext> index() {
+			return getRuleContexts(IndexContext.class);
+		}
+		public IndexContext index(int i) {
+			return getRuleContext(IndexContext.class,i);
+		}
 		public VarnameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -608,12 +640,12 @@ public class PickSampleParser extends Parser {
 
 	public final VarnameContext varname() throws RecognitionException {
 		VarnameContext _localctx = new VarnameContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_varname);
+		enterRule(_localctx, 16, RULE_varname);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(70);
+			setState(76);
 			_la = _input.LA(1);
 			if ( !(_la==LETTERS || _la==ALFA) ) {
 			_errHandler.recoverInline(this);
@@ -623,25 +655,43 @@ public class PickSampleParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(74);
+			setState(83);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LETTERS) | (1L << NUMBER) | (1L << ALFA))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__12) | (1L << LETTERS) | (1L << NUMBER) | (1L << ALFA))) != 0)) {
 				{
-				{
-				setState(71);
-				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LETTERS) | (1L << NUMBER) | (1L << ALFA))) != 0)) ) {
-				_errHandler.recoverInline(this);
+				setState(81);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case LETTERS:
+					{
+					setState(77);
+					match(LETTERS);
+					}
+					break;
+				case NUMBER:
+					{
+					setState(78);
+					match(NUMBER);
+					}
+					break;
+				case ALFA:
+					{
+					setState(79);
+					match(ALFA);
+					}
+					break;
+				case T__12:
+					{
+					setState(80);
+					index();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-				else {
-					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-					_errHandler.reportMatch(this);
-					consume();
 				}
-				}
-				}
-				setState(76);
+				setState(85);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -659,25 +709,27 @@ public class PickSampleParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24P\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\3\2"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\5\2\36\n\2\3\2\3\2\3\3\3\3\3\3\3\3\6\3&\n\3\r"+
-		"\3\16\3\'\3\3\3\3\3\4\3\4\3\4\3\4\6\4\60\n\4\r\4\16\4\61\3\4\3\4\3\4\3"+
-		"\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\b\3\b"+
-		"\3\t\3\t\7\tK\n\t\f\t\16\tN\13\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\4\4\2\17"+
-		"\17\21\21\3\2\17\21\2K\2\22\3\2\2\2\4!\3\2\2\2\6+\3\2\2\2\b\66\3\2\2\2"+
-		"\n=\3\2\2\2\fD\3\2\2\2\16F\3\2\2\2\20H\3\2\2\2\22\23\b\2\1\2\23\24\5\4"+
-		"\3\2\24\35\7\3\2\2\25\26\7\4\2\2\26\27\7\5\2\2\27\30\b\2\1\2\30\36\7\6"+
-		"\2\2\31\32\7\7\2\2\32\33\7\b\2\2\33\34\b\2\1\2\34\36\7\t\2\2\35\25\3\2"+
-		"\2\2\35\31\3\2\2\2\36\37\3\2\2\2\37 \5\6\4\2 \3\3\2\2\2!\"\7\n\2\2\"%"+
-		"\5\b\5\2#$\7\13\2\2$&\5\b\5\2%#\3\2\2\2&\'\3\2\2\2\'%\3\2\2\2\'(\3\2\2"+
-		"\2()\3\2\2\2)*\7\f\2\2*\5\3\2\2\2+,\7\n\2\2,/\5\n\6\2-.\7\13\2\2.\60\5"+
-		"\n\6\2/-\3\2\2\2\60\61\3\2\2\2\61/\3\2\2\2\61\62\3\2\2\2\62\63\3\2\2\2"+
-		"\63\64\7\f\2\2\64\65\b\4\1\2\65\7\3\2\2\2\66\67\7\r\2\2\678\5\f\7\289"+
-		"\7\13\2\29:\5\16\b\2:;\7\16\2\2;<\b\5\1\2<\t\3\2\2\2=>\7\r\2\2>?\5\f\7"+
-		"\2?@\7\13\2\2@A\5\16\b\2AB\7\16\2\2BC\b\6\1\2C\13\3\2\2\2DE\5\20\t\2E"+
-		"\r\3\2\2\2FG\7\23\2\2G\17\3\2\2\2HL\t\2\2\2IK\t\3\2\2JI\3\2\2\2KN\3\2"+
-		"\2\2LJ\3\2\2\2LM\3\2\2\2M\21\3\2\2\2NL\3\2\2\2\6\35\'\61L";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26Y\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2"+
+		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2 \n\2\3\2\3\2\3\3\3\3\3\3\3\3\6\3"+
+		"(\n\3\r\3\16\3)\3\3\3\3\3\4\3\4\3\4\3\4\6\4\62\n\4\r\4\16\4\63\3\4\3\4"+
+		"\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3"+
+		"\b\3\b\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\7\nT\n\n\f\n\16\nW\13\n\3\n"+
+		"\2\2\13\2\4\6\b\n\f\16\20\22\2\3\4\2\21\21\23\23\2V\2\24\3\2\2\2\4#\3"+
+		"\2\2\2\6-\3\2\2\2\b8\3\2\2\2\n?\3\2\2\2\fF\3\2\2\2\16H\3\2\2\2\20J\3\2"+
+		"\2\2\22N\3\2\2\2\24\25\b\2\1\2\25\26\5\4\3\2\26\37\7\3\2\2\27\30\7\4\2"+
+		"\2\30\31\7\5\2\2\31\32\b\2\1\2\32 \7\6\2\2\33\34\7\7\2\2\34\35\7\b\2\2"+
+		"\35\36\b\2\1\2\36 \7\t\2\2\37\27\3\2\2\2\37\33\3\2\2\2 !\3\2\2\2!\"\5"+
+		"\6\4\2\"\3\3\2\2\2#$\7\n\2\2$\'\5\b\5\2%&\7\13\2\2&(\5\b\5\2\'%\3\2\2"+
+		"\2()\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*+\3\2\2\2+,\7\f\2\2,\5\3\2\2\2-.\7\n"+
+		"\2\2.\61\5\n\6\2/\60\7\13\2\2\60\62\5\n\6\2\61/\3\2\2\2\62\63\3\2\2\2"+
+		"\63\61\3\2\2\2\63\64\3\2\2\2\64\65\3\2\2\2\65\66\7\f\2\2\66\67\b\4\1\2"+
+		"\67\7\3\2\2\289\7\r\2\29:\5\f\7\2:;\7\13\2\2;<\5\16\b\2<=\7\16\2\2=>\b"+
+		"\5\1\2>\t\3\2\2\2?@\7\r\2\2@A\5\f\7\2AB\7\13\2\2BC\5\16\b\2CD\7\16\2\2"+
+		"DE\b\6\1\2E\13\3\2\2\2FG\5\22\n\2G\r\3\2\2\2HI\7\25\2\2I\17\3\2\2\2JK"+
+		"\7\17\2\2KL\7\22\2\2LM\7\20\2\2M\21\3\2\2\2NU\t\2\2\2OT\7\21\2\2PT\7\22"+
+		"\2\2QT\7\23\2\2RT\5\20\t\2SO\3\2\2\2SP\3\2\2\2SQ\3\2\2\2SR\3\2\2\2TW\3"+
+		"\2\2\2US\3\2\2\2UV\3\2\2\2V\23\3\2\2\2WU\3\2\2\2\7\37)\63SU";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

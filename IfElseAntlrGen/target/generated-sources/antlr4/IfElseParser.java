@@ -2,7 +2,11 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import org.apache.commons.jxpath.AbstractFactory;
 import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.Pointer;
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -22,22 +26,22 @@ public class IfElseParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, LETTERS=13, NUMBER=14, ALFA=15, INT=16, STRING=17, 
-		WS=18;
+		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, LETTERS=15, NUMBER=16, 
+		ALFA=17, INT=18, STRING=19, WS=20;
 	public static final int
 		RULE_ifelse = 0, RULE_v0 = 1, RULE_v = 2, RULE_kvpi = 3, RULE_kvpo = 4, 
-		RULE_key = 5, RULE_value = 6, RULE_varname = 7;
+		RULE_key = 5, RULE_value = 6, RULE_index = 7, RULE_varname = 8;
 	public static final String[] ruleNames = {
-		"ifelse", "v0", "v", "kvpi", "kvpo", "key", "value", "varname"
+		"ifelse", "v0", "v", "kvpi", "kvpo", "key", "value", "index", "varname"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'receive'", "'If_0'", "'Assign_1'", "'replyIf'", "'else'", "'Assign_0'", 
-		"'ReplyElse'", "'('", "','", "')'", "'['", "']'"
+		"'ReplyElse'", "'('", "','", "')'", "'<'", "'>'", "'['", "']'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, "LETTERS", "NUMBER", "ALFA", "INT", "STRING", "WS"
+		null, null, null, "LETTERS", "NUMBER", "ALFA", "INT", "STRING", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -93,56 +97,30 @@ public class IfElseParser extends Parser {
 	public String getInput() { return input; }
 	public void setInput(String s) { input = s; }
 	}
-	IfElseRequest ifelserequest = new IfElseRequest();
+	IfElseRequest ifElseRequest = new IfElseRequest();
 
 	public class IfElseResponse {
 	String result;
 	public String getResult() { return result; }
 	public void setResult(String s) { result = s; }
 	}
-	IfElseResponse ifelseresponse = new IfElseResponse();
+	IfElseResponse ifElseResponse = new IfElseResponse();
 
-	public class IfElseRequestMessage {
+	public class IfElseRequestMessage_ {
 	IfElseRequest payload = new IfElseRequest();
 	public IfElseRequest getPayload() { return payload; }
 	}
-	IfElseRequestMessage ifelserequestmessage = new IfElseRequestMessage();
+	IfElseRequestMessage_ ifElseRequestMessage_ = new IfElseRequestMessage_();
 
-	public class IfElseResponseMessage {
+	public class IfElseResponseMessage_ {
 	IfElseResponse payload = new IfElseResponse();
 	public IfElseResponse getPayload() { return payload; }
 	}
-	IfElseResponseMessage ifelseresponsemessage = new IfElseResponseMessage();
+	IfElseResponseMessage_ ifElseResponseMessage_ = new IfElseResponseMessage_();
 
-	IfElseRequestMessage input = ifelserequestmessage;
-	IfElseResponseMessage output = ifelseresponsemessage;
+	IfElseRequestMessage_ input = ifElseRequestMessage_;
+	IfElseResponseMessage_ output = ifElseResponseMessage_;
 
-	 boolean verify() {
-	  boolean result = true;
-	  for (String key : vMap.keySet()) {
-	   String expectedVal = trimQuote(vMap.get(key));
-	   String actualValue = getVarValue(key);
-	   if (!expectedVal.equals(actualValue)) {
-	    System.out.println("Actual: " + key + " : " + actualValue + " <> Expected: " + key + " : " + expectedVal);
-	    result = false; 
-	   }
-	  }
-	  return result;
-	 }
-
-	String addQuote(String s) { return "'" + s +"'"; }
-	String trimQuote(String s) { return s.replace("'",""); }
-
-	JXPathContext getCtx(String varPath) {
-	String s = varPath.substring(0, varPath.indexOf('.'));
-	return JXPathContext.newContext(varMap.get(s)); }
-
-	String getxPath(String varPath) {
-	String path = varPath.substring(varPath.indexOf('.') + 1);
-	return path.replace(".", "/"); }
-
-	void setVarValue(String path, String value) { getCtx(path).setValue(getxPath(path), value); }
-	String getVarValue(String path) { return (String)getCtx(path).getValue(getxPath(path)); }
 
 	public IfElseParser(TokenStream input) {
 		super(input);
@@ -176,52 +154,56 @@ public class IfElseParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
-			varMap.put("input", input);
-			varMap.put("output", output);
+			JXPathContext inputCtx = JXPathContext.newContext(input);
+			varMap.put("input", inputCtx);
+			JXPathContext outputCtx = JXPathContext.newContext(output);
+			varMap.put("output", outputCtx);
 
-			setState(17);
+			setState(19);
 			v0();
-			setState(18);
+			setState(20);
 			match(T__0);
-			setState(29);
+			setState(31);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__1:
 				{
-				setState(19);
-				match(T__1);
-				setState(20);
-				if (!( input.payload.input.equals("0") )) throw new FailedPredicateException(this, " input.payload.input.equals(\"0\") ");
 				setState(21);
+				match(T__1);
+				setState(22);
+				if (!( input.payload.input.equals("0") )) throw new FailedPredicateException(this, " input.payload.input.equals(\"0\") ");
+				setState(23);
 				match(T__2);
 
-				ifelseresponse.result="tns:result";
-				output.payload.result="1";
+				ifElseResponse.result = "tns:result";
 
-				setState(23);
+				output.payload.result = "1";
+
+				setState(25);
 				match(T__3);
 				}
 				break;
 			case T__4:
 				{
-				setState(24);
-				match(T__4);
-				setState(25);
-				if (!( !input.payload.input.equals("0") )) throw new FailedPredicateException(this, " !input.payload.input.equals(\"0\") ");
 				setState(26);
+				match(T__4);
+				setState(27);
+				if (!( !input.payload.input.equals("0") )) throw new FailedPredicateException(this, " !input.payload.input.equals(\"0\") ");
+				setState(28);
 				match(T__5);
 
-				ifelseresponse.result="tns:result";
-				output.payload.result="0";
+				ifElseResponse.result = "tns:result";
 
-				setState(28);
+				output.payload.result = "0";
+
+				setState(30);
 				match(T__6);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(31);
+			setState(33);
 			v();
 			}
 		}
@@ -264,27 +246,27 @@ public class IfElseParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(33);
+			setState(35);
 			match(T__7);
-			setState(34);
+			setState(36);
 			kvpi();
-			setState(37); 
+			setState(39); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(35);
+				setState(37);
 				match(T__8);
-				setState(36);
+				setState(38);
 				kvpi();
 				}
 				}
-				setState(39); 
+				setState(41); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__8 );
-			setState(41);
+			setState(43);
 			match(T__9);
 			}
 		}
@@ -327,30 +309,30 @@ public class IfElseParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(43);
+			setState(45);
 			match(T__7);
-			setState(44);
+			setState(46);
 			kvpo();
-			setState(47); 
+			setState(49); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(45);
+				setState(47);
 				match(T__8);
-				setState(46);
+				setState(48);
 				kvpo();
 				}
 				}
-				setState(49); 
+				setState(51); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__8 );
-			setState(51);
+			setState(53);
 			match(T__9);
 
-			  if (!verify()) {
+			  if (!Utils.verify(vMap, varMap)) {
 			     System.out.println("ERROR: unexpected output");
 			  }
 
@@ -396,18 +378,18 @@ public class IfElseParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(54);
-			match(T__10);
-			setState(55);
-			((KvpiContext)_localctx).key = key();
 			setState(56);
-			match(T__8);
+			match(T__10);
 			setState(57);
-			((KvpiContext)_localctx).value = value();
+			((KvpiContext)_localctx).key = key();
 			setState(58);
+			match(T__8);
+			setState(59);
+			((KvpiContext)_localctx).value = value();
+			setState(60);
 			match(T__11);
 
-			setVarValue((((KvpiContext)_localctx).key!=null?_input.getText(((KvpiContext)_localctx).key.start,((KvpiContext)_localctx).key.stop):null), trimQuote((((KvpiContext)_localctx).value!=null?_input.getText(((KvpiContext)_localctx).value.start,((KvpiContext)_localctx).value.stop):null)));
+			Utils.setVarValue((((KvpiContext)_localctx).key!=null?_input.getText(((KvpiContext)_localctx).key.start,((KvpiContext)_localctx).key.stop):null), Utils.trimQuote((((KvpiContext)_localctx).value!=null?_input.getText(((KvpiContext)_localctx).value.start,((KvpiContext)_localctx).value.stop):null)), varMap);
 
 			}
 		}
@@ -451,15 +433,15 @@ public class IfElseParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
-			match(T__10);
-			setState(62);
-			((KvpoContext)_localctx).key = key();
 			setState(63);
-			match(T__8);
+			match(T__10);
 			setState(64);
-			((KvpoContext)_localctx).value = value();
+			((KvpoContext)_localctx).key = key();
 			setState(65);
+			match(T__8);
+			setState(66);
+			((KvpoContext)_localctx).value = value();
+			setState(67);
 			match(T__11);
 
 			vMap.put((((KvpoContext)_localctx).key!=null?_input.getText(((KvpoContext)_localctx).key.start,((KvpoContext)_localctx).key.stop):null), (((KvpoContext)_localctx).value!=null?_input.getText(((KvpoContext)_localctx).value.start,((KvpoContext)_localctx).value.stop):null));
@@ -501,7 +483,7 @@ public class IfElseParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68);
+			setState(70);
 			varname();
 			}
 		}
@@ -538,8 +520,49 @@ public class IfElseParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(70);
+			setState(72);
 			match(STRING);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class IndexContext extends ParserRuleContext {
+		public TerminalNode NUMBER() { return getToken(IfElseParser.NUMBER, 0); }
+		public IndexContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_index; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof IfElseListener ) ((IfElseListener)listener).enterIndex(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof IfElseListener ) ((IfElseListener)listener).exitIndex(this);
+		}
+	}
+
+	public final IndexContext index() throws RecognitionException {
+		IndexContext _localctx = new IndexContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_index);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(74);
+			match(T__12);
+			setState(75);
+			match(NUMBER);
+			setState(76);
+			match(T__13);
 			}
 		}
 		catch (RecognitionException re) {
@@ -566,6 +589,12 @@ public class IfElseParser extends Parser {
 		public TerminalNode NUMBER(int i) {
 			return getToken(IfElseParser.NUMBER, i);
 		}
+		public List<IndexContext> index() {
+			return getRuleContexts(IndexContext.class);
+		}
+		public IndexContext index(int i) {
+			return getRuleContext(IndexContext.class,i);
+		}
 		public VarnameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -582,12 +611,12 @@ public class IfElseParser extends Parser {
 
 	public final VarnameContext varname() throws RecognitionException {
 		VarnameContext _localctx = new VarnameContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_varname);
+		enterRule(_localctx, 16, RULE_varname);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(72);
+			setState(78);
 			_la = _input.LA(1);
 			if ( !(_la==LETTERS || _la==ALFA) ) {
 			_errHandler.recoverInline(this);
@@ -597,25 +626,43 @@ public class IfElseParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(76);
+			setState(85);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LETTERS) | (1L << NUMBER) | (1L << ALFA))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__12) | (1L << LETTERS) | (1L << NUMBER) | (1L << ALFA))) != 0)) {
 				{
-				{
-				setState(73);
-				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LETTERS) | (1L << NUMBER) | (1L << ALFA))) != 0)) ) {
-				_errHandler.recoverInline(this);
+				setState(83);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case LETTERS:
+					{
+					setState(79);
+					match(LETTERS);
+					}
+					break;
+				case NUMBER:
+					{
+					setState(80);
+					match(NUMBER);
+					}
+					break;
+				case ALFA:
+					{
+					setState(81);
+					match(ALFA);
+					}
+					break;
+				case T__12:
+					{
+					setState(82);
+					index();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-				else {
-					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-					_errHandler.reportMatch(this);
-					consume();
 				}
-				}
-				}
-				setState(78);
+				setState(87);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -650,26 +697,28 @@ public class IfElseParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24R\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\3\2"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2 \n\2\3\2\3\2\3\3\3\3\3\3\3\3\6\3"+
-		"(\n\3\r\3\16\3)\3\3\3\3\3\4\3\4\3\4\3\4\6\4\62\n\4\r\4\16\4\63\3\4\3\4"+
-		"\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3"+
-		"\b\3\b\3\t\3\t\7\tM\n\t\f\t\16\tP\13\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\4"+
-		"\4\2\17\17\21\21\3\2\17\21\2M\2\22\3\2\2\2\4#\3\2\2\2\6-\3\2\2\2\b8\3"+
-		"\2\2\2\n?\3\2\2\2\fF\3\2\2\2\16H\3\2\2\2\20J\3\2\2\2\22\23\b\2\1\2\23"+
-		"\24\5\4\3\2\24\37\7\3\2\2\25\26\7\4\2\2\26\27\6\2\2\2\27\30\7\5\2\2\30"+
-		"\31\b\2\1\2\31 \7\6\2\2\32\33\7\7\2\2\33\34\6\2\3\2\34\35\7\b\2\2\35\36"+
-		"\b\2\1\2\36 \7\t\2\2\37\25\3\2\2\2\37\32\3\2\2\2 !\3\2\2\2!\"\5\6\4\2"+
-		"\"\3\3\2\2\2#$\7\n\2\2$\'\5\b\5\2%&\7\13\2\2&(\5\b\5\2\'%\3\2\2\2()\3"+
-		"\2\2\2)\'\3\2\2\2)*\3\2\2\2*+\3\2\2\2+,\7\f\2\2,\5\3\2\2\2-.\7\n\2\2."+
-		"\61\5\n\6\2/\60\7\13\2\2\60\62\5\n\6\2\61/\3\2\2\2\62\63\3\2\2\2\63\61"+
-		"\3\2\2\2\63\64\3\2\2\2\64\65\3\2\2\2\65\66\7\f\2\2\66\67\b\4\1\2\67\7"+
-		"\3\2\2\289\7\r\2\29:\5\f\7\2:;\7\13\2\2;<\5\16\b\2<=\7\16\2\2=>\b\5\1"+
-		"\2>\t\3\2\2\2?@\7\r\2\2@A\5\f\7\2AB\7\13\2\2BC\5\16\b\2CD\7\16\2\2DE\b"+
-		"\6\1\2E\13\3\2\2\2FG\5\20\t\2G\r\3\2\2\2HI\7\23\2\2I\17\3\2\2\2JN\t\2"+
-		"\2\2KM\t\3\2\2LK\3\2\2\2MP\3\2\2\2NL\3\2\2\2NO\3\2\2\2O\21\3\2\2\2PN\3"+
-		"\2\2\2\6\37)\63N";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26[\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2"+
+		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\"\n\2\3\2\3\2\3\3\3\3\3\3"+
+		"\3\3\6\3*\n\3\r\3\16\3+\3\3\3\3\3\4\3\4\3\4\3\4\6\4\64\n\4\r\4\16\4\65"+
+		"\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
+		"\7\3\7\3\b\3\b\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\7\nV\n\n\f\n\16\nY"+
+		"\13\n\3\n\2\2\13\2\4\6\b\n\f\16\20\22\2\3\4\2\21\21\23\23\2X\2\24\3\2"+
+		"\2\2\4%\3\2\2\2\6/\3\2\2\2\b:\3\2\2\2\nA\3\2\2\2\fH\3\2\2\2\16J\3\2\2"+
+		"\2\20L\3\2\2\2\22P\3\2\2\2\24\25\b\2\1\2\25\26\5\4\3\2\26!\7\3\2\2\27"+
+		"\30\7\4\2\2\30\31\6\2\2\2\31\32\7\5\2\2\32\33\b\2\1\2\33\"\7\6\2\2\34"+
+		"\35\7\7\2\2\35\36\6\2\3\2\36\37\7\b\2\2\37 \b\2\1\2 \"\7\t\2\2!\27\3\2"+
+		"\2\2!\34\3\2\2\2\"#\3\2\2\2#$\5\6\4\2$\3\3\2\2\2%&\7\n\2\2&)\5\b\5\2\'"+
+		"(\7\13\2\2(*\5\b\5\2)\'\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2\2,-\3\2\2"+
+		"\2-.\7\f\2\2.\5\3\2\2\2/\60\7\n\2\2\60\63\5\n\6\2\61\62\7\13\2\2\62\64"+
+		"\5\n\6\2\63\61\3\2\2\2\64\65\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\66\67"+
+		"\3\2\2\2\678\7\f\2\289\b\4\1\29\7\3\2\2\2:;\7\r\2\2;<\5\f\7\2<=\7\13\2"+
+		"\2=>\5\16\b\2>?\7\16\2\2?@\b\5\1\2@\t\3\2\2\2AB\7\r\2\2BC\5\f\7\2CD\7"+
+		"\13\2\2DE\5\16\b\2EF\7\16\2\2FG\b\6\1\2G\13\3\2\2\2HI\5\22\n\2I\r\3\2"+
+		"\2\2JK\7\25\2\2K\17\3\2\2\2LM\7\17\2\2MN\7\22\2\2NO\7\20\2\2O\21\3\2\2"+
+		"\2PW\t\2\2\2QV\7\21\2\2RV\7\22\2\2SV\7\23\2\2TV\5\20\t\2UQ\3\2\2\2UR\3"+
+		"\2\2\2US\3\2\2\2UT\3\2\2\2VY\3\2\2\2WU\3\2\2\2WX\3\2\2\2X\23\3\2\2\2Y"+
+		"W\3\2\2\2\7!+\65UW";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

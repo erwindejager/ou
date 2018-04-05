@@ -22,29 +22,29 @@ public class Pick {
     public static void main(String[] args) throws Exception {
     	List<String> requirements = new ArrayList<>();
     	
-    	requirements.add("([input.payload.input, 'mamalou']        ,[output.payload.result,'?']," + 
-    	                  "[clientRequest.parameters.in,'?'] ,[clientResponse.parameters.out,'?'])" +
+    	requirements.add("(<input.payload.input, 'mamalou'>        ,<output.payload.result,'?'>," + 
+    	                  "<clientRequest.parameters.in,'?'> ,<clientResponse.parameters.out,'?'>)" +
     	                  "Pick sayHello AssignHello replyHello" +   
-    	                  "([input.payload.input, 'mamalou']       ,[output.payload.result,'Hello mamalou']," + 
-    	    	          "[clientRequest.parameters.in,'?'] ,[clientResponse.parameters.out,'?'])");
+    	                  "(<input.payload.input, 'mamalou'>       ,<output.payload.result,'Hello mamalou'>," + 
+    	    	          "<clientRequest.parameters.in,'?'> ,<clientResponse.parameters.out,'?'>)");
 
-    	requirements.add("([input.payload.input, '?']          ,[output.payload.result,'?']," + 
-    					 "[clientRequest.parameters.in,'pipo'] ,[clientResponse.parameters.out,'?'])" +
+    	requirements.add("(<input.payload.input, '?'>          ,<output.payload.result,'?'>," + 
+    					 "<clientRequest.parameters.in,'pipo'> ,<clientResponse.parameters.out,'?'>)" +
     					 "Pick sayGoodbye AssignGoodbye ReplyBye" +   
-                         "([input.payload.input, '?']          ,[output.payload.result,'?']," + 
-  	                     "[clientRequest.parameters.in,'pipo'] ,[clientResponse.parameters.out,'Goodbye pipo'])");
+                         "(<input.payload.input, '?'>          ,<output.payload.result,'?'>," + 
+  	                     "<clientRequest.parameters.in,'pipo'> ,<clientResponse.parameters.out,'Goodbye pipo'>)");
     	
-    	requirements.add("([input.payload.input, 'pipo']        ,[output.payload.result,'?']," + 
-    					 "[clientRequest.parameters.in,'?'] ,[clientResponse.parameters.out,'?'])" +
+    	requirements.add("(<input.payload.input, 'pipo'>        ,<output.payload.result,'?'>," + 
+    					 "<clientRequest.parameters.in,'?'> ,<clientResponse.parameters.out,'?'>)" +
     					 "Pick sayHello AssignHello replyHello" +   
-    					 "([input.payload.input, 'pipo']       ,[output.payload.result,'Bye pipo']," + 
-  	          			 "[clientRequest.parameters.in,'?'] ,[clientResponse.parameters.out,'?'])");
+    					 "(<input.payload.input, 'pipo'>       ,<output.payload.result,'Bye pipo'>," + 
+  	          			 "<clientRequest.parameters.in,'?'> ,<clientResponse.parameters.out,'?'>)");
 
-    	requirements.add("([input.payload.input, '?']          ,[output.payload.result,'?']," + 
-				 		 "[clientRequest.parameters.in,'pipo'] ,[clientResponse.parameters.out,'?'])" +
+    	requirements.add("(<input.payload.input, '?'>          ,<output.payload.result,'?'>," + 
+				 		 "<clientRequest.parameters.in,'pipo'> ,<clientResponse.parameters.out,'?'>)" +
 				 		 "Pick sayGoodbye AssignGoodbye ReplyBye" +   
-				 		 "([input.payload.input, '?']          ,[output.payload.result,'?']," + 
-                 		 "[clientRequest.parameters.in,'pipo'] ,[clientResponse.parameters.out,'Hello pipo'])");
+				 		 "(<input.payload.input, '?'>          ,<output.payload.result,'?'>," + 
+                 		 "<clientRequest.parameters.in,'pipo'> ,<clientResponse.parameters.out,'Hello pipo'>)");
     	
     	for (String s : requirements) {
         	testRequirement(s);    		

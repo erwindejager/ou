@@ -33,10 +33,10 @@ operation BPEL!t_variable transformMembers(sb : Any) {
 
 operation BPEL!t_variable transformVarMap(sb : Any, context : Map) {
 	var fac = getFactory(context);
-	if (fac <> null) {
+	sb.append("JXPathContext " + self.a_name.firstToLowerCase() + "Ctx" + " = JXPathContext.newContext(");
+	sb.append(self.a_name.firstToLowerCase() + ");");newline(sb);
+	if (fac <> null and fac.length() > 0) {
 		addFactory(context, fac);
-		sb.append("JXPathContext " + self.a_name.firstToLowerCase() + "Ctx" + " = JXPathContext.newContext(");
-		sb.append(self.a_name.firstToLowerCase() + ");");newline(sb);
 		sb.append(self.a_name.firstToLowerCase() + "Ctx.setFactory(new " + fac + "());");newline(sb);
 	}
 	sb.append("varMap.put(\"" + self.a_name.firstToLowerCase() + "\", " + self.a_name.firstToLowerCase() + "Ctx);"); newline(sb);

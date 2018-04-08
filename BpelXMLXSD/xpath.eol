@@ -44,6 +44,7 @@ operation evalXpathReference(expr : String) : String {
 	if (result.endsWith(")")) {
 		result = result.replace("\\)", "");	
 	}
+	
 	var theType = getReturnType(trimIndex(result));
 	result = createReturnValue(theType, makePath(trimXpathPrefix(trimAllNs(replaceSlash(result)))));
 	return result;
@@ -64,7 +65,9 @@ operation trimIndex(s : String) : String {
 }
 
 operation getReturnType(javaPath : String) : String {
-	var theType = getTypes().getType(getLeaf(javaPath)); 
+
+	var theType = getType_(getLeaf(javaPath)); 
+	//var theType = getTypes().getType(getLeaf(javaPath)); 
 	if (isPrimitiveXmlType(theType)) {
 		theType = tranlateXmlPrimitiveTypesToJava(theType);
 	}

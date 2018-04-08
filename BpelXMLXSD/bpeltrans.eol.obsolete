@@ -1,0 +1,91 @@
+/**
+ *
+ */
+
+//--------------------------------------------------------
+// Main tag <xsd:element name="process" type="tProcess">
+//--------------------------------------------------------
+var processType = t_process.all.first();
+processType.tagName.println();
+processType.a_name.p("a_name");
+
+//					<xsd:element ref="extensions" minOccurs="0"/>
+// NO Transformation 
+
+//--------------------------------------------------------
+//	<xsd:element ref="import" minOccurs="0" maxOccurs="unbounded"/>
+//--------------------------------------------------------
+var importType = t_import.all.first();
+importType.tagName.println();
+importType.a_namespace.p("a_namespace");
+importType.a_location.p("a_location");
+importType.a_importType.p("a_importType");
+
+importType.a_x.length().println;
+
+//					<xsd:element ref="partnerLinks" minOccurs="0"/>
+//					<xsd:element ref="messageExchanges" minOccurs="0"/>
+//					<xsd:element ref="variables" minOccurs="0"/>
+//					<xsd:element ref="correlationSets" minOccurs="0"/>
+//					<xsd:element ref="faultHandlers" minOccurs="0"/>
+//					<xsd:element ref="eventHandlers" minOccurs="0"/>
+//					<xsd:group ref="activity" minOccurs="1"/>
+
+
+//process.a_name.text.println();
+//process.a_name.pkcp();
+
+"##############".println;
+"# partnerLink".println();
+"##############".println;
+for (pl in t_partnerLink) { 
+	pl.a_name.println;
+}
+
+"##############".println;
+"# variable".println;
+"##############".println;
+for (variab in t_variable) { 
+	variab.a_name.println;
+}
+t_variable.all().println();
+t_variables.all().println();
+for (v in t_variable) { 
+	v.a_name.println;
+}
+
+ 
+
+for (seq in t_sequence) { 
+	seq.a_name.println;
+}
+
+for (proc in t_process) { 
+	proc.a_name.println;	
+}
+
+// Get the <library> element
+var lib = t_process.all.first();
+
+// Iterate through its children
+for (b in lib.children) {
+  // Print the title of each child
+  b.a_name.println();
+  b.type().println();
+  for (c in b.children) {
+	  c.a_name.println();
+  }
+}
+
+var sq = t_copy.all();
+var s1 = sq.random();
+s1.println();
+sq.size().println();
+"Pipo".println();
+
+operation String p(prefix) {
+ (prefix + " : " +  self).println();
+ }
+ 
+
+ 

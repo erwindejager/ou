@@ -66,7 +66,7 @@ operation transformLiteralChildren(sb : Any, context : Map, e : Any) {
 	if (e.children.size() == 0) {
 		sb.append(trimLiteral(path + trimNs(e.tagname).firstToLowerCase()));
 		sb.append(" = ");
-		if ("String".equals(getTypes().getType(getLeaf(trimNs(e.tagname).firstToLowerCase())))) {
+		if ("String".equals(getJavaType_(trimNs(e.tagname).firstToLowerCase()))) {
 			sb.append("\"" + e.text + "\"");
 		} else {
 			sb.append(e.text);

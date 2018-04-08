@@ -7,6 +7,7 @@ import "receive.eol";
 import "reply.eol";
 import "sequence.eol";
 import "throw.eol";
+import "types.eol";
 
 //--------------------------------------------------------
 // <xsd:group ref="activity" minOccurs="1"/>

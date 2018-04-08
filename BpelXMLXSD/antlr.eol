@@ -15,8 +15,9 @@ operation antlrMembers(sb : Any) {
 	sb.append("Map<String,Object> varMap = new HashMap();\n"); 
 	sb.append("Map<String,String> vMap = new HashMap();\n");
 	newline(sb);
-  	getTypes().transform(sb,context);
-  	transformMessages(sb,context);
+	transformTypes();
+  	//getTypes().transform(sb,context);
+  	transformMessages();
   	getVariables().transformMembers(sb);newline(sb);
   	//antlrVerify(sb);newline(sb);
   	//antlrQuote(sb);newline(sb);

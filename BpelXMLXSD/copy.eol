@@ -18,6 +18,6 @@ operation BPEL!t_copy transform(sb : Any, context : Map) {
 	if (not isFirstChildSingleLiteral(getFrom(self))) {
 		sb.append(";");
 	}
-//	transformChildren(sb, self);
+	getType(context);
 } 
 

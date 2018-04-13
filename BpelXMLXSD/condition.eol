@@ -42,7 +42,9 @@ operation tranlateComparisonOperatorToJava(operator : String, parameter : String
 	var result = operator;
 	if (result = "=") {
 		result = ".equals(" + parameter + ")";
-	}
+	} else 	{
+		result = " " + operator + " " + parameter;
+	} 
 	return result;
 }
 

@@ -27,8 +27,13 @@ operation BPEL!t_variable transform(sb : Any) {
 } 
 
 operation BPEL!t_variable transformMembers(sb : Any) {
-	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_messageType)).firstToUpperCase() + "_ " + self.a_name.firstToLowerCase() + " = ");
-	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_messageType)).firstToLowerCase() + "_;"); newline(sb);
+	if (self.a_messageType.length > 0) {
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_messageType)).firstToUpperCase() + "_ " + self.a_name.firstToLowerCase() + " = ");
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_messageType)).firstToLowerCase() + "_;"); newline(sb);
+	} else if (self.a_type.length > 0) {
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type)) + " " + self.a_name + ";");newline(sb);
+		allTypes.put(self.a_name, trimNs(self.a_type));
+	}
 } 
 
 operation BPEL!t_variable transformVarMap(sb : Any, context : Map) {

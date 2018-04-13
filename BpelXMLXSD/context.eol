@@ -61,6 +61,15 @@ operation getFactory(m : Map) : String {
  	return getFromMap(m, "FACTORY_", "FACTORYNR");
 }
 
+operation addType(m : Map, f : String) {
+	addToMap(m, f, "TYPE_", "TYPENR");
+}
+
+//$pre m.size() > 0
+operation getType(m : Map) : String {
+ 	return getFromMap(m, "TYPE_", "TYPENR");
+}
+
 operation addToMap(m : Map, value : String, keyPrefix : String, counterKey : String) {
 	var conditionCounter : Integer = 0;
 	if (m.containsKey(counterKey)) {

@@ -1,0 +1,12 @@
+operation BPEL!t_while transform(sb : Any, context : Map) {
+	newline(sb); newline(sb); terminal(sb, self.a_name); 
+	sb.append(" " + self.a_name.toLowercase() + "_block_seq ");
+	sb.append("post_" + self.a_name.toLowercase() + " ;");newline(sb);newline(sb);
+	sb.append(self.a_name.toLowercase() + "_block_seq" + " : ( " + self.a_name.toLowercase() + "_block" + " | ");
+	sb.append(self.a_name.toLowercase() + "_block" + " " + self.a_name.toLowercase() + "_block_seq" + " |  ) ;");newline(sb);newline(sb);
+	sb.append(self.a_name.toLowercase() + "_block" + " : ");
+	transformChildren(sb, context, self);
+	sb.append(" ;");newline(sb);newline(sb);
+	sb.append("post_" + self.a_name.toLowercase() + " :");
+}
+ 

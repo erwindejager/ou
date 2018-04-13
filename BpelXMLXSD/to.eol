@@ -9,9 +9,11 @@ operation getTo(parent : Any) : BPEL!t_to {
 }
 
 operation BPEL!t_to transform(sb : Any, context : Map) {
+
 	if (self.a_variable.length > 0) {
 		sb.append(self.a_variable.firstToLowerCase());
-		if (self.a_variable.length > 0) {
+		addType(context, getType_(self.a_variable.firstToLowerCase()));
+		if (self.a_part.length > 0) {
 			sb.append("." + self.a_part.firstToLowerCase() + ".");
  		}
  	}

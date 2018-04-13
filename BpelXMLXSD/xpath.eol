@@ -10,11 +10,17 @@ operation xpath(expr : String) : String {
   	return result;
 }
 
-// concat(p1,p2)
+// concat(p1,p2, ...)
 operation evalConcat(expr : String) : String {
 	var lrValue = expr.split(",");
+	var result = "";
 	var par1 : String = lrValue.first().split("\\(").second();
-	return xpath(par1) + " + " + xpath(lrValue.second());
+	if (lrValue.size() == 2) {
+		result = xpath(par1) + " + " + xpath(lrValue.second());
+	} else if (lrValue.size() == 3) {
+		result = xpath(par1) + " + " + xpath(lrValue.second())  + " + " + xpath(lrValue.third());
+	}
+	return result;
 }
 
 // count(expr)
@@ -22,13 +28,6 @@ operation evalCount(expr : String) : String {
 	var result = "Utils.getVarValueInt(\"" + makePath(trimXpathPrefix(trimAllNs(replaceSlash(expr)))) +  "\", varMap)";
 	return result;
 }
-
-//$path
-//operation evalXpathReference(expr : String) : String {
-//	var lrValue = expr.split("\\.");
-//	var ref : String = lrValue.first().toLowercase(); 
-//	return ref.substring(1);
-//}
 
 operation evalXpathReference(expr : String) : String {
   	var result : String = "";
@@ -46,7 +45,14 @@ operation evalXpathReference(expr : String) : String {
 	}
 	
 	var theType = getReturnType(trimIndex(result));
-	result = createReturnValue(theType, makePath(trimXpathPrefix(trimAllNs(replaceSlash(result)))));
+	if (hasExprOperator(result)) {
+		theType = "int";
+	}
+	
+	if (".".isSubstringOf(expr) or "/".isSubstringOf(expr)) {
+		result = createReturnValue(theType, makePath(trimXpathPrefix(trimAllNs(replaceSlash(result)))));
+	}
+	
 	return result;
 }
 
@@ -67,7 +73,6 @@ operation trimIndex(s : String) : String {
 operation getReturnType(javaPath : String) : String {
 
 	var theType = getType_(getLeaf(javaPath)); 
-	//var theType = getTypes().getType(getLeaf(javaPath)); 
 	if (isPrimitiveXmlType(theType)) {
 		theType = tranlateXmlPrimitiveTypesToJava(theType);
 	}
@@ -85,4 +90,18 @@ operation createReturnValue(theType : String, xpath : String) : String {
 	}
 	result = result + "\"" + xpath + "\", varMap)";
 	return result;
+}
+
+operation hasExprOperator(expr : String) : Boolean {
+	var result = false;
+	for(o in getExprOperators()) {
+		if (expr.contains(o)) {
+			return true;
+		}
+	}
+	return result;
+}
+
+operation getExprOperators() : Sequence {
+	return "+,-,*".split(",");
 }

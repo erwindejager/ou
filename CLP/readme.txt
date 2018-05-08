@@ -7,3 +7,7 @@ phrase(whilesample([a,[?]]),X,[]) --> result: X = [a, [?], receiveinput, assign,
 phrase(whilesample([a,[?]]),[a, [?], receiveinput, assign, loopassign, loopassign, loopassign, loopassign, loopassign, assignoutput, replyOutput, a, [a, a, a, a, a]],[]) --> result: YES 
 phrase(whilesample([a,[?]]),[a, [?], receiveinput, assign, loopassign, loopassign, loopassign, loopassign, loopassign, assignoutput, replyOutput, a, [a, a, a, a, b]],[]) --> result: NO 
 phrase(whilesample([a,[?]]),[a, [?], receiveinput, assign, loopassign, loopassign, loopassign, loopassign, assignoutput, replyOutput, a, [a, a, a, a]],[]) --> result: NO 
+
+phrase(picksample([Erwin]),X,[]) --> result: X = [Erwin, pick, sayHello, assignHello, replyHello, hello, Erwin]
+                                             X = [Erwin, pick, sayGoodbye, assignGoodbye, replyBye, goodbye, Erwin]
+phrase(picksample([Erwin]),[Erwin, pick, sayGoodbye, assignGoodbye, replyBye, goodbye, Erwin],[]) --> result: YES

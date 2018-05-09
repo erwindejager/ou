@@ -11,3 +11,5 @@ phrase(whilesample([a,[?]]),[a, [?], receiveinput, assign, loopassign, loopassig
 phrase(picksample([Erwin]),X,[]) --> result: X = [Erwin, pick, sayHello, assignHello, replyHello, hello, Erwin]
                                              X = [Erwin, pick, sayGoodbye, assignGoodbye, replyBye, goodbye, Erwin]
 phrase(picksample([Erwin]),[Erwin, pick, sayGoodbye, assignGoodbye, replyBye, goodbye, Erwin],[]) --> result: YES
+
+phrase(invokeincrementprocess([10]),X,[]) --> result: X = [10, prepareInvokeIncrement, invoke, prepareOutput, replyOutput, 11]

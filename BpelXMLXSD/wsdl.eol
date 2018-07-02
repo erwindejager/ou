@@ -1,6 +1,3 @@
-//operation getTypes_() : WSDL!t_types {
-// 	return WSDL!t_types.all().first();
-//}
 
 operation transformWsdl(e : Any, sb : Any, context : Map) {
 //sb.append("================ transform8 B =================\n");
@@ -11,6 +8,8 @@ operation transformWsdl(e : Any, sb : Any, context : Map) {
 		transformSchema(e, sb, context);
 	} else if (e.toString().contains("sequence")) {
 		transformSequence(e, sb, context);
+	} else if (e.toString().contains("complexContent")) {
+		transformComplexContent(e, sb, context);
 	} else if (e.toString().contains("complexType")) {
 		transformComplexType(e, sb, context);
 	}  else if (e.toString().contains("element")) {
@@ -19,6 +18,8 @@ operation transformWsdl(e : Any, sb : Any, context : Map) {
 		transformMessage(e, sb, context);
 	}   else if (e.toString().contains("part")) {
 		transformPart(e, sb, context);
+	}   else if (e.toString().contains("extension")) {
+		transformExtention(e, sb, context);
 	} 
 //sb.append("================ transform8 E =================\n");
 }
@@ -33,25 +34,11 @@ operation transformTypes(e : Any, sb : Any, context : Map) {
 	transformChildrenWsdl(sb, context, e);
 }
 
-//operation WSDL!t_types transform(sb : Any, context : Map) {
-//	transformChildren(sb, context, self);
-//}
-
-//operation WSDL!t_types getType(path : String) : String {
-//	return getTypeChildren(path, self);
-//}
 
 operation transformSchema(e : Any, sb : Any, context : Map) {
 	transformChildrenWsdl(sb, context, e);
 }
 
-//operation WSDL!t_schema transform(sb : Any, context : Map) {
-//	transformChildren(sb, context, self);
-//}
-
-//operation WSDL!t_schema getType(path : String) : String {
-//	return getTypeChildren(path, self);
-//}
 
 operation transformSequence(e : Any, sb : Any, context : Map) {
 	if (e.a_maxOccurs <> null and e.a_maxOccurs.length() > 0) {
@@ -60,20 +47,16 @@ operation transformSequence(e : Any, sb : Any, context : Map) {
 	transformChildrenWsdl(sb, context, e);
 }
 
-//operation WSDL!t_sequence transform(sb : Any, context : Map) {
-//	if (self.a_maxOccurs <> null and self.a_maxOccurs.length() > 0) {
-//		addCollection(context, "WSDL");
-//	}
-//	transformChildren(sb, context, self);
-//}
-
-//operation WSDL!t_sequence getType(path : String) : String {
-//	return getTypeChildren(path, self);
-//}
+operation transformComplexContent(e : Any, sb : Any, context : Map) {
+	transformChildrenWsdl(sb, context, e);
+}
 
 operation transformComplexType(e : Any, sb : Any, context : Map) {
 	if (e.a_name.length > 0) {
-		sb.append("public class " + e.a_name);sb.append(" {");newline(sb);
+		sb.append("public class " + e.a_name);
+		if (not hasChild(e, "extension")) {
+			sb.append(" {");newline(sb);
+		}
 	}
 	transformChildrenWsdl(sb, context, e);
 	if (e.a_name.length > 0) {
@@ -81,22 +64,10 @@ operation transformComplexType(e : Any, sb : Any, context : Map) {
 	}
 }
 
-//operation WSDL!t_complexType transform(sb : Any, context : Map) {
-//	if (self.a_name.length > 0) {
-//		sb.append("public class " + self.a_name);sb.append(" {");newline(sb);
-//	}
-//	transformChildren(sb, context, self);
-//	if (self.a_name.length > 0) {
-//		sb.append("}");newline(sb);
-//	}
-//}
-
-//operation WSDL!t_complexType getType(path : String) : String {
-//	return getTypeChildren(path, self);
-//}
-
 operation transformElement(e : Any, sb : Any, context : Map) {
-//operation WSDL!t_element transform(sb : Any, context : Map) {
+	if ("schema".equals(e.parentNode.tagName) and e.children.size() == 0) {
+		sb.append("public class " + e.a_name.firstToUpperCase());sb.append(" {");newline(sb);		
+	}
 	if (e.a_type.length > 0) { // primitive type / leaf
 		var coll = getCollection(context);
 		if (coll <> null and coll.length() > 0) {
@@ -161,15 +132,11 @@ operation transformElement(e : Any, sb : Any, context : Map) {
 			addFactory(context, facType + "Factory");
 		}	
  	}		
+	if ("schema".equals(e.parentNode.tagName) and e.children.size() == 0) {
+		sb.append("}");newline(sb);		
+	}
 }
 
-//operation WSDL!t_element getType(path : String) : String {
-//	if (path.equals(self.a_name.firstToLowerCase())) {
-//		return tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type));
-//	} else {
-//		return getTypeChildren(path, self);
-//	}
-//}
 
 operation transformMessages()  {
 //sb.append("================ transformMessages1 B =================\n");
@@ -181,11 +148,6 @@ operation transformMessages()  {
 //sb.append("================ transformMessages1 e =================\n");
 }
 
-//operation transformMessages(sb : Any, context : Map)  {
-//	for (c in WSDL!t_message.all()) {
-// 		c.transform(sb, context);
-//	}
-//}
 
 operation transformMessage(e : Any, sb : Any, context : Map) {
 	sb.append("public class " + e.a_name.firstToUpperCase() + "_");space(sb);
@@ -207,27 +169,11 @@ operation transformPart(e : Any, sb : Any, context : Map) {
 	sb.append(e.a_name.toLowercase().firstToUpperCase() + "() { return "+ e.a_name.firstToLowerCase() + "; }\n");
 }
 
-/*
-operation WSDL!t_message transform(sb : Any, context : Map) {
-	sb.append("public class " + self.a_name.firstToUpperCase() + "_");space(sb);
-	sb.append("{");newline(sb);
-	transformChildren(sb, context, self);
-	sb.append("}");newline(sb);
-	
-	sb.append(self.a_name.firstToUpperCase() + "_");space(sb);	
-	sb.append(self.a_name.firstToLowerCase() + "_");
-	sb.append(" = new ");	
-	sb.append(self.a_name.firstToUpperCase() + "_();");newline(sb);newline(sb);		
+operation transformExtention(e : Any, sb : Any, context : Map) {
+	sb.append(" extends " + trimNs(e.a_base) + " {\n");
+	transformChildrenWsdl(sb, context, e);
 }
 
-operation WSDL!t_part transform(sb : Any, context : Map) {
-	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_element)).firstToUpperCase());space(sb);
-	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_name.firstToLowerCase())) + " = new ");
-	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_element).firstToUpperCase()) + "();");newline(sb);	
-	sb.append("public " + tranlateXmlPrimitiveTypesToJava(trimNs(self.a_element).firstToUpperCase()) + " get");
-	sb.append(self.a_name.toLowercase().firstToUpperCase() + "() { return "+ self.a_name.firstToLowerCase() + "; }\n");
-}
-*/
 operation getXmlPrimitiveTypes() : Sequence {
 	return "string,int".split(",");
 }

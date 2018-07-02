@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:bpel.casus.ou="http://bpel.casus.ou" xmlns:handlecase.casus.ws.ou="http://handlecase.casus.ws.ou">
+  <process name="bpel.casus.ou:HandleCaseProcess">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="bpel.casus.ou:HandleCaseProcessService" port="HandleCaseProcessPort"/>
+    </provide>
+    <invoke partnerLink="HandleCasePL">
+      <service name="handlecase.casus.ws.ou:HandleCaseService" port="HandleCase"/>
+    </invoke>
+  </process>
+</deploy>

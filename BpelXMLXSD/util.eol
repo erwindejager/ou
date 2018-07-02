@@ -12,6 +12,12 @@ operation trimAllNs(s : String) : String {
 	return path.concat(".");
 }
 
+operation trimAllNsInPath(s : String) : String {
+	var path = s.split("\\/");
+	path = path.collect(o | trimNs(o));
+	return path.concat(".");
+}
+
 operation getLeaf(s : String) : String {
 	return s.split("\\.").last();
 }
@@ -36,6 +42,15 @@ operation isFirstChildSingleLiteral(e : Any) : Boolean {
 
 operation replaceSlash(s : String) : String {
 	return s.replace("/",".");
+}
+
+operation replaceSingleQuote(s : String) : String {
+	return s.replace("'","\"");
+}
+
+operation removeQuote(s : String) : String {
+	var result = s.replace("'","");
+	return result.replace("\"","");
 }
 
 operation makePath(s : String) : String {
@@ -103,4 +118,19 @@ operation transformChildrenTerminal_(sb : Any, e : Any) {
 	for (c in e.children) {
  		c.transformTerminal_(sb);
 	}
+}
+
+operation hasChild(e : Any, cn : String) : Boolean {
+	var result = false;
+	for (c in e.children) {
+		if (cn.equals(trimNs(c.tagName))) {
+			result = true;
+		} else {
+	 		result = hasChild(c, cn);
+		}
+ 		if (result) {
+ 			return result;
+ 		}
+	}
+	return result;
 }

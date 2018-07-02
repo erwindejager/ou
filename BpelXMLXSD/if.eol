@@ -1,29 +1,25 @@
 import "condition.eol";
 
-//operation BPEL!t_if expand() {
-//	self.println();
-//	self.a_name.println();
-//	expandChildren(self);
-//} 
-
 operation BPEL!t_if transform(sb : Any, context : Map) {
 	newline(sb); newline(sb); sb.append("("); space(sb); terminal(sb, self.a_name); space(sb); 
 	transformChildren(sb, context, self);
-	newline(sb); sb.append(")");
+	if (hasChild(self, "else") or hasChild(self, "elseif")) {
+		newline(sb); sb.append(")");
+	} else {
+		var cond = getCondition(context);
+		newline(sb); sb.append("| { !" + cond + " }? )");
+	} 
 }
 
-//operation BPEL!t_else expand() {
-//	self.println();
-///	self.tagname.println();
-//	expandChildren(self);	
-//} 
+operation BPEL!t_elseif transform(sb : Any, context : Map) {
+	newline(sb); newline(sb); sb.append("| ("); space(sb); terminal(sb, "elseif"); space(sb); 
+	transformChildren(sb, context, self);
+	newline(sb); sb.append(")");
+}
 
 operation BPEL!t_else transform(sb : Any, context : Map) {
 	newline(sb);newline(sb); sb.append("|"); space(sb); terminal(sb, "else"); space(sb);
 	var cond = getCondition(context);
 	sb.append("{ !" + cond + " }?");
-//	sb.append("{ if (");
-//	sb.append(cond);
-//	sb.append(") System.out.println(\"ERROR: " + escapeQuotes(cond) + "\"); }");
 	transformChildren(sb, context, self);
 }

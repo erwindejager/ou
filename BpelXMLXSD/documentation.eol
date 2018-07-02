@@ -1,0 +1,3 @@
+operation BPEL!t_throw transform(sb : Any, context : Map) {
+	sb.append("throw");
+}

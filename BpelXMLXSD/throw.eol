@@ -1,3 +1,3 @@
-operation BPEL!t_throw transform(sb : Any, context : Map) {
-	sb.append("throw");
+operation BPEL!t_documentation transform(sb : Any, context : Map) {
+// left empty, ingnore tag
 }

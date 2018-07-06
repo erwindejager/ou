@@ -14,15 +14,65 @@ public class HandleCaseProcess {
     public static void main(String[] args) throws Exception {
     	List<String> requirements = new ArrayList<>();
     	
+    	
     	requirements.add(" (<handleCaseInput.payload.id, '123'>,<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,<handleCaseOutput.payload.result,'?'>) "
     			       + "HandleRequest handleCase InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase PrepareReplyHandleCase ReplyHandleCase" +   
     			         " (<handleCaseInput.payload.id, '123'>,<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,<handleCaseOutput.payload.result,'456'>)");
 
-    	requirements.add(" (<stopCaseInput.parameters.id, '123'>,<stopCaseInput.parameters.id, '123'>) "
-		   	           + "HandleRequest stopCase InitStopCase elseif PrepareInvokeStopCase InvokeStopCase PrepareReplyStopCase ReplyStopCase" +   
-			             " (<stopCaseInput.parameters.id, '123'>,<stopCaseInput.parameters.id, '123'>)");
+    	requirements.add(" ("
+    			 + "<handleObjectionInput.parameters.id, '123'>,"
+				 + "<handleObjectionInput.parameters.type,'New'>,"
+		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
+		         + "<handleObjectionOutput.parameters.result,'?'>) "
+	             + "HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask PrepareReplyHandleObjection ReplyHandleObjection" +   
+	             " ("
+	             + "<handleObjectionInput.parameters.id, '123'>,"
+				 + "<handleObjectionInput.parameters.type,'New'>,"
+		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
+		         + "<handleObjectionOutput.parameters.result,'456'>) "
+	             + ")");
 
-    	
+    	requirements.add(" ("
+   			 + "<handleObjectionInput.parameters.id, '123'>,"
+				 + "<handleObjectionInput.parameters.type,'WithDrawn'>,"
+		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
+		         + "<handleObjectionOutput.parameters.result,'?'>) "
+	             + "HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase else PrepareInvokeStopObjectionCase InvokeStopObjectionCase PrepareReplyHandleObjection ReplyHandleObjection" +   
+	             " ("
+	             + "<handleObjectionInput.parameters.id, '123'>,"
+				 + "<handleObjectionInput.parameters.type,'WithDrawn'>,"
+		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
+		         + "<handleObjectionOutput.parameters.result,'456'>) "
+	             + ")");
+
+    	requirements.add(" ("
+      			 + "<handleParkedCaseInput.parameters.id, '123'>,"
+   				 + "<handleParkedCaseInput.parameters.type,'D'>,"
+   		         + "<handleParkedCaseOutput.parameters.result,'?'>"
+   		         + ") "
+   	             + "HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase PrepareReplyHandleParkedCase ReplyHandleParkedCase" +   
+   	             " ("
+   	             + "<handleParkedCaseInput.parameters.id, '123'>,"
+   				 + "<handleParkedCaseInput.parameters.type,'D'>,"
+   		         + "<handleParkedCaseOutput.parameters.result,'Ok'>) "
+   	             + ")");
+
+    	requirements.add(" ("
+     			 + "<handleParkedCaseInput.parameters.id, '123'>,"
+  				 + "<handleParkedCaseInput.parameters.type,'P'>,"
+  		         + "<handleParkedCaseOutput.parameters.result,'?'>"
+  		         + ") "
+  	             + "HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase PrepareReplyHandleParkedCase ReplyHandleParkedCase" +   
+  	             " ("
+  	             + "<handleParkedCaseInput.parameters.id, '123'>,"
+  				 + "<handleParkedCaseInput.parameters.type,'P'>,"
+  		         + "<handleParkedCaseOutput.parameters.result,'Ok'>) "
+  	             + ")");
+
+    	requirements.add(" (<stopCaseInput.parameters.id, '123'>,<stopCaseOutput.parameters.result, '?'>) "
+		   	           + "HandleRequest stopCase InitStopCase elseif PrepareInvokeStopCase InvokeStopCase PrepareReplyStopCase ReplyStopCase" +   
+			             " (<stopCaseInput.parameters.id, '123'>,<stopCaseOutput.parameters.result, 'Ok'>)");
+   	
 
     	for (String s : requirements) {
         	testRequirement(s);    		

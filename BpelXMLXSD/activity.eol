@@ -1,5 +1,7 @@
 import "util.eol";
 import "assign.eol";
+import "catch.eol";
+import "documentation.eol";
 import "if.eol";
 import "invoke.eol";
 import "pick.eol";

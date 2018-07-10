@@ -57,6 +57,10 @@ operation makePath(s : String) : String {
 	return s.replace("\\.","/");
 }
 
+operation asString(s : String) : String {
+	return "\"" + s + "\"";
+}
+
 operation transformChildren(sb : Any, context : Map, e : Any) {
 	for (c in e.children) {
  		c.transform(sb, context);

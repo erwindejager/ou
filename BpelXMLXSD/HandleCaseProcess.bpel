@@ -481,7 +481,9 @@
                             </bpel:copy>
                         </bpel:assign>
                         
-                        <bpel:invoke name="InvokeRegisterCase" partnerLink="HandleCasePL" operation="registerCase" portType="ns:HandleCase" inputVariable="registerCaseRequest" outputVariable="registerCaseReply"><bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException"><bpel:sequence name="Rollback">
+                        <bpel:invoke name="InvokeRegisterCase" partnerLink="HandleCasePL" operation="registerCase" portType="ns:HandleCase" inputVariable="registerCaseRequest" outputVariable="registerCaseReply">
+                        <bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException">
+                        <bpel:sequence name="Rollback">
                                     <bpel:assign validate="no" name="PrepareRollback">
                                         <bpel:copy>
                                             <bpel:from>
@@ -494,7 +496,8 @@
                                     </bpel:assign>
                                     
                                     <bpel:throw name="StopProcess" faultVariable="exception" faultName="tns:RollbackTransaction"></bpel:throw>
-                                    </bpel:sequence></bpel:catch></bpel:invoke>
+                                    </bpel:sequence>
+                        </bpel:catch></bpel:invoke>
                         
                         
                         <bpel:assign validate="no" name="SaveTicket">

@@ -3,7 +3,9 @@ import "to.eol";
 
 operation BPEL!t_copy transform(sb : Any, context : Map) {
 	newline(sb);
-	var to = getFromPath(sb, context,self);
+	var to = getFromPath(sb, context, self);
+	var toType = getToType(self);
+	
 	if (to <> null and to.length() > 0) {
 		sb.append(to);
 	} else {
@@ -14,10 +16,15 @@ operation BPEL!t_copy transform(sb : Any, context : Map) {
 	if (not isFirstChildSingleLiteral(getFrom(self))) {
 		sb.append(" = ");
 	}
-	getFrom(self).transform(sb, context);
+	getFrom(self).transform(sb, context, toType);
 	if (not isFirstChildSingleLiteral(getFrom(self))) {
 		sb.append(";");
 	}
 	getType(context);
 } 
 
+operation getToType(to : Any) : String {
+	var sbTo := new Native("java.lang.StringBuilder");
+	getTo(to).transform(sbTo, context);
+	return getType_(getLeaf(sbTo.toString()));
+}

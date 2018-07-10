@@ -66,7 +66,9 @@ operation transformComplexType(e : Any, sb : Any, context : Map) {
 
 operation transformElement(e : Any, sb : Any, context : Map) {
 	if ("schema".equals(e.parentNode.tagName) and e.children.size() == 0) {
-		sb.append("public class " + e.a_name.firstToUpperCase());sb.append(" {");newline(sb);		
+		sb.append("public class " + e.a_name.firstToUpperCase());
+		sb.append(" extends " + trimNs(e.a_type)); 
+		sb.append(" {}");newline(sb);		
 	}
 	if (e.a_type.length > 0) { // primitive type / leaf
 		var coll = getCollection(context);
@@ -132,9 +134,6 @@ operation transformElement(e : Any, sb : Any, context : Map) {
 			addFactory(context, facType + "Factory");
 		}	
  	}		
-	if ("schema".equals(e.parentNode.tagName) and e.children.size() == 0) {
-		sb.append("}");newline(sb);		
-	}
 }
 
 

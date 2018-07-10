@@ -14,49 +14,14 @@ operation antlrMembers(sb : Any) {
   	sb.append("@members {"); newline(sb);
 	sb.append("Map<String,Object> varMap = new HashMap();\n"); 
 	sb.append("Map<String,String> vMap = new HashMap();\n");
+	sb.append("String catchExceptionPoint = \"\";\n");
 	newline(sb);
 	transformTypes();
-  	//getTypes().transform(sb,context);
   	transformMessages();
   	getVariables().transformMembers(sb);newline(sb);
-  	//antlrVerify(sb);newline(sb);
-  	//antlrQuote(sb);newline(sb);
-  	//antlrXPath(sb);
   	sb.append("}"); newline(sb); newline(sb);
 }
 
-/*
-operation antlrVerify(sb : Any) {
-	sb.append("	boolean verify() {\n");
-	sb.append("		boolean result = true;\n");
-	sb.append("		for (String key : vMap.keySet()) {\n");
-	sb.append("			String expectedVal = trimQuote(vMap.get(key));\n");
-	sb.append("			String actualValue = getVarValue(key);\n");
-	sb.append("			if (!expectedVal.equals(actualValue)) {\n");
-	sb.append("				System.out.println(\"Actual: \" + key + \" : \" + actualValue + \" <> Expected: \" + key + \" : \" + expectedVal);\n");
-	sb.append("				result = false;	\n");
-	sb.append("			}\n");
-	sb.append("		}\n");
-	sb.append("		return result;\n");
-	sb.append("	}\n");
-}
-
-operation antlrQuote(sb : Any) {
-	sb.append("String addQuote(String s) { return \"'\" + s +\"'\"; }\n");
- 	sb.append("String trimQuote(String s) { return s.replace(\"'\",\"\"); }\n");
-}
-
-operation antlrXPath(sb : Any) {
-	sb.append("JXPathContext getCtx(String varPath) {\n");
- 	sb.append("String s = varPath.substring(0, varPath.indexOf('.'));\n");
-	sb.append("return JXPathContext.newContext(varMap.get(s)); }\n\n");
- 	sb.append("String getxPath(String varPath) {\n");
-	sb.append("String path = varPath.substring(varPath.indexOf('.') + 1);\n");
- 	sb.append("return path.replace(\".\", \"/\"); }\n\n");
-	sb.append("void setVarValue(String path, String value) { getCtx(path).setValue(getxPath(path), value); }\n");
- 	sb.append("String getVarValue(String path) { return (String)getCtx(path).getValue(getxPath(path)); }\n");
-}
-*/
 operation antlrCallVerify(sb : Any) {
 	sb.append("  if (!Utils.verify(vMap, varMap)) {\n");
 	sb.append("	    System.out.println(\"ERROR: unexpected output\");\n"); 
@@ -89,6 +54,8 @@ operation antlrKV(sb : Any) {
 
 operation antlrTypes(sb : Any) {
 	newline(sb); 
+	sb.append("exit: v\n");
+	sb.append("{ throw new ParseCatchException(catchExceptionPoint); };\n");
   	sb.append("key : varname ;\n");
   	sb.append("value : STRING ;\n");
   	sb.append("index : '[' NUMBER ']' ;\n");

@@ -6,7 +6,7 @@ operation getFrom(parent : Any) : BPEL!t_from {
  	return parent.children.select(o|o.isTypeOf(BPEL!t_from)).first();
 }
 
-operation BPEL!t_from transform(sb : Any, context : Map) {
+operation BPEL!t_from transform(sb : Any, context : Map, toType : String) {
 	if (self.a_variable.length > 0) {
 		sb.append(self.a_variable.firstToLowerCase());
 		if(self.a_part.length > 0) {
@@ -14,7 +14,11 @@ operation BPEL!t_from transform(sb : Any, context : Map) {
 		}
  	} else { // CDATA
 	 	if (self.children.size() == 0) {
-	 		sb.append(xpath(self.text.trim()));
+	 		var result = xpath(self.text.trim());
+	 		if ("string".equals(toType)) {
+	 			result = asString(result);
+	 		}
+	 		sb.append(result);
  		}
  	}
 	transformChildren(sb, context, self);

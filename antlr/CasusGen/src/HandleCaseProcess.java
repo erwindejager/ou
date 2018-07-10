@@ -4,10 +4,12 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 public class HandleCaseProcess {
@@ -15,63 +17,115 @@ public class HandleCaseProcess {
     	List<String> requirements = new ArrayList<>();
     	
     	
-    	requirements.add(" (<handleCaseInput.payload.id, '123'>,<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,<handleCaseOutput.payload.result,'?'>) "
-    			       + "HandleRequest handleCase InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase PrepareReplyHandleCase ReplyHandleCase" +   
-    			         " (<handleCaseInput.payload.id, '123'>,<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,<handleCaseOutput.payload.result,'456'>)");
+    	requirements.add(" "
+    			+ "("
+    			+ "<handleCaseInput.payload.id, '123'>,"
+    			+ "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
+    			+ "<handleCaseOutput.payload.result,'?'>"
+    			+ ") "
+    			+ "HandleRequest handleCase InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase PrepareReplyHandleCase ReplyHandleCase"
+    			+ " ("
+    			+ "<handleCaseInput.payload.id, '123'>,"
+    			+ "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
+    			+ "<handleCaseOutput.payload.result,'456'>"
+    			+ ")");
 
-    	requirements.add(" ("
+    	requirements.add(" "
+    			+ "("
+    			+ "<handleCaseInput.payload.id, '123'>,"
+    			+ "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
+    			+ "<handleCaseOutput.payload.result,'?'>,"
+    			+ "<exception.fault.faultInfo.faultCode,'?'>"
+    			+ ") "
+			    + "HandleRequest handleCase InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase PrepareRollback StopProcess"
+			    + " ("
+			    + "<handleCaseInput.payload.id, '123'>,"
+			    + "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
+			    + "<handleCaseOutput.payload.result,'?'>,"
+    			+ "<exception.fault.faultInfo.faultCode,'-1'>"
+			    + ")");
+    	
+    	requirements.add(" "
+    			+ "("
+    			+ "<handleCaseInput.payload.id, '123'>,"
+    			+ "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
+    			+ "<handleCaseOutput.payload.result,'?'>,"
+    			+ "<exception.fault.faultInfo.faultCode,'?'>"
+    			+ ") "
+			    + "HandleRequest handleCase InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareExceptionTask InvokeCreateExceptionTask StopProcess"
+			    + " ("
+			    + "<handleCaseInput.payload.id, '123'>,"
+			    + "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
+			    + "<handleCaseOutput.payload.result,'?'>,"
+    			+ "<exception.fault.faultInfo.faultCode,'2'>"
+			    + ")");
+  	
+    	requirements.add(" "
+    			 + "("
     			 + "<handleObjectionInput.parameters.id, '123'>,"
 				 + "<handleObjectionInput.parameters.type,'New'>,"
 		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
-		         + "<handleObjectionOutput.parameters.result,'?'>) "
-	             + "HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask PrepareReplyHandleObjection ReplyHandleObjection" +   
-	             " ("
+		         + "<handleObjectionOutput.parameters.result,'?'>"
+		         + ") "
+	             + "HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask PrepareReplyHandleObjection ReplyHandleObjection" 
+		         + " ("
 	             + "<handleObjectionInput.parameters.id, '123'>,"
 				 + "<handleObjectionInput.parameters.type,'New'>,"
 		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
-		         + "<handleObjectionOutput.parameters.result,'456'>) "
+		         + "<handleObjectionOutput.parameters.result,'456'>"
 	             + ")");
 
-    	requirements.add(" ("
-   			 + "<handleObjectionInput.parameters.id, '123'>,"
+    	requirements.add(" "
+    			 + "("
+   			     + "<handleObjectionInput.parameters.id, '123'>,"
 				 + "<handleObjectionInput.parameters.type,'WithDrawn'>,"
 		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
-		         + "<handleObjectionOutput.parameters.result,'?'>) "
-	             + "HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase else PrepareInvokeStopObjectionCase InvokeStopObjectionCase PrepareReplyHandleObjection ReplyHandleObjection" +   
-	             " ("
+		         + "<handleObjectionOutput.parameters.result,'?'>"
+		         + ") "
+	             + "HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase else PrepareInvokeStopObjectionCase InvokeStopObjectionCase PrepareReplyHandleObjection ReplyHandleObjection" 
+		         + " ("
 	             + "<handleObjectionInput.parameters.id, '123'>,"
 				 + "<handleObjectionInput.parameters.type,'WithDrawn'>,"
 		         + "<registerObjectionCaseReply.parameters.registerObjectionCaseReturn.ticketId,'456'>,"
-		         + "<handleObjectionOutput.parameters.result,'456'>) "
+		         + "<handleObjectionOutput.parameters.result,'456'>"
 	             + ")");
 
-    	requirements.add(" ("
+    	requirements.add(" "
+    			 + "("
       			 + "<handleParkedCaseInput.parameters.id, '123'>,"
    				 + "<handleParkedCaseInput.parameters.type,'D'>,"
    		         + "<handleParkedCaseOutput.parameters.result,'?'>"
    		         + ") "
-   	             + "HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase PrepareReplyHandleParkedCase ReplyHandleParkedCase" +   
-   	             " ("
+   	             + "HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase PrepareReplyHandleParkedCase ReplyHandleParkedCase" 
+   		         + " ("
    	             + "<handleParkedCaseInput.parameters.id, '123'>,"
    				 + "<handleParkedCaseInput.parameters.type,'D'>,"
-   		         + "<handleParkedCaseOutput.parameters.result,'Ok'>) "
+   		         + "<handleParkedCaseOutput.parameters.result,'Ok'>"
    	             + ")");
 
-    	requirements.add(" ("
+    	requirements.add(" "
+    			 + "("
      			 + "<handleParkedCaseInput.parameters.id, '123'>,"
   				 + "<handleParkedCaseInput.parameters.type,'P'>,"
   		         + "<handleParkedCaseOutput.parameters.result,'?'>"
   		         + ") "
-  	             + "HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase PrepareReplyHandleParkedCase ReplyHandleParkedCase" +   
-  	             " ("
+  	             + "HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase PrepareReplyHandleParkedCase ReplyHandleParkedCase" 
+  		         + " ("
   	             + "<handleParkedCaseInput.parameters.id, '123'>,"
   				 + "<handleParkedCaseInput.parameters.type,'P'>,"
-  		         + "<handleParkedCaseOutput.parameters.result,'Ok'>) "
+  		         + "<handleParkedCaseOutput.parameters.result,'Ok'>"
   	             + ")");
 
-    	requirements.add(" (<stopCaseInput.parameters.id, '123'>,<stopCaseOutput.parameters.result, '?'>) "
-		   	           + "HandleRequest stopCase InitStopCase elseif PrepareInvokeStopCase InvokeStopCase PrepareReplyStopCase ReplyStopCase" +   
-			             " (<stopCaseInput.parameters.id, '123'>,<stopCaseOutput.parameters.result, 'Ok'>)");
+    	requirements.add(" "
+    			+ "("
+    			+ "<stopCaseInput.parameters.id, '123'>,"
+    			+ "<stopCaseOutput.parameters.result, '?'>"
+    			+ ") "
+		   	    + "HandleRequest stopCase InitStopCase elseif PrepareInvokeStopCase InvokeStopCase PrepareReplyStopCase ReplyStopCase"
+    			+ " ("
+    			+ "<stopCaseInput.parameters.id, '123'>,"
+    			+ "<stopCaseOutput.parameters.result, 'Ok'>"
+    			+ ")");
    	
 
     	for (String s : requirements) {
@@ -105,7 +159,13 @@ public class HandleCaseProcess {
 			}			
 		});		
 		
-		ParseTree tree = parser.handlecaseprocess(); 
-		System.out.println(tree.toStringTree(parser)); // print LISP-style tree
+		parser.setErrorHandler(new BailErrorStrategy());
+		
+		try {
+			ParseTree tree = parser.handlecaseprocess(); 
+			System.out.println(tree.toStringTree(parser)); // print LISP-style tree
+		} catch (ParseCatchException e) {
+			System.out.println("Handle catch : " + e.getMsg());
+		}
 	}
 }

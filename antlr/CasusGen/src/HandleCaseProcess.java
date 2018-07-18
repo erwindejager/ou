@@ -57,7 +57,7 @@ public class HandleCaseProcess {
 			    + "<handleCaseInput.payload.id, '123'>,"
 			    + "<registerCaseReply.parameters.registerCaseReturn.ticketId,'456'>,"
 			    + "<handleCaseOutput.payload.result,'?'>,"
-    			+ "<exception.fault.faultInfo.faultCode,'2'>"
+    			+ "<exception.fault.faultInfo.faultCode,'1'>"
 			    + ")");
   	
     	requirements.add(" "

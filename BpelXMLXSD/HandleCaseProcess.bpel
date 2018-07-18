@@ -250,20 +250,7 @@
                         
                     </bpel:assign>
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </bpel:sequence>
+             </bpel:sequence>
             </bpel:onMessage>
             <bpel:onMessage partnerLink="client" operation="stopCase" portType="tns:HandleCaseProcess" variable="stopCaseInput">
                 <bpel:sequence name="PrepareInvokeStopCase">
@@ -362,20 +349,7 @@
                             <bpel:to variable="caseHandlingTrigger"></bpel:to>
                         </bpel:copy>
                     </bpel:assign>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                     
                 </bpel:sequence>
             
             </bpel:onMessage>
@@ -441,7 +415,7 @@
             <bpel:copy>
                 <bpel:from><bpel:literal xml:space="preserve"><impl:registerCase xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <impl:requestInput>
-    <impl:errorIndicator>impl:errorIndicator</impl:errorIndicator>
+    <impl:errorIndicator>Ok</impl:errorIndicator>
     <impl:id>impl:id</impl:id>
     <impl:type>impl:type</impl:type>
   </impl:requestInput>
@@ -479,25 +453,34 @@
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:errorIndicator]]></bpel:query>
                                 </bpel:to>
                             </bpel:copy>
-                        </bpel:assign>
                         
-                        <bpel:invoke name="InvokeRegisterCase" partnerLink="HandleCasePL" operation="registerCase" portType="ns:HandleCase" inputVariable="registerCaseRequest" outputVariable="registerCaseReply">
-                        <bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException">
-                        <bpel:sequence name="Rollback">
+                        
+                    </bpel:assign>
+                        
+                        <bpel:invoke name="InvokeRegisterCase" partnerLink="HandleCasePL" operation="registerCase" portType="ns:HandleCase" inputVariable="registerCaseRequest" outputVariable="registerCaseReply"><bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException"><bpel:sequence name="Rollback">
                                     <bpel:assign validate="no" name="PrepareRollback">
-                                        <bpel:copy>
-                                            <bpel:from>
-                                                <bpel:literal xml:space="preserve">-1</bpel:literal>
-                                            </bpel:from>
-                                            <bpel:to part="fault" variable="exception">
-                                                <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultCode]]></bpel:query>
-                                            </bpel:to>
-                                        </bpel:copy>
-                                    </bpel:assign>
+                                    
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">-1</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultCode]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">RegisterCase</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultString]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                    
+                                </bpel:assign>
                                     
                                     <bpel:throw name="StopProcess" faultVariable="exception" faultName="tns:RollbackTransaction"></bpel:throw>
-                                    </bpel:sequence>
-                        </bpel:catch></bpel:invoke>
+                                    </bpel:sequence></bpel:catch></bpel:invoke>
                         
                         
                         <bpel:assign validate="no" name="SaveTicket">
@@ -509,11 +492,11 @@
                             </bpel:copy>
                         </bpel:assign>
                     </bpel:sequence>
-                        <bpel:sequence name="CreateCase"><bpel:assign validate="no" name="PrepareInvokeCreateCase">
-                            <bpel:copy>
+                        <bpel:sequence name="CreateCase">
+                    <bpel:assign validate="no" name="PrepareInvokeCreateCase"><bpel:copy>
                                 <bpel:from><bpel:literal xml:space="preserve"><impl:createCase xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <impl:requestInput xsi:type="impl:WsRequest">
-    <impl:errorIndicator>Okk</impl:errorIndicator>
+    <impl:errorIndicator>Ok</impl:errorIndicator>
     <impl:id>impl:id</impl:id>
   </impl:requestInput>
 </impl:createCase></bpel:literal></bpel:from>
@@ -529,47 +512,51 @@
                                 </bpel:to>
                             </bpel:copy>
                             
-                        </bpel:assign>
-                        <bpel:invoke name="InvokeCreateCase" partnerLink="HandleCasePL" operation="createCase" portType="ns:HandleCase" inputVariable="createCaseRequest" outputVariable="createCaseReply"><bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException"><bpel:sequence name="CreateExceptionTask">
+                        
+                    </bpel:assign>
+                    <bpel:invoke name="InvokeCreateCase" partnerLink="HandleCasePL" operation="createCase" portType="ns:HandleCase" inputVariable="createCaseRequest" outputVariable="createCaseReply">
+                    	<bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException">
+                    	<bpel:sequence name="CreateExceptionTask">
                                     
-                                    
-                                    <bpel:assign validate="no" name="PrepareExceptionTask">
-                                        <bpel:copy>
-                                            <bpel:from><bpel:literal><impl:fault xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <impl:faultInfo>
-    <impl:faultCode>impl:faultCode</impl:faultCode>
-    <impl:faultString>impl:faultString</impl:faultString>
-  </impl:faultInfo>
-</impl:fault>
-</bpel:literal></bpel:from>
-                                            <bpel:to variable="exception" part="fault"></bpel:to>
-                                        </bpel:copy>
-                                        <bpel:copy>
-                                            <bpel:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                                <![CDATA[2]]>
-                                            </bpel:from>
-                                            <bpel:to part="fault" variable="exception">
-                                                <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultCode]]></bpel:query>
-                                            </bpel:to>
-                                        </bpel:copy>
+                        	<bpel:assign validate="no" name="PrepareExceptionTask">
                                     <bpel:copy>
                                         <bpel:from>
-                                            <bpel:literal xml:space="preserve"><impl:createExceptionTask xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <impl:requestInput>
-    <impl:exceptionPoint>impl:exceptionPoint</impl:exceptionPoint>
-    <impl:id>impl:id</impl:id>
-    <impl:triggerEvent>impl:triggerEvent</impl:triggerEvent>
-  </impl:requestInput>
-</impl:createExceptionTask>
-</bpel:literal>
+                                            <bpel:literal xml:space="preserve">1</bpel:literal>
                                         </bpel:from>
-                                        <bpel:to part="parameters" variable="createExceptionTaskRequest"></bpel:to>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultCode]]></bpel:query>
+                                        </bpel:to>
                                     </bpel:copy>
-                                    
-                                </bpel:assign>
-                                <bpel:invoke name="InvokeCreateExceptionTask" partnerLink="HandleCasePL" operation="createExceptionTask" portType="ns:HandleCase" inputVariable="createExceptionTaskRequest" outputVariable="createExceptionTaskReply"></bpel:invoke>
-                                <bpel:throw name="StopProcess" faultVariable="exception" faultName="tns:ServiceFault"></bpel:throw>
-                                </bpel:sequence></bpel:catch></bpel:invoke>
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">CreateCase</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultString]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                        
+                                <bpel:copy>
+    	                            <bpel:from>
+                                    <bpel:literal xml:space="preserve">
+	    	                            <impl:createExceptionTask xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+									  		<impl:requestInput>
+										    	<impl:exceptionPoint>impl:exceptionPoint</impl:exceptionPoint>
+										    	<impl:id>impl:id</impl:id>
+										    	<impl:triggerEvent>impl:triggerEvent</impl:triggerEvent>
+										  	</impl:requestInput>
+										</impl:createExceptionTask>
+									</bpel:literal>
+                                    </bpel:from>
+                                    <bpel:to part="parameters" variable="createExceptionTaskRequest"></bpel:to>
+                            	</bpel:copy>
+                         	</bpel:assign>
+                            
+                            <bpel:invoke name="InvokeCreateExceptionTask" partnerLink="HandleCasePL" operation="createExceptionTask" portType="ns:HandleCase" inputVariable="createExceptionTaskRequest" outputVariable="createExceptionTaskReply"></bpel:invoke>
+                            <bpel:throw name="StopProcess" faultVariable="exception" faultName="tns:ServiceFault"></bpel:throw>
+                        </bpel:sequence>
+                        </bpel:catch>
+                   	</bpel:invoke>
                     
                         </bpel:sequence>
                         <bpel:sequence name="ValidateCase"><bpel:assign validate="no" name="PrepareInvokeValidateCase">
@@ -590,8 +577,50 @@
                                 </bpel:to>
                             </bpel:copy>
                         </bpel:assign>
-                        <bpel:invoke name="InvokeValidateCase" partnerLink="HandleCasePL" operation="validateCase" portType="ns:HandleCase" inputVariable="validateCaseRequest" outputVariable="validateCaseReply"></bpel:invoke>
-                    
+                  	<bpel:invoke name="InvokeValidateCase" partnerLink="HandleCasePL" operation="validateCase" portType="ns:HandleCase" inputVariable="validateCaseRequest" outputVariable="validateCaseReply">
+	              	<bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException">
+                    	<bpel:sequence name="CreateExceptionTask">
+                                    
+                        	<bpel:assign validate="no" name="PrepareExceptionTask">
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">1</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultCode]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">ValidateCase</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultString]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                        
+                                <bpel:copy>
+    	                            <bpel:from>
+                                    <bpel:literal xml:space="preserve">
+	    	                            <impl:createExceptionTask xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+									  		<impl:requestInput>
+										    	<impl:exceptionPoint>impl:exceptionPoint</impl:exceptionPoint>
+										    	<impl:id>impl:id</impl:id>
+										    	<impl:triggerEvent>impl:triggerEvent</impl:triggerEvent>
+										  	</impl:requestInput>
+										</impl:createExceptionTask>
+									</bpel:literal>
+                                    </bpel:from>
+                                    <bpel:to part="parameters" variable="createExceptionTaskRequest"></bpel:to>
+                            	</bpel:copy>
+                         	</bpel:assign>
+                            
+                            <bpel:invoke name="InvokeCreateExceptionTask" partnerLink="HandleCasePL" operation="createExceptionTask" portType="ns:HandleCase" inputVariable="createExceptionTaskRequest" outputVariable="createExceptionTaskReply"></bpel:invoke>
+                            <bpel:throw name="StopProcess" faultVariable="exception" faultName="tns:ServiceFault"></bpel:throw>
+                        </bpel:sequence>
+                        </bpel:catch>  
+                  	</bpel:invoke>
+                  	
                             <bpel:sequence name="ParkCase"><bpel:assign validate="no" name="PrepareInvokeParkCase">
                             <bpel:copy>
                                 <bpel:from><bpel:literal xml:space="preserve"><impl:parkCase xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -610,7 +639,49 @@
                                 </bpel:to>
                             </bpel:copy>
                         </bpel:assign>
-                        <bpel:invoke name="InvokeParkCase" partnerLink="HandleCasePL" operation="parkCase" portType="ns:HandleCase" inputVariable="parkCaseRequest" outputVariable="parkCaseReply"></bpel:invoke>
+               		<bpel:invoke name="InvokeParkCase" partnerLink="HandleCasePL" operation="parkCase" portType="ns:HandleCase" inputVariable="parkCaseRequest" outputVariable="parkCaseReply">
+	              	<bpel:catch faultName="ns:WsException" faultVariable="exception" faultMessageType="ns:WsException">
+                    	<bpel:sequence name="CreateExceptionTask">
+                                    
+                        	<bpel:assign validate="no" name="PrepareExceptionTask">
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">1</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultCode]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>
+                                            <bpel:literal xml:space="preserve">ParkCase</bpel:literal>
+                                        </bpel:from>
+                                        <bpel:to part="fault" variable="exception">
+                                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:faultInfo/ns:faultString]]></bpel:query>
+                                        </bpel:to>
+                                    </bpel:copy>
+                                        
+                                <bpel:copy>
+    	                            <bpel:from>
+                                    <bpel:literal xml:space="preserve">
+	    	                            <impl:createExceptionTask xmlns:impl="http://handlecase.casus.ws.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+									  		<impl:requestInput>
+										    	<impl:exceptionPoint>impl:exceptionPoint</impl:exceptionPoint>
+										    	<impl:id>impl:id</impl:id>
+										    	<impl:triggerEvent>impl:triggerEvent</impl:triggerEvent>
+										  	</impl:requestInput>
+										</impl:createExceptionTask>
+									</bpel:literal>
+                                    </bpel:from>
+                                    <bpel:to part="parameters" variable="createExceptionTaskRequest"></bpel:to>
+                            	</bpel:copy>
+                         	</bpel:assign>
+                            
+                            <bpel:invoke name="InvokeCreateExceptionTask" partnerLink="HandleCasePL" operation="createExceptionTask" portType="ns:HandleCase" inputVariable="createExceptionTaskRequest" outputVariable="createExceptionTaskReply"></bpel:invoke>
+                            <bpel:throw name="StopProcess" faultVariable="exception" faultName="tns:ServiceFault"></bpel:throw>
+                        </bpel:sequence>
+                        </bpel:catch>  
+                    </bpel:invoke>
                     
                             </bpel:sequence>
                         </bpel:sequence>

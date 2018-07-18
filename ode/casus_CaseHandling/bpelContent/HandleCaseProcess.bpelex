@@ -106,7 +106,7 @@
   </extensions>
   <extensions>
     <extendedObject href="HandleCaseProcess.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1530866524181"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1531943699897"/>
   </extensions>
   <extensions>
     <extendedObject href="HandleCaseProcess.bpel#//@variables/@children.26"/>
@@ -569,10 +569,6 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
     <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@faultHandler/@catch.0/@activity/@activities.0"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
@@ -621,10 +617,6 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
     <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@activities.1/@faultHandler/@catch.0/@activity/@activities.0"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
@@ -654,30 +646,6 @@
   </extensions>
   <extensions>
     <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.0/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.0/@copy.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
   <extensions>
@@ -841,7 +809,7 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
@@ -886,6 +854,106 @@
   </extensions>
   <extensions>
     <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@elseIf.0/@activity/@activities.5/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@faultVariable"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@faultVariable"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="HandleCaseProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@activities.2/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
 </extensionmodel:ExtensionMap>

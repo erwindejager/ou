@@ -1,0 +1,91 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="D:\tools\Apache Software Foundation\Tomcat 8.5_Tomcat85WS\wtpwebapps\RequestWS\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="HandleRequestWS" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="processRequest" qname="ns1:processRequest" returnQName="ns1:processRequestReturn" returnType="ns1:WsResponse" soapAction="" xmlns:ns1="http://request.ws.ou" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:requestInput" type="ns1:WsRequest"/>
+   <ns2:fault class="ou.ws.request.WsException" qname="ns1:fault" type="ns1:WsException"/>
+  </ns2:operation>
+  <ns1:operation name="checkProcessability" qname="ns2:checkProcessability" returnQName="ns2:checkProcessabilityReturn" returnType="ns2:WsResponse" soapAction="" xmlns:ns2="http://request.ws.ou">
+   <ns1:parameter qname="ns2:requestInput" type="ns2:WsRequest"/>
+   <ns1:fault class="ou.ws.request.WsException" qname="ns2:fault" type="ns2:WsException"/>
+  </ns1:operation>
+  <ns1:operation name="createExceptionTask" qname="ns3:createExceptionTask" returnQName="ns3:createExceptionTaskReturn" returnType="ns3:WsResponse" soapAction="" xmlns:ns3="http://request.ws.ou">
+   <ns1:parameter qname="ns3:requestInput" type="ns3:WsExceptionTaskRequest"/>
+   <ns1:fault class="ou.ws.request.WsException" qname="ns3:fault" type="ns3:WsException"/>
+  </ns1:operation>
+  <ns1:operation name="classifyRequest" qname="ns4:classifyRequest" returnQName="ns4:classifyRequestReturn" returnType="ns4:WsResponse" soapAction="" xmlns:ns4="http://request.ws.ou">
+   <ns1:parameter qname="ns4:requestInput" type="ns4:WsRequest"/>
+   <ns1:fault class="ou.ws.request.WsException" qname="ns4:fault" type="ns4:WsException"/>
+  </ns1:operation>
+  <ns1:operation name="createManualTask" qname="ns5:createManualTask" returnQName="ns5:createManualTaskReturn" returnType="ns5:WsResponse" soapAction="" xmlns:ns5="http://request.ws.ou">
+   <ns1:parameter qname="ns5:requestInput" type="ns5:WsRequest"/>
+   <ns1:fault class="ou.ws.request.WsException" qname="ns5:fault" type="ns5:WsException"/>
+  </ns1:operation>
+  <ns1:operation name="rejectRequestWS" qname="ns6:rejectRequestWS" returnQName="ns6:rejectRequestWSReturn" returnType="ns6:WsResponse" soapAction="" xmlns:ns6="http://request.ws.ou">
+   <ns1:parameter qname="ns6:requestInput" type="ns6:WsRequest"/>
+   <ns1:fault class="ou.ws.request.WsException" qname="ns6:fault" type="ns6:WsException"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="createExceptionTask classifyRequest checkProcessability createManualTask processRequest rejectRequestWS"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="HandleRequestWS"/>
+  <ns1:parameter name="className" value="ou.ws.request.HandleRequestWS"/>
+  <ns1:parameter name="wsdlServicePort" value="HandleRequestWS"/>
+  <ns1:parameter name="schemaQualified" value="http://request.ws.ou"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://request.ws.ou"/>
+  <ns1:parameter name="wsdlServiceElement" value="HandleRequestWSService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.request.WsExceptionTaskRequest" xmlns:ns7="http://request.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.request.WsResponse" xmlns:ns8="http://request.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.request.WsException" xmlns:ns9="http://request.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.request.WsFault" xmlns:ns10="http://request.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.request.WsRequest" xmlns:ns11="http://request.ws.ou"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from HandleRequestWSService WSDL service -->
+
+  <service name="HandleRequestWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://request.ws.ou"/>
+      <parameter name="wsdlServiceElement" value="HandleRequestWSService"/>
+      <parameter name="schemaQualified" value="http://request.ws.ou"/>
+      <parameter name="wsdlServicePort" value="HandleRequestWS"/>
+      <parameter name="className" value="ou.ws.request.HandleRequestWS"/>
+      <parameter name="wsdlPortType" value="HandleRequestWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://request.ws.ou" xmlns:retNS="http://request.ws.ou" xmlns:rtns="http://request.ws.ou" name="processRequest" qname="operNS:processRequest" returnQName="retNS:processRequestReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.request.WsException" type="tns:WsException"/>
+      </operation>
+      <operation xmlns:operNS="http://request.ws.ou" xmlns:retNS="http://request.ws.ou" xmlns:rtns="http://request.ws.ou" name="checkProcessability" qname="operNS:checkProcessability" returnQName="retNS:checkProcessabilityReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.request.WsException" type="tns:WsException"/>
+      </operation>
+      <operation xmlns:operNS="http://request.ws.ou" xmlns:retNS="http://request.ws.ou" xmlns:rtns="http://request.ws.ou" name="createExceptionTask" qname="operNS:createExceptionTask" returnQName="retNS:createExceptionTaskReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" qname="pns:requestInput" type="tns:WsExceptionTaskRequest"/>
+        <fault xmlns:fns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.request.WsException" type="tns:WsException"/>
+      </operation>
+      <operation xmlns:operNS="http://request.ws.ou" xmlns:retNS="http://request.ws.ou" xmlns:rtns="http://request.ws.ou" name="classifyRequest" qname="operNS:classifyRequest" returnQName="retNS:classifyRequestReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.request.WsException" type="tns:WsException"/>
+      </operation>
+      <operation xmlns:operNS="http://request.ws.ou" xmlns:retNS="http://request.ws.ou" xmlns:rtns="http://request.ws.ou" name="createManualTask" qname="operNS:createManualTask" returnQName="retNS:createManualTaskReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.request.WsException" type="tns:WsException"/>
+      </operation>
+      <operation xmlns:operNS="http://request.ws.ou" xmlns:retNS="http://request.ws.ou" xmlns:rtns="http://request.ws.ou" name="rejectRequestWS" qname="operNS:rejectRequestWS" returnQName="retNS:rejectRequestWSReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://request.ws.ou" xmlns:tns="http://request.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.request.WsException" type="tns:WsException"/>
+      </operation>
+      <parameter name="allowedMethods" value="createExceptionTask classifyRequest checkProcessability createManualTask processRequest rejectRequestWS"/>
+
+      <typeMapping xmlns:ns="http://request.ws.ou" qname="ns:WsExceptionTaskRequest" type="java:ou.ws.request.WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://request.ws.ou" qname="ns:WsResponse" type="java:ou.ws.request.WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://request.ws.ou" qname="ns:WsException" type="java:ou.ws.request.WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://request.ws.ou" qname="ns:WsFault" type="java:ou.ws.request.WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://request.ws.ou" qname="ns:WsRequest" type="java:ou.ws.request.WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

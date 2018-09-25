@@ -1,0 +1,25 @@
+lola: NET
+lola:   reading net from HandleCaseProcess_ch.lola
+lola:   finished parsing
+lola:   closed net file HandleCaseProcess_ch.lola
+lola:   198/65536 symbol table entries, 0 collisions
+lola:   preprocessing... 
+lola:   finding significant places
+lola:   112 places, 86 transitions, 86 significant places
+lola:   computing forward-conflicting sets
+lola:   computing back-conflicting sets
+lola:   73 transition conflict sets
+lola: TASK
+lola:   creating the whole state space (--check=full)
+lola: STORE
+lola:   using a bit-perfect encoder (--encoder=bit)
+lola:   using 344 bytes per marking, with 0 unused bits
+lola:   using a prefix tree store (--store=prefix)
+lola:   generating a state space (--check=full)
+lola: SEARCH
+lola:   using deadlock preserving stubborn set method with insertion algorithm (--stubborn=tarjan)
+lola: RUNNING
+lola: RESULT
+lola:   result: no
+lola:   State space generated.
+lola:   1 markings, 0 edges

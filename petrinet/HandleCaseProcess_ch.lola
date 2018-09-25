@@ -1,0 +1,680 @@
+{ Petri net created by GNU BPEL2oWFN 2.0.3 reading HandleCaseProcess.bpel }
+
+PLACE
+  p1,
+  p2,
+  p3,
+  p4,
+  p5,
+  p6,
+  p7,
+  p8,
+  p9,
+  p10,
+  p11,
+  p12,
+  p13,
+  p14,
+  p15,
+  p16,
+  p17,
+  p18,
+  p19,
+  p20,
+  p21,
+  p22,
+  p23,
+  p24,
+  p25,
+  p26,
+  p27,
+  p28,
+  p29,
+  p30,
+  p31,
+  p32,
+  p33,
+  p34,
+  p35,
+  p36,
+  p37,
+  p38,
+  p39,
+  p40,
+  p41,
+  p42,
+  p43,
+  p44,
+  p45,
+  p46,
+  p47,
+  p48,
+  p49,
+  p50,
+  p51,
+  p52,
+  p53,
+  p54,
+  in.client.handleObjection,
+  p55,
+  in.HandleCasePL.createExceptionTask,
+  in.client.stopCase,
+  in.client.handleParkedCase,
+  p56,
+  p57,
+  p58,
+  p59,
+  p60,
+  p61,
+  p62,
+  p63,
+  p64,
+  p65,
+  p66,
+  p67,
+  p68,
+  p69,
+  p70,
+  p71,
+  p72,
+  out.HandleCasePL.validateCase,
+  out.HandleCasePL.endCase,
+  out.HandleCasePL.createCase,
+  in.HandleCasePL.parkCase,
+  in.HandleCasePL.registerObjectionCase,
+  out.client.handleObjection,
+  out.HandleCasePL.validateObjectionCase,
+  out.HandleCasePL.getCalculation,
+  out.HandleCasePL.createPayment,
+  out.client.stopCase,
+  out.HandleCasePL.createObjectionCase,
+  in.HandleCasePL.registerCase,
+  in.HandleCasePL.createPayment,
+  out.HandleCasePL.checkProcessability,
+  out.HandleCasePL.createExceptionTask,
+  out.client.handleCase,
+  in.HandleCasePL.validateCase,
+  in.HandleCasePL.createObjectionTask,
+  in.client.handleCase,
+  in.HandleCasePL.endCase,
+  in.HandleCasePL.getCalculation,
+  out.HandleCasePL.createObjectionTask,
+  out.client.handleParkedCase,
+  out.HandleCasePL.sendLetter,
+  out.HandleCasePL.stopCase,
+  out.HandleCasePL.registerObjectionCase,
+  out.HandleCasePL.parkCase,
+  out.client.reinjectCase,
+  out.HandleCasePL.registerCase,
+  in.HandleCasePL.checkProcessability,
+  in.client.reinjectCase,
+  in.HandleCasePL.createCase,
+  in.HandleCasePL.createObjectionCase,
+  in.HandleCasePL.stopCase,
+  in.HandleCasePL.validateObjectionCase,
+  in.HandleCasePL.sendLetter
+;
+
+
+MARKING
+  p68:	1
+;
+
+
+TRANSITION t1
+CONSUME
+  p48:	1;
+PRODUCE
+  p66:	1;
+
+TRANSITION t2
+CONSUME
+  p62:	1;
+PRODUCE
+  p66:	1,
+  out.client.handleObjection:	1;
+
+TRANSITION t3
+CONSUME
+  p43:	1;
+PRODUCE
+  p72:	1,
+  out.HandleCasePL.createObjectionCase:	1;
+
+TRANSITION t4
+CONSUME
+  p48:	1;
+PRODUCE
+  p69:	1;
+
+TRANSITION t5
+CONSUME
+  p60:	1;
+PRODUCE
+  p70:	1;
+
+TRANSITION t6
+CONSUME
+  p29:	1;
+PRODUCE
+  p55:	1,
+  out.HandleCasePL.validateObjectionCase:	1;
+
+TRANSITION t7
+CONSUME
+  p4:	1,
+  in.HandleCasePL.createPayment:	1;
+PRODUCE
+  p11:	1;
+
+TRANSITION t8
+CONSUME
+  p66:	1;
+PRODUCE
+  p56:	1;
+
+TRANSITION t9
+CONSUME
+  p66:	1;
+PRODUCE
+  p71:	1;
+
+TRANSITION t10
+CONSUME
+  p63:	1;
+PRODUCE
+  p66:	1;
+
+TRANSITION t11
+CONSUME
+  p12:	1;
+PRODUCE
+  p4:	1,
+  out.HandleCasePL.createPayment:	1;
+
+TRANSITION t12
+CONSUME
+  p16:	1;
+PRODUCE
+  p11:	1;
+
+TRANSITION t13
+CONSUME
+  p28:	1;
+PRODUCE
+  p60:	1;
+
+TRANSITION t14
+CONSUME
+  p27:	1,
+  in.HandleCasePL.stopCase:	1;
+PRODUCE
+  p59:	1;
+
+TRANSITION t15
+CONSUME
+  p49:	1;
+PRODUCE
+  p64:	1;
+
+TRANSITION t16
+CONSUME
+  p65:	1;
+PRODUCE
+  p43:	1;
+
+TRANSITION t17
+CONSUME
+  p59:	1;
+PRODUCE
+  p66:	1;
+
+TRANSITION t18
+CONSUME
+  p28:	1;
+PRODUCE
+  p49:	1;
+
+TRANSITION t19
+CONSUME
+  p63:	1;
+PRODUCE
+  p32:	1;
+
+TRANSITION t20
+CONSUME
+  p44:	1;
+PRODUCE
+  p29:	1;
+
+TRANSITION t21
+CONSUME
+  p16:	1;
+PRODUCE
+  p25:	1;
+
+TRANSITION t22
+CONSUME
+  p47:	1;
+PRODUCE
+  p42:	1;
+
+TRANSITION t23
+CONSUME
+  p69:	1;
+PRODUCE
+  p62:	1;
+
+TRANSITION t24
+CONSUME
+  p37:	1;
+PRODUCE
+  p65:	1;
+
+TRANSITION t25
+CONSUME
+  p55:	1,
+  in.HandleCasePL.validateObjectionCase:	1;
+PRODUCE
+  p28:	1;
+
+TRANSITION t26
+CONSUME
+  p70:	1;
+PRODUCE
+  p40:	1,
+  out.HandleCasePL.stopCase:	1;
+
+TRANSITION t27
+CONSUME
+  p56:	1;
+PRODUCE
+  p58:	1;
+
+TRANSITION t28
+CONSUME
+  p40:	1,
+  in.HandleCasePL.stopCase:	1;
+PRODUCE
+  p48:	1;
+
+TRANSITION t29
+CONSUME
+  in.client.handleParkedCase:	1,
+  p68:	1;
+PRODUCE
+  p26:	1;
+
+TRANSITION t30
+CONSUME
+  p68:	1,
+  in.client.reinjectCase:	1;
+PRODUCE
+  p22:	1;
+
+TRANSITION t31
+CONSUME
+  p68:	1,
+  in.client.handleCase:	1;
+PRODUCE
+  p31:	1;
+
+TRANSITION t32
+CONSUME
+  p34:	1,
+  in.HandleCasePL.registerCase:	1;
+PRODUCE
+  p36:	1;
+
+TRANSITION t33
+CONSUME
+  p45:	1;
+PRODUCE
+  p63:	1;
+
+TRANSITION t34
+CONSUME
+  p33:	1;
+PRODUCE
+  p23:	1;
+
+TRANSITION t35
+CONSUME
+  in.client.handleObjection:	1,
+  p68:	1;
+PRODUCE
+  p45:	1;
+
+TRANSITION t36
+CONSUME
+  p31:	1;
+PRODUCE
+  p63:	1;
+
+TRANSITION t37
+CONSUME
+  p54:	1;
+PRODUCE
+  p63:	1;
+
+TRANSITION t38
+CONSUME
+  in.client.stopCase:	1,
+  p68:	1;
+PRODUCE
+  p54:	1;
+
+TRANSITION t39
+CONSUME
+  p22:	1;
+PRODUCE
+  p63:	1;
+
+TRANSITION t40
+CONSUME
+  p36:	1;
+PRODUCE
+  p15:	1;
+
+TRANSITION t41
+CONSUME
+  p15:	1;
+PRODUCE
+  p52:	1;
+
+TRANSITION t42
+CONSUME
+  p26:	1;
+PRODUCE
+  p63:	1;
+
+TRANSITION t43
+CONSUME
+  p23:	1;
+PRODUCE
+  p34:	1,
+  out.HandleCasePL.registerCase:	1;
+
+TRANSITION t44
+CONSUME
+  p17:	1;
+PRODUCE
+  p66:	1,
+  out.client.handleParkedCase:	1;
+
+TRANSITION t45
+CONSUME
+  p64:	1;
+PRODUCE
+  p30:	1,
+  out.HandleCasePL.createObjectionTask:	1;
+
+TRANSITION t46
+CONSUME
+  p6:	1,
+  in.HandleCasePL.getCalculation:	1;
+PRODUCE
+  p8:	1;
+
+TRANSITION t47
+CONSUME
+  p67:	1;
+PRODUCE
+  p35:	1,
+  out.HandleCasePL.checkProcessability:	1;
+
+TRANSITION t48
+CONSUME
+  p30:	1,
+  in.HandleCasePL.createObjectionTask:	1;
+PRODUCE
+  p48:	1;
+
+TRANSITION t49
+CONSUME
+  p59:	1;
+PRODUCE
+  p21:	1;
+
+TRANSITION t50
+CONSUME
+  p10:	1;
+PRODUCE
+  p5:	1;
+
+TRANSITION t51
+CONSUME
+  p19:	1;
+PRODUCE
+  p20:	1,
+  out.HandleCasePL.validateCase:	1;
+
+TRANSITION t52
+CONSUME
+  p58:	1;
+PRODUCE
+  p71:	1,
+  out.client.reinjectCase:	1;
+
+TRANSITION t53
+CONSUME
+  p41:	1,
+  in.HandleCasePL.sendLetter:	1;
+PRODUCE
+  p51:	1;
+
+TRANSITION t54
+CONSUME
+  p32:	1;
+PRODUCE
+  p53:	1;
+
+TRANSITION t55
+CONSUME
+  p42:	1;
+PRODUCE
+  p17:	1;
+
+TRANSITION t56
+CONSUME
+  p25:	1;
+PRODUCE
+  p12:	1;
+
+TRANSITION t57
+CONSUME
+  p5:	1;
+PRODUCE
+  p6:	1,
+  out.HandleCasePL.getCalculation:	1;
+
+TRANSITION t58
+CONSUME
+  p51:	1;
+PRODUCE
+  p38:	1;
+
+TRANSITION t59
+CONSUME
+  p61:	1;
+PRODUCE
+  p24:	1;
+
+TRANSITION t60
+CONSUME
+  p72:	1,
+  in.HandleCasePL.createObjectionCase:	1;
+PRODUCE
+  p44:	1;
+
+TRANSITION t61
+CONSUME
+  p35:	1,
+  in.HandleCasePL.checkProcessability:	1;
+PRODUCE
+  p16:	1;
+
+TRANSITION t62
+CONSUME
+  p7:	1;
+PRODUCE
+  p3:	1;
+
+TRANSITION t63
+CONSUME
+  p63:	1;
+PRODUCE
+  p33:	1;
+
+TRANSITION t64
+CONSUME
+  p21:	1;
+PRODUCE
+  p57:	1;
+
+TRANSITION t65
+CONSUME
+  p20:	1,
+  in.HandleCasePL.validateCase:	1;
+PRODUCE
+  p14:	1;
+
+TRANSITION t66
+CONSUME
+  p3:	1;
+PRODUCE
+  p66:	1,
+  out.client.handleCase:	1;
+
+TRANSITION t67
+CONSUME
+  p8:	1;
+PRODUCE
+  p67:	1;
+
+TRANSITION t68
+CONSUME
+  p38:	1;
+PRODUCE
+  p13:	1,
+  out.HandleCasePL.endCase:	1;
+
+TRANSITION t69
+CONSUME
+  p2:	1;
+PRODUCE
+  p41:	1,
+  out.HandleCasePL.sendLetter:	1;
+
+TRANSITION t70
+CONSUME
+  p57:	1;
+PRODUCE
+  p66:	1,
+  out.client.stopCase:	1;
+
+TRANSITION t71
+CONSUME
+  p39:	1,
+  in.HandleCasePL.registerObjectionCase:	1;
+PRODUCE
+  p37:	1;
+
+TRANSITION t72
+CONSUME
+  p53:	1;
+PRODUCE
+  p39:	1,
+  out.HandleCasePL.registerObjectionCase:	1;
+
+TRANSITION t73
+CONSUME
+  p11:	1;
+PRODUCE
+  p2:	1;
+
+TRANSITION t74
+CONSUME
+  p13:	1,
+  in.HandleCasePL.endCase:	1;
+PRODUCE
+  p47:	1;
+
+TRANSITION t75
+CONSUME
+  p63:	1;
+PRODUCE
+  p61:	1;
+
+TRANSITION t76
+CONSUME
+  p63:	1;
+PRODUCE
+  p10:	1;
+
+TRANSITION t77
+CONSUME
+  p50:	1;
+PRODUCE
+  p66:	1;
+
+TRANSITION t78
+CONSUME
+  p24:	1;
+PRODUCE
+  p27:	1,
+  out.HandleCasePL.stopCase:	1;
+
+TRANSITION t79
+CONSUME
+  p47:	1;
+PRODUCE
+  p66:	1;
+
+TRANSITION t80
+CONSUME
+  p52:	1;
+PRODUCE
+  p46:	1,
+  out.HandleCasePL.createCase:	1;
+
+TRANSITION t81
+CONSUME
+  p46:	1,
+  in.HandleCasePL.createCase:	1;
+PRODUCE
+  p9:	1;
+
+TRANSITION t82
+CONSUME
+  p14:	1;
+PRODUCE
+  p1:	1;
+
+TRANSITION t83
+CONSUME
+  p9:	1;
+PRODUCE
+  p19:	1;
+
+TRANSITION t84
+CONSUME
+  p1:	1;
+PRODUCE
+  p18:	1,
+  out.HandleCasePL.parkCase:	1;
+
+TRANSITION t85
+CONSUME
+  p18:	1,
+  in.HandleCasePL.parkCase:	1;
+PRODUCE
+  p50:	1;
+
+TRANSITION t86
+CONSUME
+  p50:	1;
+PRODUCE
+  p7:	1;
+
+{ END OF FILE }

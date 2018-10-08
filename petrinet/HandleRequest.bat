@@ -6,7 +6,9 @@ bpel2owfn.exe -i HandleRequest.bpel -m petrinet -f lola -f info --output=HandleR
 
 rem run bpel2owfn petrinet
 bpel2owfn.exe -i HandleRequest.bpel -m petrinet -f lola -f dot -f info --output=HandleRequest_pn 2> HandleRequestBPEL2OWFN_PN.info
+bpel2owfn.exe -i HandleRequest.bpel -m pretty --output=HandleRequest_pn
 bpel2owfn.exe --input=HandleRequest.bpel  --mode=choreography --format=lola --parameter=communicationonly -f dot -f info --output=HandleRequest_ch 2> HandleRequestBPEL2OWFN_CH.info
+bpel2owfn.exe -i HandleRequest.bpel -m pretty --output=HandleRequest_ch
 
 rem fix dot file
 sed -e s/fixedsize// HandleRequest_ch.dot > HandleRequest_ch.tmp

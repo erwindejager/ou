@@ -1,0 +1,5 @@
+{ AG EF (GitTest.1.internal.final) }
+
+FORMULA
+  ALLPATH ALWAYS EXPATH EVENTUALLY (p4 > 0)
+

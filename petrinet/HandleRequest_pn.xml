@@ -1,0 +1,643 @@
+<process id="1" abstractProcess="no" bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" exitOnStandardFault="no" name="HandleRequest" ns="http://request.ws.ou" ns1="http://www.w3.org/2001/XMLSchema" suppressJoinFailure="yes" targetNamespace="http://handerequest.ws.ou" tns="http://handerequest.ws.ou">
+  <partnerLinks>
+    <partnerLink id="5" myRole="HandleRequestProvider" name="client" partnerLinkType="HandleRequest" />
+    <partnerLink id="6" name="HandleRequestWSPL" partnerLinkType="HandleRequestWSPLType" partnerRole="HandleRequestWSPLRole" />
+  </partnerLinks>
+  <variables>
+    <variable id="7" messageType="HandleRequestRequestMessage" name="handleRequestInput" />
+    <variable id="8" messageType="HandleRequestResponseMessage" name="handleRequestOutput" />
+    <variable id="9" name="reinject" type="string" />
+    <variable id="10" name="service_" type="string" />
+    <variable id="11" name="ok" type="string" />
+    <variable id="12" messageType="handleComplexRequestRequest" name="handleComplexRequestInput" />
+    <variable id="13" messageType="handleComplexRequestResponse" name="handleComplexRequestOutput" />
+    <variable id="14" messageType="rejectRequestRequest" name="rejectRequestInput" />
+    <variable id="15" messageType="rejectRequestResponse" name="rejectRequestOutput" />
+    <variable id="16" messageType="reinjectRequestRequest" name="reinjectRequestInput" />
+    <variable id="17" messageType="reinjectRequestResponse" name="reinjectRequestOutput" />
+    <variable id="18" messageType="rejectRequestWSResponse" name="rejectRequestWSResp" />
+    <variable id="19" messageType="rejectRequestWSRequest" name="rejectRequestWSReq" />
+    <variable id="20" messageType="WsException" name="exception" />
+    <variable id="21" messageType="createExceptionTaskResponse" name="createExceptionTaskWSResponse" />
+    <variable id="22" messageType="createExceptionTaskRequest" name="createExceptionTaskWSRequest" />
+    <variable id="23" name="payload" type="string" />
+    <variable id="24" messageType="checkProcessabilityResponse" name="checkProcessabilityWSResponse" />
+    <variable id="25" messageType="checkProcessabilityRequest" name="checkProcessabilityWSRequest" />
+    <variable id="26" messageType="processRequestResponse" name="handleRequestWSResponse" />
+    <variable id="27" messageType="processRequestRequest" name="handleRequestWSRequest" />
+    <variable id="28" name="valid" type="string" />
+    <variable id="29" messageType="classifyRequestResponse" name="classifyRequestWSResponse" />
+    <variable id="30" messageType="classifyRequestRequest" name="classifyRequestWSRequest" />
+    <variable id="31" name="requestType" type="string" />
+    <variable id="32" messageType="createManualTaskResponse" name="createManualTaskWSResponse" />
+    <variable id="33" messageType="createManualTaskRequest" name="createManualTaskWSRequest" />
+  </variables>
+  <faultHandlers id="426" callable="1">
+    <catchAll id="425">
+      <sequence id="424" suppressJoinFailure="yes">
+        <compensate id="423" suppressJoinFailure="yes">
+        </compensate>
+        <rethrow id="422">
+        </rethrow>
+      </sequence>
+    </catchAll>
+  </faultHandlers>
+  <sequence id="37" name="RequestHandler" suppressJoinFailure="yes">
+    <pick id="38" createInstance="yes" name="HandleService" suppressJoinFailure="yes">
+      <onMessage id="39" operation="handleRequest" partnerLink="client" portType="HandleRequest" variable="handleRequestInput">
+        <assign id="40" name="PrepareHandleRequest" suppressJoinFailure="yes">
+          <copy id="41">
+            <from />
+            <to />
+          </copy>
+          <copy id="44">
+            <from />
+            <to />
+          </copy>
+          <copy id="47">
+            <from />
+            <to />
+          </copy>
+          <copy id="50">
+            <from />
+            <to />
+          </copy>
+        </assign>
+      </onMessage>
+      <onMessage id="53" operation="handleComplexRequest" partnerLink="client" portType="HandleRequest" variable="handleComplexRequestInput">
+        <assign id="54" name="PrepareHandleComplexRequest" suppressJoinFailure="yes">
+          <copy id="55">
+            <from />
+            <to />
+          </copy>
+          <copy id="58">
+            <from />
+            <to />
+          </copy>
+          <copy id="61">
+            <from />
+            <to />
+          </copy>
+          <copy id="64">
+            <from />
+            <to />
+          </copy>
+        </assign>
+      </onMessage>
+      <onMessage id="67" operation="rejectRequest" partnerLink="client" portType="HandleRequest" variable="rejectRequestInput">
+        <assign id="68" name="PrepareRejectRequest" suppressJoinFailure="yes">
+          <copy id="69">
+            <from />
+            <to />
+          </copy>
+          <copy id="72">
+            <from />
+            <to />
+          </copy>
+          <copy id="75">
+            <from />
+            <to />
+          </copy>
+          <copy id="78">
+            <from />
+            <to />
+          </copy>
+        </assign>
+      </onMessage>
+      <onMessage id="81" operation="reinjectRequest" partnerLink="client" portType="HandleRequest" variable="reinjectRequestInput">
+        <assign id="82" name="PrepareReinjectRequest" suppressJoinFailure="yes">
+          <copy id="83">
+            <from />
+            <to />
+          </copy>
+          <copy id="86">
+            <from />
+            <to />
+          </copy>
+          <copy id="89">
+            <from />
+            <to />
+          </copy>
+          <copy id="92">
+            <from />
+            <to />
+          </copy>
+        </assign>
+      </onMessage>
+    </pick>
+    <if id="95" name="HandleService" suppressJoinFailure="yes">
+      <sequence id="97" name="HandleRequestSequence" suppressJoinFailure="yes">
+        <sequence id="98" name="InvokeClassifyRequest" suppressJoinFailure="yes">
+          <assign id="99" name="PrepareClassifyRequest" suppressJoinFailure="yes">
+            <copy id="100">
+              <from />
+              <to />
+            </copy>
+            <copy id="103">
+              <from />
+              <to />
+            </copy>
+          </assign>
+          <scope id="389" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+            <faultHandlers id="388" callable="0">
+              <catch id="107" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                <sequence id="108" name="CreateExceptionTask" suppressJoinFailure="yes">
+                  <assign id="109" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                    <copy id="110">
+                      <from />
+                      <to />
+                    </copy>
+                    <copy id="113">
+                      <from />
+                      <to />
+                    </copy>
+                  </assign>
+                  <invoke id="116" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                  </invoke>
+                  <throw id="118" faultName="StopProcess" suppressJoinFailure="yes">
+                  </throw>
+                </sequence>
+              </catch>
+            </faultHandlers>
+            <compensationHandler id="428" callable="0">
+              <compensate id="427" suppressJoinFailure="yes">
+              </compensate>
+            </compensationHandler>
+            <terminationHandler id="430">
+              <compensate id="429" suppressJoinFailure="yes">
+              </compensate>
+            </terminationHandler>
+            <invoke id="106" inputVariable="classifyRequestWSRequest" name="ClassifyRequestWS" operation="classifyRequest" outputVariable="classifyRequestWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+            </invoke>
+          </scope>
+          <assign id="120" name="AssignRequestType" suppressJoinFailure="yes">
+            <copy id="121">
+              <from />
+              <to />
+            </copy>
+          </assign>
+        </sequence>
+        <if id="124" name="IfStandardRequest" suppressJoinFailure="yes">
+          <sequence id="126" name="HandleStandardRequest" suppressJoinFailure="yes">
+            <sequence id="127" name="InvokeCheckProcessability" suppressJoinFailure="yes">
+              <assign id="128" name="PrepareCheckProcessability" suppressJoinFailure="yes">
+                <copy id="129">
+                  <from />
+                  <to />
+                </copy>
+                <copy id="132">
+                  <from />
+                  <to />
+                </copy>
+              </assign>
+              <scope id="393" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+                <faultHandlers id="392" callable="0">
+                  <catch id="136" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                    <sequence id="137" name="CreateExceptionTask" suppressJoinFailure="yes">
+                      <assign id="138" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                        <copy id="139">
+                          <from />
+                          <to />
+                        </copy>
+                        <copy id="142">
+                          <from />
+                          <to />
+                        </copy>
+                      </assign>
+                      <invoke id="145" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                      </invoke>
+                      <throw id="147" faultName="StopProcess" suppressJoinFailure="yes">
+                      </throw>
+                    </sequence>
+                  </catch>
+                </faultHandlers>
+                <compensationHandler id="432" callable="0">
+                  <compensate id="431" suppressJoinFailure="yes">
+                  </compensate>
+                </compensationHandler>
+                <terminationHandler id="434">
+                  <compensate id="433" suppressJoinFailure="yes">
+                  </compensate>
+                </terminationHandler>
+                <invoke id="135" inputVariable="checkProcessabilityWSRequest" name="CheckProcessabilityWS" operation="checkProcessability" outputVariable="checkProcessabilityWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                </invoke>
+              </scope>
+              <assign id="149" name="AssignValid" suppressJoinFailure="yes">
+                <copy id="150">
+                  <from />
+                  <to />
+                </copy>
+              </assign>
+            </sequence>
+            <if id="153" name="IfValid" suppressJoinFailure="yes">
+              <sequence id="155" name="InvokeProcessRequest" suppressJoinFailure="yes">
+                <assign id="156" name="PrepareProcessRequest" suppressJoinFailure="yes">
+                  <copy id="157">
+                    <from />
+                    <to />
+                  </copy>
+                  <copy id="160">
+                    <from />
+                    <to />
+                  </copy>
+                </assign>
+                <scope id="397" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+                  <faultHandlers id="396" callable="0">
+                    <catch id="164" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                      <sequence id="165" name="CreateExceptionTask" suppressJoinFailure="yes">
+                        <assign id="166" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                          <copy id="167">
+                            <from />
+                            <to />
+                          </copy>
+                          <copy id="170">
+                            <from />
+                            <to />
+                          </copy>
+                        </assign>
+                        <invoke id="173" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                        </invoke>
+                        <throw id="175" faultName="StopProcess" suppressJoinFailure="yes">
+                        </throw>
+                      </sequence>
+                    </catch>
+                  </faultHandlers>
+                  <compensationHandler id="436" callable="0">
+                    <compensate id="435" suppressJoinFailure="yes">
+                    </compensate>
+                  </compensationHandler>
+                  <terminationHandler id="438">
+                    <compensate id="437" suppressJoinFailure="yes">
+                    </compensate>
+                  </terminationHandler>
+                  <invoke id="163" inputVariable="handleRequestWSRequest" name="ProcessRequestWS" operation="processRequest" outputVariable="handleRequestWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                  </invoke>
+                </scope>
+              </sequence>
+              <else id="199">
+                <sequence id="177" name="InvokeRejectRequest" suppressJoinFailure="yes">
+                  <assign id="178" name="PrepareRejectReq" suppressJoinFailure="yes">
+                    <copy id="179">
+                      <from />
+                      <to />
+                    </copy>
+                    <copy id="182">
+                      <from />
+                      <to />
+                    </copy>
+                  </assign>
+                  <scope id="401" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+                    <faultHandlers id="400" callable="0">
+                      <catch id="186" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                        <sequence id="187" name="CreateExceptionTask" suppressJoinFailure="yes">
+                          <assign id="188" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                            <copy id="189">
+                              <from />
+                              <to />
+                            </copy>
+                            <copy id="192">
+                              <from />
+                              <to />
+                            </copy>
+                          </assign>
+                          <invoke id="195" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                          </invoke>
+                          <throw id="197" faultName="StopProcess" suppressJoinFailure="yes">
+                          </throw>
+                        </sequence>
+                      </catch>
+                    </faultHandlers>
+                    <compensationHandler id="440" callable="0">
+                      <compensate id="439" suppressJoinFailure="yes">
+                      </compensate>
+                    </compensationHandler>
+                    <terminationHandler id="442">
+                      <compensate id="441" suppressJoinFailure="yes">
+                      </compensate>
+                    </terminationHandler>
+                    <invoke id="185" inputVariable="rejectRequestWSReq" name="RejectRequestWS" operation="rejectRequestWS" outputVariable="rejectRequestWSResp" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                    </invoke>
+                  </scope>
+                </sequence>
+              </else>
+            </if>
+          </sequence>
+          <else id="224">
+            <sequence id="201" name="CreateManualTask" suppressJoinFailure="yes">
+              <sequence id="202" name="InvokeCreateManualTask" suppressJoinFailure="yes">
+                <assign id="203" name="PrepareCreateManualTask" suppressJoinFailure="yes">
+                  <copy id="204">
+                    <from />
+                    <to />
+                  </copy>
+                  <copy id="207">
+                    <from />
+                    <to />
+                  </copy>
+                </assign>
+                <scope id="405" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+                  <faultHandlers id="404" callable="0">
+                    <catch id="211" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                      <sequence id="212" name="CreateExceptionTask" suppressJoinFailure="yes">
+                        <assign id="213" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                          <copy id="214">
+                            <from />
+                            <to />
+                          </copy>
+                          <copy id="217">
+                            <from />
+                            <to />
+                          </copy>
+                        </assign>
+                        <invoke id="220" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                        </invoke>
+                        <throw id="222" faultName="StopProcess" suppressJoinFailure="yes">
+                        </throw>
+                      </sequence>
+                    </catch>
+                  </faultHandlers>
+                  <compensationHandler id="444" callable="0">
+                    <compensate id="443" suppressJoinFailure="yes">
+                    </compensate>
+                  </compensationHandler>
+                  <terminationHandler id="446">
+                    <compensate id="445" suppressJoinFailure="yes">
+                    </compensate>
+                  </terminationHandler>
+                  <invoke id="210" inputVariable="createManualTaskWSRequest" name="CreateManualTaskWS" operation="createManualTask" outputVariable="createManualTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                  </invoke>
+                </scope>
+              </sequence>
+            </sequence>
+          </else>
+        </if>
+        <if id="226" name="NotReinjectHandleRequest" suppressJoinFailure="yes">
+          <sequence id="228" name="Reply" suppressJoinFailure="yes">
+            <assign id="229" name="PrepareHandleRequestReply" suppressJoinFailure="yes">
+              <copy id="230">
+                <from />
+                <to />
+              </copy>
+              <copy id="233">
+                <from />
+                <to />
+              </copy>
+            </assign>
+            <reply id="236" name="HandleRequestReply" operation="handleRequest" partnerLink="client" portType="HandleRequest" suppressJoinFailure="yes" variable="handleRequestOutput">
+            </reply>
+          </sequence>
+237        </if>
+      </sequence>
+      <elseif id="239">
+        <sequence id="241" name="HandleComplexRequestSequence" suppressJoinFailure="yes">
+          <sequence id="242" name="InvokeCheckProcessability" suppressJoinFailure="yes">
+            <assign id="243" name="PrepareCheckProcessability" suppressJoinFailure="yes">
+              <copy id="244">
+                <from />
+                <to />
+              </copy>
+              <copy id="247">
+                <from />
+                <to />
+              </copy>
+            </assign>
+            <scope id="409" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+              <faultHandlers id="408" callable="0">
+                <catch id="251" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                  <sequence id="252" name="CreateExceptionTask" suppressJoinFailure="yes">
+                    <assign id="253" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                      <copy id="254">
+                        <from />
+                        <to />
+                      </copy>
+                      <copy id="257">
+                        <from />
+                        <to />
+                      </copy>
+                    </assign>
+                    <invoke id="260" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                    </invoke>
+                    <throw id="262" faultName="StopProcess" suppressJoinFailure="yes">
+                    </throw>
+                  </sequence>
+                </catch>
+              </faultHandlers>
+              <compensationHandler id="448" callable="0">
+                <compensate id="447" suppressJoinFailure="yes">
+                </compensate>
+              </compensationHandler>
+              <terminationHandler id="450">
+                <compensate id="449" suppressJoinFailure="yes">
+                </compensate>
+              </terminationHandler>
+              <invoke id="250" inputVariable="checkProcessabilityWSRequest" name="CheckProcessabilityWS" operation="checkProcessability" outputVariable="checkProcessabilityWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+              </invoke>
+            </scope>
+            <assign id="264" name="AssignValid" suppressJoinFailure="yes">
+              <copy id="265">
+                <from />
+                <to />
+              </copy>
+            </assign>
+          </sequence>
+          <if id="268" name="IfValidComplex" suppressJoinFailure="yes">
+            <sequence id="270" name="InvokeProcessRequest" suppressJoinFailure="yes">
+              <assign id="271" name="PrepareProcessRequest" suppressJoinFailure="yes">
+                <copy id="272">
+                  <from />
+                  <to />
+                </copy>
+                <copy id="275">
+                  <from />
+                  <to />
+                </copy>
+              </assign>
+              <scope id="413" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+                <faultHandlers id="412" callable="0">
+                  <catch id="279" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                    <sequence id="280" name="CreateExceptionTask" suppressJoinFailure="yes">
+                      <assign id="281" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                        <copy id="282">
+                          <from />
+                          <to />
+                        </copy>
+                        <copy id="285">
+                          <from />
+                          <to />
+                        </copy>
+                      </assign>
+                      <invoke id="288" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                      </invoke>
+                      <throw id="290" faultName="StopProcess" suppressJoinFailure="yes">
+                      </throw>
+                    </sequence>
+                  </catch>
+                </faultHandlers>
+                <compensationHandler id="452" callable="0">
+                  <compensate id="451" suppressJoinFailure="yes">
+                  </compensate>
+                </compensationHandler>
+                <terminationHandler id="454">
+                  <compensate id="453" suppressJoinFailure="yes">
+                  </compensate>
+                </terminationHandler>
+                <invoke id="278" inputVariable="handleRequestWSRequest" name="ProcessRequestWS" operation="processRequest" outputVariable="handleRequestWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                </invoke>
+              </scope>
+            </sequence>
+            <else id="314">
+              <sequence id="292" name="InvokeRejectRequest" suppressJoinFailure="yes">
+                <assign id="293" name="PrepareRejectReq" suppressJoinFailure="yes">
+                  <copy id="294">
+                    <from />
+                    <to />
+                  </copy>
+                  <copy id="297">
+                    <from />
+                    <to />
+                  </copy>
+                </assign>
+                <scope id="417" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+                  <faultHandlers id="416" callable="0">
+                    <catch id="301" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                      <sequence id="302" name="CreateExceptionTask" suppressJoinFailure="yes">
+                        <assign id="303" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                          <copy id="304">
+                            <from />
+                            <to />
+                          </copy>
+                          <copy id="307">
+                            <from />
+                            <to />
+                          </copy>
+                        </assign>
+                        <invoke id="310" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                        </invoke>
+                        <throw id="312" faultName="StopProcess" suppressJoinFailure="yes">
+                        </throw>
+                      </sequence>
+                    </catch>
+                  </faultHandlers>
+                  <compensationHandler id="456" callable="0">
+                    <compensate id="455" suppressJoinFailure="yes">
+                    </compensate>
+                  </compensationHandler>
+                  <terminationHandler id="458">
+                    <compensate id="457" suppressJoinFailure="yes">
+                    </compensate>
+                  </terminationHandler>
+                  <invoke id="300" inputVariable="rejectRequestWSReq" name="RejectRequestWS" operation="rejectRequestWS" outputVariable="rejectRequestWSResp" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                  </invoke>
+                </scope>
+              </sequence>
+            </else>
+          </if>
+          <if id="316" name="NotReinjectHandleComplexRequest" suppressJoinFailure="yes">
+            <sequence id="318" name="Reply" suppressJoinFailure="yes">
+              <assign id="319" name="PrepareHandleComplexRequestReply" suppressJoinFailure="yes">
+                <copy id="320">
+                  <from />
+                  <to />
+                </copy>
+                <copy id="323">
+                  <from />
+                  <to />
+                </copy>
+              </assign>
+              <reply id="326" name="HandleComplexRequestReply" operation="handleComplexRequest" partnerLink="client" portType="HandleRequest" suppressJoinFailure="yes" variable="handleComplexRequestOutput">
+              </reply>
+            </sequence>
+327          </if>
+        </sequence>
+      </elseif>
+      <elseif id="329">
+        <sequence id="331" name="RejectRequestSequence" suppressJoinFailure="yes">
+          <sequence id="332" name="InvokeRejectRequest" suppressJoinFailure="yes">
+            <assign id="333" name="PrepareInvokeRejectRequest" suppressJoinFailure="yes">
+              <copy id="334">
+                <from />
+                <to />
+              </copy>
+              <copy id="337">
+                <from />
+                <to />
+              </copy>
+            </assign>
+            <scope id="421" exitOnStandardFault="no" suppressJoinFailure="yes" variableAccessSerializable="no">
+              <faultHandlers id="420" callable="0">
+                <catch id="341" faultMessageType="WsException" faultName="WsException" faultVariable="exception">
+                  <sequence id="342" name="CreateExceptionTask" suppressJoinFailure="yes">
+                    <assign id="343" name="PrepareExceptionTask" suppressJoinFailure="yes">
+                      <copy id="344">
+                        <from />
+                        <to />
+                      </copy>
+                      <copy id="347">
+                        <from />
+                        <to />
+                      </copy>
+                    </assign>
+                    <invoke id="350" inputVariable="createExceptionTaskWSRequest" name="InvokeCreateExceptionTask" operation="createExceptionTask" outputVariable="createExceptionTaskWSResponse" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+                    </invoke>
+                    <throw id="352" faultName="StopProcess" suppressJoinFailure="yes">
+                    </throw>
+                  </sequence>
+                </catch>
+              </faultHandlers>
+              <compensationHandler id="460" callable="0">
+                <compensate id="459" suppressJoinFailure="yes">
+                </compensate>
+              </compensationHandler>
+              <terminationHandler id="462">
+                <compensate id="461" suppressJoinFailure="yes">
+                </compensate>
+              </terminationHandler>
+              <invoke id="340" inputVariable="rejectRequestWSReq" name="InvokeRejectRequestWS" operation="rejectRequestWS" outputVariable="rejectRequestWSResp" partnerLink="HandleRequestWSPL" portType="HandleRequestWS" suppressJoinFailure="yes">
+              </invoke>
+            </scope>
+          </sequence>
+          <if id="354" name="NotReinjectRejectRequest" suppressJoinFailure="yes">
+            <sequence id="356" name="Reply" suppressJoinFailure="yes">
+              <assign id="357" name="PrepareRejectRequestReply" suppressJoinFailure="yes">
+                <copy id="358">
+                  <from />
+                  <to />
+                </copy>
+                <copy id="361">
+                  <from />
+                  <to />
+                </copy>
+              </assign>
+              <reply id="364" name="RejectRequestReply" operation="rejectRequest" partnerLink="client" portType="HandleRequest" suppressJoinFailure="yes" variable="rejectRequestOutput">
+              </reply>
+            </sequence>
+365          </if>
+        </sequence>
+      </elseif>
+      <else id="371">
+        <assign id="367" name="UnknownRequest" suppressJoinFailure="yes">
+          <copy id="368">
+            <from />
+            <to />
+          </copy>
+        </assign>
+      </else>
+    </if>
+    <if id="373" name="IfReinject" suppressJoinFailure="yes">
+      <sequence id="375" name="ReplyReinject" suppressJoinFailure="yes">
+        <assign id="376" name="PrepareReinjectRequestReply" suppressJoinFailure="yes">
+          <copy id="377">
+            <from />
+            <to />
+          </copy>
+          <copy id="380">
+            <from />
+            <to />
+          </copy>
+        </assign>
+        <reply id="383" name="ReinjectRequestReply" operation="reinjectRequest" partnerLink="client" portType="HandleRequest" suppressJoinFailure="yes" variable="reinjectRequestOutput">
+        </reply>
+      </sequence>
+384    </if>
+  </sequence>
+</process>

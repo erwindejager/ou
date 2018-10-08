@@ -1,5 +1,5 @@
 { AG EF (HandleCaseProcess.1.internal.final) }
 
 FORMULA
-  ALLPATH ALWAYS EXPATH EVENTUALLY (p71 > 0)
+  ALLPATH ALWAYS EXPATH EVENTUALLY (p62 > 0)
 

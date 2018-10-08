@@ -1,0 +1,19 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `GitTest.bpel'
+------------------------------------------------------------------------------
+GitTest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+4 activities (3 basic, 1 structured, 0 scopes) + 3 implicit activities
+0 handlers (0 FH, 0 TH, 0 CH, 0 EH) + 1 implicit handlers
+0 links, 2 variables
+
+[SYNTAX ANALYSIS] No syntax errors found.
+[STATIC ANALYSIS] No errors found checking 51 statics analysis requirements.
+[OTHER ANALYSIS]  No other errors found.
+------------------------------------------------------------------------------
+|P|=6, |P_in|= 1, |P_out|= 1, |T|=3, |F|=8
+Error: GitTest_ch.dot: syntax error in line 3 near 'width'
+==============================================================================
+

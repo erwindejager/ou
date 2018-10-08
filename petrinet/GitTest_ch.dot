@@ -47,12 +47,12 @@ digraph N {
 
  // arcs
  edge [fontname="Helvetica" fontsize=8 arrowhead=normal color=black]
- t3 -> p4	[weight=10000.0]
+ p5 -> t1	[]
+ t3 -> p6	[]
  p3 -> t2	[weight=10000.0]
  p1 -> t1	[weight=10000.0]
  p2 -> t3	[weight=10000.0]
  t1 -> p3	[weight=10000.0]
- p5 -> t1	[]
+ t3 -> p4	[weight=10000.0]
  t2 -> p2	[weight=10000.0]
- t3 -> p6	[]
 }

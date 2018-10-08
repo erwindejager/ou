@@ -3,9 +3,11 @@ java -jar BPEL2PNML.jar HandleCaseProcess.bpel > HandleCaseProcessBPEL2PNML.info
 
 rem run bpel2owfn petrinet
 bpel2owfn.exe -i HandleCaseProcess.bpel -m petrinet -f lola -f info --output=HandleCaseProcess_pn 2> HandleCaseProcessBPEL2OWFN_PN.info
+bpel2owfn.exe -i HandleCaseProcess.bpel -m pretty --output=HandleCaseProcess_pn
 
 rem run bpel2owfn petrinet
 bpel2owfn.exe --input=HandleCaseProcess.bpel  --mode=choreography --format=lola --parameter=communicationonly -f dot -f info --output=HandleCaseProcess_ch 2> HandleCaseProcessBPEL2OWFN_CH.info
+bpel2owfn.exe -i HandleCaseProcess.bpel -m pretty --output=HandleCaseProcess_ch
 
 rem fix dot file
 sed -e s/fixedsize// HandleCaseProcess_ch.dot > HandleCaseProcess_ch.tmp

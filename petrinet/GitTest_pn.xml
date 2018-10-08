@@ -1,0 +1,35 @@
+<process id="1" abstractProcess="no" bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" exitOnStandardFault="no" name="GitTest" suppressJoinFailure="yes" targetNamespace="http://ou.gittest" tns="http://ou.gittest">
+  <partnerLinks>
+    <partnerLink id="4" myRole="GitTestProvider" name="client" partnerLinkType="GitTest" />
+  </partnerLinks>
+  <variables>
+    <variable id="5" messageType="GitTestRequestMessage" name="input" />
+    <variable id="6" messageType="GitTestResponseMessage" name="output" />
+  </variables>
+  <faultHandlers id="24" callable="0">
+    <catchAll id="23">
+      <sequence id="22" suppressJoinFailure="yes">
+        <compensate id="21" suppressJoinFailure="yes">
+        </compensate>
+        <rethrow id="20">
+        </rethrow>
+      </sequence>
+    </catchAll>
+  </faultHandlers>
+  <sequence id="10" name="main" suppressJoinFailure="yes">
+    <receive id="11" createInstance="yes" name="receiveInput" operation="process" partnerLink="client" portType="GitTest" suppressJoinFailure="yes" variable="input">
+    </receive>
+    <assign id="12" name="Assign" suppressJoinFailure="yes">
+      <copy id="13">
+        <from />
+        <to />
+      </copy>
+      <copy id="16">
+        <from />
+        <to />
+      </copy>
+    </assign>
+    <reply id="19" name="replyOutput" operation="process" partnerLink="client" portType="GitTest" suppressJoinFailure="yes" variable="output">
+    </reply>
+  </sequence>
+</process>

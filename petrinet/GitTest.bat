@@ -3,9 +3,12 @@ java -jar BPEL2PNML.jar GitTest.bpel > GitTestBPEL2PNML.info
 
 rem run bpel2owfn petrinet
 bpel2owfn.exe -i GitTest.bpel -m petrinet -f lola -f info --output=GitTest_pn 2> GitTestBPEL2OWFN_PN.info
+bpel2owfn.exe -i GitTest.bpel -m pretty --output=GitTest_pn
+
 
 rem run bpel2owfn petrinet
 bpel2owfn.exe --input=GitTest.bpel  --mode=choreography --format=lola --parameter=communicationonly -f dot -f info --output=GitTest_ch 2> GitTestBPEL2OWFN_CH.info
+bpel2owfn.exe -i GitTest.bpel -m pretty --output=GitTest_ch
 
 rem fix dot file
 sed -e s/fixedsize// GitTest_ch.dot > GitTest_ch.tmp

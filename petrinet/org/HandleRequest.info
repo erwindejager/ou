@@ -1,0 +1,385 @@
+PLACES:
+ID	TYPE		ROLES
+in.client.reinjectRequest	internal	HandleRequest.in.client.reinjectRequest
+in.client.handleRequest	internal	HandleRequest.in.client.handleRequest
+in.HandleRequestWSPL.classifyRequest	internal	HandleRequest.in.HandleRequestWSPL.classifyRequest
+in.HandleRequestWSPL.createExceptionTask	internal	HandleRequest.in.HandleRequestWSPL.createExceptionTask
+in.HandleRequestWSPL.rejectRequestWS	internal	HandleRequest.in.HandleRequestWSPL.rejectRequestWS
+in.HandleRequestWSPL.createManualTask	internal	HandleRequest.in.HandleRequestWSPL.createManualTask
+in.client.rejectRequest	internal	HandleRequest.in.client.rejectRequest
+in.HandleRequestWSPL.processRequest	internal	HandleRequest.in.HandleRequestWSPL.processRequest
+in.HandleRequestWSPL.checkProcessability	internal	HandleRequest.in.HandleRequestWSPL.checkProcessability
+p1	internal	HandleRequest.300.internal.running
+p2	internal	HandleRequest.124.final
+			HandleRequest.124.internal.final
+			HandleRequest.126.final
+			HandleRequest.126.internal.final
+			HandleRequest.153.final
+			HandleRequest.153.internal.final
+			HandleRequest.155.final
+			HandleRequest.155.internal.final
+			HandleRequest.397.final
+			HandleRequest.397.internal.final
+			HandleRequest.163.final
+			HandleRequest.163.internal.final
+			HandleRequest.177.final
+			HandleRequest.177.internal.final
+			HandleRequest.401.final
+			HandleRequest.401.internal.final
+			HandleRequest.185.final
+			HandleRequest.185.internal.final
+			HandleRequest.201.final
+			HandleRequest.201.internal.final
+			HandleRequest.202.final
+			HandleRequest.202.internal.final
+			HandleRequest.405.final
+			HandleRequest.405.internal.final
+			HandleRequest.210.final
+			HandleRequest.210.internal.final
+			HandleRequest.226.initial
+			HandleRequest.226.internal.initial
+p3	internal	HandleRequest.163.internal.running
+p4	internal	HandleRequest.99.final
+			HandleRequest.99.internal.final
+			HandleRequest.389.initial
+			HandleRequest.389.internal.initial
+			HandleRequest.106.initial
+			HandleRequest.106.internal.initial
+p5	internal	HandleRequest.177.initial
+			HandleRequest.177.internal.initial
+			HandleRequest.178.initial
+			HandleRequest.178.internal.initial
+p6	internal	HandleRequest.68.initial
+			HandleRequest.68.internal.initial
+p7	internal	HandleRequest.409.final
+			HandleRequest.409.internal.final
+			HandleRequest.250.final
+			HandleRequest.250.internal.final
+			HandleRequest.264.initial
+			HandleRequest.264.internal.initial
+p8	internal	HandleRequest.203.final
+			HandleRequest.203.internal.final
+			HandleRequest.405.initial
+			HandleRequest.405.internal.initial
+			HandleRequest.210.initial
+			HandleRequest.210.internal.initial
+p9	internal	HandleRequest.250.internal.running
+p10	internal	HandleRequest.201.initial
+			HandleRequest.201.internal.initial
+			HandleRequest.202.initial
+			HandleRequest.202.internal.initial
+			HandleRequest.203.initial
+			HandleRequest.203.internal.initial
+p11	internal	HandleRequest.54.initial
+			HandleRequest.54.internal.initial
+p12	internal	HandleRequest.82.initial
+			HandleRequest.82.internal.initial
+p13	internal	HandleRequest.243.final
+			HandleRequest.243.internal.final
+			HandleRequest.409.initial
+			HandleRequest.409.internal.initial
+			HandleRequest.250.initial
+			HandleRequest.250.internal.initial
+p14	internal	HandleRequest.229.final
+			HandleRequest.229.internal.final
+			HandleRequest.236.initial
+			HandleRequest.236.internal.initial
+p15	internal	HandleRequest.393.final
+			HandleRequest.393.internal.final
+			HandleRequest.135.final
+			HandleRequest.135.internal.final
+			HandleRequest.149.initial
+			HandleRequest.149.internal.initial
+p16	internal	HandleRequest.278.internal.running
+p17	internal	HandleRequest.40.initial
+			HandleRequest.40.internal.initial
+p18	internal	HandleRequest.228.initial
+			HandleRequest.228.internal.initial
+			HandleRequest.229.initial
+			HandleRequest.229.internal.initial
+p19	internal	HandleRequest.156.final
+			HandleRequest.156.internal.final
+			HandleRequest.397.initial
+			HandleRequest.397.internal.initial
+			HandleRequest.163.initial
+			HandleRequest.163.internal.initial
+p20	internal	HandleRequest.128.final
+			HandleRequest.128.internal.final
+			HandleRequest.393.initial
+			HandleRequest.393.internal.initial
+			HandleRequest.135.initial
+			HandleRequest.135.internal.initial
+p21	internal	HandleRequest.210.internal.running
+p22	internal	HandleRequest.270.initial
+			HandleRequest.270.internal.initial
+			HandleRequest.271.initial
+			HandleRequest.271.internal.initial
+p23	internal	HandleRequest.98.final
+			HandleRequest.98.internal.final
+			HandleRequest.120.final
+			HandleRequest.120.internal.final
+			HandleRequest.124.initial
+			HandleRequest.124.internal.initial
+p24	internal	HandleRequest.357.final
+			HandleRequest.357.internal.final
+			HandleRequest.364.initial
+			HandleRequest.364.internal.initial
+p25	internal	HandleRequest.268.final
+			HandleRequest.268.internal.final
+			HandleRequest.270.final
+			HandleRequest.270.internal.final
+			HandleRequest.413.final
+			HandleRequest.413.internal.final
+			HandleRequest.278.final
+			HandleRequest.278.internal.final
+			HandleRequest.292.final
+			HandleRequest.292.internal.final
+			HandleRequest.417.final
+			HandleRequest.417.internal.final
+			HandleRequest.300.final
+			HandleRequest.300.internal.final
+			HandleRequest.316.initial
+			HandleRequest.316.internal.initial
+p26	internal	HandleRequest.242.final
+			HandleRequest.242.internal.final
+			HandleRequest.264.final
+			HandleRequest.264.internal.final
+			HandleRequest.268.initial
+			HandleRequest.268.internal.initial
+p27	internal	HandleRequest.178.final
+			HandleRequest.178.internal.final
+			HandleRequest.401.initial
+			HandleRequest.401.internal.initial
+			HandleRequest.185.initial
+			HandleRequest.185.internal.initial
+p28	internal	HandleRequest.389.final
+			HandleRequest.389.internal.final
+			HandleRequest.106.final
+			HandleRequest.106.internal.final
+			HandleRequest.120.initial
+			HandleRequest.120.internal.initial
+p29	internal	HandleRequest.106.internal.running
+p30	internal	HandleRequest.127.final
+			HandleRequest.127.internal.final
+			HandleRequest.149.final
+			HandleRequest.149.internal.final
+			HandleRequest.153.initial
+			HandleRequest.153.internal.initial
+p31	internal	HandleRequest.155.initial
+			HandleRequest.155.internal.initial
+			HandleRequest.156.initial
+			HandleRequest.156.internal.initial
+p32	internal	HandleRequest.319.final
+			HandleRequest.319.internal.final
+			HandleRequest.326.initial
+			HandleRequest.326.internal.initial
+p33	internal	HandleRequest.185.internal.running
+p34	internal	HandleRequest.333.final
+			HandleRequest.333.internal.final
+			HandleRequest.421.initial
+			HandleRequest.421.internal.initial
+			HandleRequest.340.initial
+			HandleRequest.340.internal.initial
+p35	internal	HandleRequest.1.internal.initial
+			HandleRequest.37.initial
+			HandleRequest.37.internal.initial
+			HandleRequest.38.initial
+			HandleRequest.38.internal.initial
+p36	internal	HandleRequest.367.initial
+			HandleRequest.367.internal.initial
+p37	internal	HandleRequest.318.initial
+			HandleRequest.318.internal.initial
+			HandleRequest.319.initial
+			HandleRequest.319.internal.initial
+p38	internal	HandleRequest.340.internal.running
+p39	internal	HandleRequest.135.internal.running
+p40	internal	HandleRequest.1.internal.final
+			HandleRequest.37.final
+			HandleRequest.37.internal.final
+			HandleRequest.373.final
+			HandleRequest.373.internal.final
+			HandleRequest.375.final
+			HandleRequest.375.internal.final
+			HandleRequest.383.final
+			HandleRequest.383.internal.final
+p41	internal	HandleRequest.241.initial
+			HandleRequest.241.internal.initial
+			HandleRequest.242.initial
+			HandleRequest.242.internal.initial
+			HandleRequest.243.initial
+			HandleRequest.243.internal.initial
+p42	internal	HandleRequest.126.initial
+			HandleRequest.126.internal.initial
+			HandleRequest.127.initial
+			HandleRequest.127.internal.initial
+			HandleRequest.128.initial
+			HandleRequest.128.internal.initial
+p43	internal	HandleRequest.356.initial
+			HandleRequest.356.internal.initial
+			HandleRequest.357.initial
+			HandleRequest.357.internal.initial
+p44	internal	HandleRequest.331.initial
+			HandleRequest.331.internal.initial
+			HandleRequest.332.initial
+			HandleRequest.332.internal.initial
+			HandleRequest.333.initial
+			HandleRequest.333.internal.initial
+p45	internal	HandleRequest.332.final
+			HandleRequest.332.internal.final
+			HandleRequest.421.final
+			HandleRequest.421.internal.final
+			HandleRequest.340.final
+			HandleRequest.340.internal.final
+			HandleRequest.354.initial
+			HandleRequest.354.internal.initial
+p46	internal	HandleRequest.38.final
+			HandleRequest.38.internal.final
+			HandleRequest.40.final
+			HandleRequest.40.internal.final
+			HandleRequest.54.final
+			HandleRequest.54.internal.final
+			HandleRequest.68.final
+			HandleRequest.68.internal.final
+			HandleRequest.82.final
+			HandleRequest.82.internal.final
+			HandleRequest.95.initial
+			HandleRequest.95.internal.initial
+in.client.handleComplexRequest	internal	HandleRequest.in.client.handleComplexRequest
+out.HandleRequestWSPL.checkProcessability	internal	HandleRequest.out.HandleRequestWSPL.checkProcessability
+out.HandleRequestWSPL.processRequest	internal	HandleRequest.out.HandleRequestWSPL.processRequest
+out.HandleRequestWSPL.createExceptionTask	internal	HandleRequest.out.HandleRequestWSPL.createExceptionTask
+out.client.reinjectRequest	internal	HandleRequest.out.client.reinjectRequest
+out.client.handleRequest	internal	HandleRequest.out.client.handleRequest
+out.client.handleComplexRequest	internal	HandleRequest.out.client.handleComplexRequest
+out.HandleRequestWSPL.rejectRequestWS	internal	HandleRequest.out.HandleRequestWSPL.rejectRequestWS
+out.HandleRequestWSPL.classifyRequest	internal	HandleRequest.out.HandleRequestWSPL.classifyRequest
+out.client.rejectRequest	internal	HandleRequest.out.client.rejectRequest
+out.HandleRequestWSPL.createManualTask	internal	HandleRequest.out.HandleRequestWSPL.createManualTask
+p47	internal	HandleRequest.376.final
+			HandleRequest.376.internal.final
+			HandleRequest.383.initial
+			HandleRequest.383.internal.initial
+p48	internal	HandleRequest.271.final
+			HandleRequest.271.internal.final
+			HandleRequest.413.initial
+			HandleRequest.413.internal.initial
+			HandleRequest.278.initial
+			HandleRequest.278.internal.initial
+p49	internal	HandleRequest.95.final
+			HandleRequest.95.internal.final
+			HandleRequest.97.final
+			HandleRequest.97.internal.final
+			HandleRequest.226.final
+			HandleRequest.226.internal.final
+			HandleRequest.228.final
+			HandleRequest.228.internal.final
+			HandleRequest.236.final
+			HandleRequest.236.internal.final
+			HandleRequest.241.final
+			HandleRequest.241.internal.final
+			HandleRequest.316.final
+			HandleRequest.316.internal.final
+			HandleRequest.318.final
+			HandleRequest.318.internal.final
+			HandleRequest.326.final
+			HandleRequest.326.internal.final
+			HandleRequest.331.final
+			HandleRequest.331.internal.final
+			HandleRequest.354.final
+			HandleRequest.354.internal.final
+			HandleRequest.356.final
+			HandleRequest.356.internal.final
+			HandleRequest.364.final
+			HandleRequest.364.internal.final
+			HandleRequest.367.final
+			HandleRequest.367.internal.final
+			HandleRequest.373.initial
+			HandleRequest.373.internal.initial
+p50	internal	HandleRequest.293.final
+			HandleRequest.293.internal.final
+			HandleRequest.417.initial
+			HandleRequest.417.internal.initial
+			HandleRequest.300.initial
+			HandleRequest.300.internal.initial
+p51	internal	HandleRequest.292.initial
+			HandleRequest.292.internal.initial
+			HandleRequest.293.initial
+			HandleRequest.293.internal.initial
+p52	internal	HandleRequest.97.initial
+			HandleRequest.97.internal.initial
+			HandleRequest.98.initial
+			HandleRequest.98.internal.initial
+			HandleRequest.99.initial
+			HandleRequest.99.internal.initial
+p53	internal	HandleRequest.375.initial
+			HandleRequest.375.internal.initial
+			HandleRequest.376.initial
+			HandleRequest.376.internal.initial
+
+TRANSITIONS:
+ID	ROLES
+t1	HandleRequest.326.internal.reply
+t2	HandleRequest.268.internal.caseo
+t3	HandleRequest.364.internal.reply
+t4	HandleRequest.95.internal.case2
+t5	HandleRequest.354.internal.caseo
+t6	HandleRequest.373.internal.caseo
+t7	HandleRequest.278.internal.invokeO
+t8	HandleRequest.340.internal.invokeO
+t9	HandleRequest.250.internal.invokeI
+t10	HandleRequest.95.internal.caseo
+t11	HandleRequest.271.internal.assign
+t12	HandleRequest.376.internal.assign
+t13	HandleRequest.373.internal.case1
+t14	HandleRequest.95.internal.case3
+t15	HandleRequest.319.internal.assign
+t16	HandleRequest.250.internal.invokeO
+t17	HandleRequest.316.internal.case1
+t18	HandleRequest.340.internal.invokeI
+t19	HandleRequest.264.internal.assign
+t20	HandleRequest.38.internal.onMessage_1
+t21	HandleRequest.229.internal.assign
+t22	HandleRequest.82.internal.assign
+t23	HandleRequest.38.internal.onMessage_2
+t24	HandleRequest.40.internal.assign
+t25	HandleRequest.203.internal.assign
+t26	HandleRequest.38.internal.onMessage_3
+t27	HandleRequest.226.internal.caseo
+t28	HandleRequest.153.internal.case1
+t29	HandleRequest.226.internal.case1
+t30	HandleRequest.124.internal.caseo
+t31	HandleRequest.38.internal.onMessage_4
+t32	HandleRequest.156.internal.assign
+t33	HandleRequest.95.internal.case1
+t34	HandleRequest.163.internal.invokeO
+t35	HandleRequest.178.internal.assign
+t36	HandleRequest.120.internal.assign
+t37	HandleRequest.124.internal.case1
+t38	HandleRequest.153.internal.caseo
+t39	HandleRequest.243.internal.assign
+t40	HandleRequest.163.internal.invokeI
+t41	HandleRequest.54.internal.assign
+t42	HandleRequest.68.internal.assign
+t43	HandleRequest.149.internal.assign
+t44	HandleRequest.135.internal.invokeO
+t45	HandleRequest.210.internal.invokeI
+t46	HandleRequest.185.internal.invokeI
+t47	HandleRequest.210.internal.invokeO
+t48	HandleRequest.236.internal.reply
+t49	HandleRequest.106.internal.invokeO
+t50	HandleRequest.135.internal.invokeI
+t51	HandleRequest.128.internal.assign
+t52	HandleRequest.99.internal.assign
+t53	HandleRequest.185.internal.invokeO
+t54	HandleRequest.268.internal.case1
+t55	HandleRequest.278.internal.invokeI
+t56	HandleRequest.106.internal.invokeI
+t57	HandleRequest.293.internal.assign
+t58	HandleRequest.357.internal.assign
+t59	HandleRequest.300.internal.invokeI
+t60	HandleRequest.300.internal.invokeO
+t61	HandleRequest.333.internal.assign
+t62	HandleRequest.316.internal.caseo
+t63	HandleRequest.354.internal.case1
+t64	HandleRequest.367.internal.assign
+t65	HandleRequest.383.internal.reply

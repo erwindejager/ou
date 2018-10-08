@@ -1,0 +1,16 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `HandleRequest.bpel'
+------------------------------------------------------------------------------
+98 activities (61 basic, 37 structured, 0 scopes) + 30 implicit activities
+0 handlers (0 FH, 0 TH, 0 CH, 0 EH) + 28 implicit handlers
+0 links, 27 variables
+
+[SYNTAX ANALYSIS] No syntax errors found.
+[STATIC ANALYSIS] No errors found checking 51 statics analysis requirements.
+[OTHER ANALYSIS]  No other errors found.
+------------------------------------------------------------------------------
+|P|=668, |P_in|= 10, |P_out|= 10, |T|=921, |F|=2802
+Error: HandleRequest.dot: syntax error in line 3 near 'width'
+==============================================================================
+

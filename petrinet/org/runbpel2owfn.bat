@@ -1,0 +1,1 @@
+bpel2owfn.exe -i HandleRequest.bpel -w HandleRequestWS.wsdl -m petrinet -f lola

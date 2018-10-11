@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////
+// START BPEL4WS Process: MYPICK
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Information
+//
+// Added Partner : client,TNS:MYPICK
+// MYPICK has 1 partner(s) linkss.
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Translation
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: General Process Condition Variables
+////////////////////////////////////////////////////////////////////
+range MYPICK_IntRange = 0..1
+MYPICK_variable(A=0) = MYPICK_variable[A],
+MYPICK_variable[i:MYPICK_IntRange] = ( write[j:MYPICK_IntRange]->MYPICK_variable[j] | read[i]->MYPICK_variable[i]),
+MYPICK_variable['null] = ( write[j:MYPICK_IntRange]->MYPICK_variable[j] | read['null]->MYPICK_variable['null]).
+set MYPICK_BoolRange = {false, true}
+ENUM_MYPICK_variable(A='null) = MYPICK_variable[A],
+MYPICK_variable[i:MYPICK_BoolRange] = ( write[j:MYPICK_BoolRange]->MYPICK_variable[j] | read[i]->MYPICK_variable[i]),
+MYPICK_variable['null] = ( write[j:MYPICK_BoolRange]->MYPICK_variable[j] | read['null]->MYPICK_variable['null]).
+////////////////////////////////////////////////////////////////////
+// END: Variables
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - MAIN1
+////////////////////////////////////////////////////////////////////
+// START: PICK Events Manager
+////////////////////////////////////////////////////////////////////
+// START: sequence - SEQUENCE1
+////////////////////////////////////////////////////////////////////
+MYPICK_ASSIGNINOUT1 = (mypick_var_output.write.[0] -> END).
+MYPICK_ASSIGNINOUT1_1 = (mypick_var_output.write.[1] -> END).
+MYPICK_ASSIGNINOUT1SEQ = MYPICK_ASSIGNINOUT1; MYPICK_ASSIGNINOUT1_1; END.
+MYPICK_REPLYOUTPUT1 = (mypick_client_reply_process -> END).
+MYPICK_SEQUENCE1 = MYPICK_ASSIGNINOUT1SEQ ; MYPICK_REPLYOUTPUT1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - MYPICK_SEQUENCE1
+////////////////////////////////////////////////////////////////////
+MYPICK_ONMESSAGE_PROCESS_SEQ =  MYPICK_SEQUENCE1; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - SEQUENCE2
+////////////////////////////////////////////////////////////////////
+MYPICK_ASSIGNINOUTHELLO1 = (mypick_var_hellooutput.write.[0] -> END).
+MYPICK_ASSIGNINOUTHELLO1_1 = (mypick_var_hellooutput.write.[0] -> END).
+MYPICK_ASSIGNINOUTHELLO1SEQ = MYPICK_ASSIGNINOUTHELLO1; MYPICK_ASSIGNINOUTHELLO1_1; END.
+MYPICK_REPLY1 = (mypick_client_reply_hello -> END).
+MYPICK_SEQUENCE2 = MYPICK_ASSIGNINOUTHELLO1SEQ ; MYPICK_REPLY1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - MYPICK_SEQUENCE2
+////////////////////////////////////////////////////////////////////
+MYPICK_ONMESSAGE_HELLO_SEQ =  MYPICK_SEQUENCE2; END.
+MYPICK_PICK_EVENTS = (mypick_client_receive_process->MYPICK_PROCESS_EVENTSEQ | mypick_client_receive_hello->MYPICK_HELLO_EVENTSEQ),
+MYPICK_PROCESS_EVENTSEQ = MYPICK_ONMESSAGE_PROCESS_SEQ; END,
+MYPICK_HELLO_EVENTSEQ = MYPICK_ONMESSAGE_HELLO_SEQ; END.
+||MYPICK_PICK_EVENTSMGR = (MYPICK_PICK_EVENTS).
+// END: PICK Events Manager
+MYPICK_MAIN1 = MYPICK_PICK_EVENTSMGR; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - MYPICK_MAIN1
+////////////////////////////////////////////////////////////////////
+MYPICK_MAIN1HIDEACTS = MYPICK_MAIN1; END \ {mypick_var_output.write.[0],mypick_var_output.write.[1],mypick_var_hellooutput.write.[0],mypick_var_hellooutput.write.[0]}.
+set MYPICK_ACTIONSET = {mypick_client_receive_process,mypick_client_reply_process,mypick_client_receive_hello,mypick_client_reply_hello}
+||MYPICK_Instance = (MYPICK_MAIN1).
+||MYPICK_BPELModel = (MYPICK_MAIN1HIDEACTS).
+// /////////////////////////////////////////////////////////////////
+// END BPEL4WS Process: MYPICK
+// /////////////////////////////////////////////////////////////////

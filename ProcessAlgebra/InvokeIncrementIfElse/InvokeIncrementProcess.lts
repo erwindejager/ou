@@ -1,0 +1,82 @@
+////////////////////////////////////////////////////////////////////
+// START BPEL4WS Process: INVOKEINCREMENTPROCESSIFELSE
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Information
+//
+// Added Partner : client,TNS:INVOKEINCREMENTPROCESSIFELSE
+// Added Partner : incrementpl,TNS:INCREMENTPLT
+// INVOKEINCREMENTPROCESSIFELSE has 1 partner(s) linkss.
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Translation
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: General Process Condition Variables
+////////////////////////////////////////////////////////////////////
+range INVOKEINCREMENTPROCESSIFELSE_IntRange = 0..1
+INVOKEINCREMENTPROCESSIFELSE_variable(A=0) = INVOKEINCREMENTPROCESSIFELSE_variable[A],
+INVOKEINCREMENTPROCESSIFELSE_variable[i:INVOKEINCREMENTPROCESSIFELSE_IntRange] = ( write[j:INVOKEINCREMENTPROCESSIFELSE_IntRange]->INVOKEINCREMENTPROCESSIFELSE_variable[j] | read[i]->INVOKEINCREMENTPROCESSIFELSE_variable[i]),
+INVOKEINCREMENTPROCESSIFELSE_variable['null] = ( write[j:INVOKEINCREMENTPROCESSIFELSE_IntRange]->INVOKEINCREMENTPROCESSIFELSE_variable[j] | read['null]->INVOKEINCREMENTPROCESSIFELSE_variable['null]).
+set INVOKEINCREMENTPROCESSIFELSE_BoolRange = {false, true}
+ENUM_INVOKEINCREMENTPROCESSIFELSE_variable(A='null) = INVOKEINCREMENTPROCESSIFELSE_variable[A],
+INVOKEINCREMENTPROCESSIFELSE_variable[i:INVOKEINCREMENTPROCESSIFELSE_BoolRange] = ( write[j:INVOKEINCREMENTPROCESSIFELSE_BoolRange]->INVOKEINCREMENTPROCESSIFELSE_variable[j] | read[i]->INVOKEINCREMENTPROCESSIFELSE_variable[i]),
+INVOKEINCREMENTPROCESSIFELSE_variable['null] = ( write[j:INVOKEINCREMENTPROCESSIFELSE_BoolRange]->INVOKEINCREMENTPROCESSIFELSE_variable[j] | read['null]->INVOKEINCREMENTPROCESSIFELSE_variable['null]).
+////////////////////////////////////////////////////////////////////
+// END: Variables
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - MAIN1
+////////////////////////////////////////////////////////////////////
+INVOKEINCREMENTPROCESSIFELSE_RECEIVEINPUT1 = (invokeincrementprocessifelse_client_receive_process -> END).
+INVOKEINCREMENTPROCESSIFELSE_PREPAREINVOKEINCREMENT1 = (invokeincrementprocessifelse_var_incrementplrequest.write.[0] -> END).
+INVOKEINCREMENTPROCESSIFELSE_PREPAREINVOKEINCREMENT1_1 = (invokeincrementprocessifelse_var_incrementplrequest.write.[1] -> END).
+INVOKEINCREMENTPROCESSIFELSE_PREPAREINVOKEINCREMENT1SEQ = INVOKEINCREMENTPROCESSIFELSE_PREPAREINVOKEINCREMENT1; INVOKEINCREMENTPROCESSIFELSE_PREPAREINVOKEINCREMENT1_1; END.
+INVOKEINCREMENTPROCESSIFELSE_INVOKEINCREMENT1 = (invokeincrementprocessifelse_incrementpl_invoke_incr -> END).
+INVOKEINCREMENTPROCESSIFELSE_INVOKEINCREMENT1_REPLY = (invokeincrementprocessifelse_incrementpl_receive_incr ->END).
+INVOKEINCREMENTPROCESSIFELSE_INVOKEINCREMENT1_SEQ = INVOKEINCREMENTPROCESSIFELSE_INVOKEINCREMENT1; INVOKEINCREMENTPROCESSIFELSE_INVOKEINCREMENT1_REPLY; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - SEQUENCE1
+////////////////////////////////////////////////////////////////////
+INVOKEINCREMENTPROCESSIFELSE_ASSIGN_51 = (invokeincrementprocessifelse_var_output.write.[0] -> END).
+INVOKEINCREMENTPROCESSIFELSE_ASSIGN_51_1 = (invokeincrementprocessifelse_var_output.write.[1] -> END).
+INVOKEINCREMENTPROCESSIFELSE_ASSIGN_51SEQ = INVOKEINCREMENTPROCESSIFELSE_ASSIGN_51; INVOKEINCREMENTPROCESSIFELSE_ASSIGN_51_1; END.
+INVOKEINCREMENTPROCESSIFELSE_SEQUENCE1 = INVOKEINCREMENTPROCESSIFELSE_ASSIGN_51SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - INVOKEINCREMENTPROCESSIFELSE_SEQUENCE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - SEQUENCE2
+////////////////////////////////////////////////////////////////////
+INVOKEINCREMENTPROCESSIFELSE_ASSIGNINCR1 = (invokeincrementprocessifelse_var_output.write.[0] -> END).
+INVOKEINCREMENTPROCESSIFELSE_ASSIGNINCR1_1 = (invokeincrementprocessifelse_var_output.write.[0] -> END).
+INVOKEINCREMENTPROCESSIFELSE_ASSIGNINCR1SEQ = INVOKEINCREMENTPROCESSIFELSE_ASSIGNINCR1; INVOKEINCREMENTPROCESSIFELSE_ASSIGNINCR1_1; END.
+INVOKEINCREMENTPROCESSIFELSE_SEQUENCE2 = INVOKEINCREMENTPROCESSIFELSE_ASSIGNINCR1SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - INVOKEINCREMENTPROCESSIFELSE_SEQUENCE2
+////////////////////////////////////////////////////////////////////
+||INVOKEINCREMENTPROCESSIFELSE_IF_LE_5ELSESEQ = (INVOKEINCREMENTPROCESSIFELSE_SEQUENCE2).
+////////////////////////////////////////////////////////////////////
+// START: condition - invokeincrementprocessifelse_if_le_5
+////////////////////////////////////////////////////////////////////
+||INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONOUTCOME = invokeincrementprocessifelse_if_le_5.condition:INVOKEINCREMENTPROCESSIFELSE_variable.
+set INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONOUTCOME_ALPHABET = {invokeincrementprocessifelse_if_le_5.condition.{read,write}.[INVOKEINCREMENTPROCESSIFELSE_BoolRange]}
+INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONEVAL = (invokeincrementprocessifelse_if_le_5.condition.read[i:INVOKEINCREMENTPROCESSIFELSE_BoolRange]->INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONEVAL[i]),
+INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONEVAL[i:INVOKEINCREMENTPROCESSIFELSE_BoolRange] = if (i=='true)
+then INVOKEINCREMENTPROCESSIFELSE_SEQUENCE1; END else  INVOKEINCREMENTPROCESSIFELSE_IF_LE_5ELSESEQ;END.
+////////////////////////////////////////////////////////////////////
+// END: condition - invokeincrementprocessifelse_if_le_5
+////////////////////////////////////////////////////////////////////
+INVOKEINCREMENTPROCESSIFELSE_IF_LE_5 = INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONEVAL; END.
+INVOKEINCREMENTPROCESSIFELSE_REPLYOUTPUT1 = (invokeincrementprocessifelse_client_reply_process -> END).
+INVOKEINCREMENTPROCESSIFELSE_MAIN1 = INVOKEINCREMENTPROCESSIFELSE_RECEIVEINPUT1 ; INVOKEINCREMENTPROCESSIFELSE_PREPAREINVOKEINCREMENT1SEQ ; INVOKEINCREMENTPROCESSIFELSE_INVOKEINCREMENT1_SEQ ; INVOKEINCREMENTPROCESSIFELSE_IF_LE_5 ; INVOKEINCREMENTPROCESSIFELSE_REPLYOUTPUT1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - INVOKEINCREMENTPROCESSIFELSE_MAIN1
+////////////////////////////////////////////////////////////////////
+INVOKEINCREMENTPROCESSIFELSE_MAIN1HIDEACTS = INVOKEINCREMENTPROCESSIFELSE_MAIN1; END \ {invokeincrementprocessifelse_var_incrementplrequest.write.[0],invokeincrementprocessifelse_var_incrementplrequest.write.[1],invokeincrementprocessifelse_var_output.write.[0],invokeincrementprocessifelse_var_output.write.[1],invokeincrementprocessifelse_var_output.write.[0],invokeincrementprocessifelse_var_output.write.[0],invokeincrementprocessifelse_if_le_5.condition.write.true,invokeincrementprocessifelse_if_le_5.condition.write.false}.
+set INVOKEINCREMENTPROCESSIFELSE_ACTIONSET = {invokeincrementprocessifelse_client_receive_process,invokeincrementprocessifelse_incrementpl_invoke_incr,invokeincrementprocessifelse_incrementpl_receive_incr,invokeincrementprocessifelse_if_le_5.condition.read.true,invokeincrementprocessifelse_if_le_5.condition.read.false,invokeincrementprocessifelse_client_reply_process}
+||INVOKEINCREMENTPROCESSIFELSE_Instance = (INVOKEINCREMENTPROCESSIFELSE_IF_LE_5CONDITIONOUTCOME || INVOKEINCREMENTPROCESSIFELSE_MAIN1).
+||INVOKEINCREMENTPROCESSIFELSE_BPELModel = (INVOKEINCREMENTPROCESSIFELSE_MAIN1HIDEACTS).
+// /////////////////////////////////////////////////////////////////
+// END BPEL4WS Process: INVOKEINCREMENTPROCESSIFELSE
+// /////////////////////////////////////////////////////////////////

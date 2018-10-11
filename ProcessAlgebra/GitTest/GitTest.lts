@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////////
+// START BPEL4WS Process: GITTEST
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Information
+//
+// Added Partner : client,TNS:GITTEST
+// GITTEST has 1 partner(s) linkss.
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Translation
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: General Process Condition Variables
+////////////////////////////////////////////////////////////////////
+range GITTEST_IntRange = 0..1
+GITTEST_variable(A=0) = GITTEST_variable[A],
+GITTEST_variable[i:GITTEST_IntRange] = ( write[j:GITTEST_IntRange]->GITTEST_variable[j] | read[i]->GITTEST_variable[i]),
+GITTEST_variable['null] = ( write[j:GITTEST_IntRange]->GITTEST_variable[j] | read['null]->GITTEST_variable['null]).
+set GITTEST_BoolRange = {false, true}
+ENUM_GITTEST_variable(A='null) = GITTEST_variable[A],
+GITTEST_variable[i:GITTEST_BoolRange] = ( write[j:GITTEST_BoolRange]->GITTEST_variable[j] | read[i]->GITTEST_variable[i]),
+GITTEST_variable['null] = ( write[j:GITTEST_BoolRange]->GITTEST_variable[j] | read['null]->GITTEST_variable['null]).
+////////////////////////////////////////////////////////////////////
+// END: Variables
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - MAIN1
+////////////////////////////////////////////////////////////////////
+GITTEST_RECEIVEINPUT1 = (gittest_client_receive_process -> END).
+GITTEST_ASSIGN1 = (gittest_var_output.write.[0] -> END).
+GITTEST_ASSIGN1_1 = (gittest_var_output.write.[1] -> END).
+GITTEST_ASSIGN1SEQ = GITTEST_ASSIGN1; GITTEST_ASSIGN1_1; END.
+GITTEST_REPLYOUTPUT1 = (gittest_client_reply_process -> END).
+GITTEST_MAIN1 = GITTEST_RECEIVEINPUT1 ; GITTEST_ASSIGN1SEQ ; GITTEST_REPLYOUTPUT1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - GITTEST_MAIN1
+////////////////////////////////////////////////////////////////////
+GITTEST_MAIN1HIDEACTS = GITTEST_MAIN1; END \ {gittest_var_output.write.[0],gittest_var_output.write.[1]}.
+set GITTEST_ACTIONSET = {gittest_client_receive_process,gittest_client_reply_process}
+||GITTEST_Instance = (GITTEST_MAIN1).
+||GITTEST_BPELModel = (GITTEST_MAIN1HIDEACTS).
+// /////////////////////////////////////////////////////////////////
+// END BPEL4WS Process: GITTEST
+// /////////////////////////////////////////////////////////////////

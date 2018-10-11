@@ -1,0 +1,333 @@
+////////////////////////////////////////////////////////////////////
+// START BPEL4WS Process: HANDLEREQUEST
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Information
+//
+// Added Partner : client,TNS:HANDLEREQUEST
+// Added Partner : handlerequestwspl,TNS:HANDLEREQUESTWSPLTYPE
+// HANDLEREQUEST has 1 partner(s) linkss.
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Translation
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: General Process Condition Variables
+////////////////////////////////////////////////////////////////////
+range HANDLEREQUEST_IntRange = 0..1
+HANDLEREQUEST_variable(A=0) = HANDLEREQUEST_variable[A],
+HANDLEREQUEST_variable[i:HANDLEREQUEST_IntRange] = ( write[j:HANDLEREQUEST_IntRange]->HANDLEREQUEST_variable[j] | read[i]->HANDLEREQUEST_variable[i]),
+HANDLEREQUEST_variable['null] = ( write[j:HANDLEREQUEST_IntRange]->HANDLEREQUEST_variable[j] | read['null]->HANDLEREQUEST_variable['null]).
+set HANDLEREQUEST_BoolRange = {false, true}
+ENUM_HANDLEREQUEST_variable(A='null) = HANDLEREQUEST_variable[A],
+HANDLEREQUEST_variable[i:HANDLEREQUEST_BoolRange] = ( write[j:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_variable[j] | read[i]->HANDLEREQUEST_variable[i]),
+HANDLEREQUEST_variable['null] = ( write[j:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_variable[j] | read['null]->HANDLEREQUEST_variable['null]).
+////////////////////////////////////////////////////////////////////
+// END: Variables
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - REQUESTHANDLER1
+////////////////////////////////////////////////////////////////////
+// START: PICK Events Manager
+HANDLEREQUEST_PREPAREHANDLEREQUEST11 = (handlerequest_var_reinject.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLEREQUEST11_1 = (handlerequest_var_service.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLEREQUEST11_2 = (handlerequest_var_ok.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLEREQUEST11_3 = (handlerequest_var_payload.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLEREQUEST11SEQ = HANDLEREQUEST_PREPAREHANDLEREQUEST11; HANDLEREQUEST_PREPAREHANDLEREQUEST11_1; HANDLEREQUEST_PREPAREHANDLEREQUEST11_2; HANDLEREQUEST_PREPAREHANDLEREQUEST11_3; END.
+HANDLEREQUEST_ONMESSAGE_HANDLEREQUEST_SEQ =  HANDLEREQUEST_PREPAREHANDLEREQUEST11SEQ; END.
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11 = (handlerequest_var_reinject.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11_1 = (handlerequest_var_service.write.[1] -> END).
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11_2 = (handlerequest_var_ok.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11_3 = (handlerequest_var_payload.write.[1] -> END).
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11SEQ = HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11; HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11_1; HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11_2; HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11_3; END.
+HANDLEREQUEST_ONMESSAGE_HANDLECOMPLEXREQUEST_SEQ =  HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUEST11SEQ; END.
+HANDLEREQUEST_PREPAREREJECTREQUEST11 = (handlerequest_var_reinject.write.[0] -> END).
+HANDLEREQUEST_PREPAREREJECTREQUEST11_1 = (handlerequest_var_service.write.[2] -> END).
+HANDLEREQUEST_PREPAREREJECTREQUEST11_2 = (handlerequest_var_ok.write.[0] -> END).
+HANDLEREQUEST_PREPAREREJECTREQUEST11_3 = (handlerequest_var_payload.write.[2] -> END).
+HANDLEREQUEST_PREPAREREJECTREQUEST11SEQ = HANDLEREQUEST_PREPAREREJECTREQUEST11; HANDLEREQUEST_PREPAREREJECTREQUEST11_1; HANDLEREQUEST_PREPAREREJECTREQUEST11_2; HANDLEREQUEST_PREPAREREJECTREQUEST11_3; END.
+HANDLEREQUEST_ONMESSAGE_REJECTREQUEST_SEQ =  HANDLEREQUEST_PREPAREREJECTREQUEST11SEQ; END.
+HANDLEREQUEST_HANDLESERVICE_EVENTS = (handlerequest_client_receive_handlerequest->HANDLEREQUEST_HANDLEREQUEST_EVENTSEQ | handlerequest_client_receive_handlecomplexrequest->HANDLEREQUEST_HANDLECOMPLEXREQUEST_EVENTSEQ | handlerequest_client_receive_rejectrequest->HANDLEREQUEST_REJECTREQUEST_EVENTSEQ),
+HANDLEREQUEST_HANDLEREQUEST_EVENTSEQ = HANDLEREQUEST_ONMESSAGE_HANDLEREQUEST_SEQ; END,
+HANDLEREQUEST_HANDLECOMPLEXREQUEST_EVENTSEQ = HANDLEREQUEST_ONMESSAGE_HANDLECOMPLEXREQUEST_SEQ; END,
+HANDLEREQUEST_REJECTREQUEST_EVENTSEQ = HANDLEREQUEST_ONMESSAGE_REJECTREQUEST_SEQ; END.
+||HANDLEREQUEST_HANDLESERVICE_EVENTSMGR = (HANDLEREQUEST_HANDLESERVICE_EVENTS).
+// END: PICK Events Manager
+////////////////////////////////////////////////////////////////////
+// START: sequence - HANDLEREQUESTSEQUENCE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKECLASSIFYREQUEST1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPARECLASSIFYREQUEST11 = (handlerequest_var_classifyrequestwsrequest.write.[0] -> END).
+HANDLEREQUEST_PREPARECLASSIFYREQUEST11_1 = (handlerequest_var_classifyrequestwsrequest.write.[1] -> END).
+HANDLEREQUEST_PREPARECLASSIFYREQUEST11SEQ = HANDLEREQUEST_PREPARECLASSIFYREQUEST11; HANDLEREQUEST_PREPARECLASSIFYREQUEST11_1; END.
+HANDLEREQUEST_CLASSIFYREQUESTWS1 = (handlerequest_handlerequestwspl_invoke_classifyrequest -> END).
+HANDLEREQUEST_CLASSIFYREQUESTWS1_REPLY = (handlerequest_handlerequestwspl_receive_classifyrequest ->END).
+HANDLEREQUEST_CLASSIFYREQUESTWS1_SEQ = HANDLEREQUEST_CLASSIFYREQUESTWS1; HANDLEREQUEST_CLASSIFYREQUESTWS1_REPLY; END.
+HANDLEREQUEST_ASSIGNREQUESTTYPE11 = (handlerequest_var_requesttype.write.[0] -> END).
+HANDLEREQUEST_INVOKECLASSIFYREQUEST1 = HANDLEREQUEST_PREPARECLASSIFYREQUEST11SEQ ; HANDLEREQUEST_CLASSIFYREQUESTWS1_SEQ ; HANDLEREQUEST_ASSIGNREQUESTTYPE11; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKECLASSIFYREQUEST1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - HANDLESTANDARDREQUEST1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKECHECKPROCESSABILITY1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPARECHECKPROCESSABILITY11 = (handlerequest_var_checkprocessabilitywsrequest.write.[0] -> END).
+HANDLEREQUEST_PREPARECHECKPROCESSABILITY11_1 = (handlerequest_var_checkprocessabilitywsrequest.write.[1] -> END).
+HANDLEREQUEST_PREPARECHECKPROCESSABILITY11SEQ = HANDLEREQUEST_PREPARECHECKPROCESSABILITY11; HANDLEREQUEST_PREPARECHECKPROCESSABILITY11_1; END.
+HANDLEREQUEST_CHECKPROCESSABILITYWS1 = (handlerequest_handlerequestwspl_invoke_checkprocessability -> END).
+HANDLEREQUEST_CHECKPROCESSABILITYWS1_REPLY = (handlerequest_handlerequestwspl_receive_checkprocessability ->END).
+HANDLEREQUEST_CHECKPROCESSABILITYWS1_SEQ = HANDLEREQUEST_CHECKPROCESSABILITYWS1; HANDLEREQUEST_CHECKPROCESSABILITYWS1_REPLY; END.
+HANDLEREQUEST_ASSIGNVALID11 = (handlerequest_var_valid.write.[0] -> END).
+HANDLEREQUEST_INVOKECHECKPROCESSABILITY1 = HANDLEREQUEST_PREPARECHECKPROCESSABILITY11SEQ ; HANDLEREQUEST_CHECKPROCESSABILITYWS1_SEQ ; HANDLEREQUEST_ASSIGNVALID11; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKECHECKPROCESSABILITY1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEPROCESSREQUEST1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREPROCESSREQUEST11 = (handlerequest_var_handlerequestwsrequest.write.[0] -> END).
+HANDLEREQUEST_PREPAREPROCESSREQUEST11_1 = (handlerequest_var_handlerequestwsrequest.write.[1] -> END).
+HANDLEREQUEST_PREPAREPROCESSREQUEST11SEQ = HANDLEREQUEST_PREPAREPROCESSREQUEST11; HANDLEREQUEST_PREPAREPROCESSREQUEST11_1; END.
+HANDLEREQUEST_PROCESSREQUESTWS1 = (handlerequest_handlerequestwspl_invoke_processrequest -> END).
+HANDLEREQUEST_PROCESSREQUESTWS1_REPLY = (handlerequest_handlerequestwspl_receive_processrequest ->END).
+HANDLEREQUEST_PROCESSREQUESTWS1_SEQ = HANDLEREQUEST_PROCESSREQUESTWS1; HANDLEREQUEST_PROCESSREQUESTWS1_REPLY; END.
+HANDLEREQUEST_INVOKEPROCESSREQUEST1 = HANDLEREQUEST_PREPAREPROCESSREQUEST11SEQ ; HANDLEREQUEST_PROCESSREQUESTWS1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKEPROCESSREQUEST1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEREJECTREQUEST1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREREJECTREQ11 = (handlerequest_var_rejectrequestwsreq.write.[0] -> END).
+HANDLEREQUEST_PREPAREREJECTREQ11_1 = (handlerequest_var_rejectrequestwsreq.write.[1] -> END).
+HANDLEREQUEST_PREPAREREJECTREQ11SEQ = HANDLEREQUEST_PREPAREREJECTREQ11; HANDLEREQUEST_PREPAREREJECTREQ11_1; END.
+HANDLEREQUEST_REJECTREQUESTWS1 = (handlerequest_handlerequestwspl_invoke_rejectrequestws -> END).
+HANDLEREQUEST_REJECTREQUESTWS1_REPLY = (handlerequest_handlerequestwspl_receive_rejectrequestws ->END).
+HANDLEREQUEST_REJECTREQUESTWS1_SEQ = HANDLEREQUEST_REJECTREQUESTWS1; HANDLEREQUEST_REJECTREQUESTWS1_REPLY; END.
+HANDLEREQUEST_INVOKEREJECTREQUEST1 = HANDLEREQUEST_PREPAREREJECTREQ11SEQ ; HANDLEREQUEST_REJECTREQUESTWS1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKEREJECTREQUEST1
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDELSESEQ = (HANDLEREQUEST_INVOKEREJECTREQUEST1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlerequest_ifvalid
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDCONDITION61OUTCOME = handlerequest_ifvalid.condition:HANDLEREQUEST_variable.
+set HANDLEREQUEST_IFVALIDCONDITION61OUTCOME_ALPHABET = {handlerequest_ifvalid.condition.{read,write}.[HANDLEREQUEST_BoolRange]}
+HANDLEREQUEST_IFVALIDCONDITION61EVAL = (handlerequest_ifvalid.condition.read[i:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_IFVALIDCONDITION61EVAL[i]),
+HANDLEREQUEST_IFVALIDCONDITION61EVAL[i:HANDLEREQUEST_BoolRange] = if (i=='true)
+then HANDLEREQUEST_INVOKEPROCESSREQUEST1; END else  HANDLEREQUEST_IFVALIDELSESEQ;END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlerequest_ifvalid
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_IFVALID = HANDLEREQUEST_IFVALIDCONDITION61EVAL; END.
+HANDLEREQUEST_HANDLESTANDARDREQUEST1 = HANDLEREQUEST_INVOKECHECKPROCESSABILITY1 ; HANDLEREQUEST_IFVALID; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_HANDLESTANDARDREQUEST1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - CREATEMANUALTASK1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKECREATEMANUALTASK1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPARECREATEMANUALTASK11 = (handlerequest_var_createmanualtaskwsrequest.write.[0] -> END).
+HANDLEREQUEST_PREPARECREATEMANUALTASK11_1 = (handlerequest_var_createmanualtaskwsrequest.write.[1] -> END).
+HANDLEREQUEST_PREPARECREATEMANUALTASK11SEQ = HANDLEREQUEST_PREPARECREATEMANUALTASK11; HANDLEREQUEST_PREPARECREATEMANUALTASK11_1; END.
+HANDLEREQUEST_CREATEMANUALTASKWS1 = (handlerequest_handlerequestwspl_invoke_createmanualtask -> END).
+HANDLEREQUEST_CREATEMANUALTASKWS1_REPLY = (handlerequest_handlerequestwspl_receive_createmanualtask ->END).
+HANDLEREQUEST_CREATEMANUALTASKWS1_SEQ = HANDLEREQUEST_CREATEMANUALTASKWS1; HANDLEREQUEST_CREATEMANUALTASKWS1_REPLY; END.
+HANDLEREQUEST_INVOKECREATEMANUALTASK1 = HANDLEREQUEST_PREPARECREATEMANUALTASK11SEQ ; HANDLEREQUEST_CREATEMANUALTASKWS1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKECREATEMANUALTASK1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_CREATEMANUALTASK1 = HANDLEREQUEST_INVOKECREATEMANUALTASK1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_CREATEMANUALTASK1
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDELSESEQ2 = (HANDLEREQUEST_CREATEMANUALTASK1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlerequest_ifstandardrequest
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71OUTCOME = handlerequest_ifstandardrequest.condition:HANDLEREQUEST_variable.
+set HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71OUTCOME_ALPHABET = {handlerequest_ifstandardrequest.condition.{read,write}.[HANDLEREQUEST_BoolRange]}
+HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71EVAL = (handlerequest_ifstandardrequest.condition.read[i:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71EVAL[i]),
+HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71EVAL[i:HANDLEREQUEST_BoolRange] = if (i=='true)
+then HANDLEREQUEST_HANDLESTANDARDREQUEST1; END else  HANDLEREQUEST_IFVALIDELSESEQ2;END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlerequest_ifstandardrequest
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_IFSTANDARDREQUEST = HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71EVAL; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - REPLY1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREHANDLEREQUESTREPLY11 = (handlerequest_var_handlerequestoutput.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLEREQUESTREPLY11_1 = (handlerequest_var_handlerequestoutput.write.[1] -> END).
+HANDLEREQUEST_PREPAREHANDLEREQUESTREPLY11SEQ = HANDLEREQUEST_PREPAREHANDLEREQUESTREPLY11; HANDLEREQUEST_PREPAREHANDLEREQUESTREPLY11_1; END.
+HANDLEREQUEST_HANDLEREQUESTREPLY1 = (handlerequest_client_reply_handlerequest -> END).
+HANDLEREQUEST_REPLY1 = HANDLEREQUEST_PREPAREHANDLEREQUESTREPLY11SEQ ; HANDLEREQUEST_HANDLEREQUESTREPLY1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_REPLY1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_HANDLEREQUESTSEQUENCE1 = HANDLEREQUEST_INVOKECLASSIFYREQUEST1 ; HANDLEREQUEST_IFSTANDARDREQUEST ; HANDLEREQUEST_REPLY1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_HANDLEREQUESTSEQUENCE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: condition - handlerequest_ifvalidelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81OUTCOME = handlerequest_ifvalidelseif1seq.condition:HANDLEREQUEST_variable.
+set HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81OUTCOME_ALPHABET = {handlerequest_ifvalidelseif1seq.condition.{read,write}.[HANDLEREQUEST_BoolRange]}
+HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81EVAL = (handlerequest_ifvalidelseif1seq.condition.read[i:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81EVAL[i]),
+HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81EVAL[i:HANDLEREQUEST_BoolRange] = if (i=='true)
+then HANDLEREQUEST_IFVALIDELSEIF1SEQ; END else END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlerequest_ifvalidelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDELSEIF1SEQEVAL = (HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81EVAL).
+////////////////////////////////////////////////////////////////////
+// START: sequence - HANDLECOMPLEXREQUESTSEQUENCE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKECHECKPROCESSABILITY2
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPARECHECKPROCESSABILITY21 = (handlerequest_var_checkprocessabilitywsrequest.write.[0] -> END).
+HANDLEREQUEST_PREPARECHECKPROCESSABILITY21_1 = (handlerequest_var_checkprocessabilitywsrequest.write.[1] -> END).
+HANDLEREQUEST_PREPARECHECKPROCESSABILITY21SEQ = HANDLEREQUEST_PREPARECHECKPROCESSABILITY21; HANDLEREQUEST_PREPARECHECKPROCESSABILITY21_1; END.
+HANDLEREQUEST_CHECKPROCESSABILITYWS2 = (handlerequest_handlerequestwspl_invoke_checkprocessability -> END).
+HANDLEREQUEST_CHECKPROCESSABILITYWS2_REPLY = (handlerequest_handlerequestwspl_receive_checkprocessability ->END).
+HANDLEREQUEST_CHECKPROCESSABILITYWS2_SEQ = HANDLEREQUEST_CHECKPROCESSABILITYWS2; HANDLEREQUEST_CHECKPROCESSABILITYWS2_REPLY; END.
+HANDLEREQUEST_ASSIGNVALID21 = (handlerequest_var_valid.write.[0] -> END).
+HANDLEREQUEST_INVOKECHECKPROCESSABILITY2 = HANDLEREQUEST_PREPARECHECKPROCESSABILITY21SEQ ; HANDLEREQUEST_CHECKPROCESSABILITYWS2_SEQ ; HANDLEREQUEST_ASSIGNVALID21; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKECHECKPROCESSABILITY2
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEPROCESSREQUEST2
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREPROCESSREQUEST21 = (handlerequest_var_handlerequestwsrequest.write.[0] -> END).
+HANDLEREQUEST_PREPAREPROCESSREQUEST21_1 = (handlerequest_var_handlerequestwsrequest.write.[1] -> END).
+HANDLEREQUEST_PREPAREPROCESSREQUEST21SEQ = HANDLEREQUEST_PREPAREPROCESSREQUEST21; HANDLEREQUEST_PREPAREPROCESSREQUEST21_1; END.
+HANDLEREQUEST_PROCESSREQUESTWS2 = (handlerequest_handlerequestwspl_invoke_processrequest -> END).
+HANDLEREQUEST_PROCESSREQUESTWS2_REPLY = (handlerequest_handlerequestwspl_receive_processrequest ->END).
+HANDLEREQUEST_PROCESSREQUESTWS2_SEQ = HANDLEREQUEST_PROCESSREQUESTWS2; HANDLEREQUEST_PROCESSREQUESTWS2_REPLY; END.
+HANDLEREQUEST_INVOKEPROCESSREQUEST2 = HANDLEREQUEST_PREPAREPROCESSREQUEST21SEQ ; HANDLEREQUEST_PROCESSREQUESTWS2_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKEPROCESSREQUEST2
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEREJECTREQUEST2
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREREJECTREQ21 = (handlerequest_var_rejectrequestwsreq.write.[0] -> END).
+HANDLEREQUEST_PREPAREREJECTREQ21_1 = (handlerequest_var_rejectrequestwsreq.write.[1] -> END).
+HANDLEREQUEST_PREPAREREJECTREQ21SEQ = HANDLEREQUEST_PREPAREREJECTREQ21; HANDLEREQUEST_PREPAREREJECTREQ21_1; END.
+HANDLEREQUEST_REJECTREQUESTWS2 = (handlerequest_handlerequestwspl_invoke_rejectrequestws -> END).
+HANDLEREQUEST_REJECTREQUESTWS2_REPLY = (handlerequest_handlerequestwspl_receive_rejectrequestws ->END).
+HANDLEREQUEST_REJECTREQUESTWS2_SEQ = HANDLEREQUEST_REJECTREQUESTWS2; HANDLEREQUEST_REJECTREQUESTWS2_REPLY; END.
+HANDLEREQUEST_INVOKEREJECTREQUEST2 = HANDLEREQUEST_PREPAREREJECTREQ21SEQ ; HANDLEREQUEST_REJECTREQUESTWS2_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKEREJECTREQUEST2
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDCOMPLEXELSESEQ = (HANDLEREQUEST_INVOKEREJECTREQUEST2).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlerequest_ifvalidcomplex
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91OUTCOME = handlerequest_ifvalidcomplex.condition:HANDLEREQUEST_variable.
+set HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91OUTCOME_ALPHABET = {handlerequest_ifvalidcomplex.condition.{read,write}.[HANDLEREQUEST_BoolRange]}
+HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91EVAL = (handlerequest_ifvalidcomplex.condition.read[i:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91EVAL[i]),
+HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91EVAL[i:HANDLEREQUEST_BoolRange] = if (i=='true)
+then HANDLEREQUEST_INVOKEPROCESSREQUEST2; END else  HANDLEREQUEST_IFVALIDCOMPLEXELSESEQ2;END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlerequest_ifvalidcomplex
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_IFVALIDCOMPLEX = HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91EVAL; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - REPLY2
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUESTREPLY11 = (handlerequest_var_handlecomplexrequestoutput.write.[0] -> END).
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUESTREPLY11_1 = (handlerequest_var_handlecomplexrequestoutput.write.[1] -> END).
+HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUESTREPLY11SEQ = HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUESTREPLY11; HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUESTREPLY11_1; END.
+HANDLEREQUEST_HANDLECOMPLEXREQUESTREPLY1 = (handlerequest_client_reply_handlecomplexrequest -> END).
+HANDLEREQUEST_REPLY2 = HANDLEREQUEST_PREPAREHANDLECOMPLEXREQUESTREPLY11SEQ ; HANDLEREQUEST_HANDLECOMPLEXREQUESTREPLY1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_REPLY2
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_HANDLECOMPLEXREQUESTSEQUENCE1 = HANDLEREQUEST_INVOKECHECKPROCESSABILITY2 ; HANDLEREQUEST_IFVALIDCOMPLEX ; HANDLEREQUEST_REPLY2; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_HANDLECOMPLEXREQUESTSEQUENCE1
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDELSEIF1SEQ = (HANDLEREQUEST_HANDLECOMPLEXREQUESTSEQUENCE1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlerequest_ifvalidcomplexelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101OUTCOME = handlerequest_ifvalidcomplexelseif1seq.condition:HANDLEREQUEST_variable.
+set HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101OUTCOME_ALPHABET = {handlerequest_ifvalidcomplexelseif1seq.condition.{read,write}.[HANDLEREQUEST_BoolRange]}
+HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101EVAL = (handlerequest_ifvalidcomplexelseif1seq.condition.read[i:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101EVAL[i]),
+HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101EVAL[i:HANDLEREQUEST_BoolRange] = if (i=='true)
+then HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQ; END else END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlerequest_ifvalidcomplexelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQEVAL = (HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101EVAL).
+////////////////////////////////////////////////////////////////////
+// START: sequence - REJECTREQUESTSEQUENCE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEREJECTREQUEST3
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREINVOKEREJECTREQUEST11 = (handlerequest_var_rejectrequestwsreq.write.[0] -> END).
+HANDLEREQUEST_PREPAREINVOKEREJECTREQUEST11_1 = (handlerequest_var_rejectrequestwsreq.write.[1] -> END).
+HANDLEREQUEST_PREPAREINVOKEREJECTREQUEST11SEQ = HANDLEREQUEST_PREPAREINVOKEREJECTREQUEST11; HANDLEREQUEST_PREPAREINVOKEREJECTREQUEST11_1; END.
+HANDLEREQUEST_INVOKEREJECTREQUESTWS1 = (handlerequest_handlerequestwspl_invoke_rejectrequestws -> END).
+HANDLEREQUEST_INVOKEREJECTREQUESTWS1_REPLY = (handlerequest_handlerequestwspl_receive_rejectrequestws ->END).
+HANDLEREQUEST_INVOKEREJECTREQUESTWS1_SEQ = HANDLEREQUEST_INVOKEREJECTREQUESTWS1; HANDLEREQUEST_INVOKEREJECTREQUESTWS1_REPLY; END.
+HANDLEREQUEST_INVOKEREJECTREQUEST3 = HANDLEREQUEST_PREPAREINVOKEREJECTREQUEST11SEQ ; HANDLEREQUEST_INVOKEREJECTREQUESTWS1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_INVOKEREJECTREQUEST3
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - REPLY3
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_PREPAREREJECTREQUESTREPLY11 = (handlerequest_var_rejectrequestoutput.write.[0] -> END).
+HANDLEREQUEST_PREPAREREJECTREQUESTREPLY11_1 = (handlerequest_var_rejectrequestoutput.write.[1] -> END).
+HANDLEREQUEST_PREPAREREJECTREQUESTREPLY11SEQ = HANDLEREQUEST_PREPAREREJECTREQUESTREPLY11; HANDLEREQUEST_PREPAREREJECTREQUESTREPLY11_1; END.
+HANDLEREQUEST_REJECTREQUESTREPLY1 = (handlerequest_client_reply_rejectrequest -> END).
+HANDLEREQUEST_REPLY3 = HANDLEREQUEST_PREPAREREJECTREQUESTREPLY11SEQ ; HANDLEREQUEST_REJECTREQUESTREPLY1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_REPLY3
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_REJECTREQUESTSEQUENCE1 = HANDLEREQUEST_INVOKEREJECTREQUEST3 ; HANDLEREQUEST_REPLY3; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_REJECTREQUESTSEQUENCE1
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQ = (HANDLEREQUEST_REJECTREQUESTSEQUENCE1).
+HANDLEREQUEST_UNKNOWNREQUEST11 = (handlerequest_var_ok.write.[1] -> END).
+||HANDLEREQUEST_IFVALIDCOMPLEXELSESEQ2 = (HANDLEREQUEST_UNKNOWNREQUEST11).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlerequest_handleservice
+////////////////////////////////////////////////////////////////////
+||HANDLEREQUEST_HANDLESERVICECONDITION111OUTCOME = handlerequest_handleservice.condition:HANDLEREQUEST_variable.
+set HANDLEREQUEST_HANDLESERVICECONDITION111OUTCOME_ALPHABET = {handlerequest_handleservice.condition.{read,write}.[HANDLEREQUEST_BoolRange]}
+HANDLEREQUEST_HANDLESERVICECONDITION111EVAL = (handlerequest_handleservice.condition.read[i:HANDLEREQUEST_BoolRange]->HANDLEREQUEST_HANDLESERVICECONDITION111EVAL[i]),
+HANDLEREQUEST_HANDLESERVICECONDITION111EVAL[i:HANDLEREQUEST_BoolRange] = if (i=='true)
+then HANDLEREQUEST_HANDLEREQUESTSEQUENCE1; END else  HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQEVAL;END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlerequest_handleservice
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_HANDLESERVICE = HANDLEREQUEST_HANDLESERVICECONDITION111EVAL; END.
+HANDLEREQUEST_REQUESTHANDLER1 = HANDLEREQUEST_HANDLESERVICE_EVENTSMGR ; HANDLEREQUEST_HANDLESERVICE; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLEREQUEST_REQUESTHANDLER1
+////////////////////////////////////////////////////////////////////
+HANDLEREQUEST_REQUESTHANDLER1HIDEACTS = HANDLEREQUEST_REQUESTHANDLER1; END \ {handlerequest_var_reinject.write.[0],handlerequest_var_service.write.[0],handlerequest_var_ok.write.[0],handlerequest_var_payload.write.[0],handlerequest_var_reinject.write.[0],handlerequest_var_service.write.[1],handlerequest_var_ok.write.[0],handlerequest_var_payload.write.[1],handlerequest_var_reinject.write.[0],handlerequest_var_service.write.[2],handlerequest_var_ok.write.[0],handlerequest_var_payload.write.[2],handlerequest_var_classifyrequestwsrequest.write.[0],handlerequest_var_classifyrequestwsrequest.write.[1],handlerequest_var_requesttype.write.[0],handlerequest_var_checkprocessabilitywsrequest.write.[0],handlerequest_var_checkprocessabilitywsrequest.write.[1],handlerequest_var_valid.write.[0],handlerequest_var_handlerequestwsrequest.write.[0],handlerequest_var_handlerequestwsrequest.write.[1],handlerequest_var_rejectrequestwsreq.write.[0],handlerequest_var_rejectrequestwsreq.write.[1],handlerequest_ifvalid.condition.write.true,handlerequest_ifvalid.condition.write.false,handlerequest_var_createmanualtaskwsrequest.write.[0],handlerequest_var_createmanualtaskwsrequest.write.[1],handlerequest_ifstandardrequest.condition.write.true,handlerequest_ifstandardrequest.condition.write.false,handlerequest_var_handlerequestoutput.write.[0],handlerequest_var_handlerequestoutput.write.[1],handlerequest_ifvalidelseif1seq.condition.write.true,handlerequest_ifvalidelseif1seq.condition.write.false,handlerequest_var_checkprocessabilitywsrequest.write.[0],handlerequest_var_checkprocessabilitywsrequest.write.[1],handlerequest_var_valid.write.[0],handlerequest_var_handlerequestwsrequest.write.[0],handlerequest_var_handlerequestwsrequest.write.[1],handlerequest_var_rejectrequestwsreq.write.[0],handlerequest_var_rejectrequestwsreq.write.[1],handlerequest_ifvalidcomplex.condition.write.true,handlerequest_ifvalidcomplex.condition.write.false,handlerequest_var_handlecomplexrequestoutput.write.[0],handlerequest_var_handlecomplexrequestoutput.write.[1],handlerequest_ifvalidcomplexelseif1seq.condition.write.true,handlerequest_ifvalidcomplexelseif1seq.condition.write.false,handlerequest_var_rejectrequestwsreq.write.[0],handlerequest_var_rejectrequestwsreq.write.[1],handlerequest_var_rejectrequestoutput.write.[0],handlerequest_var_rejectrequestoutput.write.[1],handlerequest_var_ok.write.[1],handlerequest_handleservice.condition.write.true,handlerequest_handleservice.condition.write.false}.
+set HANDLEREQUEST_ACTIONSET = {handlerequest_client_receive_handlerequest,handlerequest_client_receive_handlecomplexrequest,handlerequest_client_receive_rejectrequest,handlerequest_handlerequestwspl_invoke_classifyrequest,handlerequest_handlerequestwspl_receive_classifyrequest,handlerequest_handlerequestwspl_invoke_checkprocessability,handlerequest_handlerequestwspl_receive_checkprocessability,handlerequest_handlerequestwspl_invoke_processrequest,handlerequest_handlerequestwspl_receive_processrequest,handlerequest_handlerequestwspl_invoke_rejectrequestws,handlerequest_handlerequestwspl_receive_rejectrequestws,handlerequest_ifvalid.condition.read.true,handlerequest_ifvalid.condition.read.false,handlerequest_handlerequestwspl_invoke_createmanualtask,handlerequest_handlerequestwspl_receive_createmanualtask,handlerequest_ifstandardrequest.condition.read.true,handlerequest_ifstandardrequest.condition.read.false,handlerequest_client_reply_handlerequest,handlerequest_ifvalidelseif1seq.condition.read.true,handlerequest_ifvalidelseif1seq.condition.read.false,handlerequest_handlerequestwspl_invoke_checkprocessability,handlerequest_handlerequestwspl_receive_checkprocessability,handlerequest_handlerequestwspl_invoke_processrequest,handlerequest_handlerequestwspl_receive_processrequest,handlerequest_handlerequestwspl_invoke_rejectrequestws,handlerequest_handlerequestwspl_receive_rejectrequestws,handlerequest_ifvalidcomplex.condition.read.true,handlerequest_ifvalidcomplex.condition.read.false,handlerequest_client_reply_handlecomplexrequest,handlerequest_ifvalidcomplexelseif1seq.condition.read.true,handlerequest_ifvalidcomplexelseif1seq.condition.read.false,handlerequest_handlerequestwspl_invoke_rejectrequestws,handlerequest_handlerequestwspl_receive_rejectrequestws,handlerequest_client_reply_rejectrequest,handlerequest_handleservice.condition.read.true,handlerequest_handleservice.condition.read.false}
+||HANDLEREQUEST_Instance = (HANDLEREQUEST_IFVALIDCONDITION61OUTCOME || HANDLEREQUEST_IFSTANDARDREQUESTCONDITION71OUTCOME || HANDLEREQUEST_IFVALIDELSEIF1SEQCONDITION81OUTCOME || HANDLEREQUEST_IFVALIDCOMPLEXCONDITION91OUTCOME || HANDLEREQUEST_IFVALIDCOMPLEXELSEIF1SEQCONDITION101OUTCOME || HANDLEREQUEST_HANDLESERVICECONDITION111OUTCOME || HANDLEREQUEST_REQUESTHANDLER1).
+||HANDLEREQUEST_BPELModel = (HANDLEREQUEST_REQUESTHANDLER1HIDEACTS).
+// /////////////////////////////////////////////////////////////////
+// END BPEL4WS Process: HANDLEREQUEST
+// /////////////////////////////////////////////////////////////////

@@ -1,0 +1,112 @@
+<process name="myPick"
+         targetNamespace="htt:/mypick.ou"
+         suppressJoinFailure="yes"
+         xmlns:tns="htt:/mypick.ou"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         >
+
+    <!-- Import the client WSDL -->
+	<import location="myPickArtifacts.wsdl" namespace="htt:/mypick.ou" 
+	        importType="http://schemas.xmlsoap.org/wsdl/" />
+         
+    <!-- ================================================================= -->         
+    <!-- PARTNERLINKS                                                      -->
+    <!-- List of services participating in this BPEL process               -->
+    <!-- ================================================================= -->         
+    <partnerLinks>
+        <!-- The 'client' role represents the requester of this service. -->
+        <partnerLink name="client"
+                     partnerLinkType="tns:myPick"
+                     myRole="myPickProvider"
+                     />
+    </partnerLinks>
+  
+    <!-- ================================================================= -->         
+    <!-- VARIABLES                                                         -->
+    <!-- List of messages and XML documents used within this BPEL process  -->
+    <!-- ================================================================= -->         
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="input"
+                  messageType="tns:myPickRequestMessage"/>
+                  
+        <variable name="output"
+                  messageType="tns:myPickResponseMessage"/>
+        <variable name="helloInput" messageType="tns:helloRequest"></variable>
+        <variable name="helloOutput" messageType="tns:helloResponse"></variable>
+    </variables>
+
+    <!-- ================================================================= -->         
+    <!-- ORCHESTRATION LOGIC                                               -->
+    <!-- Set of activities coordinating the flow of messages across the    -->
+    <!-- services integrated within this business process                  -->
+    <!-- ================================================================= -->         
+    <sequence name="main">
+        
+        
+        <!-- Generate reply to synchronous request -->
+        <pick name="Pick" createInstance="yes">
+            <onMessage partnerLink="client" operation="process" variable="input">
+                <sequence>
+                    <assign validate="no" name="AssignInOut">
+            <copy>
+                <from><literal><tns:myPickResponse xmlns:tns="htt:/mypick.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tns:result>tns:result</tns:result>
+</tns:myPickResponse>
+</literal></from>
+                <to variable="output" part="payload"></to>
+            </copy>
+            <copy>
+                <from part="payload" variable="input">
+                    <query queryLanguage="urn:oasis:names:tc:ws2.0:sublang:xpath1.0"><![CDATA[tns:input]]></query>
+                </from>
+                <to part="payload" variable="output">
+                    <query queryLanguage="urn:oasis:names:tc:ws2.0:sublang:xpath1.0"><![CDATA[tns:result]]></query>
+                </to>
+            </copy>
+        </assign>
+                    <reply name="replyOutput" partnerLink="client" portType="tns:myPick" operation="process" variable="output" />
+                </sequence>
+            </onMessage>
+            <onMessage partnerLink="client" operation="hello" portType="tns:myPick" variable="helloInput">
+                <sequence>
+                    <assign validate="no" name="AssignInOutHello">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <copy>
+                            <from><literal><tns:helloResponse xmlns:tns="htt:/mypick.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tns:out>tns:out</tns:out>
+</tns:helloResponse>
+</literal></from>
+                            <to variable="helloOutput" part="parameters"></to>
+                        </copy>
+                        
+                        <copy>
+                            <from expressionLanguage="urn:oasis:names:tc:ws2.0:sublang:xpath1.0">
+                                
+                                
+                                <![CDATA[concat("Hello ",$helloInput.parameters/tns:in	)]]>
+                            </from>
+                            <to part="parameters" variable="helloOutput">
+                                <query queryLanguage="urn:oasis:names:tc:ws2.0:sublang:xpath1.0">
+                                    <![CDATA[tns:out]]>
+                                </query>
+                            </to>
+                        </copy>
+                    </assign>
+                    <reply name="Reply" partnerLink="client" operation="hello" portType="tns:myPick" variable="helloOutput">
+                
+                    </reply>
+                </sequence>
+            </onMessage>
+        </pick>
+        
+        
+    </sequence>
+</process>
+

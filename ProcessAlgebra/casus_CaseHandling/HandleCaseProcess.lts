@@ -1,0 +1,363 @@
+//////////////
+// START BPEL4WS Process: HANDLECASEPROCESS
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Information
+//
+// Added Partner : client,TNS:HANDLECASEPROCESS
+// Added Partner : handlecasepl,TNS:HANDLECASEPLT
+// HANDLECASEPROCESS has 1 partner(s) linkss.
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// BPEL Process Translation
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: General Process Condition Variables
+////////////////////////////////////////////////////////////////////
+range HANDLECASEPROCESS_IntRange = 0..1
+HANDLECASEPROCESS_variable(A=0) = HANDLECASEPROCESS_variable[A],
+HANDLECASEPROCESS_variable[i:HANDLECASEPROCESS_IntRange] = ( write[j:HANDLECASEPROCESS_IntRange]->HANDLECASEPROCESS_variable[j] | read[i]->HANDLECASEPROCESS_variable[i]),
+HANDLECASEPROCESS_variable['null] = ( write[j:HANDLECASEPROCESS_IntRange]->HANDLECASEPROCESS_variable[j] | read['null]->HANDLECASEPROCESS_variable['null]).
+set HANDLECASEPROCESS_BoolRange = {false, true}
+ENUM_HANDLECASEPROCESS_variable(A='null) = HANDLECASEPROCESS_variable[A],
+HANDLECASEPROCESS_variable[i:HANDLECASEPROCESS_BoolRange] = ( write[j:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_variable[j] | read[i]->HANDLECASEPROCESS_variable[i]),
+HANDLECASEPROCESS_variable['null] = ( write[j:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_variable[j] | read['null]->HANDLECASEPROCESS_variable['null]).
+////////////////////////////////////////////////////////////////////
+// END: Variables
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - CASEHANDLER1
+////////////////////////////////////////////////////////////////////
+// START: PICK Events Manager
+////////////////////////////////////////////////////////////////////
+// START: sequence - PREPAREHANDLECASESERVICES1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_INITHANDLECASE1 = (handlecaseprocess_var_caseid.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLECASE1_1 = (handlecaseprocess_var_casetype.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLECASE1_2 = (handlecaseprocess_var_errorindicator.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLECASE1_3 = (handlecaseprocess_var_noreinjection.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLECASE1_4 = (handlecaseprocess_var_casehandlingtrigger.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLECASE1SEQ = HANDLECASEPROCESS_INITHANDLECASE1; HANDLECASEPROCESS_INITHANDLECASE1_1; HANDLECASEPROCESS_INITHANDLECASE1_2; HANDLECASEPROCESS_INITHANDLECASE1_3; HANDLECASEPROCESS_INITHANDLECASE1_4; END.
+HANDLECASEPROCESS_PREPAREHANDLECASESERVICES1 = HANDLECASEPROCESS_INITHANDLECASE1SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_PREPAREHANDLECASESERVICES1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_ONMESSAGE_HANDLECASE_SEQ =  HANDLECASEPROCESS_PREPAREHANDLECASESERVICES1; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - PREPAREHANDLEPARKEDCASESERVICES1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1 = (handlecaseprocess_var_caseid.write.[1] -> END).
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_1 = (handlecaseprocess_var_casetype.write.[1] -> END).
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_2 = (handlecaseprocess_var_errorindicator.write.[1] -> END).
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_3 = (handlecaseprocess_var_noreinjection.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_4 = (handlecaseprocess_var_casehandlingtrigger.write.[1] -> END).
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_5 = (handlecaseprocess_var_valueok.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLEPARKEDCASE1SEQ = HANDLECASEPROCESS_INITHANDLEPARKEDCASE1; HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_1; HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_2; HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_3; HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_4; HANDLECASEPROCESS_INITHANDLEPARKEDCASE1_5; END.
+HANDLECASEPROCESS_PREPAREHANDLEPARKEDCASESERVICES1 = HANDLECASEPROCESS_INITHANDLEPARKEDCASE1SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_PREPAREHANDLEPARKEDCASESERVICES1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_ONMESSAGE_HANDLEPARKEDCASE_SEQ =  HANDLECASEPROCESS_PREPAREHANDLEPARKEDCASESERVICES1; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - PREPAREINVOKESTOPCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_INITSTOPCASE1 = (handlecaseprocess_var_caseid.write.[2] -> END).
+HANDLECASEPROCESS_INITSTOPCASE1_1 = (handlecaseprocess_var_errorindicator.write.[2] -> END).
+HANDLECASEPROCESS_INITSTOPCASE1_2 = (handlecaseprocess_var_noreinjection.write.[0] -> END).
+HANDLECASEPROCESS_INITSTOPCASE1_3 = (handlecaseprocess_var_casehandlingtrigger.write.[2] -> END).
+HANDLECASEPROCESS_INITSTOPCASE1_4 = (handlecaseprocess_var_valueok.write.[0] -> END).
+HANDLECASEPROCESS_INITSTOPCASE1SEQ = HANDLECASEPROCESS_INITSTOPCASE1; HANDLECASEPROCESS_INITSTOPCASE1_1; HANDLECASEPROCESS_INITSTOPCASE1_2; HANDLECASEPROCESS_INITSTOPCASE1_3; HANDLECASEPROCESS_INITSTOPCASE1_4; END.
+HANDLECASEPROCESS_PREPAREINVOKESTOPCASE1 = HANDLECASEPROCESS_INITSTOPCASE1SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_PREPAREINVOKESTOPCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_ONMESSAGE_STOPCASE_SEQ =  HANDLECASEPROCESS_PREPAREINVOKESTOPCASE1; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - PREPAREHANDLEOBJECTION1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_INITHANDLEOBJECTION1 = (handlecaseprocess_var_caseid.write.[3] -> END).
+HANDLECASEPROCESS_INITHANDLEOBJECTION1_1 = (handlecaseprocess_var_casetype.write.[2] -> END).
+HANDLECASEPROCESS_INITHANDLEOBJECTION1_2 = (handlecaseprocess_var_errorindicator.write.[3] -> END).
+HANDLECASEPROCESS_INITHANDLEOBJECTION1_3 = (handlecaseprocess_var_noreinjection.write.[0] -> END).
+HANDLECASEPROCESS_INITHANDLEOBJECTION1_4 = (handlecaseprocess_var_casehandlingtrigger.write.[3] -> END).
+HANDLECASEPROCESS_INITHANDLEOBJECTION1SEQ = HANDLECASEPROCESS_INITHANDLEOBJECTION1; HANDLECASEPROCESS_INITHANDLEOBJECTION1_1; HANDLECASEPROCESS_INITHANDLEOBJECTION1_2; HANDLECASEPROCESS_INITHANDLEOBJECTION1_3; HANDLECASEPROCESS_INITHANDLEOBJECTION1_4; END.
+HANDLECASEPROCESS_PREPAREHANDLEOBJECTION1 = HANDLECASEPROCESS_INITHANDLEOBJECTION1SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_PREPAREHANDLEOBJECTION1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_ONMESSAGE_HANDLEOBJECTION_SEQ =  HANDLECASEPROCESS_PREPAREHANDLEOBJECTION1; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - PREPAREREINJECTCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_INITREINJECTCASE1 = (handlecaseprocess_var_caseid.write.[4] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1_1 = (handlecaseprocess_var_casetype.write.[3] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1_2 = (handlecaseprocess_var_casehandlingtrigger.write.[4] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1_3 = (handlecaseprocess_var_caseexceptionpoint.write.[0] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1_4 = (handlecaseprocess_var_errorindicator.write.[4] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1_5 = (handlecaseprocess_var_noreinjection.write.[1] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1_6 = (handlecaseprocess_var_valueok.write.[0] -> END).
+HANDLECASEPROCESS_INITREINJECTCASE1SEQ = HANDLECASEPROCESS_INITREINJECTCASE1; HANDLECASEPROCESS_INITREINJECTCASE1_1; HANDLECASEPROCESS_INITREINJECTCASE1_2; HANDLECASEPROCESS_INITREINJECTCASE1_3; HANDLECASEPROCESS_INITREINJECTCASE1_4; HANDLECASEPROCESS_INITREINJECTCASE1_5; HANDLECASEPROCESS_INITREINJECTCASE1_6; END.
+HANDLECASEPROCESS_PREPAREREINJECTCASE1 = HANDLECASEPROCESS_INITREINJECTCASE1SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_PREPAREREINJECTCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_ONMESSAGE_REINJECTCASE_SEQ =  HANDLECASEPROCESS_PREPAREREINJECTCASE1; END.
+HANDLECASEPROCESS_HANDLEREQUEST_EVENTS = (handlecaseprocess_client_receive_handlecase->HANDLECASEPROCESS_HANDLECASE_EVENTSEQ | handlecaseprocess_client_receive_handleparkedcase->HANDLECASEPROCESS_HANDLEPARKEDCASE_EVENTSEQ | handlecaseprocess_client_receive_stopcase->HANDLECASEPROCESS_STOPCASE_EVENTSEQ | handlecaseprocess_client_receive_handleobjection->HANDLECASEPROCESS_HANDLEOBJECTION_EVENTSEQ | handlecaseprocess_client_receive_reinjectcase->HANDLECASEPROCESS_REINJECTCASE_EVENTSEQ),
+HANDLECASEPROCESS_HANDLECASE_EVENTSEQ = HANDLECASEPROCESS_ONMESSAGE_HANDLECASE_SEQ; END,
+HANDLECASEPROCESS_HANDLEPARKEDCASE_EVENTSEQ = HANDLECASEPROCESS_ONMESSAGE_HANDLEPARKEDCASE_SEQ; END,
+HANDLECASEPROCESS_STOPCASE_EVENTSEQ = HANDLECASEPROCESS_ONMESSAGE_STOPCASE_SEQ; END,
+HANDLECASEPROCESS_HANDLEOBJECTION_EVENTSEQ = HANDLECASEPROCESS_ONMESSAGE_HANDLEOBJECTION_SEQ; END,
+HANDLECASEPROCESS_REINJECTCASE_EVENTSEQ = HANDLECASEPROCESS_ONMESSAGE_REINJECTCASE_SEQ; END.
+||HANDLECASEPROCESS_HANDLEREQUEST_EVENTSMGR = (HANDLECASEPROCESS_HANDLEREQUEST_EVENTS).
+// END: PICK Events Manager
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEHANDLECASESERVICES1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - REGISTERCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1 = (handlecaseprocess_var_registercaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1_1 = (handlecaseprocess_var_registercaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1_2 = (handlecaseprocess_var_registercaserequest.write.[2] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1_3 = (handlecaseprocess_var_registercaserequest.write.[3] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1SEQ = HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1; HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1_1; HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1_2; HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1_3; END.
+HANDLECASEPROCESS_INVOKEREGISTERCASE1 = (handlecaseprocess_handlecasepl_invoke_registercase -> END).
+HANDLECASEPROCESS_INVOKEREGISTERCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_registercase ->END).
+HANDLECASEPROCESS_INVOKEREGISTERCASE1_SEQ = HANDLECASEPROCESS_INVOKEREGISTERCASE1; HANDLECASEPROCESS_INVOKEREGISTERCASE1_REPLY; END.
+HANDLECASEPROCESS_SAVETICKET1 = (handlecaseprocess_var_ticket.write.[0] -> END).
+HANDLECASEPROCESS_REGISTERCASE1 = HANDLECASEPROCESS_PREPAREINVOKEREGISTERCASE1SEQ ; HANDLECASEPROCESS_INVOKEREGISTERCASE1_SEQ ; HANDLECASEPROCESS_SAVETICKET1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_REGISTERCASE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - CREATECASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKECREATECASE1 = (handlecaseprocess_var_createcaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKECREATECASE1_1 = (handlecaseprocess_var_createcaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKECREATECASE1SEQ = HANDLECASEPROCESS_PREPAREINVOKECREATECASE1; HANDLECASEPROCESS_PREPAREINVOKECREATECASE1_1; END.
+HANDLECASEPROCESS_INVOKECREATECASE1 = (handlecaseprocess_handlecasepl_invoke_createcase -> END).
+HANDLECASEPROCESS_INVOKECREATECASE1_REPLY = (handlecaseprocess_handlecasepl_receive_createcase ->END).
+HANDLECASEPROCESS_INVOKECREATECASE1_SEQ = HANDLECASEPROCESS_INVOKECREATECASE1; HANDLECASEPROCESS_INVOKECREATECASE1_REPLY; END.
+HANDLECASEPROCESS_CREATECASE1 = HANDLECASEPROCESS_PREPAREINVOKECREATECASE1SEQ ; HANDLECASEPROCESS_INVOKECREATECASE1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_CREATECASE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - VALIDATECASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKEVALIDATECASE1 = (handlecaseprocess_var_validatecaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEVALIDATECASE1_1 = (handlecaseprocess_var_validatecaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEVALIDATECASE1SEQ = HANDLECASEPROCESS_PREPAREINVOKEVALIDATECASE1; HANDLECASEPROCESS_PREPAREINVOKEVALIDATECASE1_1; END.
+HANDLECASEPROCESS_INVOKEVALIDATECASE1 = (handlecaseprocess_handlecasepl_invoke_validatecase -> END).
+HANDLECASEPROCESS_INVOKEVALIDATECASE1_REPLY = (handlecaseprocess_handlecasepl_receive_validatecase ->END).
+HANDLECASEPROCESS_INVOKEVALIDATECASE1_SEQ = HANDLECASEPROCESS_INVOKEVALIDATECASE1; HANDLECASEPROCESS_INVOKEVALIDATECASE1_REPLY; END.
+////////////////////////////////////////////////////////////////////
+// START: sequence - PARKCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKEPARKCASE1 = (handlecaseprocess_var_parkcaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEPARKCASE1_1 = (handlecaseprocess_var_parkcaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEPARKCASE1SEQ = HANDLECASEPROCESS_PREPAREINVOKEPARKCASE1; HANDLECASEPROCESS_PREPAREINVOKEPARKCASE1_1; END.
+HANDLECASEPROCESS_INVOKEPARKCASE1 = (handlecaseprocess_handlecasepl_invoke_parkcase -> END).
+HANDLECASEPROCESS_INVOKEPARKCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_parkcase ->END).
+HANDLECASEPROCESS_INVOKEPARKCASE1_SEQ = HANDLECASEPROCESS_INVOKEPARKCASE1; HANDLECASEPROCESS_INVOKEPARKCASE1_REPLY; END.
+HANDLECASEPROCESS_PARKCASE1 = HANDLECASEPROCESS_PREPAREINVOKEPARKCASE1SEQ ; HANDLECASEPROCESS_INVOKEPARKCASE1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_PARKCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_VALIDATECASE1 = HANDLECASEPROCESS_PREPAREINVOKEVALIDATECASE1SEQ ; HANDLECASEPROCESS_INVOKEVALIDATECASE1_SEQ ; HANDLECASEPROCESS_PARKCASE1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_VALIDATECASE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: condition - handlecaseprocess_ifnotreinjectedcaseelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONOUTCOME = handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition:HANDLECASEPROCESS_variable.
+set HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONOUTCOME_ALPHABET = {handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition.{read,write}.[HANDLECASEPROCESS_BoolRange]}
+HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONEVAL = (handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition.read[i:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONEVAL[i]),
+HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONEVAL[i:HANDLECASEPROCESS_BoolRange] = if (i=='true)
+then HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQ; END else END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlecaseprocess_ifnotreinjectedcaseelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQEVAL = (HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONEVAL).
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEHANDLEPARKEDCASESERVICES1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - GETCALCULATION1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKEGETCALCULATION1 = (handlecaseprocess_var_getcalculationrequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEGETCALCULATION1_1 = (handlecaseprocess_var_getcalculationrequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEGETCALCULATION1SEQ = HANDLECASEPROCESS_PREPAREINVOKEGETCALCULATION1; HANDLECASEPROCESS_PREPAREINVOKEGETCALCULATION1_1; END.
+HANDLECASEPROCESS_INVOKEGETCALCULATION1 = (handlecaseprocess_handlecasepl_invoke_getcalculation -> END).
+HANDLECASEPROCESS_INVOKEGETCALCULATION1_REPLY = (handlecaseprocess_handlecasepl_receive_getcalculation ->END).
+HANDLECASEPROCESS_INVOKEGETCALCULATION1_SEQ = HANDLECASEPROCESS_INVOKEGETCALCULATION1; HANDLECASEPROCESS_INVOKEGETCALCULATION1_REPLY; END.
+HANDLECASEPROCESS_GETCALCULATION1 = HANDLECASEPROCESS_PREPAREINVOKEGETCALCULATION1SEQ ; HANDLECASEPROCESS_INVOKEGETCALCULATION1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_GETCALCULATION1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - CHECKPROCESSABILITY1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKECHECKPROCESSABILITY1 = (handlecaseprocess_var_checkprocessabilityrequest.write.[0] -> END).
+HANDLECASEPROCESS_INVOKECHECKPROCESSABILITY1 = (handlecaseprocess_handlecasepl_invoke_checkprocessability -> END).
+HANDLECASEPROCESS_INVOKECHECKPROCESSABILITY1_REPLY = (handlecaseprocess_handlecasepl_receive_checkprocessability ->END).
+HANDLECASEPROCESS_INVOKECHECKPROCESSABILITY1_SEQ = HANDLECASEPROCESS_INVOKECHECKPROCESSABILITY1; HANDLECASEPROCESS_INVOKECHECKPROCESSABILITY1_REPLY; END.
+HANDLECASEPROCESS_CHECKPROCESSABILITY1 = HANDLECASEPROCESS_PREPAREINVOKECHECKPROCESSABILITY1 ; HANDLECASEPROCESS_INVOKECHECKPROCESSABILITY1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_CHECKPROCESSABILITY1
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQ = (HANDLECASEPROCESS_INVOKEHANDLEPARKEDCASESERVICES1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlecaseprocess_ifdegreeelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONOUTCOME = handlecaseprocess_ifdegreeelseif1seq.condition:HANDLECASEPROCESS_variable.
+set HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONOUTCOME_ALPHABET = {handlecaseprocess_ifdegreeelseif1seq.condition.{read,write}.[HANDLECASEPROCESS_BoolRange]}
+HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONEVAL = (handlecaseprocess_ifdegreeelseif1seq.condition.read[i:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONEVAL[i]),
+HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONEVAL[i:HANDLECASEPROCESS_BoolRange] = if (i=='true)
+then HANDLECASEPROCESS_IFDEGREEELSEIF1SEQ; END else END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlecaseprocess_ifdegreeelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFDEGREEELSEIF1SEQEVAL = (HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONEVAL).
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKESTOPCASESERVICE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - STOPCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2 = (handlecaseprocess_var_stopcaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2_1 = (handlecaseprocess_var_stopcaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2_2 = (handlecaseprocess_var_stopcaserequest.write.[2] -> END).
+HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2SEQ = HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2; HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2_1; HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2_2; END.
+HANDLECASEPROCESS_INVOKESTOPCASE1 = (handlecaseprocess_handlecasepl_invoke_stopcase -> END).
+HANDLECASEPROCESS_INVOKESTOPCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_stopcase ->END).
+HANDLECASEPROCESS_INVOKESTOPCASE1_SEQ = HANDLECASEPROCESS_INVOKESTOPCASE1; HANDLECASEPROCESS_INVOKESTOPCASE1_REPLY; END.
+HANDLECASEPROCESS_STOPCASE1 = HANDLECASEPROCESS_PREPAREINVOKESTOPCASE2SEQ ; HANDLECASEPROCESS_INVOKESTOPCASE1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_STOPCASE1
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFDEGREEELSEIF1SEQ = (HANDLECASEPROCESS_INVOKESTOPCASESERVICE1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlecaseprocess_ifnotreinjectedstopcaseelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONOUTCOME = handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition:HANDLECASEPROCESS_variable.
+set HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONOUTCOME_ALPHABET = {handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition.{read,write}.[HANDLECASEPROCESS_BoolRange]}
+HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONEVAL = (handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition.read[i:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONEVAL[i]),
+HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONEVAL[i:HANDLECASEPROCESS_BoolRange] = if (i=='true)
+then HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQ; END else END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlecaseprocess_ifnotreinjectedstopcaseelseif1seq
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQEVAL = (HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONEVAL).
+////////////////////////////////////////////////////////////////////
+// START: sequence - INVOKEHANDLEOBJECTIONSERVICES1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - HANDLEOBJECTIONSERVICES1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - REGISTEROBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1 = (handlecaseprocess_var_registerobjectioncaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1_1 = (handlecaseprocess_var_registerobjectioncaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1_2 = (handlecaseprocess_var_registerobjectioncaserequest.write.[2] -> END).
+HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1SEQ = HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1; HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1_1; HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1_2; END.
+HANDLECASEPROCESS_INVOKEREGISTEROBJECTIONCASE1 = (handlecaseprocess_handlecasepl_invoke_registerobjectioncase -> END).
+HANDLECASEPROCESS_INVOKEREGISTEROBJECTIONCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_registerobjectioncase ->END).
+HANDLECASEPROCESS_INVOKEREGISTEROBJECTIONCASE1_SEQ = HANDLECASEPROCESS_INVOKEREGISTEROBJECTIONCASE1; HANDLECASEPROCESS_INVOKEREGISTEROBJECTIONCASE1_REPLY; END.
+HANDLECASEPROCESS_SAVEOBJECTIONTICKET1 = (handlecaseprocess_var_ticket.write.[1] -> END).
+HANDLECASEPROCESS_REGISTEROBJECTIONCASE1 = HANDLECASEPROCESS_PREPAREREGISTEROBJECTIONCASE1SEQ ; HANDLECASEPROCESS_INVOKEREGISTEROBJECTIONCASE1_SEQ ; HANDLECASEPROCESS_SAVEOBJECTIONTICKET1; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_REGISTEROBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - CREATEOBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPARECREATEOBJECTIONCASE1 = (handlecaseprocess_var_createobjectioncaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPARECREATEOBJECTIONCASE1_1 = (handlecaseprocess_var_createobjectioncaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPARECREATEOBJECTIONCASE1SEQ = HANDLECASEPROCESS_PREPARECREATEOBJECTIONCASE1; HANDLECASEPROCESS_PREPARECREATEOBJECTIONCASE1_1; END.
+HANDLECASEPROCESS_INVOKECREATEOBJECTIONCASE1 = (handlecaseprocess_handlecasepl_invoke_createobjectioncase -> END).
+HANDLECASEPROCESS_INVOKECREATEOBJECTIONCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_createobjectioncase ->END).
+HANDLECASEPROCESS_INVOKECREATEOBJECTIONCASE1_SEQ = HANDLECASEPROCESS_INVOKECREATEOBJECTIONCASE1; HANDLECASEPROCESS_INVOKECREATEOBJECTIONCASE1_REPLY; END.
+HANDLECASEPROCESS_CREATEOBJECTIONCASE1 = HANDLECASEPROCESS_PREPARECREATEOBJECTIONCASE1SEQ ; HANDLECASEPROCESS_INVOKECREATEOBJECTIONCASE1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_CREATEOBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - VALIDATEOBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKEVALIDATEOBJECTIONCASE1 = (handlecaseprocess_var_validateobjectioncaserequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEVALIDATEOBJECTIONCASE1_1 = (handlecaseprocess_var_validateobjectioncaserequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPAREINVOKEVALIDATEOBJECTIONCASE1SEQ = HANDLECASEPROCESS_PREPAREINVOKEVALIDATEOBJECTIONCASE1; HANDLECASEPROCESS_PREPAREINVOKEVALIDATEOBJECTIONCASE1_1; END.
+HANDLECASEPROCESS_INVOKEVALIDATEOBJECTIONCASE1 = (handlecaseprocess_handlecasepl_invoke_validateobjectioncase -> END).
+HANDLECASEPROCESS_INVOKEVALIDATEOBJECTIONCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_validateobjectioncase ->END).
+HANDLECASEPROCESS_INVOKEVALIDATEOBJECTIONCASE1_SEQ = HANDLECASEPROCESS_INVOKEVALIDATEOBJECTIONCASE1; HANDLECASEPROCESS_INVOKEVALIDATEOBJECTIONCASE1_REPLY; END.
+HANDLECASEPROCESS_VALIDATEOBJECTIONCASE1 = HANDLECASEPROCESS_PREPAREINVOKEVALIDATEOBJECTIONCASE1SEQ ; HANDLECASEPROCESS_INVOKEVALIDATEOBJECTIONCASE1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_VALIDATEOBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - CREATEOBJECTIONTASK1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPARECREATEOBJECTIONTASK1 = (handlecaseprocess_var_createobjectiontaskrequest.write.[0] -> END).
+HANDLECASEPROCESS_PREPARECREATEOBJECTIONTASK1_1 = (handlecaseprocess_var_createobjectiontaskrequest.write.[1] -> END).
+HANDLECASEPROCESS_PREPARECREATEOBJECTIONTASK1SEQ = HANDLECASEPROCESS_PREPARECREATEOBJECTIONTASK1; HANDLECASEPROCESS_PREPARECREATEOBJECTIONTASK1_1; END.
+HANDLECASEPROCESS_INVOKECREATEOBJECTIONTASK1 = (handlecaseprocess_handlecasepl_invoke_createobjectiontask -> END).
+HANDLECASEPROCESS_INVOKECREATEOBJECTIONTASK1_REPLY = (handlecaseprocess_handlecasepl_receive_createobjectiontask ->END).
+HANDLECASEPROCESS_INVOKECREATEOBJECTIONTASK1_SEQ = HANDLECASEPROCESS_INVOKECREATEOBJECTIONTASK1; HANDLECASEPROCESS_INVOKECREATEOBJECTIONTASK1_REPLY; END.
+HANDLECASEPROCESS_CREATEOBJECTIONTASK1 = HANDLECASEPROCESS_PREPARECREATEOBJECTIONTASK1SEQ ; HANDLECASEPROCESS_INVOKECREATEOBJECTIONTASK1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_CREATEOBJECTIONTASK1
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// START: sequence - STOPOBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_PREPAREINVOKESTOPOBJECTIONCASE1 = (handlecaseprocess_var_stopcaserequest.write.[3] -> END).
+HANDLECASEPROCESS_PREPAREINVOKESTOPOBJECTIONCASE1_1 = (handlecaseprocess_var_stopcaserequest.write.[4] -> END).
+HANDLECASEPROCESS_PREPAREINVOKESTOPOBJECTIONCASE1SEQ = HANDLECASEPROCESS_PREPAREINVOKESTOPOBJECTIONCASE1; HANDLECASEPROCESS_PREPAREINVOKESTOPOBJECTIONCASE1_1; END.
+HANDLECASEPROCESS_INVOKESTOPOBJECTIONCASE1 = (handlecaseprocess_handlecasepl_invoke_stopcase -> END).
+HANDLECASEPROCESS_INVOKESTOPOBJECTIONCASE1_REPLY = (handlecaseprocess_handlecasepl_receive_stopcase ->END).
+HANDLECASEPROCESS_INVOKESTOPOBJECTIONCASE1_SEQ = HANDLECASEPROCESS_INVOKESTOPOBJECTIONCASE1; HANDLECASEPROCESS_INVOKESTOPOBJECTIONCASE1_REPLY; END.
+HANDLECASEPROCESS_STOPOBJECTIONCASE1 = HANDLECASEPROCESS_PREPAREINVOKESTOPOBJECTIONCASE1SEQ ; HANDLECASEPROCESS_INVOKESTOPOBJECTIONCASE1_SEQ; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_STOPOBJECTIONCASE1
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNEWOBJECTIONELSESEQ = (HANDLECASEPROCESS_STOPOBJECTIONCASE1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlecaseprocess_ifnewobjection
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONOUTCOME = handlecaseprocess_ifnewobjection.condition:HANDLECASEPROCESS_variable.
+set HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONOUTCOME_ALPHABET = {handlecaseprocess_ifnewobjection.condition.{read,write}.[HANDLECASEPROCESS_BoolRange]}
+HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONEVAL = (handlecaseprocess_ifnewobjection.condition.read[i:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONEVAL[i]),
+HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONEVAL[i:HANDLECASEPROCESS_BoolRange] = if (i=='true)
+then HANDLECASEPROCESS_CREATEOBJECTIONTASK1; END else  HANDLECASEPROCESS_IFNEWOBJECTIONELSESEQ;END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlecaseprocess_ifnewobjection
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_IFNEWOBJECTION = HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONEVAL; END.
+HANDLECASEPROCESS_HANDLEOBJECTIONSERVICES1 = HANDLECASEPROCESS_REGISTEROBJECTIONCASE1 ; HANDLECASEPROCESS_CREATEOBJECTIONCASE1 ; HANDLECASEPROCESS_VALIDATEOBJECTIONCASE1 ; HANDLECASEPROCESS_IFNEWOBJECTION; END.
+////////////////////////////////////////////////////////////////////
+// END: sequence - HANDLECASEPROCESS_HANDLEOBJECTIONSERVICES1
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQ = (HANDLECASEPROCESS_INVOKEHANDLEOBJECTIONSERVICES1).
+////////////////////////////////////////////////////////////////////
+// START: condition - handlecaseprocess_handlereceivedcaserequest
+////////////////////////////////////////////////////////////////////
+||HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONOUTCOME = handlecaseprocess_handlereceivedcaserequest.condition:HANDLECASEPROCESS_variable.
+set HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONOUTCOME_ALPHABET = {handlecaseprocess_handlereceivedcaserequest.condition.{read,write}.[HANDLECASEPROCESS_BoolRange]}
+HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONEVAL = (handlecaseprocess_handlereceivedcaserequest.condition.read[i:HANDLECASEPROCESS_BoolRange]->HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONEVAL[i]),
+HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONEVAL[i:HANDLECASEPROCESS_BoolRange] = if (i=='true)
+then HANDLECASEPROCESS_INVOKEHANDLECASESERVICES1; END.
+////////////////////////////////////////////////////////////////////
+// END: condition - handlecaseprocess_handlereceivedcaserequest
+////////////////////////////////////////////////////////////////////
+HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUEST = HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONEVAL; END.
+HANDLECASEPROCESS_CASEHANDLER1 = HANDLECASEPROCESS_HANDLEREQUEST_EVENTSMGR; HANDLECASEPROCESS_Instance; END.
+HANDLECASEPROCESS_CASEHANDLER1HIDEACTS = HANDLECASEPROCESS_CASEHANDLER1; END \ {handlecaseprocess_var_caseid.write.[0],handlecaseprocess_var_casetype.write.[0],handlecaseprocess_var_errorindicator.write.[0],handlecaseprocess_var_noreinjection.write.[0],handlecaseprocess_var_casehandlingtrigger.write.[0],handlecaseprocess_var_caseid.write.[1],handlecaseprocess_var_casetype.write.[1],handlecaseprocess_var_errorindicator.write.[1],handlecaseprocess_var_noreinjection.write.[0],handlecaseprocess_var_casehandlingtrigger.write.[1],handlecaseprocess_var_valueok.write.[0],handlecaseprocess_var_caseid.write.[2],handlecaseprocess_var_errorindicator.write.[2],handlecaseprocess_var_noreinjection.write.[0],handlecaseprocess_var_casehandlingtrigger.write.[2],handlecaseprocess_var_valueok.write.[0],handlecaseprocess_var_caseid.write.[3],handlecaseprocess_var_casetype.write.[2],handlecaseprocess_var_errorindicator.write.[3],handlecaseprocess_var_noreinjection.write.[0],handlecaseprocess_var_casehandlingtrigger.write.[3],handlecaseprocess_var_caseid.write.[4],handlecaseprocess_var_casetype.write.[3],handlecaseprocess_var_casehandlingtrigger.write.[4],handlecaseprocess_var_caseexceptionpoint.write.[0],handlecaseprocess_var_errorindicator.write.[4],handlecaseprocess_var_noreinjection.write.[1],handlecaseprocess_var_valueok.write.[0],handlecaseprocess_var_registercaserequest.write.[0],handlecaseprocess_var_registercaserequest.write.[1],handlecaseprocess_var_registercaserequest.write.[2],handlecaseprocess_var_registercaserequest.write.[3],handlecaseprocess_var_ticket.write.[0],handlecaseprocess_var_createcaserequest.write.[0],handlecaseprocess_var_createcaserequest.write.[1],handlecaseprocess_var_validatecaserequest.write.[0],handlecaseprocess_var_validatecaserequest.write.[1],handlecaseprocess_var_parkcaserequest.write.[0],handlecaseprocess_var_parkcaserequest.write.[1],handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition.write.true,handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition.write.false,handlecaseprocess_var_getcalculationrequest.write.[0],handlecaseprocess_var_getcalculationrequest.write.[1],handlecaseprocess_var_checkprocessabilityrequest.write.[0],handlecaseprocess_ifdegreeelseif1seq.condition.write.true,handlecaseprocess_ifdegreeelseif1seq.condition.write.false,handlecaseprocess_var_stopcaserequest.write.[0],handlecaseprocess_var_stopcaserequest.write.[1],handlecaseprocess_var_stopcaserequest.write.[2],handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition.write.true,handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition.write.false,handlecaseprocess_var_registerobjectioncaserequest.write.[0],handlecaseprocess_var_registerobjectioncaserequest.write.[1],handlecaseprocess_var_registerobjectioncaserequest.write.[2],handlecaseprocess_var_ticket.write.[1],handlecaseprocess_var_createobjectioncaserequest.write.[0],handlecaseprocess_var_createobjectioncaserequest.write.[1],handlecaseprocess_var_validateobjectioncaserequest.write.[0],handlecaseprocess_var_validateobjectioncaserequest.write.[1],handlecaseprocess_var_createobjectiontaskrequest.write.[0],handlecaseprocess_var_createobjectiontaskrequest.write.[1],handlecaseprocess_var_stopcaserequest.write.[3],handlecaseprocess_var_stopcaserequest.write.[4],handlecaseprocess_ifnewobjection.condition.write.true,handlecaseprocess_ifnewobjection.condition.write.false,handlecaseprocess_handlereceivedcaserequest.condition.write.true,handlecaseprocess_handlereceivedcaserequest.condition.write.false}.
+set HANDLECASEPROCESS_ACTIONSET = {handlecaseprocess_client_receive_handlecase,handlecaseprocess_client_receive_handleparkedcase,handlecaseprocess_client_receive_stopcase,handlecaseprocess_client_receive_handleobjection,handlecaseprocess_client_receive_reinjectcase,handlecaseprocess_handlecasepl_invoke_registercase,handlecaseprocess_handlecasepl_receive_registercase,handlecaseprocess_handlecasepl_invoke_createcase,handlecaseprocess_handlecasepl_receive_createcase,handlecaseprocess_handlecasepl_invoke_validatecase,handlecaseprocess_handlecasepl_receive_validatecase,handlecaseprocess_handlecasepl_invoke_parkcase,handlecaseprocess_handlecasepl_receive_parkcase,handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition.read.true,handlecaseprocess_ifnotreinjectedcaseelseif1seq.condition.read.false,handlecaseprocess_handlecasepl_invoke_getcalculation,handlecaseprocess_handlecasepl_receive_getcalculation,handlecaseprocess_handlecasepl_invoke_checkprocessability,handlecaseprocess_handlecasepl_receive_checkprocessability,handlecaseprocess_ifdegreeelseif1seq.condition.read.true,handlecaseprocess_ifdegreeelseif1seq.condition.read.false,handlecaseprocess_handlecasepl_invoke_stopcase,handlecaseprocess_handlecasepl_receive_stopcase,handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition.read.true,handlecaseprocess_ifnotreinjectedstopcaseelseif1seq.condition.read.false,handlecaseprocess_handlecasepl_invoke_registerobjectioncase,handlecaseprocess_handlecasepl_receive_registerobjectioncase,handlecaseprocess_handlecasepl_invoke_createobjectioncase,handlecaseprocess_handlecasepl_receive_createobjectioncase,handlecaseprocess_handlecasepl_invoke_validateobjectioncase,handlecaseprocess_handlecasepl_receive_validateobjectioncase,handlecaseprocess_handlecasepl_invoke_createobjectiontask,handlecaseprocess_handlecasepl_receive_createobjectiontask,handlecaseprocess_handlecasepl_invoke_stopcase,handlecaseprocess_handlecasepl_receive_stopcase,handlecaseprocess_ifnewobjection.condition.read.true,handlecaseprocess_ifnewobjection.condition.read.false,handlecaseprocess_handlereceivedcaserequest.condition.read.true,handlecaseprocess_handlereceivedcaserequest.condition.read.false}
+||HANDLECASEPROCESS_Instance = (HANDLECASEPROCESS_IFNOTREINJECTEDCASEELSEIF1SEQCONDITIONOUTCOME || HANDLECASEPROCESS_IFDEGREEELSEIF1SEQCONDITIONOUTCOME || HANDLECASEPROCESS_IFNOTREINJECTEDSTOPCASEELSEIF1SEQCONDITIONOUTCOME || HANDLECASEPROCESS_IFNEWOBJECTIONCONDITIONOUTCOME || HANDLECASEPROCESS_HANDLERECEIVEDCASEREQUESTCONDITIONOUTCOME).
+||HANDLECASEPROCESS_BPELModel = (HANDLECASEPROCESS_CASEHANDLER1HIDEACTS).
+// /////////////////////////////////////////////////////////////////
+// END BPEL4WS Process: HANDLECASEPROCESS
+// /////////////////////////////////////////////////////////////////

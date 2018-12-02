@@ -1,0 +1,5 @@
+
+//DCG
+operation BPEL!t_condition transform_(sb : Any, path : Sequence, context : Map) : String {
+	return "";
+}

@@ -1,0 +1,17 @@
+
+operation BPEL!t_invoke transform(sb : Any, context : Map) {
+	newline(sb); terminal(sb, self.a_name); newline(sb);
+	var hasCatch = hasChild(self, "catch");
+	if (hasCatch) {
+		sb.append("{catchExceptionPoint = \"" + self.a_name + "\";}\n");
+		sb.append("( |");  
+		transformChildren(sb, context, self);
+		newline(sb);  sb.append(" exit )"); 	
+	}
+} 
+
+operation BPEL!t_invoke transform_(sb : Any, path : Sequence, context : Map)  {
+	//sb.append(terminal(self.a_name)); newline(sb);
+
+	path.add(terminal(self.a_name));
+} 

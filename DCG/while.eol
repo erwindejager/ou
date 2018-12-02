@@ -1,0 +1,12 @@
+operation BPEL!t_while transform_(sb : Any, path : Sequence, context : Map) {
+	var whileVar : String = "c_while_"+ self.a_name;
+	var whileVarSeq : String =  "c_"+ self.a_name + "_block_seq";
+	var whileVarBlock : String =  "c_"+ self.a_name + "_block";
+	sb.append(whileVarBlock + " --> " + formatRule(transformChildren_m(sb, context, self))); newline(sb);
+	sb.append(whileVarSeq + " --> " + whileVarBlock + ".\n");
+	sb.append(whileVarSeq + " --> " + whileVarBlock + ", " + whileVarBlock + ".\n");
+	sb.append(whileVarSeq + " --> [].\n");
+	sb.append(whileVar + " --> "+ terminalStr(self.a_name) + ", " + whileVarSeq + ".\n");
+	path.add(whileVar);
+}
+ 

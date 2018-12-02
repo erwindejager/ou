@@ -1,0 +1,21 @@
+import "activity.eol";
+import "format.eol";
+import "sequence.eol";
+//--------------------------------------------------------
+// Main tag <xsd:element name="process" type="tProcess">
+//--------------------------------------------------------
+
+operation getProcess() : BPEL!t_process {
+ 	return BPEL!t_process.all().first();
+ }
+
+ $post _result.length > 0
+ operation getProcessName() : String {
+ 	return getProcess().a_name;
+ }
+  
+operation BPEL!t_process transformStartSymbolGrammar(sb : Any) {
+  	sb.append("grammar_" + self.a_name + " --> [\"v0\"], c_main, [\"v\"]."); newline(sb); newline(sb);
+  	var multiPath : Sequence = getMainSequence().transform_(sb, multiPath, context);
+  	sb.append("c_main --> " + formatRule(multiPath));newline(sb);
+}

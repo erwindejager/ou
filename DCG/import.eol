@@ -1,0 +1,11 @@
+//--------------------------------------------------------
+// <xsd:element ref="variables" minOccurs="0"/>
+//--------------------------------------------------------
+//operation BPEL!t_import expand() {
+//	self.println();
+//	self.a_location.println();
+//} 
+
+operation BPEL!t_import transform(sb : Any) {
+}
+ 

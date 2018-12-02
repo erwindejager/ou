@@ -1,0 +1,15 @@
+import "onmessage.eol";
+
+//DCG
+operation BPEL!t_pick transform_(sb : Any, path : Sequence, context : Map)  {
+	var multiPath : Sequence = transformChildren_m(sb, context, self);
+
+ 	for (c in multiPath) {
+		sb.append("c_pick_" + self.a_name + " --> ["+ terminal(self.a_name) +"], " + c +".\n");
+	}
+	path.add("c_pick_" + self.a_name);
+}
+
+
+
+ 

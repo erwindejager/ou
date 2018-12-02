@@ -1,0 +1,32 @@
+operation newline(sb : Any) {
+  	sb.append("\n");
+}
+
+operation comma(sb : Any) {
+  	sb.append(", ");
+}
+
+operation terminalComma(sb : Any) {
+  	terminal(sb, ",");
+}
+
+operation space(sb : Any) {
+  	sb.append(" ");
+}
+
+operation terminal(sb : Any, token : Any) {
+	sb.append("'" + token + "'");
+}
+
+//DSG
+operation terminal(token : Any) : String {
+	return ("\"" + token + "\"");
+}
+
+operation terminalStr(token : Any) : String {
+	return ("[\"" + token + "\"]");
+}
+
+operation escapeQuotes(token : String) : String {
+	return token.replace("\"", "'");
+}

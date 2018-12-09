@@ -1,0 +1,25 @@
+omposition:
+GITTEST_BPELModel = GITTEST_MAIN1HIDEACTS
+State Space:
+ 5 = 2 ** 3
+Analysing using Supertrace (Depth bound 100000 Hashtable size 8000K )...
+-- Depth: 0 States: 5 Transitions: 4 Memory used: 16322K
+No deadlocks/errors
+Analysed using Supertrace in: 1ms
+
+Composition:
+GITTEST_BPELModel = GITTEST_MAIN1HIDEACTS
+State Space:
+ 5 = 2 ** 3
+Composing...
+-- States: 5 Transitions: 4 Memory used: 9648K
+Composed in 42ms
+
+
+-- compiled:GITTEST_RECEIVEINPUT1
+-- compiled:GITTEST_ASSIGN1
+-- compiled:GITTEST_ASSIGN1_1
+-- compiled:GITTEST_ASSIGN1SEQ
+-- compiled:GITTEST_REPLYOUTPUT1
+-- compiled:GITTEST_MAIN1
+Compiled: GITTEST_MAIN1HIDEACTS

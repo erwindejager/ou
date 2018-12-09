@@ -112,7 +112,7 @@
                 <![CDATA[name of service process should start]]>
             </bpel:documentation>
         </bpel:variable>
-        <bpel:variable name="reinjection" type="ns1:boolean">
+        <bpel:variable name="noreinjection" type="ns1:string">
             <bpel:from>
                 <bpel:literal xml:space="preserve">false</bpel:literal>
             </bpel:from>
@@ -181,9 +181,9 @@
                         </bpel:copy>
                         <bpel:copy>
                             <bpel:from>
-                                <bpel:literal xml:space="preserve">false</bpel:literal>
+                                <bpel:literal xml:space="preserve">true</bpel:literal>
                             </bpel:from>
-                            <bpel:to variable="reinjection"></bpel:to>
+                            <bpel:to variable="noreinjection"></bpel:to>
                         </bpel:copy>
                         
                         <bpel:copy>
@@ -230,9 +230,9 @@
                         
                         <bpel:copy>
                             <bpel:from>
-                                <bpel:literal xml:space="preserve">false</bpel:literal>
+                                <bpel:literal xml:space="preserve">true</bpel:literal>
                             </bpel:from>
-                            <bpel:to variable="reinjection"></bpel:to>
+                            <bpel:to variable="noreinjection"></bpel:to>
                         </bpel:copy>
                         
                         <bpel:copy>
@@ -274,9 +274,9 @@
                         
                         <bpel:copy>
                             <bpel:from>
-                                <bpel:literal xml:space="preserve">false</bpel:literal>
+                                <bpel:literal xml:space="preserve">true</bpel:literal>
                             </bpel:from>
-                            <bpel:to variable="reinjection"></bpel:to>
+                            <bpel:to variable="noreinjection"></bpel:to>
                         </bpel:copy>
                         
                         <bpel:copy>
@@ -337,9 +337,9 @@
                         
                         <bpel:copy>
                             <bpel:from>
-                                <bpel:literal xml:space="preserve">false</bpel:literal>
+                                <bpel:literal xml:space="preserve">true</bpel:literal>
                             </bpel:from>
-                            <bpel:to variable="reinjection"></bpel:to>
+                            <bpel:to variable="noreinjection"></bpel:to>
                         </bpel:copy>
                         
                         <bpel:copy>
@@ -395,12 +395,17 @@
                         
                         <bpel:copy>
                             <bpel:from>
-                                <bpel:literal xml:space="preserve">true</bpel:literal>
+                                <bpel:literal xml:space="preserve">false</bpel:literal>
                             </bpel:from>
-                            <bpel:to variable="reinjection"></bpel:to>
+                            <bpel:to variable="noreinjection"></bpel:to>
+                        </bpel:copy>
+                        <bpel:copy>
+                            <bpel:from>
+                                <bpel:literal xml:space="preserve">Ok</bpel:literal>
+                            </bpel:from>
+                            <bpel:to variable="valueOk"></bpel:to>
                         </bpel:copy>
                     </bpel:assign>
-                    
                     
                 </bpel:sequence>
                 <bpel:documentation source="" xml:lang="Nederlands (Nederland)">
@@ -425,10 +430,7 @@
             
             
             <bpel:copy>
-                <bpel:from part="payload" variable="handleCaseInput">
-                                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                        <![CDATA[tns:id]]>
-                                    </bpel:query>
+                <bpel:from variable="caseId">
                                 </bpel:from>
                 <bpel:to part="parameters" variable="registerCaseRequest">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
@@ -437,8 +439,7 @@
                 </bpel:to>
             </bpel:copy>
                             <bpel:copy>
-                                <bpel:from part="payload" variable="handleCaseInput">
-                                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:type]]></bpel:query>
+                                <bpel:from variable="caseType">
                                 </bpel:from>
                                 <bpel:to part="parameters" variable="registerCaseRequest">
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:type]]></bpel:query>
@@ -446,8 +447,7 @@
                             </bpel:copy>
                             
                             <bpel:copy>
-                                <bpel:from part="payload" variable="handleCaseInput">
-                                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:errorIndicator]]></bpel:query>
+                                <bpel:from variable="errorIndicator">
                                 </bpel:from>
                                 <bpel:to part="parameters" variable="registerCaseRequest">
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:errorIndicator]]></bpel:query>
@@ -688,38 +688,43 @@
                     
                             </bpel:sequence>
                         </bpel:sequence>
-                        <bpel:sequence name="ReplyHandleCaseResponse"><bpel:assign validate="no" name="PrepareReplyHandleCase">
-            
-        
-                        
-                        
-                        <bpel:copy><bpel:from>
-                                <bpel:literal xml:space="preserve"><tns:handleCaseProcessResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <bpel:if name="IfNotReinjectedCase">
+                    <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$noreinjection='true']]></bpel:condition>
+                    <bpel:sequence name="ReplyHandleCaseResponse"><bpel:assign validate="no" name="PrepareReplyHandleCase">
+                                <bpel:copy>
+                                    <bpel:from><bpel:literal xml:space="preserve"><tns:handleCaseProcessResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tns:result>tns:result</tns:result>
 </tns:handleCaseProcessResp>
 </bpel:literal>
-                            </bpel:from>
-                            <bpel:to part="payload" variable="handleCaseOutput"></bpel:to>
+                            
+                                    </bpel:from><bpel:to part="payload" variable="handleCaseOutput"></bpel:to>
                         
-                        </bpel:copy>
-                        <bpel:copy><bpel:from variable="ticket">
+                        
+                                </bpel:copy><bpel:copy><bpel:from variable="ticket">
                 </bpel:from>
                 <bpel:to part="payload" variable="handleCaseOutput">
                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:result]]></bpel:query>
                 </bpel:to>
             
                         </bpel:copy>
-                    </bpel:assign>
-                        <bpel:reply name="ReplyHandleCase" partnerLink="client" portType="tns:HandleCaseProcess" operation="handleCase" variable="handleCaseOutput" />
                     
-                        </bpel:sequence>
+                            
+                            </bpel:assign>
+                            <bpel:reply name="ReplyHandleCase" partnerLink="client" portType="tns:HandleCaseProcess" operation="handleCase" variable="handleCaseOutput" />
+                        
+                        
+                        
+                    </bpel:sequence>
+                </bpel:if>
+                
                     
+                
             </bpel:sequence>
             <bpel:elseif>
                 <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$caseHandlingTrigger='handleParkedCase']]></bpel:condition>
                 <bpel:sequence name="InvokeHandleParkedCaseServices">
-                        <bpel:sequence name="GetCalculation">
-                        <bpel:assign validate="no" name="PrepareInvokeGetCalculation">
+                        
+                    <bpel:sequence name="GetCalculation"><bpel:assign validate="no" name="PrepareInvokeGetCalculation">
                         
                         
                     
@@ -734,10 +739,7 @@
                                 <bpel:to variable="getCalculationRequest" part="parameters"></bpel:to>
                             </bpel:copy>
                             <bpel:copy>
-                                <bpel:from part="parameters" variable="handleParkedCaseInput">
-                                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                        <![CDATA[tns:id]]>
-                                    </bpel:query>
+                                <bpel:from variable="caseId">
                                 </bpel:from>
                                 <bpel:to part="parameters" variable="getCalculationRequest">
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
@@ -791,8 +793,9 @@
 	</bpel:invoke>
 
                     
+                    
                     </bpel:sequence>
-                        <bpel:sequence name="CheckProcessability"><bpel:assign validate="no" name="PrepareInvokeCheckProcessability">
+                    <bpel:sequence name="CheckProcessability"><bpel:assign validate="no" name="PrepareInvokeCheckProcessability">
                             
                         
                             
@@ -1048,10 +1051,11 @@
                     
                     
                         </bpel:sequence>
-                        <bpel:sequence name="ReplyHandleParkedCaseResponse"><bpel:assign validate="no" name="PrepareReplyHandleParkedCase">
-                        
-                        
-                            <bpel:copy>
+                    
+                    
+                    <bpel:if name="IfNotReinjectedParkedCase"><bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$noreinjection='true']]></bpel:condition>
+                    
+                        <bpel:sequence name="ReplyHandleParkedCaseResponse"><bpel:assign validate="no" name="PrepareReplyHandleParkedCase"><bpel:copy>
                                 <bpel:from>
                                     <bpel:literal xml:space="preserve"><tns:handleParkedCaseResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tns:result>tns:result</tns:result>
@@ -1068,11 +1072,14 @@
                                 </bpel:to>
                             </bpel:copy>
                             
-                        </bpel:assign>
-                        <bpel:reply name="ReplyHandleParkedCase" partnerLink="client" operation="handleParkedCase" portType="tns:HandleCaseProcess" variable="handleParkedCaseOutput"></bpel:reply>
+                        
+                            </bpel:assign><bpel:reply name="ReplyHandleParkedCase" partnerLink="client" operation="handleParkedCase" portType="tns:HandleCaseProcess" variable="handleParkedCaseOutput"></bpel:reply>
                     
+                        
+                        
                         </bpel:sequence>
-                    </bpel:sequence>
+                    </bpel:if>
+                </bpel:sequence>
             </bpel:elseif><bpel:elseif>
                 <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$caseHandlingTrigger='stopCase']]></bpel:condition>
                 <bpel:sequence name="InvokeStopCaseService">
@@ -1090,16 +1097,14 @@
                             <bpel:to variable="stopCaseRequest" part="parameters"></bpel:to>
                         </bpel:copy>
                         <bpel:copy>
-                            <bpel:from part="parameters" variable="stopCaseInput">
-                                <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:id]]></bpel:query>
+                            <bpel:from variable="caseId">
                             </bpel:from>
                             <bpel:to part="parameters" variable="stopCaseRequest">
                                 <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:id]]></bpel:query>
                             </bpel:to>
                         </bpel:copy>
                         <bpel:copy>
-                            <bpel:from part="parameters" variable="stopCaseInput">
-                                <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:errorIndicator]]></bpel:query>
+                            <bpel:from variable="errorIndicator">
                             </bpel:from>
                             <bpel:to part="parameters" variable="stopCaseRequest">
                                 <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:errorIndicator]]></bpel:query>
@@ -1152,14 +1157,10 @@
 					</bpel:invoke>
 
 					</bpel:sequence>
-                        <bpel:sequence name="ReplyStopCaseResponse"><bpel:assign validate="no" name="PrepareReplyStopCase">
-                        
-                        
-                            
-                            
-                            
-                            
-                            <bpel:copy>
+                    <bpel:if name="IfNotReinjectedStopCase">
+                        <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$noreinjection='true']]></bpel:condition>
+                        <bpel:sequence name="ReplyStopCaseResponse">
+                            <bpel:assign validate="no" name="PrepareReplyStopCase"><bpel:copy>
                                 <bpel:from><bpel:literal><tns:stopCaseResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tns:result>tns:result</tns:result>
 </tns:stopCaseResp>
@@ -1172,10 +1173,13 @@
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:result]]></bpel:query>
                                 </bpel:to>
                             </bpel:copy>
-                        </bpel:assign>
-                        <bpel:reply name="ReplyStopCase" partnerLink="client" operation="stopCase" portType="tns:HandleCaseProcess" variable="stopCaseOutput"></bpel:reply>
+                        
+                            </bpel:assign><bpel:reply name="ReplyStopCase" partnerLink="client" operation="stopCase" portType="tns:HandleCaseProcess" variable="stopCaseOutput"></bpel:reply>
                     
+                        
                         </bpel:sequence>
+                    </bpel:if>
+                    
                     </bpel:sequence>
             </bpel:elseif><bpel:elseif>
                 <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$caseHandlingTrigger='handleObjection']]></bpel:condition>
@@ -1199,16 +1203,14 @@
                                 
                             
                             <bpel:copy>
-                                <bpel:from part="parameters" variable="handleObjectionInput">
-                                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:id]]></bpel:query>
+                                <bpel:from variable="caseId">
                                 </bpel:from>
                                 <bpel:to part="parameters" variable="registerObjectionCaseRequest">
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:id]]></bpel:query>
                                 </bpel:to>
                             </bpel:copy>
                             <bpel:copy>
-                                <bpel:from part="parameters" variable="handleObjectionInput">
-                                    <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:type]]></bpel:query>
+                                <bpel:from variable="caseType">
                                 </bpel:from>
                                 <bpel:to part="parameters" variable="registerObjectionCaseRequest">
                                     <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns:requestInput/ns:type]]></bpel:query>
@@ -1397,7 +1399,7 @@
                         
                     
                         </bpel:sequence>
-                        <bpel:if name="IfNewObjection"><bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$handleObjectionInput.parameters/tns:type="New"]]></bpel:condition>
+                        <bpel:if name="IfNewObjection"><bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$caseType="New"]]></bpel:condition>
                         <bpel:sequence name="CreateObjectionTask"><bpel:assign validate="no" name="PrepareCreateObjectionTask">
                             
                             
@@ -1553,14 +1555,10 @@
                         
                     
                     </bpel:sequence>
-                        <bpel:sequence name="ReplyHandleObjectionResponse"><bpel:assign validate="no" name="PrepareReplyHandleObjection">
-                        
-                        
-                        
-                    
-                            
-                            
-                            <bpel:copy><bpel:from>
+                    <bpel:if name="IfNotReinjectedObjectionCase">
+                        <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$noreinjection='true']]></bpel:condition>
+                        <bpel:sequence name="ReplyHandleObjectionResponse">
+                            <bpel:assign validate="no" name="PrepareReplyHandleObjection"><bpel:copy><bpel:from>
                                     <bpel:literal xml:space="preserve"><tns:handleObjectionResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tns:result>tns:result</tns:result>
 </tns:handleObjectionResp>
@@ -1575,14 +1573,17 @@
                             </bpel:to>
                         
                             </bpel:copy>
-                        </bpel:assign>
-                        <bpel:reply name="ReplyHandleObjection" partnerLink="client" operation="handleObjection" portType="tns:HandleCaseProcess" variable="handleObjectionOutput"></bpel:reply>
+                        
+                            </bpel:assign><bpel:reply name="ReplyHandleObjection" partnerLink="client" operation="handleObjection" portType="tns:HandleCaseProcess" variable="handleObjectionOutput"></bpel:reply>
                     
+                        
                         </bpel:sequence>
+                    </bpel:if>
+                    
                     </bpel:sequence>
             </bpel:elseif></bpel:if>
         <bpel:if name="Reinjected">
-            <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$reinjection='true']]></bpel:condition>
+            <bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$noreinjection='false']]></bpel:condition>
             <bpel:sequence name="ReplyReinjectCase">
                 
                 
@@ -1591,13 +1592,17 @@
                     
                     
                     <bpel:copy>
-                        <bpel:from>
-                            <bpel:literal xml:space="preserve"><tns:reinjectCaseResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <bpel:from><bpel:literal><tns:reinjectCaseResp xmlns:tns="http://bpel.casus.ou" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tns:result>tns:result</tns:result>
 </tns:reinjectCaseResp>
-</bpel:literal>
-                        </bpel:from>
-                        <bpel:to part="parameters" variable="reinjectCaseOutput"></bpel:to>
+</bpel:literal></bpel:from>
+                        <bpel:to variable="reinjectCaseOutput" part="parameters"></bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from variable="valueOk"></bpel:from>
+                        <bpel:to part="parameters" variable="reinjectCaseOutput">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[tns:result]]></bpel:query>
+                        </bpel:to>
                     </bpel:copy>
                     
                 </bpel:assign>

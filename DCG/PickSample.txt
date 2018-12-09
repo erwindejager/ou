@@ -1,0 +1,2 @@
+[v0,Pick,sayHello,AssignHello,replyHello,v]
+[v0,Pick,sayGoodbye,AssignGoodbye,ReplyBye,v]

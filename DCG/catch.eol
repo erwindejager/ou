@@ -1,4 +1,8 @@
-
-operation BPEL!t_catch transform(sb : Any, context : Map) {
-	transformChildren(sb, context, self);
-} 
+operation BPEL!t_catch transform_(sb : Any, path : Sequence, context : Map) : String {
+	var ifNameContext : String = getInvoke(context);
+	var ifName : String = "c_catch_" + ifNameContext; 
+	var rule : String = formatRule(transformChildren_m(sb, context,self)); 
+	sb.append(ifName + " --> [].");newline(sb);
+	sb.append(ifName + " --> " + rule);newline(sb);
+	path.add(ifName);
+}

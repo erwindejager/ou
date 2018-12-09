@@ -6,6 +6,14 @@ operation trimNs(s : String) : String {
 	return result;
 }
 
+operation containsCut(s : String) : Boolean {
+	var result = false;
+	if (s.contains("!")) {
+		result = true;
+	}
+	return result;
+}
+
 operation transformChildren_m(sb : Any, context : Map, e : Any) : Sequence{
 	var path : Sequence;
 	for (c in e.children) {
@@ -14,26 +22,23 @@ operation transformChildren_m(sb : Any, context : Map, e : Any) : Sequence{
 	return path;
 }
 
-operation transformChildren_qqq(sb : Any, context : Map, e : Any) : String{
-	var path : Sequence;
-	for (c in e.children) {
- 		c.transform_(sb, path, context);
-	}
-	return formatRule(path);
-}
-
 operation formatRule(seq : Sequence) : String{
 	var path : String = "";
 	var sep : String = "";
+	var prev : String = "";
+
 	for (elem in seq) {
 		if (path.length > 0) {
 			sep = ", ";
 		}
 		if (elem.startsWith("\"")) {
 			path = path + sep + "[" + elem + "]";
+		} else if (elem.startsWith("!") and prev.startsWith("!")) {
+			// skip
 		} else {
 			path = path + sep + elem;
 		}
+		prev = elem;
 	}
 	return path + ".";
 }

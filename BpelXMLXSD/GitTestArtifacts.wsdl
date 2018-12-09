@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<definitions name="IfElse"
-        targetNamespace="http://ifelse.bpel.ou"
-        xmlns:tns="http://ifelse.bpel.ou"
+<definitions name="GitTest"
+        targetNamespace="http://ou.gittest"
+        xmlns:tns="http://ou.gittest"
         xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
         xmlns="http://schemas.xmlsoap.org/wsdl/"
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
@@ -15,10 +15,10 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
     <types>
         <schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-                targetNamespace="http://ifelse.bpel.ou" 
+                targetNamespace="http://ou.gittest" 
                 xmlns="http://www.w3.org/2001/XMLSchema">
 
-            <element name="IfElseRequest">
+            <element name="GitTestRequest">
                 <complexType>
                     <sequence>
                         <element name="input" type="string"/>
@@ -26,7 +26,7 @@
                 </complexType>
             </element>
 
-            <element name="IfElseResponse">
+            <element name="GitTestResponse">
                 <complexType>
                     <sequence>
                         <element name="result" type="string"/>
@@ -41,11 +41,11 @@
      MESSAGE TYPE DEFINITION - Definition of the message types used as 
      part of the port type defintions
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
-    <message name="IfElseRequestMessage">
-        <part name="payload" element="tns:IfElseRequest"/>
+    <message name="GitTestRequestMessage">
+        <part name="payload" element="tns:GitTestRequest"/>
     </message>
-    <message name="IfElseResponseMessage">
-        <part name="payload" element="tns:IfElseResponse"/>
+    <message name="GitTestResponseMessage">
+        <part name="payload" element="tns:GitTestResponse"/>
     </message>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,18 +53,18 @@
      a logical service unit.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
 
-    <!-- portType implemented by the IfElse BPEL process -->
-    <portType name="IfElse">
+    <!-- portType implemented by the GitTest BPEL process -->
+    <portType name="GitTest">
         <operation name="process">
-            <input  message="tns:IfElseRequestMessage" />
-            <output message="tns:IfElseResponseMessage"/>
+            <input  message="tns:GitTestRequestMessage" />
+            <output message="tns:GitTestResponseMessage"/>
         </operation>
     </portType>   
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      PARTNER LINK TYPE DEFINITION
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
-    <plnk:partnerLinkType name="IfElse">
-        <plnk:role name="IfElseProvider" portType="tns:IfElse"/>
+    <plnk:partnerLinkType name="GitTest">
+        <plnk:role name="GitTestProvider" portType="tns:GitTest"/>
     </plnk:partnerLinkType>
     
 
@@ -72,12 +72,12 @@
      BINDING DEFINITION - Defines the message format and protocol details
      for a web service.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <binding name="IfElseBinding" type="tns:IfElse">
+    <binding name="GitTestBinding" type="tns:GitTest">
     	<soap:binding style="document"
     		transport="http://schemas.xmlsoap.org/soap/http" />
     	<operation name="process">
     		<soap:operation
-    			soapAction="http://ifelse.bpel.ou/process" />
+    			soapAction="http://ou.gittest/process" />
     		<input>
     			<soap:body use="literal" />
     		</input>
@@ -91,9 +91,9 @@
      SERVICE DEFINITION - A service groups a set of ports into
      a service unit.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <service name="IfElseService">
-    	<port name="IfElsePort" binding="tns:IfElseBinding">
-    		<soap:address location="http://localhost:8080/ode/processes/IfElse" />
+    <service name="GitTestService">
+    	<port name="GitTestPort" binding="tns:GitTestBinding">
+    		<soap:address location="http://localhost:8080/ode/processes/GitTest" />
     	</port>
     </service>
 </definitions>

@@ -12,6 +12,15 @@ operation BPEL!t_invoke transform(sb : Any, context : Map) {
 
 operation BPEL!t_invoke transform_(sb : Any, path : Sequence, context : Map)  {
 	//sb.append(terminal(self.a_name)); newline(sb);
-
 	path.add(terminal(self.a_name));
+	addInvoke(context, self.a_name);
+	var path1 : Sequence = transformChildren_m(sb, context, self);
+	
+	for (c in path1) {
+ 		path.add(c);
+	}
+	
+	
+	return path;
+
 } 

@@ -17,5 +17,5 @@ operation getProcess() : BPEL!t_process {
 operation BPEL!t_process transformStartSymbolGrammar(sb : Any) {
   	sb.append("grammar_" + self.a_name + " --> [\"v0\"], c_main, [\"v\"]."); newline(sb); newline(sb);
   	var multiPath : Sequence = getMainSequence().transform_(sb, multiPath, context);
-  	sb.append("c_main --> " + formatRule(multiPath));newline(sb);
+	sb.append("c_main --> " + formatRule(multiPath));
 }

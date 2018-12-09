@@ -1,3 +1,7 @@
-operation BPEL!t_throw transform(sb : Any, context : Map) {
-	newline(sb); terminal(sb, self.a_name); newline(sb);
+operation BPEL!t_throw transform_(sb : Any, path : Sequence, context : Map) : String {
+	//sb.append(terminal(self.a_name)); newline(sb);
+	
+	path.add(terminal(self.a_name));
+	path.add(terminal("@END@"));
+	//path.add("!");
 } 

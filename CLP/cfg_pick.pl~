@@ -1,0 +1,37 @@
+
+% phrase(picksample([erwin]),X,[]).
+% findall(X, phrase(picksample([erwin]),X,[]),AS).
+
+picksample(V0) --> V0,[pick, sayHello, assignHello, replyHello], [hello], V0.
+picksample(V0) --> V0,[pick, sayGoodbye, assignGoodbye, replyBye], [goodbye], V0.
+dopick(N,AS) :- findall(X, phrase(picksample([N]),X,[]),AS).
+dopickall([],[]).
+dopickall([N|L],A]) :- findall(X, phrase(picksample([N]),X,[]),AS),
+    dopickall(L,ASS),append(AS,ASS,A).
+%forall((member(N,P)), dopick(N,L)),LL=[L|LL]
+
+hello :-
+	who(X),
+	write("Hello"),writeln(X).
+
+who(world).
+who(friend).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

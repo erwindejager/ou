@@ -1,3 +1,12 @@
+operation addInvoke(m : Map, ivName : String) {
+	addToMap(m, ivName, "INV_", "INVNR");
+}
+
+$pre m.size() > 0
+operation getInvoke(m : Map) : String {
+	return getFromMap(m, "INV_", "INVNR");
+}
+
 operation addIf(m : Map, ifName : String) {
 	addToMap(m, ifName, "IF_", "IFNR");
 }

@@ -1,0 +1,3 @@
+[v0,receiveInput,Assign,Whilex,LoopAssign,AssignOutput,replyOutput,v]
+[v0,receiveInput,Assign,Whilex,LoopAssign,LoopAssign,AssignOutput,replyOutput,v]
+[v0,receiveInput,Assign,Whilex,AssignOutput,replyOutput,v]

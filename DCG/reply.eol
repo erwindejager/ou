@@ -3,5 +3,6 @@ operation BPEL!t_reply transform_(sb : Any, path : Sequence, context : Map) : St
 	//sb.append(terminal(self.a_name)); newline(sb);
 	
 	path.add(terminal(self.a_name));
-	path.add("!");
+	path.add(terminal("@END@"));
+	//path.add("!");
 } 

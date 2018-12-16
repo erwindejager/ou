@@ -128,10 +128,6 @@ c_if_Reinjected --> ["Reinjected"], ["PrepareReplyReinjectCase"], ["ReplyReinjec
 
 c_main --> c_pick_HandleRequest, c_if_HandleReceivedCaseRequest, c_if_Reinjected.
 
-
-handleRule(OS,N) :- not(member("@END@", N)), writeln(OS, N).
-handleRule(OS,N) :- member("@END@", N), stripRule("@END@", N, N1), writeln(OS, N1).
-
 stripRule(_, [], []). 
 stripRule(T, [T|_], ["v"]). 
 stripRule(T, [X|L], [X|NL]) :- stripRule(T, L, NL). 
@@ -144,7 +140,7 @@ start:-
 	findall(X, phrase(grammar_HandleCaseProcess,X,[]),AS),
 	stripRules(AS,AS1),
 	list_to_set(AS1, AsSet),
-    forall((member(N,AsSet)), handleRule(OS,N)),
+    forall((member(N,AsSet)), writeln(OS,N)),
     close(OS).
 
  

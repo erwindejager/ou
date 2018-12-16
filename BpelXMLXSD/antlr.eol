@@ -24,7 +24,7 @@ operation antlrMembers(sb : Any) {
 
 operation antlrCallVerify(sb : Any) {
 	sb.append("  if (!Utils.verify(vMap, varMap)) {\n");
-	sb.append("	    System.out.println(\"ERROR: unexpected output\");\n"); 
+	sb.append("	    throw new ParseCatchException(\"ERROR: unexpected output\", true);\n");
     sb.append("  }\n");
 }
 operation antlrOptions(sb : Any) {
@@ -55,7 +55,7 @@ operation antlrKV(sb : Any) {
 operation antlrTypes(sb : Any) {
 	newline(sb); 
 	sb.append("exit: v\n");
-	sb.append("{ throw new ParseCatchException(catchExceptionPoint); };\n");
+	sb.append("{ throw new ParseCatchException(catchExceptionPoint,false); };\n");
   	sb.append("key : varname ;\n");
   	sb.append("value : STRING ;\n");
   	sb.append("index : '[' NUMBER ']' ;\n");

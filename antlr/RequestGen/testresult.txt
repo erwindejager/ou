@@ -1,0 +1,123 @@
+REQUEST 8
+1 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+2 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+3 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+4 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+5 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+6 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+7 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+8 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+9 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+10 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+11 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+12 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+13 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+14 FAIL : ERROR: unexpected output
+15 FAIL : rule handlerequest failed predicate: { reinject.equals("Y") }?
+16 FAIL : no viable alternative at input '('
+17 FAIL : no viable alternative at input 'IfReinject'
+18 PASSED : (handlerequest (v0 ( (kvpi < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'C') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname handleRequestOutput . parameters . result)) , (value '?') >) )) HandleService handleRequest PrepareHandleRequest HandleService PrepareClassifyRequest ClassifyRequestWS AssignRequestType else PrepareCreateManualTask CreateManualTaskWS NotReinjectHandleRequest PrepareHandleRequestReply HandleRequestReply (v ( (kvpo < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'C') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpo < (key (varname handleRequestOutput . parameters . result)) , (value 'Ok') >) )))
+19 PASSED : Handle catch : CreateManualTaskWS
+20 FAIL : no viable alternative at input '('
+21 FAIL : no viable alternative at input 'IfReinject'
+22 PASSED : (handlerequest (v0 ( (kvpi < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpi < (key (varname handleRequestOutput . parameters . result)) , (value '?') >) )) HandleService handleRequest PrepareHandleRequest HandleService PrepareClassifyRequest ClassifyRequestWS AssignRequestType IfStandardRequest PrepareCheckProcessability CheckProcessabilityWS AssignValid else PrepareRejectReq RejectRequestWS NotReinjectHandleRequest PrepareHandleRequestReply HandleRequestReply (v ( (kvpo < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpo < (key (varname handleRequestOutput . parameters . result)) , (value 'Ok') >) )))
+23 PASSED : Handle catch : RejectRequestWS
+24 FAIL : no viable alternative at input '('
+25 FAIL : no viable alternative at input 'IfReinject'
+26 PASSED : (handlerequest (v0 ( (kvpi < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname handleRequestOutput . parameters . result)) , (value '?') >) )) HandleService handleRequest PrepareHandleRequest HandleService PrepareClassifyRequest ClassifyRequestWS AssignRequestType IfStandardRequest PrepareCheckProcessability CheckProcessabilityWS AssignValid IfValid PrepareProcessRequest ProcessRequestWS NotReinjectHandleRequest PrepareHandleRequestReply HandleRequestReply (v ( (kvpo < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpo < (key (varname handleRequestOutput . parameters . result)) , (value 'Ok') >) )))
+27 PASSED : Handle catch : ProcessRequestWS
+28 PASSED : Handle catch : CheckProcessabilityWS
+29 PASSED : Handle catch : ClassifyRequestWS
+
+COMPLEX 5
+30 FAIL : no viable alternative at input '('
+31 FAIL : no viable alternative at input 'IfReinject'
+32 PASSED : (handlerequest (v0 ( (kvpi < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpi < (key (varname handleComplexRequestOutput . parameters . result)) , (value '?') >) )) HandleService handleComplexRequest PrepareHandleComplexRequest elseif PrepareCheckProcessability CheckProcessabilityWS AssignValid else PrepareRejectReq RejectRequestWS NotReinjectHandleComplexRequest PrepareHandleComplexRequestReply HandleComplexRequestReply (v ( (kvpo < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpo < (key (varname handleComplexRequestOutput . parameters . result)) , (value 'Ok') >) )))
+33 PASSED : Handle catch : RejectRequestWS
+34 FAIL : no viable alternative at input '('
+35 FAIL : no viable alternative at input 'IfReinject'
+36 PASSED : (handlerequest (v0 ( (kvpi < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname handleComplexRequestOutput . parameters . result)) , (value '?') >) )) HandleService handleComplexRequest PrepareHandleComplexRequest elseif PrepareCheckProcessability CheckProcessabilityWS AssignValid IfValidComplex PrepareProcessRequest ProcessRequestWS NotReinjectHandleComplexRequest PrepareHandleComplexRequestReply HandleComplexRequestReply (v ( (kvpo < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpo < (key (varname handleComplexRequestOutput . parameters . result)) , (value 'Ok') >) )))
+37 PASSED : Handle catch : ProcessRequestWS
+38 PASSED : Handle catch : CheckProcessabilityWS
+39 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+40 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+41 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+42 FAIL : rule handlerequest failed predicate: { service.equals("rejectRequest") }?
+43 FAIL : ERROR: unexpected output
+44 FAIL : rule handlerequest failed predicate: { reinject.equals("Y") }?
+45 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+46 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+47 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+48 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+49 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+50 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+51 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+52 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+53 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+54 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+55 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+56 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+57 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+58 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+
+REJECT 2
+59 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+60 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+61 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+62 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+63 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+64 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+65 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+66 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+67 FAIL : rule handlerequest failed predicate: { service.equals("handleComplexRequest") }?
+68 FAIL : no viable alternative at input '('
+69 FAIL : no viable alternative at input 'IfReinject'
+70 PASSED : (handlerequest (v0 ( (kvpi < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname rejectRequestOutput . parameters . result)) , (value '?') >) )) HandleService rejectRequest PrepareRejectRequest elseif PrepareInvokeRejectRequest InvokeRejectRequestWS NotReinjectRejectRequest PrepareRejectRequestReply RejectRequestReply (v ( (kvpo < (key (varname handleRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpo < (key (varname rejectRequestOutput . parameters . result)) , (value 'Ok') >) )))
+71 PASSED : Handle catch : InvokeRejectRequestWS
+72 FAIL : rule handlerequest failed predicate: { !service.equals("rejectRequest") }?
+73 FAIL : rule handlerequest failed predicate: { !service.equals("rejectRequest") }?
+74 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+75 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+76 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+77 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+78 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+79 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+80 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+81 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+82 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+83 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+84 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+85 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+86 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+87 FAIL : rule handlerequest failed predicate: { service.equals("handleRequest") }?
+
+RE-INJECT 8 + 5 + 2 + 1(unknown case) = 16
+88 FAIL : no viable alternative at input '('
+89 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleComplexRequest') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest elseif PrepareCheckProcessability CheckProcessabilityWS AssignValid else PrepareRejectReq RejectRequestWS IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleComplexRequest') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Ok') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+90 FAIL : rule handlerequest failed predicate: { reinject.equals("N") }?
+91 PASSED : Handle catch : RejectRequestWS
+92 FAIL : no viable alternative at input '('
+93 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleComplexRequest') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest elseif PrepareCheckProcessability CheckProcessabilityWS AssignValid IfValidComplex PrepareProcessRequest ProcessRequestWS IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleComplexRequest') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Ok') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+94 FAIL : rule handlerequest failed predicate: { reinject.equals("N") }?
+95 PASSED : Handle catch : ProcessRequestWS
+96 PASSED : Handle catch : CheckProcessabilityWS
+97 FAIL : no viable alternative at input '('
+98 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'rejectRequest') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest elseif PrepareInvokeRejectRequest InvokeRejectRequestWS IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'rejectRequest') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Ok') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+99 FAIL : rule handlerequest failed predicate: { reinject.equals("N") }?
+100 PASSED : Handle catch : InvokeRejectRequestWS
+101 FAIL : no viable alternative at input '('
+102 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'unknown') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest else UnknownRequest IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'unknown') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Error') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+103 FAIL : no viable alternative at input '('
+104 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleRequest') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'C') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest HandleService PrepareClassifyRequest ClassifyRequestWS AssignRequestType else PrepareCreateManualTask CreateManualTaskWS IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleRequest') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Ok') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+105 FAIL : rule handlerequest failed predicate: { reinject.equals("N") }?
+106 PASSED : Handle catch : CreateManualTaskWS
+107 FAIL : no viable alternative at input '('
+108 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleRequest') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'N') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest HandleService PrepareClassifyRequest ClassifyRequestWS AssignRequestType IfStandardRequest PrepareCheckProcessability CheckProcessabilityWS AssignValid else PrepareRejectReq RejectRequestWS IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleRequest') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Ok') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+109 FAIL : rule handlerequest failed predicate: { reinject.equals("N") }?
+110 PASSED : Handle catch : RejectRequestWS
+111 FAIL : no viable alternative at input '('
+112 PASSED : (handlerequest (v0 ( (kvpi < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleRequest') >) , (kvpi < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpi < (key (varname reinjectRequestOutput . parameters . result)) , (value '?') >) , (kvpi < (key (varname classifyRequestWSResponse . parameters . classifyRequestReturn . value)) , (value 'S') >) , (kvpi < (key (varname checkProcessabilityWSResponse . parameters . checkProcessabilityReturn . value)) , (value 'V') >) , (kvpi < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )) HandleService reinjectRequest PrepareReinjectRequest HandleService PrepareClassifyRequest ClassifyRequestWS AssignRequestType IfStandardRequest PrepareCheckProcessability CheckProcessabilityWS AssignValid IfValid PrepareProcessRequest ProcessRequestWS IfReinject PrepareReinjectRequestReply ReinjectRequestReply (v ( (kvpo < (key (varname reinjectRequestInput . parameters . service)) , (value 'handleRequest') >) , (kvpo < (key (varname reinjectRequestInput . parameters . payload)) , (value '123') >) , (kvpo < (key (varname reinjectRequestOutput . parameters . result)) , (value 'Ok') >) , (kvpo < (key (varname createExceptionTaskWSRequest . parameters . requestInput . triggerEvent)) , (value '?') >) )))
+113 FAIL : rule handlerequest failed predicate: { reinject.equals("N") }?
+114 PASSED : Handle catch : ProcessRequestWS
+115 PASSED : Handle catch : CheckProcessabilityWS
+116 PASSED : Handle catch : ClassifyRequestWS

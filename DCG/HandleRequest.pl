@@ -87,9 +87,6 @@ c_if_IfReinject --> ["IfReinject"], ["PrepareReinjectRequestReply"], ["ReinjectR
 c_main --> c_pick_HandleService, c_if_HandleService, c_if_IfReinject.
 
 
-handleRule(OS,N) :- not(member("@END@", N)), writeln(OS, N).
-handleRule(OS,N) :- member("@END@", N), stripRule("@END@", N, N1), writeln(OS, N1).
-
 stripRule(_, [], []). 
 stripRule(T, [T|_], ["v"]). 
 stripRule(T, [X|L], [X|NL]) :- stripRule(T, L, NL). 
@@ -102,7 +99,7 @@ start:-
 	findall(X, phrase(grammar_HandleRequest,X,[]),AS),
 	stripRules(AS,AS1),
 	list_to_set(AS1, AsSet),
-    forall((member(N,AsSet)), handleRule(OS,N)),
+    forall((member(N,AsSet)), writeln(OS,N)),
     close(OS).
 
  

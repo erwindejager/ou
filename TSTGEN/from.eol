@@ -1,0 +1,38 @@
+import "literal.eol";
+import "query.eol";
+import "xpath.eol";
+
+operation getFrom(parent : Any) : BPEL!t_from {
+ 	return parent.children.select(o|o.isTypeOf(BPEL!t_from)).first();
+}
+
+operation BPEL!t_from transform(sb : Any, context : Map, toType : String) {
+	if (self.a_variable.length > 0) {
+		sb.append(self.a_variable.firstToLowerCase());
+		if(self.a_part.length > 0) {
+			sb.append("." + self.a_part.firstToLowerCase() + ".");
+		}
+ 	} else { // CDATA
+	 	if (self.children.size() == 0) {
+	 		var result = xpath(self.text.trim());
+	 		if ("string".equals(toType)) {
+	 			result = asString(result);
+	 		}
+	 		sb.append(result);
+ 		}
+ 	}
+	transformChildren(sb, context, self);
+}
+
+operation getFromPath(sb : Any, context : Map, parent : Any) : String {
+	var result = "";
+ 	var from = parent.children.select(o|o.isTypeOf(BPEL!t_from)).first();
+	if (not (from.children.size() == 1 and (trimNs(from.children.first().tagname).startsWith("literal")
+	or trimNs(from.children.first().tagname).startsWith("query")))) { 
+		for (c in from.children) {
+			transformChildrenPath(sb, context, c);
+		}
+		result = trimLiteral(getPath(context));
+	}
+	return result;
+}

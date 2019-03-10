@@ -1,0 +1,49 @@
+import "util.eol";
+//--------------------------------------------------------
+// <xsd:element ref="variables" minOccurs="0"/>
+//--------------------------------------------------------
+ operation getVariables() : BPEL!t_variables {
+ 	return BPEL!t_variables.all().first();
+ }
+ 
+operation getVariableNames() : Collection {
+ 	return getVariables().collect(v|v.a_name);
+ }
+
+operation getVariablesAsList() : Collection {
+ 	return getVariables().getVarList();
+}
+ 
+operation BPEL!t_variables getVarList() : Collection {
+ 	return self.children.collect(v|v.a_name);
+}
+
+operation BPEL!t_variables transformMembers(sb : Any) {
+	transformChildrenMembers(sb, self);
+} 
+
+operation BPEL!t_variable transform(sb : Any) {
+	sb.append(self.a_name.toLowercase());
+} 
+
+operation BPEL!t_variable transformMembers(sb : Any) {
+	if (self.a_messageType.length > 0) {
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_messageType)).firstToUpperCase() + "_ " + self.a_name.firstToLowerCase() + " = ");
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_messageType)).firstToLowerCase() + "_;"); newline(sb);
+	} else if (self.a_type.length > 0) {
+		sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(self.a_type)) + " " + self.a_name + ";");newline(sb);
+		allTypes.put(self.a_name, trimNs(self.a_type));
+	}
+} 
+
+operation BPEL!t_variable transformVarMap(sb : Any, context : Map) {
+	var fac = getFactory(context);
+	sb.append("JXPathContext " + self.a_name.firstToLowerCase() + "Ctx" + " = JXPathContext.newContext(");
+	sb.append(self.a_name.firstToLowerCase() + ");");newline(sb);
+	if (fac <> null and fac.length() > 0) {
+		addFactory(context, fac);
+		sb.append(self.a_name.firstToLowerCase() + "Ctx.setFactory(new " + fac + "());");newline(sb);
+	}
+	sb.append("varMap.put(\"" + self.a_name.firstToLowerCase() + "\", " + self.a_name.firstToLowerCase() + "Ctx);"); newline(sb);
+} 
+

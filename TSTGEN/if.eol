@@ -1,0 +1,35 @@
+import "condition.eol";
+
+operation BPEL!t_if transform(sb : Any, context : Map) {
+//	newline(sb); newline(sb); sb.append("("); space(sb); terminal(sb, self.a_name); space(sb); 
+	newline(sb); newline(sb); terminal(sb, self.a_name); space(sb); sb.append("("); space(sb);  
+	transformChildren(sb, context, self);
+	if (hasChild(self, "else") or hasChild(self, "elseif")) {
+		newline(sb); sb.append(")");
+	} else {
+		var cond = getCondition(context);
+		newline(sb);
+		if (containsCondtionVar(cond)) { 
+			sb.append("| { !" + cond + " }? )");
+		} else {
+			sb.append("| )");
+		}		
+	} 
+}
+
+operation BPEL!t_elseif transform(sb : Any, context : Map) {
+//	newline(sb); newline(sb); sb.append("| ("); space(sb); terminal(sb, "elseif"); space(sb); 
+	newline(sb); newline(sb); sb.append("| (");  space(sb); 
+	transformChildren(sb, context, self);
+	newline(sb); sb.append(")");
+}
+
+operation BPEL!t_else transform(sb : Any, context : Map) {
+//	newline(sb);newline(sb); sb.append("|"); space(sb); terminal(sb, "else"); space(sb);
+	newline(sb);newline(sb); sb.append("|"); space(sb); 
+	var cond = getCondition(context);
+	if (containsCondtionVar(cond)) { 
+		sb.append("{ !" + cond + " }?");
+	}
+	transformChildren(sb, context, self);
+}

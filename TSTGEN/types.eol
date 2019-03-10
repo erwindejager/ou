@@ -1,0 +1,23 @@
+operation setAllTypes() {
+	for (mod in allModels) {
+		for (e in mod!t_element.allInstances()) {
+			allTypes.put(e.a_name, trimNs(e.a_type));
+		}
+	}
+}
+
+operation transformTypes()  {
+	for (mod in allModels) {
+		for (e in mod!t_types.allInstances()) {
+			transformWsdl(e, sb,context);
+		}
+	}
+}
+
+operation getType_(elementName : String) : String {
+	return allTypes.get(elementName);
+}
+
+operation getJavaType_(elementName : String) : String {
+	return tranlateXmlPrimitiveTypesToJava(getType_(elementName));
+}

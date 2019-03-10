@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:p="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://handerequest.ws.ou" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://request.ws.ou" name="HandleRequest" targetNamespace="http://handerequest.ws.ou">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="HandleRequestWSPLType">
+    <plnk:role name="HandleRequestWSPLRole" portType="wsdl:HandleRequestWS"/>
+  </plnk:partnerLinkType>
+    <import location="HandleRequestWS.wsdl" namespace="http://request.ws.ou"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://handerequest.ws.ou">
+
+            <element name="Request">
+                <complexType>
+                    <sequence>
+                        <element name="payload" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="HandleRequestResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ComplexRequest">
+            	<complexType>
+            		<sequence>
+            			<element name="payload" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+            <element name="HandleComplexRequestResponse">
+            	<complexType>
+            		<sequence>
+            			<element name="result" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+            <element name="RejectedRequest">
+            	<complexType>
+            		<sequence>
+            			<element name="payload" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+            <element name="RejectRequestResponse">
+            	<complexType>
+            		<sequence>
+            			<element name="result" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+            <element name="ReinjectedRequest">
+            	<complexType>
+            		<sequence>
+            			<element name="payload" type="string"/>
+            			<element name="service" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+            <element name="ReinjectRequestResponse">
+            	<complexType>
+            		<sequence>
+            			<element name="result" type="string"/>
+            		</sequence>
+            	</complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="HandleRequestRequestMessage">
+        <part element="tns:Request" name="parameters"/>
+    </message>
+    <message name="HandleRequestResponseMessage">
+        <part element="tns:HandleRequestResponse" name="parameters"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the HandleRequest BPEL process -->
+    <message name="handleComplexRequestRequest">
+    	<part element="tns:ComplexRequest" name="parameters"/>
+    </message>
+    <message name="handleComplexRequestResponse">
+    	<part element="tns:HandleComplexRequestResponse" name="parameters"/>
+    </message>
+    <message name="rejectRequestRequest">
+    	<part element="tns:RejectedRequest" name="parameters"/>
+    </message>
+    <message name="rejectRequestResponse">
+    	<part element="tns:RejectRequestResponse" name="parameters"/>
+    </message>
+    <message name="reinjectRequestRequest">
+    	<part element="tns:ReinjectedRequest" name="parameters"/>
+    </message>
+    <message name="reinjectRequestResponse">
+    	<part element="tns:ReinjectRequestResponse" name="parameters"/>
+    </message>
+    <portType name="HandleRequest">
+        <operation name="handleRequest">
+            <input message="tns:HandleRequestRequestMessage"/>
+            <output message="tns:HandleRequestResponseMessage"/>
+        </operation>
+        <operation name="handleComplexRequest">
+        	<input message="tns:handleComplexRequestRequest"/>
+        	<output message="tns:handleComplexRequestResponse"/>
+        </operation>
+        <operation name="rejectRequest">
+        	<input message="tns:rejectRequestRequest"/>
+        	<output message="tns:rejectRequestResponse"/>
+        </operation>
+        <operation name="reinjectRequest">
+        	<input message="tns:reinjectRequestRequest"/>
+        	<output message="tns:reinjectRequestResponse"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="HandleRequest">
+        <plnk:role name="HandleRequestProvider" portType="tns:HandleRequest"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="HandleRequestBinding" type="tns:HandleRequest">
+
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<operation name="handleRequest">
+
+    		<soap:operation
+    			soapAction="http://handerequest.ws.ou/handleRequest" />
+    		<input>
+
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    	<operation name="handleComplexRequest">
+
+    		<soap:operation
+    			soapAction="http://handerequest.ws.ou/handleComplexRequest" />
+    		<input>
+
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    	<operation name="rejectRequest">
+
+    		<soap:operation
+    			soapAction="http://handerequest.ws.ou/rejectRequest" />
+    		<input>
+
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    	<operation name="reinjectRequest">
+
+    		<soap:operation
+    			soapAction="http://handerequest.ws.ou/reinjectRequest" />
+    		<input>
+
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="HandleRequestService">
+    	<port binding="tns:HandleRequestBinding" name="HandleRequestPort">
+    		<soap:address location="http://localhost:8080/ode/processes/HandleRequest"/>
+    	</port>
+    </service>
+</definitions>

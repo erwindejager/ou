@@ -1,0 +1,4 @@
+
+operation BPEL!t_catch transform(sb : Any, context : Map) {
+	transformChildren(sb, context, self);
+} 

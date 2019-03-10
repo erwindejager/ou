@@ -1,0 +1,10 @@
+operation setAllModels() {
+	allModels.add(BPEL);allModels.add(WSDL);allModels.add(WSDL1);allModels.add(WSDL2);
+}
+
+operation getModelNames() {
+	var seq : Sequence;
+	seq.add("BPEL");seq.add("WSDL");seq.add("WSDL1");seq.add("WSDL2");
+ 	return seq;
+}
+

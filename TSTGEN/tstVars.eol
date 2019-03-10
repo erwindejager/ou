@@ -1,0 +1,41 @@
+operation PrPathTypes1() {
+	(asString("(") + "+").println();
+	var eCount = PathTypes.size();
+	var curCount = 1;
+	for (e in PathTypes.keySet().sortBy(e|e.asString())) {
+		if (".".isSubstringOf(e.asString())) { 
+			if (curCount < eCount) {
+				(asString("<" + e + ", '?'>,") + "+").println();		
+			} else {
+				(asString("<" + e + ", '?'>") + "+").println();		
+			}
+		}
+		curCount = curCount + 1;
+	}
+	(asString(")") + "+").println();
+}
+
+operation PrPathTypes() {
+	var sbl := new Native("java.lang.StringBuilder");
+	sbl.append("(");
+	var curCount = 1;
+	var subSet = PathTypes.keySet().select(e|".".isSubstringOf(e.asString()));
+	var eCount = subSet.size();
+	for (e in subSet.sortBy(e|e.asString())) {
+		sbl.append("<" + e + ", '?'>");		
+
+		if (curCount < eCount) {
+			sbl.append(",");		
+		}
+		curCount = curCount + 1;
+	}
+	sbl.append(")");
+	asString(sbl.toString()).println();
+}
+
+operation prPathValues() {
+	"\nValues used in semantic predicates\n".println();
+	for (e in PathValues.keySet().sortBy(e|e.asString())) {
+		e.println();
+	}
+}

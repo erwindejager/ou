@@ -13,5 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/tools/commons-jxpath-1.3/commons-jxpath-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/tools/anrtlr/antlr-4.7.1-complete.jar"/>
+	<classpathentry kind="lib" path="src/casusgenrt.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

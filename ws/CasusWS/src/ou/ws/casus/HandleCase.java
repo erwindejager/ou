@@ -1,5 +1,9 @@
 package ou.ws.casus;
 
+import java.io.IOException;
+
+import casusgenst.ou.Utils;
+
 public class HandleCase {
 	
 	public WsRegisterResponse registerCase(WsRegisterRequest requestInput) throws WsException {
@@ -60,5 +64,9 @@ public class HandleCase {
 
 	public WsResponse createExceptionTask(WsExceptionTaskRequest requestInput) throws WsException {
 		return WsUtils.handleExceptionTaskRequest(requestInput, "createExceptionTask");
+	}
+	
+	public WsResponse parseProcesInstance(WsRequest requestInput) throws WsException {
+		return WsUtils.handelParseProcesInstance(requestInput);
 	}
 }

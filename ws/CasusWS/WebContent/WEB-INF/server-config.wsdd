@@ -33,118 +33,85 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="HandleCase" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="registerCase" qname="ns1:registerCase" returnQName="ns1:registerCaseReturn" returnType="ns1:WsRegisterResponse" soapAction="" xmlns:ns1="http://handlecase.casus.ws.ou" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:requestInput" type="ns1:WsRegisterRequest"/>
+  <ns2:operation name="parseProcesInstance" qname="ns1:parseProcesInstance" returnQName="ns1:parseProcesInstanceReturn" returnType="ns1:WsResponse" soapAction="" xmlns:ns1="http://casus.ws.ou" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:requestInput" type="ns1:WsRequest"/>
    <ns2:fault class="ou.ws.casus.WsException" qname="ns1:fault" type="ns1:WsException"/>
   </ns2:operation>
-  <ns1:operation name="getCalculation" qname="ns2:getCalculation" returnQName="ns2:getCalculationReturn" returnType="ns2:WsResponse" soapAction="" xmlns:ns2="http://handlecase.casus.ws.ou">
+  <ns1:operation name="validateObjectionCase" qname="ns2:validateObjectionCase" returnQName="ns2:validateObjectionCaseReturn" returnType="ns2:WsResponse" soapAction="" xmlns:ns2="http://casus.ws.ou">
    <ns1:parameter qname="ns2:requestInput" type="ns2:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns2:fault" type="ns2:WsException"/>
   </ns1:operation>
-  <ns1:operation name="createCase" qname="ns3:createCase" returnQName="ns3:createCaseReturn" returnType="ns3:WsResponse" soapAction="" xmlns:ns3="http://handlecase.casus.ws.ou">
+  <ns1:operation name="createObjectionTask" qname="ns3:createObjectionTask" returnQName="ns3:createObjectionTaskReturn" returnType="ns3:WsResponse" soapAction="" xmlns:ns3="http://casus.ws.ou">
    <ns1:parameter qname="ns3:requestInput" type="ns3:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns3:fault" type="ns3:WsException"/>
   </ns1:operation>
-  <ns1:operation name="validateCase" qname="ns4:validateCase" returnQName="ns4:validateCaseReturn" returnType="ns4:WsResponse" soapAction="" xmlns:ns4="http://handlecase.casus.ws.ou">
+  <ns1:operation name="checkProcessability" qname="ns4:checkProcessability" returnQName="ns4:checkProcessabilityReturn" returnType="ns4:WsResponse" soapAction="" xmlns:ns4="http://casus.ws.ou">
    <ns1:parameter qname="ns4:requestInput" type="ns4:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns4:fault" type="ns4:WsException"/>
   </ns1:operation>
-  <ns1:operation name="parkCase" qname="ns5:parkCase" returnQName="ns5:parkCaseReturn" returnType="ns5:WsResponse" soapAction="" xmlns:ns5="http://handlecase.casus.ws.ou">
-   <ns1:parameter qname="ns5:requestInput" type="ns5:WsRequest"/>
+  <ns1:operation name="createExceptionTask" qname="ns5:createExceptionTask" returnQName="ns5:createExceptionTaskReturn" returnType="ns5:WsResponse" soapAction="" xmlns:ns5="http://casus.ws.ou">
+   <ns1:parameter qname="ns5:requestInput" type="ns5:WsExceptionTaskRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns5:fault" type="ns5:WsException"/>
   </ns1:operation>
-  <ns1:operation name="stopCase" qname="ns6:stopCase" returnQName="ns6:stopCaseReturn" returnType="ns6:WsResponse" soapAction="" xmlns:ns6="http://handlecase.casus.ws.ou">
-   <ns1:parameter qname="ns6:requestInput" type="ns6:WsRequest"/>
+  <ns1:operation name="registerObjectionCase" qname="ns6:registerObjectionCase" returnQName="ns6:registerObjectionCaseReturn" returnType="ns6:WsRegisterResponse" soapAction="" xmlns:ns6="http://casus.ws.ou">
+   <ns1:parameter qname="ns6:requestInput" type="ns6:WsRegisterRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns6:fault" type="ns6:WsException"/>
   </ns1:operation>
-  <ns1:operation name="createPayment" qname="ns7:createPayment" returnQName="ns7:createPaymentReturn" returnType="ns7:WsResponse" soapAction="" xmlns:ns7="http://handlecase.casus.ws.ou">
+  <ns1:operation name="createObjectionCase" qname="ns7:createObjectionCase" returnQName="ns7:createObjectionCaseReturn" returnType="ns7:WsResponse" soapAction="" xmlns:ns7="http://casus.ws.ou">
    <ns1:parameter qname="ns7:requestInput" type="ns7:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns7:fault" type="ns7:WsException"/>
   </ns1:operation>
-  <ns1:operation name="sendLetter" qname="ns8:sendLetter" returnQName="ns8:sendLetterReturn" returnType="ns8:WsResponse" soapAction="" xmlns:ns8="http://handlecase.casus.ws.ou">
+  <ns1:operation name="createCase" qname="ns8:createCase" returnQName="ns8:createCaseReturn" returnType="ns8:WsResponse" soapAction="" xmlns:ns8="http://casus.ws.ou">
    <ns1:parameter qname="ns8:requestInput" type="ns8:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns8:fault" type="ns8:WsException"/>
   </ns1:operation>
-  <ns1:operation name="endCase" qname="ns9:endCase" returnQName="ns9:endCaseReturn" returnType="ns9:WsResponse" soapAction="" xmlns:ns9="http://handlecase.casus.ws.ou">
+  <ns1:operation name="parkCase" qname="ns9:parkCase" returnQName="ns9:parkCaseReturn" returnType="ns9:WsResponse" soapAction="" xmlns:ns9="http://casus.ws.ou">
    <ns1:parameter qname="ns9:requestInput" type="ns9:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns9:fault" type="ns9:WsException"/>
   </ns1:operation>
-  <ns1:operation name="createObjectionCase" qname="ns10:createObjectionCase" returnQName="ns10:createObjectionCaseReturn" returnType="ns10:WsResponse" soapAction="" xmlns:ns10="http://handlecase.casus.ws.ou">
+  <ns1:operation name="getCalculation" qname="ns10:getCalculation" returnQName="ns10:getCalculationReturn" returnType="ns10:WsResponse" soapAction="" xmlns:ns10="http://casus.ws.ou">
    <ns1:parameter qname="ns10:requestInput" type="ns10:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns10:fault" type="ns10:WsException"/>
   </ns1:operation>
-  <ns1:operation name="checkProcessability" qname="ns11:checkProcessability" returnQName="ns11:checkProcessabilityReturn" returnType="ns11:WsResponse" soapAction="" xmlns:ns11="http://handlecase.casus.ws.ou">
+  <ns1:operation name="validateCase" qname="ns11:validateCase" returnQName="ns11:validateCaseReturn" returnType="ns11:WsResponse" soapAction="" xmlns:ns11="http://casus.ws.ou">
    <ns1:parameter qname="ns11:requestInput" type="ns11:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns11:fault" type="ns11:WsException"/>
   </ns1:operation>
-  <ns1:operation name="createExceptionTask" qname="ns12:createExceptionTask" returnQName="ns12:createExceptionTaskReturn" returnType="ns12:WsResponse" soapAction="" xmlns:ns12="http://handlecase.casus.ws.ou">
-   <ns1:parameter qname="ns12:requestInput" type="ns12:WsExceptionTaskRequest"/>
+  <ns1:operation name="stopCase" qname="ns12:stopCase" returnQName="ns12:stopCaseReturn" returnType="ns12:WsResponse" soapAction="" xmlns:ns12="http://casus.ws.ou">
+   <ns1:parameter qname="ns12:requestInput" type="ns12:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns12:fault" type="ns12:WsException"/>
   </ns1:operation>
-  <ns1:operation name="validateObjectionCase" qname="ns13:validateObjectionCase" returnQName="ns13:validateObjectionCaseReturn" returnType="ns13:WsResponse" soapAction="" xmlns:ns13="http://handlecase.casus.ws.ou">
+  <ns1:operation name="sendLetter" qname="ns13:sendLetter" returnQName="ns13:sendLetterReturn" returnType="ns13:WsResponse" soapAction="" xmlns:ns13="http://casus.ws.ou">
    <ns1:parameter qname="ns13:requestInput" type="ns13:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns13:fault" type="ns13:WsException"/>
   </ns1:operation>
-  <ns1:operation name="createObjectionTask" qname="ns14:createObjectionTask" returnQName="ns14:createObjectionTaskReturn" returnType="ns14:WsResponse" soapAction="" xmlns:ns14="http://handlecase.casus.ws.ou">
+  <ns1:operation name="endCase" qname="ns14:endCase" returnQName="ns14:endCaseReturn" returnType="ns14:WsResponse" soapAction="" xmlns:ns14="http://casus.ws.ou">
    <ns1:parameter qname="ns14:requestInput" type="ns14:WsRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns14:fault" type="ns14:WsException"/>
   </ns1:operation>
-  <ns1:operation name="registerObjectionCase" qname="ns15:registerObjectionCase" returnQName="ns15:registerObjectionCaseReturn" returnType="ns15:WsRegisterResponse" soapAction="" xmlns:ns15="http://handlecase.casus.ws.ou">
+  <ns1:operation name="registerCase" qname="ns15:registerCase" returnQName="ns15:registerCaseReturn" returnType="ns15:WsRegisterResponse" soapAction="" xmlns:ns15="http://casus.ws.ou">
    <ns1:parameter qname="ns15:requestInput" type="ns15:WsRegisterRequest"/>
    <ns1:fault class="ou.ws.casus.WsException" qname="ns15:fault" type="ns15:WsException"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="endCase createExceptionTask registerObjectionCase createObjectionTask createPayment sendLetter validateCase createObjectionCase getCalculation parkCase createCase checkProcessability validateObjectionCase stopCase registerCase"/>
+  <ns1:operation name="createPayment" qname="ns16:createPayment" returnQName="ns16:createPaymentReturn" returnType="ns16:WsResponse" soapAction="" xmlns:ns16="http://casus.ws.ou">
+   <ns1:parameter qname="ns16:requestInput" type="ns16:WsRequest"/>
+   <ns1:fault class="ou.ws.casus.WsException" qname="ns16:fault" type="ns16:WsException"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="createExceptionTask endCase registerObjectionCase createObjectionTask createPayment sendLetter validateCase createObjectionCase getCalculation parkCase createCase checkProcessability parseProcesInstance validateObjectionCase stopCase registerCase"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="HandleCase"/>
   <ns1:parameter name="className" value="ou.ws.casus.HandleCase"/>
   <ns1:parameter name="wsdlServicePort" value="HandleCase"/>
-  <ns1:parameter name="schemaQualified" value="http://handlecase.casus.ws.ou"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://handlecase.casus.ws.ou"/>
+  <ns1:parameter name="schemaQualified" value="http://casus.ws.ou"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://casus.ws.ou"/>
   <ns1:parameter name="wsdlServiceElement" value="HandleCaseService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsResponse" xmlns:ns16="http://handlecase.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns17:WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsException" xmlns:ns17="http://handlecase.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns18:WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsFault" xmlns:ns18="http://handlecase.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns19:WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRequest" xmlns:ns19="http://handlecase.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns20:WsRegisterRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRegisterRequest" xmlns:ns20="http://handlecase.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns21:WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsExceptionTaskRequest" xmlns:ns21="http://handlecase.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns22:WsRegisterResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRegisterResponse" xmlns:ns22="http://handlecase.casus.ws.ou"/>
- </ns1:service>
- <ns1:service name="HandleObjection" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="registerObjectionCase" qname="ns23:registerObjectionCase" returnQName="ns23:registerObjectionCaseReturn" returnType="ns23:WsRegisterResponse" soapAction="" xmlns:ns23="http://handleobjection.casus.ws.ou">
-   <ns1:parameter qname="ns23:requestInput" type="ns23:WsRegisterRequest"/>
-   <ns1:fault class="ou.ws.casus.WsException" qname="ns23:fault" type="ns23:WsException"/>
-  </ns1:operation>
-  <ns1:operation name="createObjectionTask" qname="ns24:createObjectionTask" returnQName="ns24:createObjectionTaskReturn" returnType="ns24:WsResponse" soapAction="" xmlns:ns24="http://handleobjection.casus.ws.ou">
-   <ns1:parameter qname="ns24:requestInput" type="ns24:WsRequest"/>
-   <ns1:fault class="ou.ws.casus.WsException" qname="ns24:fault" type="ns24:WsException"/>
-  </ns1:operation>
-  <ns1:operation name="createObjectionCase" qname="ns25:createObjectionCase" returnQName="ns25:createObjectionCaseReturn" returnType="ns25:WsResponse" soapAction="" xmlns:ns25="http://handleobjection.casus.ws.ou">
-   <ns1:parameter qname="ns25:requestInput" type="ns25:WsRequest"/>
-   <ns1:fault class="ou.ws.casus.WsException" qname="ns25:fault" type="ns25:WsException"/>
-  </ns1:operation>
-  <ns1:operation name="validateObjectionCase" qname="ns26:validateObjectionCase" returnQName="ns26:validateObjectionCaseReturn" returnType="ns26:WsResponse" soapAction="" xmlns:ns26="http://handleobjection.casus.ws.ou">
-   <ns1:parameter qname="ns26:requestInput" type="ns26:WsRequest"/>
-   <ns1:fault class="ou.ws.casus.WsException" qname="ns26:fault" type="ns26:WsException"/>
-  </ns1:operation>
-  <ns1:operation name="createExceptionTask" qname="ns27:createExceptionTask" returnQName="ns27:createExceptionTaskReturn" returnType="ns27:WsResponse" soapAction="" xmlns:ns27="http://handleobjection.casus.ws.ou">
-   <ns1:parameter qname="ns27:requestInput" type="ns27:WsExceptionTaskRequest"/>
-   <ns1:fault class="ou.ws.casus.WsException" qname="ns27:fault" type="ns27:WsException"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="createExceptionTask registerObjectionCase createObjectionTask validateObjectionCase createObjectionCase"/>
-  <ns1:parameter name="wsdlPortType" value="HandleObjection"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://handleobjection.casus.ws.ou"/>
-  <ns1:parameter name="wsdlServicePort" value="HandleObjection"/>
-  <ns1:parameter name="className" value="ou.ws.casus.HandleObjection"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://handleobjection.casus.ws.ou"/>
-  <ns1:parameter name="wsdlServiceElement" value="HandleObjectionService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns28:WsRegisterRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRegisterRequest" xmlns:ns28="http://handleobjection.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns29:WsRegisterResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRegisterResponse" xmlns:ns29="http://handleobjection.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns30:WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsResponse" xmlns:ns30="http://handleobjection.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns31:WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsExceptionTaskRequest" xmlns:ns31="http://handleobjection.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns32:WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsException" xmlns:ns32="http://handleobjection.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns33:WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsFault" xmlns:ns33="http://handleobjection.casus.ws.ou"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns34:WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRequest" xmlns:ns34="http://handleobjection.casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns17:WsRegisterResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRegisterResponse" xmlns:ns17="http://casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns18:WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsExceptionTaskRequest" xmlns:ns18="http://casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns19:WsRegisterRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRegisterRequest" xmlns:ns19="http://casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns20:WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsResponse" xmlns:ns20="http://casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns21:WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsRequest" xmlns:ns21="http://casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns22:WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsFault" xmlns:ns22="http://casus.ws.ou"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns23:WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:ou.ws.casus.WsException" xmlns:ns23="http://casus.ws.ou"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

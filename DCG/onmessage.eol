@@ -1,6 +1,7 @@
 //DSG
 operation BPEL!t_onMessage transform_(sb : Any, path : Sequence, context : Map)  {
-	sb.append("c_onm_" + self.a_operation + " --> " + terminalStr(self.a_operation) + ", ");
+//	sb.append("c_onm_" + self.a_operation + " --> " + terminalStr(self.a_operation) + ", ");
+	sb.append("c_onm_" + self.a_operation + " --> " );
 	sb.append(formatRule(transformChildren_m(sb, context, self)));newline(sb);
 	path.add("c_onm_" + self.a_operation);
 }

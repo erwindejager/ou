@@ -6,7 +6,7 @@ operation BPEL!t_if transform_(sb : Any, path : Sequence, context : Map) : Strin
 
 	if (not (hasChild(self, "else") or hasChild(self, "elseif"))) {
 		newline(sb); 
-		sb.append(ifName + " --> [].");
+		sb.append(ifName + " --> [" + terminal(self.a_name) + "].");
 		newline(sb); 
 	} 
 
@@ -25,7 +25,8 @@ operation BPEL!t_if transform_(sb : Any, path : Sequence, context : Map) : Strin
 operation BPEL!t_elseif transform_(sb : Any, path : Sequence, context : Map) : String {
 	var ifName : String = getIf(context);
 	var rule : String = formatRule(transformChildren_m(sb, context,self)); 
-	sb.append(ifName + " --> ["+ terminal("elseif") +"], " + rule);newline(sb);
+//	sb.append(ifName + " --> [" + terminal("elseif") +"], " + rule); newline(sb);
+	sb.append(ifName + " --> [" + terminal(ifName.subString(5)) +"], " + rule); newline(sb);
 	addIf(context, ifName);
 	return "";
 }
@@ -33,6 +34,7 @@ operation BPEL!t_elseif transform_(sb : Any, path : Sequence, context : Map) : S
 operation BPEL!t_else transform_(sb : Any, path : Sequence, context : Map) : String {
 	var ifName : String = getIf(context);
 	var rule : String = formatRule(transformChildren_m(sb, context,self)); 
-	sb.append(ifName + " --> ["+ terminal("else") +"], " + rule);newline(sb);
+//	sb.append(ifName + " --> ["+ terminal("else") +"], " + rule); newline(sb);
+	sb.append(ifName + " --> ["+ terminal(ifName.subString(5)) +"], " + rule); newline(sb);
 	return "";
 }

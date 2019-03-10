@@ -3,81 +3,85 @@
   <!-- Services from HandleCaseService WSDL service -->
 
   <service name="HandleCase" provider="java:RPC" style="wrapped" use="literal">
-      <parameter name="wsdlTargetNamespace" value="http://handlecase.casus.ws.ou"/>
+      <parameter name="wsdlTargetNamespace" value="http://casus.ws.ou"/>
       <parameter name="wsdlServiceElement" value="HandleCaseService"/>
-      <parameter name="schemaQualified" value="http://handlecase.casus.ws.ou"/>
+      <parameter name="schemaQualified" value="http://casus.ws.ou"/>
       <parameter name="wsdlServicePort" value="HandleCase"/>
       <parameter name="className" value="ou.ws.casus.HandleCase"/>
       <parameter name="wsdlPortType" value="HandleCase"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="registerCase" qname="operNS:registerCase" returnQName="retNS:registerCaseReturn" returnType="rtns:WsRegisterResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRegisterRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="parseProcesInstance" qname="operNS:parseProcesInstance" returnQName="retNS:parseProcesInstanceReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="getCalculation" qname="operNS:getCalculation" returnQName="retNS:getCalculationReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="validateObjectionCase" qname="operNS:validateObjectionCase" returnQName="retNS:validateObjectionCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="createCase" qname="operNS:createCase" returnQName="retNS:createCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="createObjectionTask" qname="operNS:createObjectionTask" returnQName="retNS:createObjectionTaskReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="validateCase" qname="operNS:validateCase" returnQName="retNS:validateCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="checkProcessability" qname="operNS:checkProcessability" returnQName="retNS:checkProcessabilityReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="parkCase" qname="operNS:parkCase" returnQName="retNS:parkCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="createExceptionTask" qname="operNS:createExceptionTask" returnQName="retNS:createExceptionTaskReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsExceptionTaskRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="stopCase" qname="operNS:stopCase" returnQName="retNS:stopCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="registerObjectionCase" qname="operNS:registerObjectionCase" returnQName="retNS:registerObjectionCaseReturn" returnType="rtns:WsRegisterResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRegisterRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="createPayment" qname="operNS:createPayment" returnQName="retNS:createPaymentReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="createObjectionCase" qname="operNS:createObjectionCase" returnQName="retNS:createObjectionCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="sendLetter" qname="operNS:sendLetter" returnQName="retNS:sendLetterReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="createCase" qname="operNS:createCase" returnQName="retNS:createCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="endCase" qname="operNS:endCase" returnQName="retNS:endCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="parkCase" qname="operNS:parkCase" returnQName="retNS:parkCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="createObjectionCase" qname="operNS:createObjectionCase" returnQName="retNS:createObjectionCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="getCalculation" qname="operNS:getCalculation" returnQName="retNS:getCalculationReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="checkProcessability" qname="operNS:checkProcessability" returnQName="retNS:checkProcessabilityReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="validateCase" qname="operNS:validateCase" returnQName="retNS:validateCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="createExceptionTask" qname="operNS:createExceptionTask" returnQName="retNS:createExceptionTaskReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsExceptionTaskRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="stopCase" qname="operNS:stopCase" returnQName="retNS:stopCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="validateObjectionCase" qname="operNS:validateObjectionCase" returnQName="retNS:validateObjectionCaseReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="sendLetter" qname="operNS:sendLetter" returnQName="retNS:sendLetterReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="createObjectionTask" qname="operNS:createObjectionTask" returnQName="retNS:createObjectionTaskReturn" returnType="rtns:WsResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="endCase" qname="operNS:endCase" returnQName="retNS:endCaseReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <operation xmlns:operNS="http://handlecase.casus.ws.ou" xmlns:retNS="http://handlecase.casus.ws.ou" xmlns:rtns="http://handlecase.casus.ws.ou" name="registerObjectionCase" qname="operNS:registerObjectionCase" returnQName="retNS:registerObjectionCaseReturn" returnType="rtns:WsRegisterResponse" soapAction="">
-        <parameter xmlns:pns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" qname="pns:requestInput" type="tns:WsRegisterRequest"/>
-        <fault xmlns:fns="http://handlecase.casus.ws.ou" xmlns:tns="http://handlecase.casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="registerCase" qname="operNS:registerCase" returnQName="retNS:registerCaseReturn" returnType="rtns:WsRegisterResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRegisterRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
       </operation>
-      <parameter name="allowedMethods" value="endCase createExceptionTask registerObjectionCase createObjectionTask createPayment sendLetter validateCase createObjectionCase getCalculation parkCase createCase checkProcessability validateObjectionCase stopCase registerCase"/>
+      <operation xmlns:operNS="http://casus.ws.ou" xmlns:retNS="http://casus.ws.ou" xmlns:rtns="http://casus.ws.ou" name="createPayment" qname="operNS:createPayment" returnQName="retNS:createPaymentReturn" returnType="rtns:WsResponse" soapAction="">
+        <parameter xmlns:pns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" qname="pns:requestInput" type="tns:WsRequest"/>
+        <fault xmlns:fns="http://casus.ws.ou" xmlns:tns="http://casus.ws.ou" name="WsException" qname="fns:fault" class="ou.ws.casus.WsException" type="tns:WsException"/>
+      </operation>
+      <parameter name="allowedMethods" value="createExceptionTask endCase registerObjectionCase createObjectionTask createPayment sendLetter validateCase createObjectionCase getCalculation parkCase createCase checkProcessability parseProcesInstance validateObjectionCase stopCase registerCase"/>
 
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsResponse" type="java:ou.ws.casus.WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsException" type="java:ou.ws.casus.WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsFault" type="java:ou.ws.casus.WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsRequest" type="java:ou.ws.casus.WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsRegisterRequest" type="java:ou.ws.casus.WsRegisterRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsExceptionTaskRequest" type="java:ou.ws.casus.WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
-      <typeMapping xmlns:ns="http://handlecase.casus.ws.ou" qname="ns:WsRegisterResponse" type="java:ou.ws.casus.WsRegisterResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsRegisterResponse" type="java:ou.ws.casus.WsRegisterResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsExceptionTaskRequest" type="java:ou.ws.casus.WsExceptionTaskRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsRegisterRequest" type="java:ou.ws.casus.WsRegisterRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsResponse" type="java:ou.ws.casus.WsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsRequest" type="java:ou.ws.casus.WsRequest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsFault" type="java:ou.ws.casus.WsFault" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://casus.ws.ou" qname="ns:WsException" type="java:ou.ws.casus.WsException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>

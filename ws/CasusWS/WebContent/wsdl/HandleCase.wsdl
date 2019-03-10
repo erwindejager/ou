@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://handlecase.casus.ws.ou" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://handlecase.casus.ws.ou" xmlns:intf="http://handlecase.casus.ws.ou" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://casus.ws.ou" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://casus.ws.ou" xmlns:intf="http://casus.ws.ou" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
-  <schema elementFormDefault="qualified" targetNamespace="http://handlecase.casus.ws.ou" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="registerCase">
+  <schema elementFormDefault="qualified" targetNamespace="http://casus.ws.ou" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="parseProcesInstance">
     <complexType>
      <sequence>
-      <element name="requestInput" type="impl:WsRegisterRequest"/>
+      <element name="requestInput" type="impl:WsRequest"/>
      </sequence>
     </complexType>
    </element>
@@ -17,33 +17,15 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element name="id" nillable="true" type="xsd:string"/>
     </sequence>
    </complexType>
-   <complexType name="WsRegisterRequest">
-    <complexContent>
-     <extension base="impl:WsRequest">
-      <sequence>
-       <element name="type" nillable="true" type="xsd:string"/>
-      </sequence>
-     </extension>
-    </complexContent>
-   </complexType>
-   <element name="registerCaseResponse">
+   <element name="parseProcesInstanceResponse">
     <complexType>
      <sequence>
-      <element name="registerCaseReturn" type="impl:WsRegisterResponse"/>
+      <element name="parseProcesInstanceReturn" type="impl:WsResponse"/>
      </sequence>
     </complexType>
    </element>
    <complexType name="WsResponse">
     <sequence/>
-   </complexType>
-   <complexType name="WsRegisterResponse">
-    <complexContent>
-     <extension base="impl:WsResponse">
-      <sequence>
-       <element name="ticketId" nillable="true" type="xsd:string"/>
-      </sequence>
-     </extension>
-    </complexContent>
    </complexType>
    <complexType name="WsFault">
     <sequence>
@@ -57,129 +39,31 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     </sequence>
    </complexType>
    <element name="fault" type="impl:WsException"/>
-   <element name="getCalculation">
+   <element name="validateObjectionCase">
     <complexType>
      <sequence>
       <element name="requestInput" type="impl:WsRequest"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getCalculationResponse">
+   <element name="validateObjectionCaseResponse">
     <complexType>
      <sequence>
-      <element name="getCalculationReturn" type="impl:WsResponse"/>
+      <element name="validateObjectionCaseReturn" type="impl:WsResponse"/>
      </sequence>
     </complexType>
    </element>
-   <element name="createCase">
+   <element name="createObjectionTask">
     <complexType>
      <sequence>
       <element name="requestInput" type="impl:WsRequest"/>
      </sequence>
     </complexType>
    </element>
-   <element name="createCaseResponse">
+   <element name="createObjectionTaskResponse">
     <complexType>
      <sequence>
-      <element name="createCaseReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="validateCase">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="validateCaseResponse">
-    <complexType>
-     <sequence>
-      <element name="validateCaseReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="parkCase">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="parkCaseResponse">
-    <complexType>
-     <sequence>
-      <element name="parkCaseReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="stopCase">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="stopCaseResponse">
-    <complexType>
-     <sequence>
-      <element name="stopCaseReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createPayment">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createPaymentResponse">
-    <complexType>
-     <sequence>
-      <element name="createPaymentReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="sendLetter">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="sendLetterResponse">
-    <complexType>
-     <sequence>
-      <element name="sendLetterReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="endCase">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="endCaseResponse">
-    <complexType>
-     <sequence>
-      <element name="endCaseReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createObjectionCase">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createObjectionCaseResponse">
-    <complexType>
-     <sequence>
-      <element name="createObjectionCaseReturn" type="impl:WsResponse"/>
+      <element name="createObjectionTaskReturn" type="impl:WsResponse"/>
      </sequence>
     </complexType>
    </element>
@@ -218,34 +102,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="validateObjectionCase">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="validateObjectionCaseResponse">
-    <complexType>
-     <sequence>
-      <element name="validateObjectionCaseReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createObjectionTask">
-    <complexType>
-     <sequence>
-      <element name="requestInput" type="impl:WsRequest"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createObjectionTaskResponse">
-    <complexType>
-     <sequence>
-      <element name="createObjectionTaskReturn" type="impl:WsResponse"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="registerObjectionCase">
     <complexType>
      <sequence>
@@ -253,6 +109,15 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <complexType name="WsRegisterRequest">
+    <complexContent>
+     <extension base="impl:WsRequest">
+      <sequence>
+       <element name="type" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
    <element name="registerObjectionCaseResponse">
     <complexType>
      <sequence>
@@ -260,156 +125,193 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <complexType name="WsRegisterResponse">
+    <complexContent>
+     <extension base="impl:WsResponse">
+      <sequence>
+       <element name="ticketId" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="createObjectionCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createObjectionCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="createObjectionCaseReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="createCaseReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="parkCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="parkCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="parkCaseReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCalculation">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCalculationResponse">
+    <complexType>
+     <sequence>
+      <element name="getCalculationReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validateCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validateCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="validateCaseReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="stopCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="stopCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="stopCaseReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendLetter">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendLetterResponse">
+    <complexType>
+     <sequence>
+      <element name="sendLetterReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="endCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="endCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="endCaseReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerCase">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRegisterRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerCaseResponse">
+    <complexType>
+     <sequence>
+      <element name="registerCaseReturn" type="impl:WsRegisterResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createPayment">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createPaymentResponse">
+    <complexType>
+     <sequence>
+      <element name="createPaymentReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="registerCaseRequest">
+   <wsdl:message name="sendLetterResponse">
 
-      <wsdl:part element="impl:registerCase" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="parkCaseRequest">
-
-      <wsdl:part element="impl:parkCase" name="parameters">
+      <wsdl:part element="impl:sendLetterResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="createCaseRequest">
+   <wsdl:message name="validateObjectionCaseRequest">
 
-      <wsdl:part element="impl:createCase" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="endCaseRequest">
-
-      <wsdl:part element="impl:endCase" name="parameters">
+      <wsdl:part element="impl:validateObjectionCase" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="stopCaseResponse">
+   <wsdl:message name="parseProcesInstanceRequest">
 
-      <wsdl:part element="impl:stopCaseResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="sendLetterRequest">
-
-      <wsdl:part element="impl:sendLetter" name="parameters">
+      <wsdl:part element="impl:parseProcesInstance" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="createPaymentResponse">
+   <wsdl:message name="parseProcesInstanceResponse">
 
-      <wsdl:part element="impl:createPaymentResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="getCalculationRequest">
-
-      <wsdl:part element="impl:getCalculation" name="parameters">
+      <wsdl:part element="impl:parseProcesInstanceResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="createObjectionTaskRequest">
+   <wsdl:message name="createExceptionTaskRequest">
 
-      <wsdl:part element="impl:createObjectionTask" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="createObjectionTaskResponse">
-
-      <wsdl:part element="impl:createObjectionTaskResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="endCaseResponse">
-
-      <wsdl:part element="impl:endCaseResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="checkProcessabilityRequest">
-
-      <wsdl:part element="impl:checkProcessability" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="WsException">
-
-      <wsdl:part element="impl:fault" name="fault">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="createCaseResponse">
-
-      <wsdl:part element="impl:createCaseResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="createObjectionCaseRequest">
-
-      <wsdl:part element="impl:createObjectionCase" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="createObjectionCaseResponse">
-
-      <wsdl:part element="impl:createObjectionCaseResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="validateCaseRequest">
-
-      <wsdl:part element="impl:validateCase" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="createPaymentRequest">
-
-      <wsdl:part element="impl:createPayment" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="stopCaseRequest">
-
-      <wsdl:part element="impl:stopCase" name="parameters">
+      <wsdl:part element="impl:createExceptionTask" name="parameters">
 
       </wsdl:part>
 
@@ -431,17 +333,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getCalculationResponse">
+   <wsdl:message name="stopCaseRequest">
 
-      <wsdl:part element="impl:getCalculationResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="createExceptionTaskResponse">
-
-      <wsdl:part element="impl:createExceptionTaskResponse" name="parameters">
+      <wsdl:part element="impl:stopCase" name="parameters">
 
       </wsdl:part>
 
@@ -455,25 +349,33 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="createExceptionTaskRequest">
+   <wsdl:message name="createExceptionTaskResponse">
 
-      <wsdl:part element="impl:createExceptionTask" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="validateObjectionCaseRequest">
-
-      <wsdl:part element="impl:validateObjectionCase" name="parameters">
+      <wsdl:part element="impl:createExceptionTaskResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="sendLetterResponse">
+   <wsdl:message name="getCalculationResponse">
 
-      <wsdl:part element="impl:sendLetterResponse" name="parameters">
+      <wsdl:part element="impl:getCalculationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateObjectionCaseResponse">
+
+      <wsdl:part element="impl:validateObjectionCaseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateCaseResponse">
+
+      <wsdl:part element="impl:validateCaseResponse" name="parameters">
 
       </wsdl:part>
 
@@ -495,17 +397,145 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="validateCaseResponse">
+   <wsdl:message name="stopCaseResponse">
 
-      <wsdl:part element="impl:validateCaseResponse" name="parameters">
+      <wsdl:part element="impl:stopCaseResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="validateObjectionCaseResponse">
+   <wsdl:message name="sendLetterRequest">
 
-      <wsdl:part element="impl:validateObjectionCaseResponse" name="parameters">
+      <wsdl:part element="impl:sendLetter" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="endCaseRequest">
+
+      <wsdl:part element="impl:endCase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="parkCaseRequest">
+
+      <wsdl:part element="impl:parkCase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerCaseRequest">
+
+      <wsdl:part element="impl:registerCase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCaseRequest">
+
+      <wsdl:part element="impl:createCase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPaymentRequest">
+
+      <wsdl:part element="impl:createPayment" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createObjectionCaseResponse">
+
+      <wsdl:part element="impl:createObjectionCaseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateCaseRequest">
+
+      <wsdl:part element="impl:validateCase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="WsException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createObjectionCaseRequest">
+
+      <wsdl:part element="impl:createObjectionCase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCaseResponse">
+
+      <wsdl:part element="impl:createCaseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPaymentResponse">
+
+      <wsdl:part element="impl:createPaymentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkProcessabilityRequest">
+
+      <wsdl:part element="impl:checkProcessability" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="endCaseResponse">
+
+      <wsdl:part element="impl:endCaseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createObjectionTaskRequest">
+
+      <wsdl:part element="impl:createObjectionTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createObjectionTaskResponse">
+
+      <wsdl:part element="impl:createObjectionTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCalculationRequest">
+
+      <wsdl:part element="impl:getCalculation" name="parameters">
 
       </wsdl:part>
 
@@ -513,189 +543,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="HandleCase">
 
-      <wsdl:operation name="registerCase">
+      <wsdl:operation name="parseProcesInstance">
 
-         <wsdl:input message="impl:registerCaseRequest" name="registerCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:registerCaseResponse" name="registerCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCalculation">
-
-         <wsdl:input message="impl:getCalculationRequest" name="getCalculationRequest">
+         <wsdl:input message="impl:parseProcesInstanceRequest" name="parseProcesInstanceRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getCalculationResponse" name="getCalculationResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createCase">
-
-         <wsdl:input message="impl:createCaseRequest" name="createCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createCaseResponse" name="createCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="validateCase">
-
-         <wsdl:input message="impl:validateCaseRequest" name="validateCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:validateCaseResponse" name="validateCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="parkCase">
-
-         <wsdl:input message="impl:parkCaseRequest" name="parkCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:parkCaseResponse" name="parkCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="stopCase">
-
-         <wsdl:input message="impl:stopCaseRequest" name="stopCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:stopCaseResponse" name="stopCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createPayment">
-
-         <wsdl:input message="impl:createPaymentRequest" name="createPaymentRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createPaymentResponse" name="createPaymentResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="sendLetter">
-
-         <wsdl:input message="impl:sendLetterRequest" name="sendLetterRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:sendLetterResponse" name="sendLetterResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="endCase">
-
-         <wsdl:input message="impl:endCaseRequest" name="endCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:endCaseResponse" name="endCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createObjectionCase">
-
-         <wsdl:input message="impl:createObjectionCaseRequest" name="createObjectionCaseRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createObjectionCaseResponse" name="createObjectionCaseResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="checkProcessability">
-
-         <wsdl:input message="impl:checkProcessabilityRequest" name="checkProcessabilityRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:checkProcessabilityResponse" name="checkProcessabilityResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:WsException" name="WsException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createExceptionTask">
-
-         <wsdl:input message="impl:createExceptionTaskRequest" name="createExceptionTaskRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createExceptionTaskResponse" name="createExceptionTaskResponse">
+         <wsdl:output message="impl:parseProcesInstanceResponse" name="parseProcesInstanceResponse">
 
        </wsdl:output>
 
@@ -737,6 +591,38 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="checkProcessability">
+
+         <wsdl:input message="impl:checkProcessabilityRequest" name="checkProcessabilityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkProcessabilityResponse" name="checkProcessabilityResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createExceptionTask">
+
+         <wsdl:input message="impl:createExceptionTaskRequest" name="createExceptionTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createExceptionTaskResponse" name="createExceptionTaskResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
       <wsdl:operation name="registerObjectionCase">
 
          <wsdl:input message="impl:registerObjectionCaseRequest" name="registerObjectionCaseRequest">
@@ -753,287 +639,183 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="createObjectionCase">
+
+         <wsdl:input message="impl:createObjectionCaseRequest" name="createObjectionCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createObjectionCaseResponse" name="createObjectionCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCase">
+
+         <wsdl:input message="impl:createCaseRequest" name="createCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createCaseResponse" name="createCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="parkCase">
+
+         <wsdl:input message="impl:parkCaseRequest" name="parkCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:parkCaseResponse" name="parkCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCalculation">
+
+         <wsdl:input message="impl:getCalculationRequest" name="getCalculationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCalculationResponse" name="getCalculationResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validateCase">
+
+         <wsdl:input message="impl:validateCaseRequest" name="validateCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:validateCaseResponse" name="validateCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="stopCase">
+
+         <wsdl:input message="impl:stopCaseRequest" name="stopCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:stopCaseResponse" name="stopCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendLetter">
+
+         <wsdl:input message="impl:sendLetterRequest" name="sendLetterRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sendLetterResponse" name="sendLetterResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="endCase">
+
+         <wsdl:input message="impl:endCaseRequest" name="endCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:endCaseResponse" name="endCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerCase">
+
+         <wsdl:input message="impl:registerCaseRequest" name="registerCaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registerCaseResponse" name="registerCaseResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createPayment">
+
+         <wsdl:input message="impl:createPaymentRequest" name="createPaymentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createPaymentResponse" name="createPaymentResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="HandleCaseSoapBinding" type="impl:HandleCase">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="registerCase">
+      <wsdl:operation name="parseProcesInstance">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="registerCaseRequest">
+         <wsdl:input name="parseProcesInstanceRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="registerCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getCalculation">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getCalculationRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getCalculationResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createCase">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createCaseRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="validateCase">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="validateCaseRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="validateCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="parkCase">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="parkCaseRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="parkCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="stopCase">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="stopCaseRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="stopCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createPayment">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createPaymentRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createPaymentResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="sendLetter">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="sendLetterRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="sendLetterResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="endCase">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="endCaseRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="endCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createObjectionCase">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createObjectionCaseRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createObjectionCaseResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="checkProcessability">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="checkProcessabilityRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="checkProcessabilityResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="WsException">
-
-            <wsdlsoap:fault name="WsException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createExceptionTask">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createExceptionTaskRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createExceptionTaskResponse">
+         <wsdl:output name="parseProcesInstanceResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -1095,6 +877,54 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="checkProcessability">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkProcessabilityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkProcessabilityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createExceptionTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createExceptionTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createExceptionTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
       <wsdl:operation name="registerObjectionCase">
 
          <wsdlsoap:operation soapAction=""/>
@@ -1106,6 +936,246 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="registerObjectionCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createObjectionCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createObjectionCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createObjectionCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="parkCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="parkCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="parkCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCalculation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCalculationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCalculationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validateCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validateCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validateCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="stopCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="stopCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="stopCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendLetter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendLetterRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendLetterResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="endCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="endCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="endCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerCase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registerCaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerCaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createPayment">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createPaymentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createPaymentResponse">
 
             <wsdlsoap:body use="literal"/>
 

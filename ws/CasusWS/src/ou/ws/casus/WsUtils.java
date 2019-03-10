@@ -1,5 +1,7 @@
 package ou.ws.casus;
 
+import casusgenst.ou.Utils;
+
 public class WsUtils {
 	
 	public static WsRegisterResponse handleRegisterServiceRequest(WsRequest requestInput, String method)
@@ -17,7 +19,24 @@ public class WsUtils {
 		Logger.logInvoke(method, requestInput.getId());
 		return WsResponse.create();
 	}
-
+	
+	public static WsResponse handelParseProcesInstance(WsRequest requestInput) throws WsException {
+		//Logger.logInvoke("parseProcesInstance", "0");
+		try {
+			String[] path = requestInput.getId().split("\\)");
+			path = path[1].split("\\(");
+			String result = "FAIL:   ";
+			int retVal = Utils.testRequirement(requestInput.getId(), 0);
+			if (retVal > 0) {
+				result = "PASSED: ";
+			}
+			System.out.printf("%s %d %s\n",result,retVal, path[0]);
+		} catch (Exception e) {
+			Logger.logException("parseProcesInstance", e.getMessage());	
+		}
+		return WsResponse.create();
+	}
+	
 	private static HandlingIndicator handleErrorIndicator(String method, String id, HandlingIndicator handlingIndicator)
 			throws WsException {
 

@@ -1,175 +1,205 @@
-1 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-2 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-3 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-4 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-5 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-6 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-7 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-8 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-9 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-10 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-11 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-12 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-13 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-14 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-15 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-16 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-17 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-18 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-19 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-20 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-21 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-22 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-23 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-24 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-25 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-26 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-27 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-28 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-29 FAIL : no viable alternative at input '('
-30 FAIL : no viable alternative at input 'Reinjected'
-31 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleCaseInput . payload . id)) , (value '123') >) , (kvpi < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleCaseOutput . payload . result)) , (value '?') >) )) HandleRequest handleCase InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase IfNotReinjectedCase PrepareReplyHandleCase ReplyHandleCase (v ( (kvpo < (key (varname handleCaseInput . payload . id)) , (value '123') >) , (kvpo < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleCaseOutput . payload . result)) , (value '456') >) )))
-32 PASSED : Handle catch : InvokeParkCase
-33 PASSED : Handle catch : InvokeValidateCase
-34 PASSED : Handle catch : InvokeCreateCase
-35 PASSED : Handle catch : InvokeRegisterCase
-36 FAIL : no viable alternative at input '('
-37 FAIL : no viable alternative at input 'Reinjected'
-38 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleParkedCaseInput . parameters . type)) , (value 'P') >) , (kvpi < (key (varname handleParkedCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase PrepareReplyHandleParkedCase ReplyHandleParkedCase (v ( (kvpo < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleParkedCaseInput . parameters . type)) , (value 'P') >) , (kvpo < (key (varname handleParkedCaseOutput . parameters . result)) , (value 'Ok') >) )))
-39 PASSED : Handle catch : InvokeEndCase
-40 PASSED : Handle catch : InvokeSendLetter
-41 FAIL : no viable alternative at input '('
+1 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+2 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+3 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+4 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+5 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+6 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+7 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+8 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+9 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+10 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+11 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+12 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+13 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+14 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+15 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+16 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+17 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+18 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+19 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+20 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+21 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+22 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+23 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+24 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+25 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+26 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+27 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+28 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+29 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+30 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+31 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+32 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+33 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+34 FAIL : no viable alternative at input 'Reinjected'
+35 FAIL : no viable alternative at input 'Reinjected'
+36 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleCaseInput . payload . id)) , (value '123') >) , (kvpi < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleCaseOutput . payload . result)) , (value '?') >) )) HandleRequest InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase IfNotReinjectedCase PrepareReplyHandleCase ReplyHandleCase Reinjected (v ( (kvpo < (key (varname handleCaseInput . payload . id)) , (value '123') >) , (kvpo < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleCaseOutput . payload . result)) , (value 'pid') >) )))
+37 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+38 PASSED : Handle catch : InvokeParkCase
+39 PASSED : Handle catch : InvokeValidateCase
+40 PASSED : Handle catch : InvokeCreateCase
+41 PASSED : Handle catch : InvokeRegisterCase
 42 FAIL : no viable alternative at input 'Reinjected'
-43 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleParkedCaseInput . parameters . type)) , (value 'D') >) , (kvpi < (key (varname handleParkedCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest handleParkedCase InitHandleParkedCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase PrepareReplyHandleParkedCase ReplyHandleParkedCase (v ( (kvpo < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleParkedCaseInput . parameters . type)) , (value 'D') >) , (kvpo < (key (varname handleParkedCaseOutput . parameters . result)) , (value 'Ok') >) )))
-44 PASSED : Handle catch : InvokeEndCase
-45 PASSED : Handle catch : InvokeSendLetter
-46 PASSED : Handle catch : InvokeCreatePayment
-47 PASSED : Handle catch : InvokeCheckProcessability
-48 PASSED : Handle catch : InvokeGetCalculation
-49 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-50 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-51 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-52 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-53 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-54 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-55 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-56 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-57 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-58 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-59 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-60 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-61 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-62 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-63 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-64 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-65 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-66 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-67 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-68 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-69 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-70 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-71 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-72 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-73 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-74 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-75 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-76 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-77 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-78 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-79 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-80 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-81 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-82 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-83 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-84 FAIL : no viable alternative at input '('
-85 FAIL : no viable alternative at input 'Reinjected'
-86 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname stopCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname stopCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest stopCase InitStopCase elseif PrepareInvokeStopCase InvokeStopCase IfNotReinjectedStopCase PrepareReplyStopCase ReplyStopCase (v ( (kvpo < (key (varname stopCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname stopCaseOutput . parameters . result)) , (value 'Ok') >) )))
-87 PASSED : Handle catch : InvokeStopCase
-88 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-89 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-90 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-91 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-92 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-93 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-94 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-95 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-96 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-97 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-98 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleObjection") }?
-99 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-100 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-101 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-102 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-103 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-104 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-105 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-106 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-107 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-108 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-109 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-110 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-111 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-112 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-113 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-114 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-115 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-116 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-117 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-118 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleParkedCase") }?
-119 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-120 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-121 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-122 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("stopCase") }?
-123 FAIL : no viable alternative at input '('
-124 FAIL : no viable alternative at input 'Reinjected'
-125 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleObjectionInput . parameters . type)) , (value 'WithDrawn') >) , (kvpi < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleObjectionOutput . parameters . result)) , (value '?') >) )) HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase else PrepareInvokeStopObjectionCase InvokeStopObjectionCase IfNotReinjectedObjectionCase PrepareReplyHandleObjection ReplyHandleObjection (v ( (kvpo < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleObjectionInput . parameters . type)) , (value 'WithDrawn') >) , (kvpo < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleObjectionOutput . parameters . result)) , (value '456') >) )))
-126 PASSED : Handle catch : InvokeStopObjectionCase
-127 FAIL : no viable alternative at input '('
-128 FAIL : no viable alternative at input 'Reinjected'
-129 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleObjectionInput . parameters . type)) , (value 'New') >) , (kvpi < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleObjectionOutput . parameters . result)) , (value '?') >) )) HandleRequest handleObjection InitHandleObjection elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask IfNotReinjectedObjectionCase PrepareReplyHandleObjection ReplyHandleObjection (v ( (kvpo < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleObjectionInput . parameters . type)) , (value 'New') >) , (kvpo < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleObjectionOutput . parameters . result)) , (value '456') >) )))
-130 PASSED : Handle catch : InvokeCreateObjectionTask
-131 PASSED : Handle catch : InvokeValidateObjectionCase
-132 PASSED : Handle catch : InvokeCreateObjectionCase
-133 PASSED : Handle catch : InvokeRegisterObjectionCase
-134 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-135 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-136 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-137 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-138 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-139 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-140 FAIL : rule handlecaseprocess failed predicate: { caseHandlingTrigger.equals("handleCase") }?
-141 FAIL : no viable alternative at input '('
-142 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'P') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest reinjectCase InitReinjectCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'P') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'Ok') >) )))
-143 FAIL : rule handlecaseprocess failed predicate: { noreinjection.equals("true") }?
-144 PASSED : Handle catch : InvokeEndCase
-145 PASSED : Handle catch : InvokeSendLetter
-146 FAIL : no viable alternative at input '('
-147 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'D') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest reinjectCase InitReinjectCase elseif PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'D') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'Ok') >) )))
-148 FAIL : rule handlecaseprocess failed predicate: { noreinjection.equals("true") }?
-149 PASSED : Handle catch : InvokeEndCase
-150 PASSED : Handle catch : InvokeSendLetter
-151 PASSED : Handle catch : InvokeCreatePayment
-152 PASSED : Handle catch : InvokeCheckProcessability
-153 PASSED : Handle catch : InvokeGetCalculation
-154 FAIL : no viable alternative at input '('
-155 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'stopCase') >) )) HandleRequest reinjectCase InitReinjectCase elseif PrepareInvokeStopCase InvokeStopCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'stopCase') >) )))
-156 FAIL : rule handlecaseprocess failed predicate: { noreinjection.equals("true") }?
-157 PASSED : Handle catch : InvokeStopCase
-158 FAIL : no viable alternative at input '('
-159 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'WithDrawn') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest reinjectCase InitReinjectCase elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase else PrepareInvokeStopObjectionCase InvokeStopObjectionCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'WithDrawn') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'Ok') >) )))
-160 FAIL : rule handlecaseprocess failed predicate: { noreinjection.equals("true") }?
-161 PASSED : Handle catch : InvokeStopObjectionCase
-162 FAIL : no viable alternative at input '('
-163 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'New') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest reinjectCase InitReinjectCase elseif PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'New') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'Ok') >) )))
-164 FAIL : rule handlecaseprocess failed predicate: { noreinjection.equals("true") }?
-165 PASSED : Handle catch : InvokeCreateObjectionTask
-166 PASSED : Handle catch : InvokeValidateObjectionCase
-167 PASSED : Handle catch : InvokeCreateObjectionCase
-168 PASSED : Handle catch : InvokeRegisterObjectionCase
-169 FAIL : no viable alternative at input '('
-170 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleCase') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value '?') >) , (kvpi < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest reinjectCase InitReinjectCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleCase') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value '?') >) , (kvpo < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'Ok') >) )))
-171 FAIL : rule handlecaseprocess failed predicate: { noreinjection.equals("true") }?
-172 PASSED : Handle catch : InvokeParkCase
-173 PASSED : Handle catch : InvokeValidateCase
-174 PASSED : Handle catch : InvokeCreateCase
-175 PASSED : Handle catch : InvokeRegisterCase
+43 FAIL : no viable alternative at input 'Reinjected'
+44 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleParkedCaseInput . parameters . type)) , (value 'P') >) , (kvpi < (key (varname handleParkedCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleParkedCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase PrepareReplyHandleParkedCase ReplyHandleParkedCase Reinjected (v ( (kvpo < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleParkedCaseInput . parameters . type)) , (value 'P') >) , (kvpo < (key (varname handleParkedCaseOutput . parameters . result)) , (value 'pid') >) )))
+45 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+46 PASSED : Handle catch : InvokeEndCase
+47 PASSED : Handle catch : InvokeSendLetter
+48 FAIL : no viable alternative at input 'Reinjected'
+49 FAIL : no viable alternative at input 'Reinjected'
+50 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleParkedCaseInput . parameters . type)) , (value 'D') >) , (kvpi < (key (varname handleParkedCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleParkedCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase PrepareReplyHandleParkedCase ReplyHandleParkedCase Reinjected (v ( (kvpo < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleParkedCaseInput . parameters . type)) , (value 'D') >) , (kvpo < (key (varname handleParkedCaseOutput . parameters . result)) , (value 'pid') >) )))
+51 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+52 PASSED : Handle catch : InvokeEndCase
+53 PASSED : Handle catch : InvokeSendLetter
+54 PASSED : Handle catch : InvokeCreatePayment
+55 PASSED : Handle catch : InvokeCheckProcessability
+56 PASSED : Handle catch : InvokeGetCalculation
+57 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+58 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+59 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+60 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+61 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+62 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+63 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+64 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+65 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+66 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+67 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+68 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+69 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+70 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+71 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+72 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+73 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+74 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+75 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+76 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+77 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+78 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+79 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+80 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+81 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+82 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+83 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+84 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+85 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+86 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+87 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+88 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+89 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+90 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+91 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+92 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+93 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+94 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+95 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+96 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+97 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+98 FAIL : no viable alternative at input 'Reinjected'
+99 FAIL : no viable alternative at input 'Reinjected'
+100 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname stopCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname stopCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitStopCase HandleReceivedCaseRequest PrepareInvokeStopCase InvokeStopCase IfNotReinjectedStopCase PrepareReplyStopCase ReplyStopCase Reinjected (v ( (kvpo < (key (varname stopCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname stopCaseOutput . parameters . result)) , (value 'pid') >) )))
+101 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+102 PASSED : Handle catch : InvokeStopCase
+103 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+104 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+105 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+106 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+107 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+108 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+109 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+110 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+111 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+112 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+113 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+114 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+115 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+116 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+117 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+118 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+119 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+120 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+121 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+122 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+123 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+124 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+125 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+126 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+127 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+128 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+129 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+130 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+131 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+132 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+133 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+134 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+135 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+136 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+137 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+138 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+139 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+140 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+141 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+142 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+143 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+144 FAIL : no viable alternative at input 'Reinjected'
+145 FAIL : no viable alternative at input 'Reinjected'
+146 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleObjectionInput . parameters . type)) , (value 'Old') >) , (kvpi < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleObjectionOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleObjection HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareInvokeStopObjectionCase InvokeStopObjectionCase IfNotReinjectedObjectionCase PrepareReplyHandleObjection ReplyHandleObjection Reinjected (v ( (kvpo < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleObjectionInput . parameters . type)) , (value 'Old') >) , (kvpo < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleObjectionOutput . parameters . result)) , (value 'pid') >) )))
+147 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+148 PASSED : Handle catch : InvokeStopObjectionCase
+149 FAIL : no viable alternative at input 'Reinjected'
+150 FAIL : no viable alternative at input 'Reinjected'
+151 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleObjectionInput . parameters . type)) , (value 'New') >) , (kvpi < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleObjectionOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleObjection HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask IfNotReinjectedObjectionCase PrepareReplyHandleObjection ReplyHandleObjection Reinjected (v ( (kvpo < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleObjectionInput . parameters . type)) , (value 'New') >) , (kvpo < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleObjectionOutput . parameters . result)) , (value 'pid') >) )))
+152 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+153 PASSED : Handle catch : InvokeCreateObjectionTask
+154 PASSED : Handle catch : InvokeValidateObjectionCase
+155 PASSED : Handle catch : InvokeCreateObjectionCase
+156 PASSED : Handle catch : InvokeRegisterObjectionCase
+157 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+158 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+159 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+160 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+161 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+162 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+163 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+164 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+165 FAIL : no viable alternative at input '('
+166 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'P') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'P') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+167 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+168 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+169 PASSED : Handle catch : InvokeEndCase
+170 PASSED : Handle catch : InvokeSendLetter
+171 FAIL : no viable alternative at input '('
+172 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'D') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'D') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+173 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+174 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+175 PASSED : Handle catch : InvokeEndCase
+176 PASSED : Handle catch : InvokeSendLetter
+177 PASSED : Handle catch : InvokeCreatePayment
+178 PASSED : Handle catch : InvokeCheckProcessability
+179 PASSED : Handle catch : InvokeGetCalculation
+180 FAIL : no viable alternative at input '('
+181 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'stopCase') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeStopCase InvokeStopCase IfNotReinjectedStopCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'stopCase') >) )))
+182 FAIL : no viable alternative at input 'PrepareReplyStopCase'
+183 FAIL : no viable alternative at input 'PrepareReplyStopCase'
+184 PASSED : Handle catch : InvokeStopCase
+185 FAIL : no viable alternative at input '('
+186 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'WithDrawn') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareInvokeStopObjectionCase InvokeStopObjectionCase IfNotReinjectedObjectionCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'WithDrawn') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+187 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+188 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+189 PASSED : Handle catch : InvokeStopObjectionCase
+190 FAIL : no viable alternative at input '('
+191 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'New') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask IfNotReinjectedObjectionCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'New') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+192 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+193 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+194 PASSED : Handle catch : InvokeCreateObjectionTask
+195 PASSED : Handle catch : InvokeValidateObjectionCase
+196 PASSED : Handle catch : InvokeCreateObjectionCase
+197 PASSED : Handle catch : InvokeRegisterObjectionCase
+198 FAIL : no viable alternative at input '('
+199 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleCase') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value '?') >) , (kvpi < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase IfNotReinjectedCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleCase') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value '?') >) , (kvpo < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+200 FAIL : no viable alternative at input 'PrepareReplyHandleCase'
+201 FAIL : no viable alternative at input 'PrepareReplyHandleCase'
+202 PASSED : Handle catch : InvokeParkCase
+203 PASSED : Handle catch : InvokeValidateCase
+204 PASSED : Handle catch : InvokeCreateCase
+205 PASSED : Handle catch : InvokeRegisterCase

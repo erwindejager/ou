@@ -757,367 +757,383 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:binding name="HandleCaseSoapBinding" type="impl:HandleCase">
 
-      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="registerCase">
+   	<wsdlsoap:binding style="document"
+   		transport="http://schemas.xmlsoap.org/soap/http" />
+   	<wsdl:operation name="registerCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="registerCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/registerCase" />
+   		<wsdl:input name="registerCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="registerCaseResponse">
+   		<wsdl:output name="registerCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="getCalculation">
+   	<wsdl:operation name="getCalculation">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getCalculationRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/getCalculation" />
+   		<wsdl:input name="getCalculationRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="getCalculationResponse">
+   		<wsdl:output name="getCalculationResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="createCase">
+   	<wsdl:operation name="createCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="createCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/createCase" />
+   		<wsdl:input name="createCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="createCaseResponse">
+   		<wsdl:output name="createCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="validateCase">
+   	<wsdl:operation name="validateCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="validateCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/validateCase" />
+   		<wsdl:input name="validateCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="validateCaseResponse">
+   		<wsdl:output name="validateCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="parkCase">
+   	<wsdl:operation name="parkCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="parkCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/parkCase" />
+   		<wsdl:input name="parkCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="parkCaseResponse">
+   		<wsdl:output name="parkCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="stopCase">
+   	<wsdl:operation name="stopCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="stopCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/stopCase" />
+   		<wsdl:input name="stopCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="stopCaseResponse">
+   		<wsdl:output name="stopCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="createPayment">
+   	<wsdl:operation name="createPayment">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="createPaymentRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/createPayment" />
+   		<wsdl:input name="createPaymentRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="createPaymentResponse">
+   		<wsdl:output name="createPaymentResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="sendLetter">
+   	<wsdl:operation name="sendLetter">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="sendLetterRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/sendLetter" />
+   		<wsdl:input name="sendLetterRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="sendLetterResponse">
+   		<wsdl:output name="sendLetterResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="endCase">
+   	<wsdl:operation name="endCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="endCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/endCase" />
+   		<wsdl:input name="endCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="endCaseResponse">
+   		<wsdl:output name="endCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="createObjectionCase">
+   	<wsdl:operation name="createObjectionCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="createObjectionCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/createObjectionCase" />
+   		<wsdl:input name="createObjectionCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="createObjectionCaseResponse">
+   		<wsdl:output name="createObjectionCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="checkProcessability">
+   	<wsdl:operation name="checkProcessability">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="checkProcessabilityRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/checkProcessability" />
+   		<wsdl:input name="checkProcessabilityRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="checkProcessabilityResponse">
+   		<wsdl:output name="checkProcessabilityResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="createExceptionTask">
+   	<wsdl:operation name="createExceptionTask">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="createExceptionTaskRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/createExceptionTask" />
+   		<wsdl:input name="createExceptionTaskRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="createExceptionTaskResponse">
+   		<wsdl:output name="createExceptionTaskResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="validateObjectionCase">
+   	<wsdl:operation name="validateObjectionCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="validateObjectionCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/validateObjectionCase" />
+   		<wsdl:input name="validateObjectionCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="validateObjectionCaseResponse">
+   		<wsdl:output name="validateObjectionCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="createObjectionTask">
+   	<wsdl:operation name="createObjectionTask">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="createObjectionTaskRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/createObjectionTask" />
+   		<wsdl:input name="createObjectionTaskRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="createObjectionTaskResponse">
+   		<wsdl:output name="createObjectionTaskResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
-      <wsdl:operation name="registerObjectionCase">
+   	<wsdl:operation name="registerObjectionCase">
 
-         <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="registerObjectionCaseRequest">
+   		<wsdlsoap:operation
+   			soapAction="http://handlecase.casus.ws.ou/registerObjectionCase" />
+   		<wsdl:input name="registerObjectionCaseRequest">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:input>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
 
-         <wsdl:output name="registerObjectionCaseResponse">
+   		<wsdl:output name="registerObjectionCaseResponse">
 
-            <wsdlsoap:body use="literal"/>
 
-         </wsdl:output>
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
 
-         <wsdl:fault name="WsException">
+   		<wsdl:fault name="WsException">
 
-            <wsdlsoap:fault name="WsException" use="literal"/>
 
-         </wsdl:fault>
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
 
-      </wsdl:operation>
+   	</wsdl:operation>
 
    </wsdl:binding>
 

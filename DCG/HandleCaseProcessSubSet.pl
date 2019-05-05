@@ -1,20 +1,26 @@
 grammar_HandleCaseProcess --> ["v0"], c_main, ["v"].
-c_onm_handleCase --> ["handleCase"], ["InitHandleCase"].
+c_onm_handleCase --> ["InitHandleCase"].
 c_pick_HandleRequest --> ["HandleRequest"], c_onm_handleCase.
 c_catch_InvokeRegisterCase --> [].
 c_catch_InvokeRegisterCase --> ["PrepareRollback"], ["StopProcess"], ["@END@"].
 c_catch_InvokeCreateCase --> [].
-c_catch_InvokeCreateCase --> ["PrepareExceptionTask"], ["InvokeCreateExceptionTask"], ["StopProcess"], ["@END@"].
+c_catch_InvokeCreateCase --> ["PrepareExceptionTask"], ["InvokeCreateExceptionTask"], ["StopProcess"],
+["@END@"].
 c_catch_InvokeValidateCase --> [].
-c_catch_InvokeValidateCase --> ["PrepareExceptionTask"], ["InvokeCreateExceptionTask"], ["StopProcess"], ["@END@"].
+c_catch_InvokeValidateCase --> ["PrepareExceptionTask"], ["InvokeCreateExceptionTask"], ["StopProcess"],
+["@END@"].
 c_catch_InvokeParkCase --> [].
-c_catch_InvokeParkCase --> ["PrepareExceptionTask"], ["InvokeCreateExceptionTask"], ["StopProcess"], ["@END@"].
-c_if_IfNotReinjectedCase --> [].
-c_if_IfNotReinjectedCase --> ["IfNotReinjectedCase"], ["PrepareReplyHandleCase"], ["ReplyHandleCase"], ["@END@"].
-c_if_HandleReceivedCaseRequest --> ["HandleReceivedCaseRequest"], ["PrepareInvokeRegisterCase"], ["InvokeRegisterCase"],
-c_catch_InvokeRegisterCase, ["SaveTicket"], ["PrepareInvokeCreateCase"], ["InvokeCreateCase"], c_catch_InvokeCreateCase, ["PrepareInvokeValidateCase"], ["InvokeValidateCase"], c_catch_InvokeValidateCase, ["PrepareInvokeParkCase"], ["InvokeParkCase"], c_catch_InvokeParkCase, c_if_IfNotReinjectedCase.
-c_if_Reinjected --> [].
-c_if_Reinjected --> ["Reinjected"], ["PrepareReplyReinjectCase"], ["ReplyReinjectCase"], ["@END@"].
+c_catch_InvokeParkCase --> ["PrepareExceptionTask"], ["InvokeCreateExceptionTask"], ["StopProcess"],
+["@END@"].
+c_if_IfNotReinjectedCase --> ["IfNotReinjectedCase"].
+c_if_IfNotReinjectedCase --> ["IfNotReinjectedCase"], ["PrepareReplyHandleCase"], ["ReplyHandleCase"].
+c_if_HandleReceivedCaseRequest --> ["HandleReceivedCaseRequest"], ["PrepareInvokeRegisterCase"],
+["InvokeRegisterCase"], c_catch_InvokeRegisterCase, ["SaveTicket"], ["PrepareInvokeCreateCase"],
+["InvokeCreateCase"], c_catch_InvokeCreateCase, ["PrepareInvokeValidateCase"], ["InvokeValidateCase"],
+c_catch_InvokeValidateCase, ["PrepareInvokeParkCase"], ["InvokeParkCase"], c_catch_InvokeParkCase,
+c_if_IfNotReinjectedCase.
+c_if_Reinjected --> ["Reinjected"].
+c_if_Reinjected --> ["Reinjected"], ["PrepareReplyReinjectCase"], ["ReplyReinjectCase"].
 c_main --> c_pick_HandleRequest, c_if_HandleReceivedCaseRequest, c_if_Reinjected.
 
 stripRule(_, [], []). 

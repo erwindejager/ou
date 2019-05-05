@@ -1,0 +1,15 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `HandleCaseProcess.bpel'
+------------------------------------------------------------------------------
+145 activities (90 basic, 55 structured, 0 scopes) + 48 implicit activities
+0 handlers (0 FH, 0 TH, 0 CH, 0 EH) + 46 implicit handlers
+0 links, 49 variables
+
+[SYNTAX ANALYSIS] No syntax errors found.
+[STATIC ANALYSIS] No errors found checking 51 statics analysis requirements.
+[OTHER ANALYSIS]  No other errors found.
+------------------------------------------------------------------------------
+|P|=1078, |P_in|= 20, |P_out|= 20, |T|=1435, |F|=4382
+==============================================================================
+

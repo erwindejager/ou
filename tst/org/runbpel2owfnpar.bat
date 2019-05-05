@@ -1,0 +1,1 @@
+bpel2owfn.exe -i %1 -m petrinet -f lola -o

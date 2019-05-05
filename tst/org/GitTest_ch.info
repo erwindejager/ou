@@ -1,0 +1,28 @@
+PLACES:
+ID	TYPE		ROLES
+p1	internal	GitTest.1.internal.initial
+			GitTest.10.initial
+			GitTest.10.internal.initial
+			GitTest.11.initial
+			GitTest.11.internal.initial
+p2	internal	GitTest.12.final
+			GitTest.12.internal.final
+			GitTest.19.initial
+			GitTest.19.internal.initial
+in.client.process	internal	GitTest.in.client.process
+out.client.process	internal	GitTest.out.client.process
+p3	internal	GitTest.11.final
+			GitTest.11.internal.final
+			GitTest.12.initial
+			GitTest.12.internal.initial
+p4	internal	GitTest.1.internal.final
+			GitTest.10.final
+			GitTest.10.internal.final
+			GitTest.19.final
+			GitTest.19.internal.final
+
+TRANSITIONS:
+ID	ROLES
+t1	GitTest.11.internal.receive
+t2	GitTest.12.internal.assign
+t3	GitTest.19.internal.reply

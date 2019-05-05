@@ -1,0 +1,51 @@
+PLACES:
+ID	TYPE		ROLES
+out.PickProvider.PickRequester.onResult	internal	Pick.out.PickProvider.PickRequester.onResult
+out.AsyncBPELServiceRequester.AsyncBPELServiceProvider.initiate	internal	Pick.out.AsyncBPELServiceRequester.AsyncBPELServiceProvider.initiate
+p1	internal	Pick.1.internal.final
+			Pick.12.final
+			Pick.12.internal.final
+			Pick.28.final
+			Pick.28.internal.final
+p2	internal	Pick.18.final
+			Pick.18.internal.final
+			Pick.19.initial
+			Pick.19.internal.initial
+p3	internal	Pick.19.final
+			Pick.19.internal.final
+			Pick.21.final
+			Pick.21.internal.final
+			Pick.27.final
+			Pick.27.internal.final
+			Pick.28.initial
+			Pick.28.internal.initial
+p4	internal	Pick.21.initial
+			Pick.21.internal.initial
+p5	internal	Pick.14.final
+			Pick.14.internal.final
+			Pick.18.initial
+			Pick.18.internal.initial
+p6	internal	Pick.13.final
+			Pick.13.internal.final
+			Pick.14.initial
+			Pick.14.internal.initial
+in.PickRequester.PickProvider.initiate	internal	Pick.in.PickRequester.PickProvider.initiate
+in.AsyncBPELServiceProvider.AsyncBPELServiceRequester.onResult	internal	Pick.in.AsyncBPELServiceProvider.AsyncBPELServiceRequester.onResult
+p7	internal	Pick.1.internal.initial
+			Pick.12.initial
+			Pick.12.internal.initial
+			Pick.13.initial
+			Pick.13.internal.initial
+p8	internal	Pick.27.initial
+			Pick.27.internal.initial
+
+TRANSITIONS:
+ID	ROLES
+t1	Pick.18.internal.invoke
+t2	Pick.19.internal.onAlarm_2
+t3	Pick.28.internal.invoke
+t4	Pick.14.internal.assign
+t5	Pick.19.internal.onMessage_1
+t6	Pick.27.internal.empty
+t7	Pick.13.internal.receive
+t8	Pick.21.internal.assign

@@ -1,0 +1,2201 @@
+digraph{
+  graph [ label="CFG generated from 'HandleRequest.bpel'" ]; 
+  node [ fontsize=10 shape=box fontname=Helvetica ]; 
+  edge [ fontsize=10 ]; 
+
+  // Process_begin_1
+  "Process_begin_1" [ label="Process_begin (1)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\nclient.handleComplexRequest,53\nclient.handleRequest,39\nclient.reinjectRequest,81\nclient.rejectRequest,67\n" ]; 
+  // all outgoing edges
+  "Process_begin_1" -> "FaultHandler_begin_426";
+  "Process_begin_1" -> "implicitEventHandler_36";
+  "Process_begin_1" -> "Sequence_begin_37";
+
+  // FaultHandler_begin_426
+  "FaultHandler_begin_426" [ label="FaultHandler_begin (426)" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_426" -> "CatchAll_425";
+
+  // CatchAll_425
+  "CatchAll_425" [ label="CatchAll (425)" ]; 
+  // all outgoing edges
+  "CatchAll_425" -> "Sequence_begin_424";
+
+  // Sequence_begin_424
+  "Sequence_begin_424" [ label="Sequence_begin (424)" ]; 
+  // all outgoing edges
+  "Sequence_begin_424" -> "Compensate_423";
+
+  // Compensate_423
+  "Compensate_423" [ label="Compensate (423)" ]; 
+  // all outgoing edges
+  "Compensate_423" -> "Rhrow_422";
+
+  // Rhrow_422
+  "Rhrow_422" [ label="Rhrow (422)" ]; 
+  // all outgoing edges
+  "Rhrow_422" -> "Sequence_end_424";
+
+  // Sequence_end_424
+  "Sequence_end_424" [ label="Sequence_end (424)" ]; 
+  // all outgoing edges
+  "Sequence_end_424" -> "FaultHandler_end_426";
+
+  // FaultHandler_end_426
+  "FaultHandler_end_426" [ label="FaultHandler_end (426)" ]; 
+  // all outgoing edges
+  "FaultHandler_end_426" -> "Process_end_1";
+
+  // Process_end_1
+  "Process_end_1" [ label="Process_end (1)" ]; 
+  // all outgoing edges
+
+  // implicitEventHandler_36
+  "implicitEventHandler_36" [ label="implicitEventHandler (36)" ]; 
+  // all outgoing edges
+  "implicitEventHandler_36" -> "Process_end_1";
+
+  // Sequence_begin_37
+  "Sequence_begin_37" [ label="Sequence_begin (37)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\nclient.handleComplexRequest,53\nclient.handleRequest,39\nclient.reinjectRequest,81\nclient.rejectRequest,67\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_37" -> "Pick_begin_38";
+
+  // Pick_begin_38
+  "Pick_begin_38" [ label="Pick_begin (38)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\nclient.handleComplexRequest,53\nclient.handleRequest,39\nclient.reinjectRequest,81\nclient.rejectRequest,67\n" ]; 
+  // all outgoing edges
+  "Pick_begin_38" -> "OnMessage_1_39";
+  "Pick_begin_38" -> "OnMessage_2_53";
+  "Pick_begin_38" -> "OnMessage_3_67";
+  "Pick_begin_38" -> "OnMessage_4_81";
+
+  // OnMessage_1_39
+  "OnMessage_1_39" [ label="OnMessage_1 (39)\nchannel: client.handleRequest\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "OnMessage_1_39" -> "Assign_begin_40";
+
+  // Assign_begin_40
+  "Assign_begin_40" [ label="Assign_begin (40)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_begin_40" -> "From_1_42";
+
+  // From_1_42
+  "From_1_42" [ label="From_1 (42)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_1_42" -> "To_1_43";
+
+  // To_1_43
+  "To_1_43" [ label="To_1 (43)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_1_43" -> "From_2_45";
+
+  // From_2_45
+  "From_2_45" [ label="From_2 (45)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_2_45" -> "To_2_46";
+
+  // To_2_46
+  "To_2_46" [ label="To_2 (46)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_2_46" -> "From_3_48";
+
+  // From_3_48
+  "From_3_48" [ label="From_3 (48)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_3_48" -> "To_3_49";
+
+  // To_3_49
+  "To_3_49" [ label="To_3 (49)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_3_49" -> "From_4_51";
+
+  // From_4_51
+  "From_4_51" [ label="From_4 (51)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_4_51" -> "To_4_52";
+
+  // To_4_52
+  "To_4_52" [ label="To_4 (52)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_4_52" -> "Assign_end_40";
+
+  // Assign_end_40
+  "Assign_end_40" [ label="Assign_end (40)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_end_40" -> "Pick_end_38";
+
+  // Pick_end_38
+  "Pick_end_38" [ label="Pick_end (38)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Pick_end_38" -> "If_begin_95";
+
+  // If_begin_95
+  "If_begin_95" [ label="If_begin (95)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "If_begin_95" -> "ElseIf_1_95";
+
+  // ElseIf_1_95
+  "ElseIf_1_95" [ label="ElseIf_1 (95)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_95" -> "Sequence_begin_97";
+  "ElseIf_1_95" -> "ElseIf_2_95";
+
+  // Sequence_begin_97
+  "Sequence_begin_97" [ label="Sequence_begin (97)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_97" -> "Sequence_begin_98";
+
+  // Sequence_begin_98
+  "Sequence_begin_98" [ label="Sequence_begin (98)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_98" -> "Assign_begin_99";
+
+  // Assign_begin_99
+  "Assign_begin_99" [ label="Assign_begin (99)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_99" -> "From_1_101";
+
+  // From_1_101
+  "From_1_101" [ label="From_1 (101)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_101" -> "To_1_102";
+
+  // To_1_102
+  "To_1_102" [ label="To_1 (102)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_102" -> "From_2_104";
+
+  // From_2_104
+  "From_2_104" [ label="From_2 (104)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_2_104" -> "To_2_105";
+
+  // To_2_105
+  "To_2_105" [ label="To_2 (105)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_2_105" -> "Assign_end_99";
+
+  // Assign_end_99
+  "Assign_end_99" [ label="Assign_end (99)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_99" -> "Scope_begin_389";
+
+  // Scope_begin_389
+  "Scope_begin_389" [ label="Scope_begin (389)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n\npeer scopes: \n 393\n397\n401\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_389" -> "FaultHandler_begin_388";
+  "Scope_begin_389" -> "CompensationHandler_begin_428";
+  "Scope_begin_389" -> "TerminationHandler_begin_430";
+  "Scope_begin_389" -> "implicitEventHandler_386";
+  "Scope_begin_389" -> "Invoke_106";
+
+  // FaultHandler_begin_388
+  "FaultHandler_begin_388" [ label="FaultHandler_begin (388)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_388" -> "Catch_107";
+
+  // Catch_107
+  "Catch_107" [ label="Catch (107)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Catch_107" -> "Sequence_begin_108";
+
+  // Sequence_begin_108
+  "Sequence_begin_108" [ label="Sequence_begin (108)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_108" -> "Assign_begin_109";
+
+  // Assign_begin_109
+  "Assign_begin_109" [ label="Assign_begin (109)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_109" -> "From_1_111";
+
+  // From_1_111
+  "From_1_111" [ label="From_1 (111)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_111" -> "To_1_112";
+
+  // To_1_112
+  "To_1_112" [ label="To_1 (112)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_112" -> "From_2_114";
+
+  // From_2_114
+  "From_2_114" [ label="From_2 (114)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_2_114" -> "To_2_115";
+
+  // To_2_115
+  "To_2_115" [ label="To_2 (115)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_2_115" -> "Assign_end_109";
+
+  // Assign_end_109
+  "Assign_end_109" [ label="Assign_end (109)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_109" -> "Invoke_116";
+
+  // Invoke_116
+  "Invoke_116" [ label="Invoke (116)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Invoke_116" -> "Throw_118";
+
+  // Throw_118
+  "Throw_118" [ label="Throw (118)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Throw_118" -> "Sequence_end_108";
+
+  // Sequence_end_108
+  "Sequence_end_108" [ label="Sequence_end (108)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_end_108" -> "FaultHandler_end_388";
+
+  // FaultHandler_end_388
+  "FaultHandler_end_388" [ label="FaultHandler_end (388)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_388" -> "Scope_end_389";
+
+  // Scope_end_389
+  "Scope_end_389" [ label="Scope_end (389)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n\npeer scopes: \n 393\n397\n401\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_389" -> "Assign_begin_120";
+
+  // Assign_begin_120
+  "Assign_begin_120" [ label="Assign_begin (120)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_120" -> "From_1_122";
+
+  // From_1_122
+  "From_1_122" [ label="From_1 (122)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_122" -> "To_1_123";
+
+  // To_1_123
+  "To_1_123" [ label="To_1 (123)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_123" -> "Assign_end_120";
+
+  // Assign_end_120
+  "Assign_end_120" [ label="Assign_end (120)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_120" -> "Sequence_end_98";
+
+  // Sequence_end_98
+  "Sequence_end_98" [ label="Sequence_end (98)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_end_98" -> "If_begin_124";
+
+  // If_begin_124
+  "If_begin_124" [ label="If_begin (124)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "If_begin_124" -> "ElseIf_1_124";
+
+  // ElseIf_1_124
+  "ElseIf_1_124" [ label="ElseIf_1 (124)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_124" -> "Sequence_begin_126";
+  "ElseIf_1_124" -> "Else_124";
+
+  // Sequence_begin_126
+  "Sequence_begin_126" [ label="Sequence_begin (126)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_126" -> "Sequence_begin_127";
+
+  // Sequence_begin_127
+  "Sequence_begin_127" [ label="Sequence_begin (127)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_127" -> "Assign_begin_128";
+
+  // Assign_begin_128
+  "Assign_begin_128" [ label="Assign_begin (128)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_128" -> "From_1_130";
+
+  // From_1_130
+  "From_1_130" [ label="From_1 (130)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_130" -> "To_1_131";
+
+  // To_1_131
+  "To_1_131" [ label="To_1 (131)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_131" -> "From_2_133";
+
+  // From_2_133
+  "From_2_133" [ label="From_2 (133)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_2_133" -> "To_2_134";
+
+  // To_2_134
+  "To_2_134" [ label="To_2 (134)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_2_134" -> "Assign_end_128";
+
+  // Assign_end_128
+  "Assign_end_128" [ label="Assign_end (128)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_128" -> "Scope_begin_393";
+
+  // Scope_begin_393
+  "Scope_begin_393" [ label="Scope_begin (393)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n\npeer scopes: \n 389\n397\n401\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_393" -> "FaultHandler_begin_392";
+  "Scope_begin_393" -> "CompensationHandler_begin_432";
+  "Scope_begin_393" -> "TerminationHandler_begin_434";
+  "Scope_begin_393" -> "implicitEventHandler_390";
+  "Scope_begin_393" -> "Invoke_135";
+
+  // FaultHandler_begin_392
+  "FaultHandler_begin_392" [ label="FaultHandler_begin (392)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_392" -> "Catch_136";
+
+  // Catch_136
+  "Catch_136" [ label="Catch (136)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Catch_136" -> "Sequence_begin_137";
+
+  // Sequence_begin_137
+  "Sequence_begin_137" [ label="Sequence_begin (137)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_137" -> "Assign_begin_138";
+
+  // Assign_begin_138
+  "Assign_begin_138" [ label="Assign_begin (138)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_138" -> "From_1_140";
+
+  // From_1_140
+  "From_1_140" [ label="From_1 (140)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_140" -> "To_1_141";
+
+  // To_1_141
+  "To_1_141" [ label="To_1 (141)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_141" -> "From_2_143";
+
+  // From_2_143
+  "From_2_143" [ label="From_2 (143)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_2_143" -> "To_2_144";
+
+  // To_2_144
+  "To_2_144" [ label="To_2 (144)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_2_144" -> "Assign_end_138";
+
+  // Assign_end_138
+  "Assign_end_138" [ label="Assign_end (138)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_138" -> "Invoke_145";
+
+  // Invoke_145
+  "Invoke_145" [ label="Invoke (145)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Invoke_145" -> "Throw_147";
+
+  // Throw_147
+  "Throw_147" [ label="Throw (147)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Throw_147" -> "Sequence_end_137";
+
+  // Sequence_end_137
+  "Sequence_end_137" [ label="Sequence_end (137)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_end_137" -> "FaultHandler_end_392";
+
+  // FaultHandler_end_392
+  "FaultHandler_end_392" [ label="FaultHandler_end (392)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_392" -> "Scope_end_393";
+
+  // Scope_end_393
+  "Scope_end_393" [ label="Scope_end (393)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n\npeer scopes: \n 389\n397\n401\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_393" -> "Assign_begin_149";
+
+  // Assign_begin_149
+  "Assign_begin_149" [ label="Assign_begin (149)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_149" -> "From_1_151";
+
+  // From_1_151
+  "From_1_151" [ label="From_1 (151)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_151" -> "To_1_152";
+
+  // To_1_152
+  "To_1_152" [ label="To_1 (152)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_152" -> "Assign_end_149";
+
+  // Assign_end_149
+  "Assign_end_149" [ label="Assign_end (149)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_149" -> "Sequence_end_127";
+
+  // Sequence_end_127
+  "Sequence_end_127" [ label="Sequence_end (127)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_end_127" -> "If_begin_153";
+
+  // If_begin_153
+  "If_begin_153" [ label="If_begin (153)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "If_begin_153" -> "ElseIf_1_153";
+
+  // ElseIf_1_153
+  "ElseIf_1_153" [ label="ElseIf_1 (153)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_153" -> "Sequence_begin_155";
+  "ElseIf_1_153" -> "Else_153";
+
+  // Sequence_begin_155
+  "Sequence_begin_155" [ label="Sequence_begin (155)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_155" -> "Assign_begin_156";
+
+  // Assign_begin_156
+  "Assign_begin_156" [ label="Assign_begin (156)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "Assign_begin_156" -> "From_1_158";
+
+  // From_1_158
+  "From_1_158" [ label="From_1 (158)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "From_1_158" -> "To_1_159";
+
+  // To_1_159
+  "To_1_159" [ label="To_1 (159)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "To_1_159" -> "From_2_161";
+
+  // From_2_161
+  "From_2_161" [ label="From_2 (161)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "From_2_161" -> "To_2_162";
+
+  // To_2_162
+  "To_2_162" [ label="To_2 (162)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "To_2_162" -> "Assign_end_156";
+
+  // Assign_end_156
+  "Assign_end_156" [ label="Assign_end (156)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "Assign_end_156" -> "Scope_begin_397";
+
+  // Scope_begin_397
+  "Scope_begin_397" [ label="Scope_begin (397)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.processRequest,163\n\npeer scopes: \n 389\n393\n401\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_397" -> "FaultHandler_begin_396";
+  "Scope_begin_397" -> "CompensationHandler_begin_436";
+  "Scope_begin_397" -> "TerminationHandler_begin_438";
+  "Scope_begin_397" -> "implicitEventHandler_394";
+  "Scope_begin_397" -> "Invoke_163";
+
+  // FaultHandler_begin_396
+  "FaultHandler_begin_396" [ label="FaultHandler_begin (396)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_396" -> "Catch_164";
+
+  // Catch_164
+  "Catch_164" [ label="Catch (164)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "Catch_164" -> "Sequence_begin_165";
+
+  // Sequence_begin_165
+  "Sequence_begin_165" [ label="Sequence_begin (165)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_165" -> "Assign_begin_166";
+
+  // Assign_begin_166
+  "Assign_begin_166" [ label="Assign_begin (166)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "Assign_begin_166" -> "From_1_168";
+
+  // From_1_168
+  "From_1_168" [ label="From_1 (168)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "From_1_168" -> "To_1_169";
+
+  // To_1_169
+  "To_1_169" [ label="To_1 (169)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "To_1_169" -> "From_2_171";
+
+  // From_2_171
+  "From_2_171" [ label="From_2 (171)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "From_2_171" -> "To_2_172";
+
+  // To_2_172
+  "To_2_172" [ label="To_2 (172)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "To_2_172" -> "Assign_end_166";
+
+  // Assign_end_166
+  "Assign_end_166" [ label="Assign_end (166)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "Assign_end_166" -> "Invoke_173";
+
+  // Invoke_173
+  "Invoke_173" [ label="Invoke (173)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\n" ]; 
+  // all outgoing edges
+  "Invoke_173" -> "Throw_175";
+
+  // Throw_175
+  "Throw_175" [ label="Throw (175)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Throw_175" -> "Sequence_end_165";
+
+  // Sequence_end_165
+  "Sequence_end_165" [ label="Sequence_end (165)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_165" -> "FaultHandler_end_396";
+
+  // FaultHandler_end_396
+  "FaultHandler_end_396" [ label="FaultHandler_end (396)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_396" -> "Scope_end_397";
+
+  // Scope_end_397
+  "Scope_end_397" [ label="Scope_end (397)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\npeer scopes: \n 389\n393\n401\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_397" -> "Sequence_end_155";
+
+  // Sequence_end_155
+  "Sequence_end_155" [ label="Sequence_end (155)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_155" -> "If_end_153";
+
+  // If_end_153
+  "If_end_153" [ label="If_end (153)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "If_end_153" -> "Sequence_end_126";
+
+  // Sequence_end_126
+  "Sequence_end_126" [ label="Sequence_end (126)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_126" -> "If_end_124";
+
+  // If_end_124
+  "If_end_124" [ label="If_end (124)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_end_124" -> "If_begin_226";
+
+  // If_begin_226
+  "If_begin_226" [ label="If_begin (226)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_begin_226" -> "ElseIf_1_226";
+
+  // ElseIf_1_226
+  "ElseIf_1_226" [ label="ElseIf_1 (226)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_226" -> "Sequence_begin_228";
+  "ElseIf_1_226" -> "If_end_226";
+
+  // Sequence_begin_228
+  "Sequence_begin_228" [ label="Sequence_begin (228)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_228" -> "Assign_begin_229";
+
+  // Assign_begin_229
+  "Assign_begin_229" [ label="Assign_begin (229)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_begin_229" -> "From_1_231";
+
+  // From_1_231
+  "From_1_231" [ label="From_1 (231)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_1_231" -> "To_1_232";
+
+  // To_1_232
+  "To_1_232" [ label="To_1 (232)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.handleRequestOutput\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_1_232" -> "From_2_234";
+
+  // From_2_234
+  "From_2_234" [ label="From_2 (234)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.handleRequestOutput\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_2_234" -> "To_2_235";
+
+  // To_2_235
+  "To_2_235" [ label="To_2 (235)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.handleRequestOutput\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_2_235" -> "Assign_end_229";
+
+  // Assign_end_229
+  "Assign_end_229" [ label="Assign_end (229)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.handleRequestOutput\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_end_229" -> "Reply_236";
+
+  // Reply_236
+  "Reply_236" [ label="Reply (236)\nchannel: client.handleRequest\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.handleRequestOutput\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Reply_236" -> "Sequence_end_228";
+
+  // Sequence_end_228
+  "Sequence_end_228" [ label="Sequence_end (228)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.handleRequestOutput\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_228" -> "If_end_226";
+
+  // If_end_226
+  "If_end_226" [ label="If_end (226)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_end_226" -> "Sequence_end_97";
+
+  // Sequence_end_97
+  "Sequence_end_97" [ label="Sequence_end (97)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_97" -> "If_end_95";
+
+  // If_end_95
+  "If_end_95" [ label="If_end (95)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_end_95" -> "If_begin_373";
+
+  // If_begin_373
+  "If_begin_373" [ label="If_begin (373)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_begin_373" -> "ElseIf_1_373";
+
+  // ElseIf_1_373
+  "ElseIf_1_373" [ label="ElseIf_1 (373)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_373" -> "Sequence_begin_375";
+  "ElseIf_1_373" -> "If_end_373";
+
+  // Sequence_begin_375
+  "Sequence_begin_375" [ label="Sequence_begin (375)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_375" -> "Assign_begin_376";
+
+  // Assign_begin_376
+  "Assign_begin_376" [ label="Assign_begin (376)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_begin_376" -> "From_1_378";
+
+  // From_1_378
+  "From_1_378" [ label="From_1 (378)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_1_378" -> "To_1_379";
+
+  // To_1_379
+  "To_1_379" [ label="To_1 (379)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.reinjectRequestOutput\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_1_379" -> "From_2_381";
+
+  // From_2_381
+  "From_2_381" [ label="From_2 (381)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.reinjectRequestOutput\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_2_381" -> "To_2_382";
+
+  // To_2_382
+  "To_2_382" [ label="To_2 (382)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.reinjectRequestOutput\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_2_382" -> "Assign_end_376";
+
+  // Assign_end_376
+  "Assign_end_376" [ label="Assign_end (376)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.reinjectRequestOutput\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_end_376" -> "Reply_383";
+
+  // Reply_383
+  "Reply_383" [ label="Reply (383)\nchannel: client.reinjectRequest\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.reinjectRequestOutput\n1.service_\n" ]; 
+  // all outgoing edges
+  "Reply_383" -> "Sequence_end_375";
+
+  // Sequence_end_375
+  "Sequence_end_375" [ label="Sequence_end (375)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.reinjectRequestOutput\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_375" -> "If_end_373";
+
+  // If_end_373
+  "If_end_373" [ label="If_end (373)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_end_373" -> "Sequence_end_37";
+
+  // Sequence_end_37
+  "Sequence_end_37" [ label="Sequence_end (37)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_37" -> "Process_end_1";
+
+  // CompensationHandler_begin_436
+  "CompensationHandler_begin_436" [ label="CompensationHandler_begin (436)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_436" -> "Compensate_435";
+
+  // Compensate_435
+  "Compensate_435" [ label="Compensate (435)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_435" -> "CompensationHandler_end_436";
+
+  // CompensationHandler_end_436
+  "CompensationHandler_end_436" [ label="CompensationHandler_end (436)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_436" -> "Scope_end_397";
+
+  // TerminationHandler_begin_438
+  "TerminationHandler_begin_438" [ label="TerminationHandler_begin (438)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_438" -> "Compensate_437";
+
+  // Compensate_437
+  "Compensate_437" [ label="Compensate (437)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_437" -> "TerminationHandler_end_438";
+
+  // TerminationHandler_end_438
+  "TerminationHandler_end_438" [ label="TerminationHandler_end (438)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_438" -> "Scope_end_397";
+
+  // implicitEventHandler_394
+  "implicitEventHandler_394" [ label="implicitEventHandler (394)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_394" -> "Scope_end_397";
+
+  // Invoke_163
+  "Invoke_163" [ label="Invoke (163)\nchannel: HandleRequestWSPL.processRequest\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.handleRequestWSRequest\n1.handleRequestWSResponse\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.processRequest,163\n" ]; 
+  // all outgoing edges
+  "Invoke_163" -> "Scope_end_397";
+
+  // Else_153
+  "Else_153" [ label="Else (153)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Else_153" -> "Sequence_begin_177";
+
+  // Sequence_begin_177
+  "Sequence_begin_177" [ label="Sequence_begin (177)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_177" -> "Assign_begin_178";
+
+  // Assign_begin_178
+  "Assign_begin_178" [ label="Assign_begin (178)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_begin_178" -> "From_1_180";
+
+  // From_1_180
+  "From_1_180" [ label="From_1 (180)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_1_180" -> "To_1_181";
+
+  // To_1_181
+  "To_1_181" [ label="To_1 (181)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_1_181" -> "From_2_183";
+
+  // From_2_183
+  "From_2_183" [ label="From_2 (183)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "From_2_183" -> "To_2_184";
+
+  // To_2_184
+  "To_2_184" [ label="To_2 (184)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "To_2_184" -> "Assign_end_178";
+
+  // Assign_end_178
+  "Assign_end_178" [ label="Assign_end (178)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Assign_end_178" -> "Scope_begin_401";
+
+  // Scope_begin_401
+  "Scope_begin_401" [ label="Scope_begin (401)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.rejectRequestWS,185\n\npeer scopes: \n 389\n393\n397\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_401" -> "FaultHandler_begin_400";
+  "Scope_begin_401" -> "CompensationHandler_begin_440";
+  "Scope_begin_401" -> "TerminationHandler_begin_442";
+  "Scope_begin_401" -> "implicitEventHandler_398";
+  "Scope_begin_401" -> "Invoke_185";
+
+  // FaultHandler_begin_400
+  "FaultHandler_begin_400" [ label="FaultHandler_begin (400)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_400" -> "Catch_186";
+
+  // Catch_186
+  "Catch_186" [ label="Catch (186)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "Catch_186" -> "Sequence_begin_187";
+
+  // Sequence_begin_187
+  "Sequence_begin_187" [ label="Sequence_begin (187)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_187" -> "Assign_begin_188";
+
+  // Assign_begin_188
+  "Assign_begin_188" [ label="Assign_begin (188)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "Assign_begin_188" -> "From_1_190";
+
+  // From_1_190
+  "From_1_190" [ label="From_1 (190)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "From_1_190" -> "To_1_191";
+
+  // To_1_191
+  "To_1_191" [ label="To_1 (191)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "To_1_191" -> "From_2_193";
+
+  // From_2_193
+  "From_2_193" [ label="From_2 (193)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "From_2_193" -> "To_2_194";
+
+  // To_2_194
+  "To_2_194" [ label="To_2 (194)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "To_2_194" -> "Assign_end_188";
+
+  // Assign_end_188
+  "Assign_end_188" [ label="Assign_end (188)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "Assign_end_188" -> "Invoke_195";
+
+  // Invoke_195
+  "Invoke_195" [ label="Invoke (195)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,195\n" ]; 
+  // all outgoing edges
+  "Invoke_195" -> "Throw_197";
+
+  // Throw_197
+  "Throw_197" [ label="Throw (197)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Throw_197" -> "Sequence_end_187";
+
+  // Sequence_end_187
+  "Sequence_end_187" [ label="Sequence_end (187)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_187" -> "FaultHandler_end_400";
+
+  // FaultHandler_end_400
+  "FaultHandler_end_400" [ label="FaultHandler_end (400)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_400" -> "Scope_end_401";
+
+  // Scope_end_401
+  "Scope_end_401" [ label="Scope_end (401)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n\npeer scopes: \n 389\n393\n397\n405\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_401" -> "Sequence_end_177";
+
+  // Sequence_end_177
+  "Sequence_end_177" [ label="Sequence_end (177)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_177" -> "If_end_153";
+
+  // CompensationHandler_begin_440
+  "CompensationHandler_begin_440" [ label="CompensationHandler_begin (440)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_440" -> "Compensate_439";
+
+  // Compensate_439
+  "Compensate_439" [ label="Compensate (439)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_439" -> "CompensationHandler_end_440";
+
+  // CompensationHandler_end_440
+  "CompensationHandler_end_440" [ label="CompensationHandler_end (440)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_440" -> "Scope_end_401";
+
+  // TerminationHandler_begin_442
+  "TerminationHandler_begin_442" [ label="TerminationHandler_begin (442)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_442" -> "Compensate_441";
+
+  // Compensate_441
+  "Compensate_441" [ label="Compensate (441)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_441" -> "TerminationHandler_end_442";
+
+  // TerminationHandler_end_442
+  "TerminationHandler_end_442" [ label="TerminationHandler_end (442)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_442" -> "Scope_end_401";
+
+  // implicitEventHandler_398
+  "implicitEventHandler_398" [ label="implicitEventHandler (398)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.requestType\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_398" -> "Scope_end_401";
+
+  // Invoke_185
+  "Invoke_185" [ label="Invoke (185)\nchannel: HandleRequestWSPL.rejectRequestWS\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.rejectRequestWSResp\n1.requestType\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Invoke_185" -> "Scope_end_401";
+
+  // CompensationHandler_begin_432
+  "CompensationHandler_begin_432" [ label="CompensationHandler_begin (432)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_432" -> "Compensate_431";
+
+  // Compensate_431
+  "Compensate_431" [ label="Compensate (431)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Compensate_431" -> "CompensationHandler_end_432";
+
+  // CompensationHandler_end_432
+  "CompensationHandler_end_432" [ label="CompensationHandler_end (432)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_432" -> "Scope_end_393";
+
+  // TerminationHandler_begin_434
+  "TerminationHandler_begin_434" [ label="TerminationHandler_begin (434)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_434" -> "Compensate_433";
+
+  // Compensate_433
+  "Compensate_433" [ label="Compensate (433)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Compensate_433" -> "TerminationHandler_end_434";
+
+  // TerminationHandler_end_434
+  "TerminationHandler_end_434" [ label="TerminationHandler_end (434)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_434" -> "Scope_end_393";
+
+  // implicitEventHandler_390
+  "implicitEventHandler_390" [ label="implicitEventHandler (390)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_390" -> "Scope_end_393";
+
+  // Invoke_135
+  "Invoke_135" [ label="Invoke (135)\nchannel: HandleRequestWSPL.checkProcessability\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.checkProcessabilityWSResponse\n1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Invoke_135" -> "Scope_end_393";
+
+  // Else_124
+  "Else_124" [ label="Else (124)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "Else_124" -> "Sequence_begin_201";
+
+  // Sequence_begin_201
+  "Sequence_begin_201" [ label="Sequence_begin (201)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_201" -> "Sequence_begin_202";
+
+  // Sequence_begin_202
+  "Sequence_begin_202" [ label="Sequence_begin (202)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_202" -> "Assign_begin_203";
+
+  // Assign_begin_203
+  "Assign_begin_203" [ label="Assign_begin (203)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "Assign_begin_203" -> "From_1_205";
+
+  // From_1_205
+  "From_1_205" [ label="From_1 (205)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "From_1_205" -> "To_1_206";
+
+  // To_1_206
+  "To_1_206" [ label="To_1 (206)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "To_1_206" -> "From_2_208";
+
+  // From_2_208
+  "From_2_208" [ label="From_2 (208)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "From_2_208" -> "To_2_209";
+
+  // To_2_209
+  "To_2_209" [ label="To_2 (209)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "To_2_209" -> "Assign_end_203";
+
+  // Assign_end_203
+  "Assign_end_203" [ label="Assign_end (203)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "Assign_end_203" -> "Scope_begin_405";
+
+  // Scope_begin_405
+  "Scope_begin_405" [ label="Scope_begin (405)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\n\npeer scopes: \n 389\n393\n397\n401\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_405" -> "FaultHandler_begin_404";
+  "Scope_begin_405" -> "CompensationHandler_begin_444";
+  "Scope_begin_405" -> "TerminationHandler_begin_446";
+  "Scope_begin_405" -> "implicitEventHandler_402";
+  "Scope_begin_405" -> "Invoke_210";
+
+  // FaultHandler_begin_404
+  "FaultHandler_begin_404" [ label="FaultHandler_begin (404)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_404" -> "Catch_211";
+
+  // Catch_211
+  "Catch_211" [ label="Catch (211)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "Catch_211" -> "Sequence_begin_212";
+
+  // Sequence_begin_212
+  "Sequence_begin_212" [ label="Sequence_begin (212)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_212" -> "Assign_begin_213";
+
+  // Assign_begin_213
+  "Assign_begin_213" [ label="Assign_begin (213)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "Assign_begin_213" -> "From_1_215";
+
+  // From_1_215
+  "From_1_215" [ label="From_1 (215)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "From_1_215" -> "To_1_216";
+
+  // To_1_216
+  "To_1_216" [ label="To_1 (216)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "To_1_216" -> "From_2_218";
+
+  // From_2_218
+  "From_2_218" [ label="From_2 (218)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "From_2_218" -> "To_2_219";
+
+  // To_2_219
+  "To_2_219" [ label="To_2 (219)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "To_2_219" -> "Assign_end_213";
+
+  // Assign_end_213
+  "Assign_end_213" [ label="Assign_end (213)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "Assign_end_213" -> "Invoke_220";
+
+  // Invoke_220
+  "Invoke_220" [ label="Invoke (220)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,220\n" ]; 
+  // all outgoing edges
+  "Invoke_220" -> "Throw_222";
+
+  // Throw_222
+  "Throw_222" [ label="Throw (222)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Throw_222" -> "Sequence_end_212";
+
+  // Sequence_end_212
+  "Sequence_end_212" [ label="Sequence_end (212)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_212" -> "FaultHandler_end_404";
+
+  // FaultHandler_end_404
+  "FaultHandler_end_404" [ label="FaultHandler_end (404)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_404" -> "Scope_end_405";
+
+  // Scope_end_405
+  "Scope_end_405" [ label="Scope_end (405)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\npeer scopes: \n 389\n393\n397\n401\n409\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_405" -> "Sequence_end_202";
+
+  // Sequence_end_202
+  "Sequence_end_202" [ label="Sequence_end (202)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_202" -> "Sequence_end_201";
+
+  // Sequence_end_201
+  "Sequence_end_201" [ label="Sequence_end (201)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_201" -> "If_end_124";
+
+  // CompensationHandler_begin_444
+  "CompensationHandler_begin_444" [ label="CompensationHandler_begin (444)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_444" -> "Compensate_443";
+
+  // Compensate_443
+  "Compensate_443" [ label="Compensate (443)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Compensate_443" -> "CompensationHandler_end_444";
+
+  // CompensationHandler_end_444
+  "CompensationHandler_end_444" [ label="CompensationHandler_end (444)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_444" -> "Scope_end_405";
+
+  // TerminationHandler_begin_446
+  "TerminationHandler_begin_446" [ label="TerminationHandler_begin (446)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_446" -> "Compensate_445";
+
+  // Compensate_445
+  "Compensate_445" [ label="Compensate (445)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "Compensate_445" -> "TerminationHandler_end_446";
+
+  // TerminationHandler_end_446
+  "TerminationHandler_end_446" [ label="TerminationHandler_end (446)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_446" -> "Scope_end_405";
+
+  // implicitEventHandler_402
+  "implicitEventHandler_402" [ label="implicitEventHandler (402)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_402" -> "Scope_end_405";
+
+  // Invoke_210
+  "Invoke_210" [ label="Invoke (210)\nchannel: HandleRequestWSPL.createManualTask\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.createManualTaskWSRequest\n1.createManualTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.requestType\n1.service_\n\nreceives: \n HandleRequestWSPL.createManualTask,210\n" ]; 
+  // all outgoing edges
+  "Invoke_210" -> "Scope_end_405";
+
+  // CompensationHandler_begin_428
+  "CompensationHandler_begin_428" [ label="CompensationHandler_begin (428)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_428" -> "Compensate_427";
+
+  // Compensate_427
+  "Compensate_427" [ label="Compensate (427)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Compensate_427" -> "CompensationHandler_end_428";
+
+  // CompensationHandler_end_428
+  "CompensationHandler_end_428" [ label="CompensationHandler_end (428)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_428" -> "Scope_end_389";
+
+  // TerminationHandler_begin_430
+  "TerminationHandler_begin_430" [ label="TerminationHandler_begin (430)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_430" -> "Compensate_429";
+
+  // Compensate_429
+  "Compensate_429" [ label="Compensate (429)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Compensate_429" -> "TerminationHandler_end_430";
+
+  // TerminationHandler_end_430
+  "TerminationHandler_end_430" [ label="TerminationHandler_end (430)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_430" -> "Scope_end_389";
+
+  // implicitEventHandler_386
+  "implicitEventHandler_386" [ label="implicitEventHandler (386)\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_386" -> "Scope_end_389";
+
+  // Invoke_106
+  "Invoke_106" [ label="Invoke (106)\nchannel: HandleRequestWSPL.classifyRequest\ninitializedVariables: \n 1.classifyRequestWSRequest\n1.classifyRequestWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.rejectRequestWS,185\n" ]; 
+  // all outgoing edges
+  "Invoke_106" -> "Scope_end_389";
+
+  // ElseIf_2_95
+  "ElseIf_2_95" [ label="ElseIf_2 (95)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "ElseIf_2_95" -> "Sequence_begin_241";
+  "ElseIf_2_95" -> "ElseIf_3_95";
+
+  // Sequence_begin_241
+  "Sequence_begin_241" [ label="Sequence_begin (241)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_241" -> "Sequence_begin_242";
+
+  // Sequence_begin_242
+  "Sequence_begin_242" [ label="Sequence_begin (242)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_242" -> "Assign_begin_243";
+
+  // Assign_begin_243
+  "Assign_begin_243" [ label="Assign_begin (243)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_begin_243" -> "From_1_245";
+
+  // From_1_245
+  "From_1_245" [ label="From_1 (245)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_1_245" -> "To_1_246";
+
+  // To_1_246
+  "To_1_246" [ label="To_1 (246)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_1_246" -> "From_2_248";
+
+  // From_2_248
+  "From_2_248" [ label="From_2 (248)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_2_248" -> "To_2_249";
+
+  // To_2_249
+  "To_2_249" [ label="To_2 (249)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_2_249" -> "Assign_end_243";
+
+  // Assign_end_243
+  "Assign_end_243" [ label="Assign_end (243)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_end_243" -> "Scope_begin_409";
+
+  // Scope_begin_409
+  "Scope_begin_409" [ label="Scope_begin (409)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n\npeer scopes: \n 389\n393\n397\n401\n405\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_409" -> "FaultHandler_begin_408";
+  "Scope_begin_409" -> "CompensationHandler_begin_448";
+  "Scope_begin_409" -> "TerminationHandler_begin_450";
+  "Scope_begin_409" -> "implicitEventHandler_406";
+  "Scope_begin_409" -> "Invoke_250";
+
+  // FaultHandler_begin_408
+  "FaultHandler_begin_408" [ label="FaultHandler_begin (408)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_408" -> "Catch_251";
+
+  // Catch_251
+  "Catch_251" [ label="Catch (251)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Catch_251" -> "Sequence_begin_252";
+
+  // Sequence_begin_252
+  "Sequence_begin_252" [ label="Sequence_begin (252)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_252" -> "Assign_begin_253";
+
+  // Assign_begin_253
+  "Assign_begin_253" [ label="Assign_begin (253)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_begin_253" -> "From_1_255";
+
+  // From_1_255
+  "From_1_255" [ label="From_1 (255)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_1_255" -> "To_1_256";
+
+  // To_1_256
+  "To_1_256" [ label="To_1 (256)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_1_256" -> "From_2_258";
+
+  // From_2_258
+  "From_2_258" [ label="From_2 (258)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_2_258" -> "To_2_259";
+
+  // To_2_259
+  "To_2_259" [ label="To_2 (259)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_2_259" -> "Assign_end_253";
+
+  // Assign_end_253
+  "Assign_end_253" [ label="Assign_end (253)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_end_253" -> "Invoke_260";
+
+  // Invoke_260
+  "Invoke_260" [ label="Invoke (260)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Invoke_260" -> "Throw_262";
+
+  // Throw_262
+  "Throw_262" [ label="Throw (262)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Throw_262" -> "Sequence_end_252";
+
+  // Sequence_end_252
+  "Sequence_end_252" [ label="Sequence_end (252)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Sequence_end_252" -> "FaultHandler_end_408";
+
+  // FaultHandler_end_408
+  "FaultHandler_end_408" [ label="FaultHandler_end (408)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_408" -> "Scope_end_409";
+
+  // Scope_end_409
+  "Scope_end_409" [ label="Scope_end (409)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n\npeer scopes: \n 389\n393\n397\n401\n405\n413\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_409" -> "Assign_begin_264";
+
+  // Assign_begin_264
+  "Assign_begin_264" [ label="Assign_begin (264)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_begin_264" -> "From_1_266";
+
+  // From_1_266
+  "From_1_266" [ label="From_1 (266)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_1_266" -> "To_1_267";
+
+  // To_1_267
+  "To_1_267" [ label="To_1 (267)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_1_267" -> "Assign_end_264";
+
+  // Assign_end_264
+  "Assign_end_264" [ label="Assign_end (264)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_end_264" -> "Sequence_end_242";
+
+  // Sequence_end_242
+  "Sequence_end_242" [ label="Sequence_end (242)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Sequence_end_242" -> "If_begin_268";
+
+  // If_begin_268
+  "If_begin_268" [ label="If_begin (268)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "If_begin_268" -> "ElseIf_1_268";
+
+  // ElseIf_1_268
+  "ElseIf_1_268" [ label="ElseIf_1 (268)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_268" -> "Sequence_begin_270";
+  "ElseIf_1_268" -> "Else_268";
+
+  // Sequence_begin_270
+  "Sequence_begin_270" [ label="Sequence_begin (270)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_270" -> "Assign_begin_271";
+
+  // Assign_begin_271
+  "Assign_begin_271" [ label="Assign_begin (271)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "Assign_begin_271" -> "From_1_273";
+
+  // From_1_273
+  "From_1_273" [ label="From_1 (273)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "From_1_273" -> "To_1_274";
+
+  // To_1_274
+  "To_1_274" [ label="To_1 (274)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "To_1_274" -> "From_2_276";
+
+  // From_2_276
+  "From_2_276" [ label="From_2 (276)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "From_2_276" -> "To_2_277";
+
+  // To_2_277
+  "To_2_277" [ label="To_2 (277)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "To_2_277" -> "Assign_end_271";
+
+  // Assign_end_271
+  "Assign_end_271" [ label="Assign_end (271)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "Assign_end_271" -> "Scope_begin_413";
+
+  // Scope_begin_413
+  "Scope_begin_413" [ label="Scope_begin (413)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.processRequest,278\n\npeer scopes: \n 389\n393\n397\n401\n405\n409\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_413" -> "FaultHandler_begin_412";
+  "Scope_begin_413" -> "CompensationHandler_begin_452";
+  "Scope_begin_413" -> "TerminationHandler_begin_454";
+  "Scope_begin_413" -> "implicitEventHandler_410";
+  "Scope_begin_413" -> "Invoke_278";
+
+  // FaultHandler_begin_412
+  "FaultHandler_begin_412" [ label="FaultHandler_begin (412)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_412" -> "Catch_279";
+
+  // Catch_279
+  "Catch_279" [ label="Catch (279)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "Catch_279" -> "Sequence_begin_280";
+
+  // Sequence_begin_280
+  "Sequence_begin_280" [ label="Sequence_begin (280)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_280" -> "Assign_begin_281";
+
+  // Assign_begin_281
+  "Assign_begin_281" [ label="Assign_begin (281)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "Assign_begin_281" -> "From_1_283";
+
+  // From_1_283
+  "From_1_283" [ label="From_1 (283)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "From_1_283" -> "To_1_284";
+
+  // To_1_284
+  "To_1_284" [ label="To_1 (284)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "To_1_284" -> "From_2_286";
+
+  // From_2_286
+  "From_2_286" [ label="From_2 (286)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "From_2_286" -> "To_2_287";
+
+  // To_2_287
+  "To_2_287" [ label="To_2 (287)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "To_2_287" -> "Assign_end_281";
+
+  // Assign_end_281
+  "Assign_end_281" [ label="Assign_end (281)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "Assign_end_281" -> "Invoke_288";
+
+  // Invoke_288
+  "Invoke_288" [ label="Invoke (288)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\n" ]; 
+  // all outgoing edges
+  "Invoke_288" -> "Throw_290";
+
+  // Throw_290
+  "Throw_290" [ label="Throw (290)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Throw_290" -> "Sequence_end_280";
+
+  // Sequence_end_280
+  "Sequence_end_280" [ label="Sequence_end (280)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_280" -> "FaultHandler_end_412";
+
+  // FaultHandler_end_412
+  "FaultHandler_end_412" [ label="FaultHandler_end (412)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_412" -> "Scope_end_413";
+
+  // Scope_end_413
+  "Scope_end_413" [ label="Scope_end (413)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\npeer scopes: \n 389\n393\n397\n401\n405\n409\n417\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_413" -> "Sequence_end_270";
+
+  // Sequence_end_270
+  "Sequence_end_270" [ label="Sequence_end (270)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_270" -> "If_end_268";
+
+  // If_end_268
+  "If_end_268" [ label="If_end (268)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "If_end_268" -> "If_begin_316";
+
+  // If_begin_316
+  "If_begin_316" [ label="If_begin (316)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "If_begin_316" -> "ElseIf_1_316";
+
+  // ElseIf_1_316
+  "ElseIf_1_316" [ label="ElseIf_1 (316)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_316" -> "Sequence_begin_318";
+  "ElseIf_1_316" -> "If_end_316";
+
+  // Sequence_begin_318
+  "Sequence_begin_318" [ label="Sequence_begin (318)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_318" -> "Assign_begin_319";
+
+  // Assign_begin_319
+  "Assign_begin_319" [ label="Assign_begin (319)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Assign_begin_319" -> "From_1_321";
+
+  // From_1_321
+  "From_1_321" [ label="From_1 (321)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "From_1_321" -> "To_1_322";
+
+  // To_1_322
+  "To_1_322" [ label="To_1 (322)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleComplexRequestOutput\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "To_1_322" -> "From_2_324";
+
+  // From_2_324
+  "From_2_324" [ label="From_2 (324)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleComplexRequestOutput\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "From_2_324" -> "To_2_325";
+
+  // To_2_325
+  "To_2_325" [ label="To_2 (325)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleComplexRequestOutput\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "To_2_325" -> "Assign_end_319";
+
+  // Assign_end_319
+  "Assign_end_319" [ label="Assign_end (319)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleComplexRequestOutput\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Assign_end_319" -> "Reply_326";
+
+  // Reply_326
+  "Reply_326" [ label="Reply (326)\nchannel: client.handleComplexRequest\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleComplexRequestOutput\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Reply_326" -> "Sequence_end_318";
+
+  // Sequence_end_318
+  "Sequence_end_318" [ label="Sequence_end (318)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleComplexRequestOutput\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_318" -> "If_end_316";
+
+  // If_end_316
+  "If_end_316" [ label="If_end (316)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "If_end_316" -> "Sequence_end_241";
+
+  // Sequence_end_241
+  "Sequence_end_241" [ label="Sequence_end (241)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_241" -> "If_end_95";
+
+  // CompensationHandler_begin_452
+  "CompensationHandler_begin_452" [ label="CompensationHandler_begin (452)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_452" -> "Compensate_451";
+
+  // Compensate_451
+  "Compensate_451" [ label="Compensate (451)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_451" -> "CompensationHandler_end_452";
+
+  // CompensationHandler_end_452
+  "CompensationHandler_end_452" [ label="CompensationHandler_end (452)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_452" -> "Scope_end_413";
+
+  // TerminationHandler_begin_454
+  "TerminationHandler_begin_454" [ label="TerminationHandler_begin (454)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_454" -> "Compensate_453";
+
+  // Compensate_453
+  "Compensate_453" [ label="Compensate (453)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_453" -> "TerminationHandler_end_454";
+
+  // TerminationHandler_end_454
+  "TerminationHandler_end_454" [ label="TerminationHandler_end (454)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_454" -> "Scope_end_413";
+
+  // implicitEventHandler_410
+  "implicitEventHandler_410" [ label="implicitEventHandler (410)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_410" -> "Scope_end_413";
+
+  // Invoke_278
+  "Invoke_278" [ label="Invoke (278)\nchannel: HandleRequestWSPL.processRequest\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.handleRequestWSRequest\n1.handleRequestWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.processRequest,278\n" ]; 
+  // all outgoing edges
+  "Invoke_278" -> "Scope_end_413";
+
+  // Else_268
+  "Else_268" [ label="Else (268)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Else_268" -> "Sequence_begin_292";
+
+  // Sequence_begin_292
+  "Sequence_begin_292" [ label="Sequence_begin (292)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_292" -> "Assign_begin_293";
+
+  // Assign_begin_293
+  "Assign_begin_293" [ label="Assign_begin (293)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_begin_293" -> "From_1_295";
+
+  // From_1_295
+  "From_1_295" [ label="From_1 (295)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_1_295" -> "To_1_296";
+
+  // To_1_296
+  "To_1_296" [ label="To_1 (296)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_1_296" -> "From_2_298";
+
+  // From_2_298
+  "From_2_298" [ label="From_2 (298)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "From_2_298" -> "To_2_299";
+
+  // To_2_299
+  "To_2_299" [ label="To_2 (299)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "To_2_299" -> "Assign_end_293";
+
+  // Assign_end_293
+  "Assign_end_293" [ label="Assign_end (293)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Assign_end_293" -> "Scope_begin_417";
+
+  // Scope_begin_417
+  "Scope_begin_417" [ label="Scope_begin (417)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.rejectRequestWS,300\n\npeer scopes: \n 389\n393\n397\n401\n405\n409\n413\n421\n" ]; 
+  // all outgoing edges
+  "Scope_begin_417" -> "FaultHandler_begin_416";
+  "Scope_begin_417" -> "CompensationHandler_begin_456";
+  "Scope_begin_417" -> "TerminationHandler_begin_458";
+  "Scope_begin_417" -> "implicitEventHandler_414";
+  "Scope_begin_417" -> "Invoke_300";
+
+  // FaultHandler_begin_416
+  "FaultHandler_begin_416" [ label="FaultHandler_begin (416)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_416" -> "Catch_301";
+
+  // Catch_301
+  "Catch_301" [ label="Catch (301)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "Catch_301" -> "Sequence_begin_302";
+
+  // Sequence_begin_302
+  "Sequence_begin_302" [ label="Sequence_begin (302)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_302" -> "Assign_begin_303";
+
+  // Assign_begin_303
+  "Assign_begin_303" [ label="Assign_begin (303)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "Assign_begin_303" -> "From_1_305";
+
+  // From_1_305
+  "From_1_305" [ label="From_1 (305)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "From_1_305" -> "To_1_306";
+
+  // To_1_306
+  "To_1_306" [ label="To_1 (306)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "To_1_306" -> "From_2_308";
+
+  // From_2_308
+  "From_2_308" [ label="From_2 (308)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "From_2_308" -> "To_2_309";
+
+  // To_2_309
+  "To_2_309" [ label="To_2 (309)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "To_2_309" -> "Assign_end_303";
+
+  // Assign_end_303
+  "Assign_end_303" [ label="Assign_end (303)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "Assign_end_303" -> "Invoke_310";
+
+  // Invoke_310
+  "Invoke_310" [ label="Invoke (310)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.createExceptionTask,310\n" ]; 
+  // all outgoing edges
+  "Invoke_310" -> "Throw_312";
+
+  // Throw_312
+  "Throw_312" [ label="Throw (312)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Throw_312" -> "Sequence_end_302";
+
+  // Sequence_end_302
+  "Sequence_end_302" [ label="Sequence_end (302)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_302" -> "FaultHandler_end_416";
+
+  // FaultHandler_end_416
+  "FaultHandler_end_416" [ label="FaultHandler_end (416)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_416" -> "Scope_end_417";
+
+  // Scope_end_417
+  "Scope_end_417" [ label="Scope_end (417)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n\npeer scopes: \n 389\n393\n397\n401\n405\n409\n413\n421\n" ]; 
+  // all outgoing edges
+  "Scope_end_417" -> "Sequence_end_292";
+
+  // Sequence_end_292
+  "Sequence_end_292" [ label="Sequence_end (292)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Sequence_end_292" -> "If_end_268";
+
+  // CompensationHandler_begin_456
+  "CompensationHandler_begin_456" [ label="CompensationHandler_begin (456)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_456" -> "Compensate_455";
+
+  // Compensate_455
+  "Compensate_455" [ label="Compensate (455)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_455" -> "CompensationHandler_end_456";
+
+  // CompensationHandler_end_456
+  "CompensationHandler_end_456" [ label="CompensationHandler_end (456)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_456" -> "Scope_end_417";
+
+  // TerminationHandler_begin_458
+  "TerminationHandler_begin_458" [ label="TerminationHandler_begin (458)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_458" -> "Compensate_457";
+
+  // Compensate_457
+  "Compensate_457" [ label="Compensate (457)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "Compensate_457" -> "TerminationHandler_end_458";
+
+  // TerminationHandler_end_458
+  "TerminationHandler_end_458" [ label="TerminationHandler_end (458)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_458" -> "Scope_end_417";
+
+  // implicitEventHandler_414
+  "implicitEventHandler_414" [ label="implicitEventHandler (414)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n1.valid\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_414" -> "Scope_end_417";
+
+  // Invoke_300
+  "Invoke_300" [ label="Invoke (300)\nchannel: HandleRequestWSPL.rejectRequestWS\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.rejectRequestWSResp\n1.service_\n1.valid\n\nreceives: \n HandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Invoke_300" -> "Scope_end_417";
+
+  // CompensationHandler_begin_448
+  "CompensationHandler_begin_448" [ label="CompensationHandler_begin (448)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_448" -> "Compensate_447";
+
+  // Compensate_447
+  "Compensate_447" [ label="Compensate (447)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Compensate_447" -> "CompensationHandler_end_448";
+
+  // CompensationHandler_end_448
+  "CompensationHandler_end_448" [ label="CompensationHandler_end (448)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_448" -> "Scope_end_409";
+
+  // TerminationHandler_begin_450
+  "TerminationHandler_begin_450" [ label="TerminationHandler_begin (450)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_450" -> "Compensate_449";
+
+  // Compensate_449
+  "Compensate_449" [ label="Compensate (449)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Compensate_449" -> "TerminationHandler_end_450";
+
+  // TerminationHandler_end_450
+  "TerminationHandler_end_450" [ label="TerminationHandler_end (450)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_450" -> "Scope_end_409";
+
+  // implicitEventHandler_406
+  "implicitEventHandler_406" [ label="implicitEventHandler (406)\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_406" -> "Scope_end_409";
+
+  // Invoke_250
+  "Invoke_250" [ label="Invoke (250)\nchannel: HandleRequestWSPL.checkProcessability\ninitializedVariables: \n 1.checkProcessabilityWSRequest\n1.checkProcessabilityWSResponse\n1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,300\n" ]; 
+  // all outgoing edges
+  "Invoke_250" -> "Scope_end_409";
+
+  // ElseIf_3_95
+  "ElseIf_3_95" [ label="ElseIf_3 (95)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "ElseIf_3_95" -> "Sequence_begin_331";
+  "ElseIf_3_95" -> "Else_95";
+
+  // Sequence_begin_331
+  "Sequence_begin_331" [ label="Sequence_begin (331)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_331" -> "Sequence_begin_332";
+
+  // Sequence_begin_332
+  "Sequence_begin_332" [ label="Sequence_begin (332)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_332" -> "Assign_begin_333";
+
+  // Assign_begin_333
+  "Assign_begin_333" [ label="Assign_begin (333)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_begin_333" -> "From_1_335";
+
+  // From_1_335
+  "From_1_335" [ label="From_1 (335)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_1_335" -> "To_1_336";
+
+  // To_1_336
+  "To_1_336" [ label="To_1 (336)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_1_336" -> "From_2_338";
+
+  // From_2_338
+  "From_2_338" [ label="From_2 (338)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_2_338" -> "To_2_339";
+
+  // To_2_339
+  "To_2_339" [ label="To_2 (339)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_2_339" -> "Assign_end_333";
+
+  // Assign_end_333
+  "Assign_end_333" [ label="Assign_end (333)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_end_333" -> "Scope_begin_421";
+
+  // Scope_begin_421
+  "Scope_begin_421" [ label="Scope_begin (421)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.rejectRequestWS,340\n\npeer scopes: \n 389\n393\n397\n401\n405\n409\n413\n417\n" ]; 
+  // all outgoing edges
+  "Scope_begin_421" -> "FaultHandler_begin_420";
+  "Scope_begin_421" -> "CompensationHandler_begin_460";
+  "Scope_begin_421" -> "TerminationHandler_begin_462";
+  "Scope_begin_421" -> "implicitEventHandler_418";
+  "Scope_begin_421" -> "Invoke_340";
+
+  // FaultHandler_begin_420
+  "FaultHandler_begin_420" [ label="FaultHandler_begin (420)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "FaultHandler_begin_420" -> "Catch_341";
+
+  // Catch_341
+  "Catch_341" [ label="Catch (341)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "Catch_341" -> "Sequence_begin_342";
+
+  // Sequence_begin_342
+  "Sequence_begin_342" [ label="Sequence_begin (342)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_342" -> "Assign_begin_343";
+
+  // Assign_begin_343
+  "Assign_begin_343" [ label="Assign_begin (343)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "Assign_begin_343" -> "From_1_345";
+
+  // From_1_345
+  "From_1_345" [ label="From_1 (345)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "From_1_345" -> "To_1_346";
+
+  // To_1_346
+  "To_1_346" [ label="To_1 (346)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "To_1_346" -> "From_2_348";
+
+  // From_2_348
+  "From_2_348" [ label="From_2 (348)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "From_2_348" -> "To_2_349";
+
+  // To_2_349
+  "To_2_349" [ label="To_2 (349)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "To_2_349" -> "Assign_end_343";
+
+  // Assign_end_343
+  "Assign_end_343" [ label="Assign_end (343)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "Assign_end_343" -> "Invoke_350";
+
+  // Invoke_350
+  "Invoke_350" [ label="Invoke (350)\nchannel: HandleRequestWSPL.createExceptionTask\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\nreceives: \n HandleRequestWSPL.createExceptionTask,350\n" ]; 
+  // all outgoing edges
+  "Invoke_350" -> "Throw_352";
+
+  // Throw_352
+  "Throw_352" [ label="Throw (352)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Throw_352" -> "Sequence_end_342";
+
+  // Sequence_end_342
+  "Sequence_end_342" [ label="Sequence_end (342)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_342" -> "FaultHandler_end_420";
+
+  // FaultHandler_end_420
+  "FaultHandler_end_420" [ label="FaultHandler_end (420)\ninitializedVariables: \n 1.createExceptionTaskWSRequest\n1.createExceptionTaskWSResponse\n1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "FaultHandler_end_420" -> "Scope_end_421";
+
+  // Scope_end_421
+  "Scope_end_421" [ label="Scope_end (421)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n\npeer scopes: \n 389\n393\n397\n401\n405\n409\n413\n417\n" ]; 
+  // all outgoing edges
+  "Scope_end_421" -> "Sequence_end_332";
+
+  // Sequence_end_332
+  "Sequence_end_332" [ label="Sequence_end (332)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_332" -> "If_begin_354";
+
+  // If_begin_354
+  "If_begin_354" [ label="If_begin (354)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_begin_354" -> "ElseIf_1_354";
+
+  // ElseIf_1_354
+  "ElseIf_1_354" [ label="ElseIf_1 (354)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "ElseIf_1_354" -> "Sequence_begin_356";
+  "ElseIf_1_354" -> "If_end_354";
+
+  // Sequence_begin_356
+  "Sequence_begin_356" [ label="Sequence_begin (356)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_begin_356" -> "Assign_begin_357";
+
+  // Assign_begin_357
+  "Assign_begin_357" [ label="Assign_begin (357)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_begin_357" -> "From_1_359";
+
+  // From_1_359
+  "From_1_359" [ label="From_1 (359)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_1_359" -> "To_1_360";
+
+  // To_1_360
+  "To_1_360" [ label="To_1 (360)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestOutput\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_1_360" -> "From_2_362";
+
+  // From_2_362
+  "From_2_362" [ label="From_2 (362)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestOutput\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_2_362" -> "To_2_363";
+
+  // To_2_363
+  "To_2_363" [ label="To_2 (363)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestOutput\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_2_363" -> "Assign_end_357";
+
+  // Assign_end_357
+  "Assign_end_357" [ label="Assign_end (357)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestOutput\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_end_357" -> "Reply_364";
+
+  // Reply_364
+  "Reply_364" [ label="Reply (364)\nchannel: client.rejectRequest\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestOutput\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Reply_364" -> "Sequence_end_356";
+
+  // Sequence_end_356
+  "Sequence_end_356" [ label="Sequence_end (356)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestOutput\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_356" -> "If_end_354";
+
+  // If_end_354
+  "If_end_354" [ label="If_end (354)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "If_end_354" -> "Sequence_end_331";
+
+  // Sequence_end_331
+  "Sequence_end_331" [ label="Sequence_end (331)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Sequence_end_331" -> "If_end_95";
+
+  // CompensationHandler_begin_460
+  "CompensationHandler_begin_460" [ label="CompensationHandler_begin (460)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_begin_460" -> "Compensate_459";
+
+  // Compensate_459
+  "Compensate_459" [ label="Compensate (459)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Compensate_459" -> "CompensationHandler_end_460";
+
+  // CompensationHandler_end_460
+  "CompensationHandler_end_460" [ label="CompensationHandler_end (460)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "CompensationHandler_end_460" -> "Scope_end_421";
+
+  // TerminationHandler_begin_462
+  "TerminationHandler_begin_462" [ label="TerminationHandler_begin (462)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_begin_462" -> "Compensate_461";
+
+  // Compensate_461
+  "Compensate_461" [ label="Compensate (461)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "Compensate_461" -> "TerminationHandler_end_462";
+
+  // TerminationHandler_end_462
+  "TerminationHandler_end_462" [ label="TerminationHandler_end (462)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "TerminationHandler_end_462" -> "Scope_end_421";
+
+  // implicitEventHandler_418
+  "implicitEventHandler_418" [ label="implicitEventHandler (418)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.service_\n" ]; 
+  // all outgoing edges
+  "implicitEventHandler_418" -> "Scope_end_421";
+
+  // Invoke_340
+  "Invoke_340" [ label="Invoke (340)\nchannel: HandleRequestWSPL.rejectRequestWS\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.rejectRequestWSReq\n1.rejectRequestWSResp\n1.service_\n\nreceives: \n HandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Invoke_340" -> "Scope_end_421";
+
+  // Else_95
+  "Else_95" [ label="Else (95)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "Else_95" -> "Assign_begin_367";
+
+  // Assign_begin_367
+  "Assign_begin_367" [ label="Assign_begin (367)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_begin_367" -> "From_1_369";
+
+  // From_1_369
+  "From_1_369" [ label="From_1 (369)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "From_1_369" -> "To_1_370";
+
+  // To_1_370
+  "To_1_370" [ label="To_1 (370)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "To_1_370" -> "Assign_end_367";
+
+  // Assign_end_367
+  "Assign_end_367" [ label="Assign_end (367)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n" ]; 
+  // all outgoing edges
+  "Assign_end_367" -> "If_end_95";
+
+  // OnMessage_2_53
+  "OnMessage_2_53" [ label="OnMessage_2 (53)\nchannel: client.handleComplexRequest\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "OnMessage_2_53" -> "Assign_begin_54";
+
+  // Assign_begin_54
+  "Assign_begin_54" [ label="Assign_begin (54)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_begin_54" -> "From_1_56";
+
+  // From_1_56
+  "From_1_56" [ label="From_1 (56)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_1_56" -> "To_1_57";
+
+  // To_1_57
+  "To_1_57" [ label="To_1 (57)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_1_57" -> "From_2_59";
+
+  // From_2_59
+  "From_2_59" [ label="From_2 (59)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_2_59" -> "To_2_60";
+
+  // To_2_60
+  "To_2_60" [ label="To_2 (60)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_2_60" -> "From_3_62";
+
+  // From_3_62
+  "From_3_62" [ label="From_3 (62)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_3_62" -> "To_3_63";
+
+  // To_3_63
+  "To_3_63" [ label="To_3 (63)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_3_63" -> "From_4_65";
+
+  // From_4_65
+  "From_4_65" [ label="From_4 (65)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_4_65" -> "To_4_66";
+
+  // To_4_66
+  "To_4_66" [ label="To_4 (66)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_4_66" -> "Assign_end_54";
+
+  // Assign_end_54
+  "Assign_end_54" [ label="Assign_end (54)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_end_54" -> "Pick_end_38";
+
+  // OnMessage_3_67
+  "OnMessage_3_67" [ label="OnMessage_3 (67)\nchannel: client.rejectRequest\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "OnMessage_3_67" -> "Assign_begin_68";
+
+  // Assign_begin_68
+  "Assign_begin_68" [ label="Assign_begin (68)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_begin_68" -> "From_1_70";
+
+  // From_1_70
+  "From_1_70" [ label="From_1 (70)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_1_70" -> "To_1_71";
+
+  // To_1_71
+  "To_1_71" [ label="To_1 (71)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_1_71" -> "From_2_73";
+
+  // From_2_73
+  "From_2_73" [ label="From_2 (73)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_2_73" -> "To_2_74";
+
+  // To_2_74
+  "To_2_74" [ label="To_2 (74)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_2_74" -> "From_3_76";
+
+  // From_3_76
+  "From_3_76" [ label="From_3 (76)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_3_76" -> "To_3_77";
+
+  // To_3_77
+  "To_3_77" [ label="To_3 (77)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_3_77" -> "From_4_79";
+
+  // From_4_79
+  "From_4_79" [ label="From_4 (79)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_4_79" -> "To_4_80";
+
+  // To_4_80
+  "To_4_80" [ label="To_4 (80)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_4_80" -> "Assign_end_68";
+
+  // Assign_end_68
+  "Assign_end_68" [ label="Assign_end (68)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_end_68" -> "Pick_end_38";
+
+  // OnMessage_4_81
+  "OnMessage_4_81" [ label="OnMessage_4 (81)\nchannel: client.reinjectRequest\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "OnMessage_4_81" -> "Assign_begin_82";
+
+  // Assign_begin_82
+  "Assign_begin_82" [ label="Assign_begin (82)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_begin_82" -> "From_1_84";
+
+  // From_1_84
+  "From_1_84" [ label="From_1 (84)\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_1_84" -> "To_1_85";
+
+  // To_1_85
+  "To_1_85" [ label="To_1 (85)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_1_85" -> "From_2_87";
+
+  // From_2_87
+  "From_2_87" [ label="From_2 (87)\ninitializedVariables: \n 1.reinject\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_2_87" -> "To_2_88";
+
+  // To_2_88
+  "To_2_88" [ label="To_2 (88)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_2_88" -> "From_3_90";
+
+  // From_3_90
+  "From_3_90" [ label="From_3 (90)\ninitializedVariables: \n 1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_3_90" -> "To_3_91";
+
+  // To_3_91
+  "To_3_91" [ label="To_3 (91)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_3_91" -> "From_4_93";
+
+  // From_4_93
+  "From_4_93" [ label="From_4 (93)\ninitializedVariables: \n 1.ok\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "From_4_93" -> "To_4_94";
+
+  // To_4_94
+  "To_4_94" [ label="To_4 (94)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "To_4_94" -> "Assign_end_82";
+
+  // Assign_end_82
+  "Assign_end_82" [ label="Assign_end (82)\ninitializedVariables: \n 1.ok\n1.payload\n1.reinject\n1.service_\n\nreceives: \n HandleRequestWSPL.checkProcessability,135\nHandleRequestWSPL.checkProcessability,250\nHandleRequestWSPL.classifyRequest,106\nHandleRequestWSPL.createExceptionTask,116\nHandleRequestWSPL.createExceptionTask,145\nHandleRequestWSPL.createExceptionTask,173\nHandleRequestWSPL.createExceptionTask,195\nHandleRequestWSPL.createExceptionTask,220\nHandleRequestWSPL.createExceptionTask,260\nHandleRequestWSPL.createExceptionTask,288\nHandleRequestWSPL.createExceptionTask,310\nHandleRequestWSPL.createExceptionTask,350\nHandleRequestWSPL.createManualTask,210\nHandleRequestWSPL.processRequest,163\nHandleRequestWSPL.processRequest,278\nHandleRequestWSPL.rejectRequestWS,185\nHandleRequestWSPL.rejectRequestWS,300\nHandleRequestWSPL.rejectRequestWS,340\n" ]; 
+  // all outgoing edges
+  "Assign_end_82" -> "Pick_end_38";
+
+}

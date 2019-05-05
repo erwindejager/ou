@@ -1,0 +1,19 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `pick.bpel'
+------------------------------------------------------------------------------
+pick.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+8 activities (6 basic, 2 structured, 0 scopes) + 3 implicit activities
+0 handlers (0 FH, 0 TH, 0 CH, 0 EH) + 1 implicit handlers
+0 links, 4 variables
+
+[SYNTAX ANALYSIS] No syntax errors found.
+[STATIC ANALYSIS] No errors found checking 51 statics analysis requirements.
+[OTHER ANALYSIS]  No other errors found.
+------------------------------------------------------------------------------
+|P|=12, |P_in|= 2, |P_out|= 2, |T|=8, |F|=20
+Error: pick_ch.dot: syntax error in line 3 near 'width'
+==============================================================================
+

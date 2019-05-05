@@ -1,0 +1,37 @@
+1. generate the promela file, type the following command:
+
+	java wsat -GA SAS.spec -a
+
+
+2. add the LTL property
+	
+	cat output.pml property.pml >! test.pml
+
+3. generate the c code
+
+	spin -a test.pml
+
+4. compile the c code
+
+	gcc -o pan pan.c
+
+5. MODEL CHECKING!
+
+	./pan -a
+
+6. Analysis of error-trace
+
+	spin -tlg test.pml
+
+	You will the reginfo.requestlist.stockID is 0,1,0
+	This leads to the error, because the second stockID, i.e., 1 is not sent
+
+	type: spin -t -p -l -g test.pml >! trace.txt
+	grep "msg =" trace.txt
+
+	you will see a list of message assignments command, which shows the
+    control flow.  Only one "request" was sent, and then the error trace
+    goes directly to send "bill", because the first and the third element
+    of regInfo.requestlist.stockID are the SAME!
+
+	ISSTA'04 paper has the the detail explanation.

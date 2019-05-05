@@ -1,0 +1,105 @@
+<process name="Flow"
+         targetNamespace="http://samples.otn.com"
+         suppressJoinFailure="yes"
+         xmlns:tns="http://samples.otn.com"
+         xmlns:services="http://services.otn.com"
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+  <!--
+    This process invoke twice the LoanService in a parallel flow.
+    -->
+
+  <partnerLinks>
+    <partnerLink name="client"
+             partnerLinkType="tns:Flow"
+             myRole="FlowProvider"
+             partnerRole="FlowRequester"/>
+             
+    <partnerLink name="UnitedLoanService"
+             partnerLinkType="services:LoanService"
+             myRole="LoanServiceRequester"
+             partnerRole="LoanServiceProvider"/>
+    <partnerLink name="AmericanLoanService"
+             partnerLinkType="services:LoanService"
+             myRole="LoanServiceRequester"
+             partnerRole="LoanServiceProvider"/>
+  </partnerLinks>
+
+  <variables>
+    <variable name="input" messageType="tns:FlowRequestMessage"/>
+    <variable name="output" messageType="tns:FlowResultMessage"/>               
+    <!-- input of united loan and american loan-->
+    <variable name="loanApplication"
+              messageType="services:LoanServiceRequestMessage"/>
+    <!-- output of united loan-->
+    <variable name="loanOffer1"
+              messageType="services:LoanServiceResultMessage"/>
+    <!-- output of star loan-->
+    <variable name="loanOffer2"
+              messageType="services:LoanServiceResultMessage"/>
+  </variables>
+
+  <sequence>
+    
+    <!-- receive input from requestor -->
+    <receive name="receiveInput" partnerLink="client"
+             portType="tns:Flow"
+             operation="initiate" variable="input"
+             createInstance="yes"/>
+             
+    <!-- initialize the input of UnitedLoan and AmericanLoan -->
+    <assign>
+      <copy>
+         <from variable="input" part="payload"/>
+         <to variable="loanApplication" part="payload"/>
+      </copy>
+    </assign>             
+
+    <!-- invoke two loan providers -->
+    <flow>
+
+      <!-- invoke United Loan -->
+      <sequence>
+
+        <!--  initiate the remote process -->
+        <invoke name="invokeUL" partnerLink="UnitedLoanService"
+                portType="services:LoanService"
+                operation="initiate" inputVariable="loanApplication"/>
+
+        <!--  receive the result of the remote process -->
+        <receive name="receive_invokeUL" partnerLink="UnitedLoanService"
+                portType="services:LoanServiceCallback"
+                operation="onResult" variable="loanOffer1"/>
+      </sequence>
+
+      <!-- invoke American Loan -->
+      <sequence>
+
+        <!--  initiate the remote process -->
+        <invoke name="invokeAL" partnerLink="AmericanLoanService"
+                portType="services:LoanService"
+                operation="initiate" inputVariable="loanApplication"/>
+
+        <!--  receive the result of the remote process -->
+        <receive name="receive_invokeAL" partnerLink="AmericanLoanService"
+                portType="services:LoanServiceCallback"
+                operation="onResult" variable="loanOffer2"/>
+      </sequence>
+
+    </flow>
+
+    <assign>
+      <copy>
+        <from variable="loanOffer1" part="payload"/>
+        <to variable="output" part="payload"/>
+      </copy>
+    </assign>
+    
+    <!-- respond output to requestor -->
+    <invoke name="replyOutput" partnerLink="client"
+            portType="tns:FlowCallback"
+            operation="onResult" inputVariable="output"/>
+
+  </sequence>
+
+</process>
+

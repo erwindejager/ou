@@ -1,0 +1,3 @@
+An error occurred while collecting items to be installed
+session context was:(profile=C__ws_tools_jee-mars_eclipse, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+No repository found containing: osgi.bundle,org.apache.commons.io,2.4.0

@@ -1,0 +1,1728 @@
+WELCOME TO THE BABEL PROJECT
+
+Translation of BPEL into PNML.
+If you use control links then it could take some time, because the algorithm scales exponential with the number of variables for the boolean expression. 
+Build finished successfully.
+Build finished successfully.
+import
+import
+partnerLinks
+Element found and added to the List.
+Enter into SymbolTable: (handleCaseInput,tns:HandleCaseProcessReq)
+Enter into SymbolTable: (handleCaseOutput,tns:HandleCaseProcessResp)
+Enter into SymbolTable: (registerCaseReply,ns:registerCaseResponse)
+Enter into SymbolTable: (registerCaseRequest,ns:registerCaseRequest)
+Enter into SymbolTable: (createCaseReply,ns:createCaseResponse)
+Enter into SymbolTable: (createCaseRequest,ns:createCaseRequest)
+Enter into SymbolTable: (ticket,ns1:string)
+Enter into SymbolTable: (validateCaseReply,ns:validateCaseResponse)
+Enter into SymbolTable: (validateCaseRequest,ns:validateCaseRequest)
+Enter into SymbolTable: (parkCaseReply,ns:parkCaseResponse)
+Enter into SymbolTable: (parkCaseRequest,ns:parkCaseRequest)
+Enter into SymbolTable: (stopCaseInput,tns:stopCaseReq)
+Enter into SymbolTable: (stopCaseOutput,tns:stopCaseResp)
+Enter into SymbolTable: (stopCaseReply,ns:stopCaseResponse)
+Enter into SymbolTable: (stopCaseRequest,ns:stopCaseRequest)
+Enter into SymbolTable: (exception,ns:WsException)
+Enter into SymbolTable: (handleObjectionInput,tns:handleObjectionReq)
+Enter into SymbolTable: (handleObjectionOutput,tns:handleObjectionResp)
+Enter into SymbolTable: (registerObjectionCaseReply,ns:registerObjectionCaseResponse)
+Enter into SymbolTable: (registerObjectionCaseRequest,ns:registerObjectionCaseRequest)
+Enter into SymbolTable: (createObjectionCaseReply,ns:createObjectionCaseResponse)
+Enter into SymbolTable: (createObjectionCaseRequest,ns:createObjectionCaseRequest)
+Enter into SymbolTable: (validateObjectionCaseReply,ns:validateObjectionCaseResponse)
+Enter into SymbolTable: (validateObjectionCaseRequest,ns:validateObjectionCaseRequest)
+Enter into SymbolTable: (createObjectionTaskReply,ns:createObjectionTaskResponse)
+Enter into SymbolTable: (createObjectionTaskRequest,ns:createObjectionTaskRequest)
+Enter into SymbolTable: (handleParkedCaseInput,tns:handleParkedCaseReq)
+Enter into SymbolTable: (handleParkedCaseOutput,tns:handleParkedCaseResp)
+Enter into SymbolTable: (reinjectCaseInput,tns:reinjectCaseReq)
+Enter into SymbolTable: (reinjectCaseOutput,tns:reinjectCaseResp)
+Enter into SymbolTable: (caseId,ns1:string)
+Enter into SymbolTable: (caseType,ns1:string)
+Enter into SymbolTable: (errorIndicator,ns1:string)
+Enter into SymbolTable: (caseHandlingTrigger,ns1:string)
+Enter into SymbolTable: (caseExceptionPoint,ns1:string)
+Enter into SymbolTable: (noreinjection,ns1:string)
+Enter into SymbolTable: (getCalculationReply,ns:getCalculationResponse)
+Enter into SymbolTable: (getCalculationRequest,ns:getCalculationRequest)
+Enter into SymbolTable: (checkProcessabilityReply,ns:checkProcessabilityResponse)
+Enter into SymbolTable: (createPaymentReply,ns:createPaymentResponse)
+Enter into SymbolTable: (createPaymentRequest,ns:createPaymentRequest)
+Enter into SymbolTable: (sendLetterReply,ns:sendLetterResponse)
+Enter into SymbolTable: (sendLetterRequest,ns:sendLetterRequest)
+Enter into SymbolTable: (endCaseReply,ns:endCaseResponse)
+Enter into SymbolTable: (endCaseRequest,ns:endCaseRequest)
+Enter into SymbolTable: (checkProcessabilityRequest,ns:checkProcessabilityRequest)
+Enter into SymbolTable: (createExceptionTaskReply,ns:createExceptionTaskResponse)
+Enter into SymbolTable: (createExceptionTaskRequest,ns:createExceptionTaskRequest)
+Enter into SymbolTable: (valueOk,ns1:string)
+import
+import
+partnerLinks
+variables
+sequence
+import
+import
+partnerLinks
+variables
+sequence
+ Content of : VariableTable
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+Call of the Default visit.
+ ---THE PRINTVISITOR ---
+Content of the SymbolTable	
+===========================	
+(exception,ns:WsException)
+(sendLetterReply,ns:sendLetterResponse)
+(createPaymentRequest,ns:createPaymentRequest)
+(validateCaseRequest,ns:validateCaseRequest)
+(createObjectionCaseRequest,ns:createObjectionCaseRequest)
+(createObjectionTaskRequest,ns:createObjectionTaskRequest)
+(createCaseReply,ns:createCaseResponse)
+(reinjectCaseInput,tns:reinjectCaseReq)
+(sendLetterRequest,ns:sendLetterRequest)
+(caseId,ns1:string)
+(endCaseRequest,ns:endCaseRequest)
+(parkCaseRequest,ns:parkCaseRequest)
+(handleParkedCaseInput,tns:handleParkedCaseReq)
+(handleObjectionOutput,tns:handleObjectionResp)
+(createObjectionCaseReply,ns:createObjectionCaseResponse)
+(createExceptionTaskReply,ns:createExceptionTaskResponse)
+(getCalculationReply,ns:getCalculationResponse)
+(parkCaseReply,ns:parkCaseResponse)
+(errorIndicator,ns1:string)
+(handleParkedCaseOutput,tns:handleParkedCaseResp)
+(createObjectionTaskReply,ns:createObjectionTaskResponse)
+(handleCaseInput,tns:HandleCaseProcessReq)
+(stopCaseRequest,ns:stopCaseRequest)
+(handleCaseOutput,tns:HandleCaseProcessResp)
+(endCaseReply,ns:endCaseResponse)
+(validateCaseReply,ns:validateCaseResponse)
+(stopCaseInput,tns:stopCaseReq)
+(getCalculationRequest,ns:getCalculationRequest)
+(checkProcessabilityRequest,ns:checkProcessabilityRequest)
+(validateObjectionCaseReply,ns:validateObjectionCaseResponse)
+(caseType,ns1:string)
+(registerCaseReply,ns:registerCaseResponse)
+(createCaseRequest,ns:createCaseRequest)
+(stopCaseOutput,tns:stopCaseResp)
+(registerCaseRequest,ns:registerCaseRequest)
+(caseHandlingTrigger,ns1:string)
+(stopCaseReply,ns:stopCaseResponse)
+(valueOk,ns1:string)
+(ticket,ns1:string)
+(registerObjectionCaseRequest,ns:registerObjectionCaseRequest)
+(registerObjectionCaseReply,ns:registerObjectionCaseResponse)
+(noreinjection,ns1:string)
+(handleObjectionInput,tns:handleObjectionReq)
+(caseExceptionPoint,ns1:string)
+(validateObjectionCaseRequest,ns:validateObjectionCaseRequest)
+(createExceptionTaskRequest,ns:createExceptionTaskRequest)
+(reinjectCaseOutput,tns:reinjectCaseResp)
+(createPaymentReply,ns:createPaymentResponse)
+(checkProcessabilityReply,ns:checkProcessabilityResponse)
+===========================
+
+ Content of : TypeTable
+ ---THE PRINTVISITOR ---
+Content of the SymbolTable	
+===========================	
+===========================
+
+ Content of : TaskTable
+ ---THE PRINTVISITOR ---
+Content of the SymbolTable	
+===========================	
+===========================
+
+WSDL-Tree
+ ---THE PRINTVISITOR ---
+Content of the XML-Tree
+===========================
+process    [0,0]
+   import    [1,0]
+   import    [1,1]
+   partnerLinks    [1,2]
+      partnerLink    [2,0]
+      partnerLink    [2,1]
+   variables    [1,3]
+      variable    [2,0]
+      variable    [2,1]
+      variable    [2,2]
+      variable    [2,3]
+      variable    [2,4]
+      variable    [2,5]
+      variable    [2,6]
+      variable    [2,7]
+      variable    [2,8]
+      variable    [2,9]
+      variable    [2,10]
+      variable    [2,11]
+      variable    [2,12]
+      variable    [2,13]
+      variable    [2,14]
+      variable    [2,15]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,16]
+      variable    [2,17]
+      variable    [2,18]
+      variable    [2,19]
+      variable    [2,20]
+      variable    [2,21]
+      variable    [2,22]
+      variable    [2,23]
+      variable    [2,24]
+      variable    [2,25]
+      variable    [2,26]
+      variable    [2,27]
+      variable    [2,28]
+      variable    [2,29]
+      variable    [2,30]
+      variable    [2,31]
+      variable    [2,32]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,33]
+      variable    [2,34]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,35]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,36]
+      variable    [2,37]
+      variable    [2,38]
+      variable    [2,39]
+      variable    [2,40]
+      variable    [2,41]
+      variable    [2,42]
+      variable    [2,43]
+      variable    [2,44]
+      variable    [2,45]
+      variable    [2,46]
+      variable    [2,47]
+      variable    [2,48]
+   sequence    [1,4]
+      pick    [2,0]
+         onMessage    [3,0]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,1]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,5]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,2]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,3]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,4]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,5]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,6]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+      if    [2,1]
+         condition    [3,0]
+         sequence    [3,1]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                     to    [7,1]
+               invoke    [5,1]
+                  catch    [6,0]
+                     sequence    [7,0]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                        throw    [8,1]
+               assign    [5,2]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+            sequence    [4,1]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+               invoke    [5,1]
+                  catch    [6,0]
+                     sequence    [7,0]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,2]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                        invoke    [8,1]
+                        throw    [8,2]
+            sequence    [4,2]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+               invoke    [5,1]
+                  catch    [6,0]
+                     sequence    [7,0]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,2]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                        invoke    [8,1]
+                        throw    [8,2]
+               sequence    [5,2]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+            if    [4,3]
+               condition    [5,0]
+               sequence    [5,1]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                  reply    [6,1]
+         elseif    [3,2]
+            condition    [4,0]
+            sequence    [4,1]
+               sequence    [5,0]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               sequence    [5,1]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               if    [5,2]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,2]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              invoke    [10,1]
+                              throw    [10,2]
+               sequence    [5,3]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               sequence    [5,4]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               if    [5,5]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     reply    [7,1]
+         elseif    [3,3]
+            condition    [4,0]
+            sequence    [4,1]
+               sequence    [5,0]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                     copy    [7,2]
+                        from    [8,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               if    [5,1]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     reply    [7,1]
+         elseif    [3,4]
+            condition    [4,0]
+            sequence    [4,1]
+               sequence    [5,0]
+                  sequence    [6,0]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                        copy    [8,2]
+                           from    [9,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              throw    [10,1]
+                     assign    [7,2]
+                        copy    [8,0]
+                           from    [9,0]
+                           to    [9,1]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,2]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              invoke    [10,1]
+                              throw    [10,2]
+                  sequence    [6,2]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,2]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              invoke    [10,1]
+                              throw    [10,2]
+                  if    [6,3]
+                     condition    [7,0]
+                     sequence    [7,1]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                              to    [10,1]
+                        invoke    [8,1]
+                           catch    [9,0]
+                              sequence    [10,0]
+                                 assign    [11,0]
+                                    copy    [12,0]
+                                       from    [13,0]
+                                          literal    [14,0]
+                                       to    [13,1]
+                                    copy    [12,1]
+                                       from    [13,0]
+                                          literal    [14,0]
+                                       to    [13,1]
+                                    copy    [12,2]
+                                       from    [13,0]
+                                          literal    [14,0]
+                                       to    [13,1]
+                                 invoke    [11,1]
+                                 throw    [11,2]
+                     else    [7,2]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                              catch    [10,0]
+                                 sequence    [11,0]
+                                    assign    [12,0]
+                                       copy    [13,0]
+                                          from    [14,0]
+                                             literal    [15,0]
+                                          to    [14,1]
+                                       copy    [13,1]
+                                          from    [14,0]
+                                             literal    [15,0]
+                                          to    [14,1]
+                                       copy    [13,2]
+                                          from    [14,0]
+                                             literal    [15,0]
+                                          to    [14,1]
+                                    invoke    [12,1]
+                                    throw    [12,2]
+               if    [5,1]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     reply    [7,1]
+      if    [2,2]
+         condition    [3,0]
+         sequence    [3,1]
+            assign    [4,0]
+               copy    [5,0]
+                  from    [6,0]
+                     literal    [7,0]
+                  to    [6,1]
+               copy    [5,1]
+                  from    [6,0]
+                  to    [6,1]
+            reply    [4,1]
+============================
+
+BPEL-Tree
+ ---THE PRINTVISITOR ---
+Content of the XML-Tree
+===========================
+process    [0,0]
+   import    [1,0]
+   import    [1,1]
+   partnerLinks    [1,2]
+      partnerLink    [2,0]
+      partnerLink    [2,1]
+   variables    [1,3]
+      variable    [2,0]
+      variable    [2,1]
+      variable    [2,2]
+      variable    [2,3]
+      variable    [2,4]
+      variable    [2,5]
+      variable    [2,6]
+      variable    [2,7]
+      variable    [2,8]
+      variable    [2,9]
+      variable    [2,10]
+      variable    [2,11]
+      variable    [2,12]
+      variable    [2,13]
+      variable    [2,14]
+      variable    [2,15]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,16]
+      variable    [2,17]
+      variable    [2,18]
+      variable    [2,19]
+      variable    [2,20]
+      variable    [2,21]
+      variable    [2,22]
+      variable    [2,23]
+      variable    [2,24]
+      variable    [2,25]
+      variable    [2,26]
+      variable    [2,27]
+      variable    [2,28]
+      variable    [2,29]
+      variable    [2,30]
+      variable    [2,31]
+      variable    [2,32]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,33]
+      variable    [2,34]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,35]
+         from    [3,0]
+            literal    [4,0]
+      variable    [2,36]
+      variable    [2,37]
+      variable    [2,38]
+      variable    [2,39]
+      variable    [2,40]
+      variable    [2,41]
+      variable    [2,42]
+      variable    [2,43]
+      variable    [2,44]
+      variable    [2,45]
+      variable    [2,46]
+      variable    [2,47]
+      variable    [2,48]
+   sequence    [1,4]
+      pick    [2,0]
+         onMessage    [3,0]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,1]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,5]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,2]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,3]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+         onMessage    [3,4]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,4]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,5]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,6]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+      if    [2,1]
+         condition    [3,0]
+         sequence    [3,1]
+            sequence    [4,0]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,2]
+                     from    [7,0]
+                     to    [7,1]
+                  copy    [6,3]
+                     from    [7,0]
+                     to    [7,1]
+               invoke    [5,1]
+                  catch    [6,0]
+                     sequence    [7,0]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                        throw    [8,1]
+               assign    [5,2]
+                  copy    [6,0]
+                     from    [7,0]
+                     to    [7,1]
+            sequence    [4,1]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+               invoke    [5,1]
+                  catch    [6,0]
+                     sequence    [7,0]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,2]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                        invoke    [8,1]
+                        throw    [8,2]
+            sequence    [4,2]
+               assign    [5,0]
+                  copy    [6,0]
+                     from    [7,0]
+                        literal    [8,0]
+                     to    [7,1]
+                  copy    [6,1]
+                     from    [7,0]
+                     to    [7,1]
+               invoke    [5,1]
+                  catch    [6,0]
+                     sequence    [7,0]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,2]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                        invoke    [8,1]
+                        throw    [8,2]
+               sequence    [5,2]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+            if    [4,3]
+               condition    [5,0]
+               sequence    [5,1]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                  reply    [6,1]
+         elseif    [3,2]
+            condition    [4,0]
+            sequence    [4,1]
+               sequence    [5,0]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               sequence    [5,1]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               if    [5,2]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,2]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              invoke    [10,1]
+                              throw    [10,2]
+               sequence    [5,3]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               sequence    [5,4]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               if    [5,5]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     reply    [7,1]
+         elseif    [3,3]
+            condition    [4,0]
+            sequence    [4,1]
+               sequence    [5,0]
+                  assign    [6,0]
+                     copy    [7,0]
+                        from    [8,0]
+                           literal    [9,0]
+                        to    [8,1]
+                     copy    [7,1]
+                        from    [8,0]
+                        to    [8,1]
+                     copy    [7,2]
+                        from    [8,0]
+                        to    [8,1]
+                  invoke    [6,1]
+                     catch    [7,0]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,2]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                           throw    [9,2]
+               if    [5,1]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     reply    [7,1]
+         elseif    [3,4]
+            condition    [4,0]
+            sequence    [4,1]
+               sequence    [5,0]
+                  sequence    [6,0]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                        copy    [8,2]
+                           from    [9,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              throw    [10,1]
+                     assign    [7,2]
+                        copy    [8,0]
+                           from    [9,0]
+                           to    [9,1]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,2]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              invoke    [10,1]
+                              throw    [10,2]
+                  sequence    [6,2]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     invoke    [7,1]
+                        catch    [8,0]
+                           sequence    [9,0]
+                              assign    [10,0]
+                                 copy    [11,0]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,1]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                                 copy    [11,2]
+                                    from    [12,0]
+                                       literal    [13,0]
+                                    to    [12,1]
+                              invoke    [10,1]
+                              throw    [10,2]
+                  if    [6,3]
+                     condition    [7,0]
+                     sequence    [7,1]
+                        assign    [8,0]
+                           copy    [9,0]
+                              from    [10,0]
+                                 literal    [11,0]
+                              to    [10,1]
+                           copy    [9,1]
+                              from    [10,0]
+                              to    [10,1]
+                        invoke    [8,1]
+                           catch    [9,0]
+                              sequence    [10,0]
+                                 assign    [11,0]
+                                    copy    [12,0]
+                                       from    [13,0]
+                                          literal    [14,0]
+                                       to    [13,1]
+                                    copy    [12,1]
+                                       from    [13,0]
+                                          literal    [14,0]
+                                       to    [13,1]
+                                    copy    [12,2]
+                                       from    [13,0]
+                                          literal    [14,0]
+                                       to    [13,1]
+                                 invoke    [11,1]
+                                 throw    [11,2]
+                     else    [7,2]
+                        sequence    [8,0]
+                           assign    [9,0]
+                              copy    [10,0]
+                                 from    [11,0]
+                                    literal    [12,0]
+                                 to    [11,1]
+                              copy    [10,1]
+                                 from    [11,0]
+                                 to    [11,1]
+                           invoke    [9,1]
+                              catch    [10,0]
+                                 sequence    [11,0]
+                                    assign    [12,0]
+                                       copy    [13,0]
+                                          from    [14,0]
+                                             literal    [15,0]
+                                          to    [14,1]
+                                       copy    [13,1]
+                                          from    [14,0]
+                                             literal    [15,0]
+                                          to    [14,1]
+                                       copy    [13,2]
+                                          from    [14,0]
+                                             literal    [15,0]
+                                          to    [14,1]
+                                    invoke    [12,1]
+                                    throw    [12,2]
+               if    [5,1]
+                  condition    [6,0]
+                  sequence    [6,1]
+                     assign    [7,0]
+                        copy    [8,0]
+                           from    [9,0]
+                              literal    [10,0]
+                           to    [9,1]
+                        copy    [8,1]
+                           from    [9,0]
+                           to    [9,1]
+                     reply    [7,1]
+      if    [2,2]
+         condition    [3,0]
+         sequence    [3,1]
+            assign    [4,0]
+               copy    [5,0]
+                  from    [6,0]
+                     literal    [7,0]
+                  to    [6,1]
+               copy    [5,1]
+                  from    [6,0]
+                  to    [6,1]
+            reply    [4,1]
+============================
+
+TreeHeight (BPEL-TREE):15
+Element found: sequence
+partnerLink
+partnerLink
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+variable
+pick
+if
+if
+---
+import
+import
+partnerLinks
+variables
+sequence
+>ResultTree generated.
+TreeHeight: 15
+Relevant TreeHeight : 12
+>ResultTree prologue added.
+TopActiviyName: process
+process
+PUSH: true
+process
+PUSH: true
+e.getParent() :process
+import
+Apply Inheritance: Push:true
+Unknown Element: import
+e.getParent() :process
+import
+Apply Inheritance: Push:true
+Unknown Element: import
+Ignored: partnerLinks
+Ignored: variables
+e.getParent() :process
+sequence
+Apply Inheritance: Push:true
+e.getParent() :sequence
+pick
+Apply Inheritance: Push:true
+e.getParent() :onMessage
+sequence
+Apply Inheritance: Push:true
+e.getParent() :sequence
+assign
+Apply Inheritance: Push:true
+BA: assign
+Termination BA.
+ Activity:assign
+ StartPlaceId:r_54
+ EndPlaceId:f_54
+TName:Tseq43_0
+PrevPlacePs_seq43
+EndPlacer_54
+e.getParent() :onMessage
+sequence
+Apply Inheritance: Push:true
+e.getParent() :sequence
+assign
+Apply Inheritance: Push:true
+BA: assign
+Termination BA.
+ Activity:assign
+ StartPlaceId:r_56
+ EndPlaceId:f_56
+TName:Tseq45_0
+PrevPlacePs_seq45
+EndPlacer_56
+e.getParent() :onMessage
+sequence
+Apply Inheritance: Push:true
+e.getParent() :sequence
+assign
+Apply Inheritance: Push:true
+BA: assign
+Termination BA.
+ Activity:assign
+ StartPlaceId:r_58
+ EndPlaceId:f_58
+TName:Tseq47_0
+PrevPlacePs_seq47
+EndPlacer_58
+e.getParent() :onMessage
+sequence
+Apply Inheritance: Push:true
+e.getParent() :sequence
+assign
+Apply Inheritance: Push:true
+BA: assign
+Termination BA.
+ Activity:assign
+ StartPlaceId:r_510
+ EndPlaceId:f_510
+TName:Tseq49_0
+PrevPlacePs_seq49
+EndPlacer_510
+e.getParent() :onMessage
+sequence
+Apply Inheritance: Push:true
+e.getParent() :sequence
+assign
+Apply Inheritance: Push:true
+BA: assign
+Termination BA.
+ Activity:assign
+ StartPlaceId:r_512
+ EndPlaceId:f_512
+TName:Tseq411_0
+PrevPlacePs_seq411
+EndPlacer_512
+BlockList.size
+BlockToSkipId: 5
+BlockToSkipId: 5
+BlockToSkipId: 5
+BlockToSkipId: 5
+BlockList.size
+BlockToSkipId: 5
+BlockToSkipId: 5
+BlockToSkipId: 5
+BlockList.size
+BlockToSkipId: 5
+BlockToSkipId: 5
+BlockList.size
+BlockToSkipId: 5
+BlockList.size
+e.getParent() :sequence
+if
+Apply Inheritance: Push:true
+Unknown Element: if
+e.getParent() :sequence
+if
+Apply Inheritance: Push:true
+Unknown Element: if
+ Activity:pck20
+ StartPlaceId:Pr_pck20
+ EndPlaceId:Pf_pck20
+TName:Tseq11_0
+PrevPlacePs_seq11
+EndPlacePr_pck20
+ScopeStack before passing to EmitterPNML.
+[]
+Activity: ass54
+Activity: ass56
+Activity: ass58
+Activity: ass510
+Activity: ass512
+Translation Protocol:
+ Protocol of the BabelEngine 
+-----------------------------
+genCodeprocess   TreeDepth:0
+Parent is null.
+genCodeimport   TreeDepth:1
+genCodeimport   TreeDepth:1
+genCodesequence   TreeDepth:1
+genCodepick   TreeDepth:2
+genCodesequence   TreeDepth:4
+genCodeassign   TreeDepth:5
+genCodesequence   TreeDepth:4
+genCodeassign   TreeDepth:5
+genCodesequence   TreeDepth:4
+genCodeassign   TreeDepth:5
+genCodesequence   TreeDepth:4
+genCodeassign   TreeDepth:5
+genCodesequence   TreeDepth:4
+genCodeassign   TreeDepth:5
+genCodeif   TreeDepth:2
+genCodeif   TreeDepth:2
+

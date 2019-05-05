@@ -1,0 +1,17 @@
+<definitions targetNamespace="http://tempuri.org/services/loandefinitions"
+             xmlns:tns="http://tempuri.org/services/loandefinitions"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+
+  <message name="creditInformationMessage">
+    <part name="firstName" type="xsd:string"/>
+    <part name="name" type="xsd:string"/>
+    <part name="amount" type="xsd:int"/>
+  </message>
+
+  <message name="loanRequestErrorMessage">
+    <part name="errorCode" type="xsd:int"/>
+  </message>
+
+</definitions>

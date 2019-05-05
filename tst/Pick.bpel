@@ -1,0 +1,80 @@
+<process name="Pick"
+         targetNamespace="http://samples.otn.com"
+         suppressJoinFailure="yes"
+         xmlns:tns="http://samples.otn.com"
+         xmlns:services="http://services.otn.com"
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+
+  <!--
+    This process invokes the LoanService and then uses a BPEL <pick>
+    to receive asynchronous response or do timeout.
+    -->
+
+  <partnerLinks>
+    <partnerLink name="client"
+             partnerLinkType="tns:Pick"
+             myRole="PickProvider"
+             partnerRole="PickRequester"/>
+
+    <partnerLink name="AsyncBPELService"
+             partnerLinkType="services:AsyncBPELService"
+             myRole="AsyncBPELServiceRequester"
+             partnerRole="AsyncBPELServiceProvider"/>
+  </partnerLinks>
+
+  <variables>
+    <variable name="input" messageType="tns:PickRequestMessage"/>
+    <variable name="output" messageType="tns:PickResultMessage"/>
+
+    <variable name="request"
+               messageType="services:AsyncBPELServiceRequestMessage"/>
+    <variable name="response"
+               messageType="services:AsyncBPELServiceResultMessage"/>
+  </variables>
+
+  <sequence>
+
+    <!-- receive input from requestor -->
+    <receive name="receiveInput" partnerLink="client" portType="tns:Pick"
+            operation="initiate" variable="input" createInstance="yes"/>
+
+    <!-- initialize the input of AsyncBPELService -->
+    <assign>
+      <copy>
+        <from variable="input" part="payload"/>
+        <to variable="request" part="payload"/>
+      </copy>
+    </assign>
+
+    <!--  initiate the remote process -->
+    <invoke name="invokeAsyncService" partnerLink="AsyncBPELService"
+        portType="services:AsyncBPELService"
+        operation="initiate" inputVariable="request"/>
+
+
+    <!--  receive the result of the remote process -->
+    <pick name="receiveResult">
+       <onMessage partnerLink="AsyncBPELService"
+            portType="services:AsyncBPELServiceCallback"
+            operation="onResult" variable="response">
+         <assign>
+           <copy>
+             <from variable="response" part="payload"/>
+             <to variable="output" part="payload"/>
+           </copy>
+         </assign>
+       </onMessage>
+       <onAlarm for="PT15S">
+         <empty/>
+       </onAlarm>
+    </pick>
+
+    <!-- respond output to requestor -->
+    <invoke name="replyOutput" partnerLink="client"
+            portType="tns:PickCallback"
+            operation="onResult" inputVariable="output"/>
+
+  </sequence>
+
+</process>
+

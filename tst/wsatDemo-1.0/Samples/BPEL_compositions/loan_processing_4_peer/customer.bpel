@@ -1,0 +1,38 @@
+<process name="customer" 
+         targetNamespace="http://acme.com/loanassessor"
+         suppressJoinFailure="yes"
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:lns="http://loans.org/wsdl/loan-approval"
+         xmlns:loandef="http://tempuri.org/services/loandefinitions" 
+         xmlns:asns="http://tempuri.org/services/loanassessor"
+         xmlns:apns="http://tempuri.org/services/loanapprover">
+
+  <variables>
+    <variable name="request" 
+               messageType="loandef:creditInformationMessage"/>
+    <variable name="approvalInfo" 
+               messageType="apns:approvalMessage"/>
+    <variable name="error" 
+               messageType="loandef:loanRequestErrorMessage"/>
+  </variables>
+
+  <partners>
+    <partner name="approver" 
+             serviceLinkType="lns:loanApprovalLinkType"
+             partnerRole="approver"/>
+  </partners>
+
+  <faultHandlers>
+    <catch faultName="lns:loanProcessFault" 
+           faultVariable="error">
+    </catch>
+  </faultHandlers>
+  
+  <invoke name="invokeapprover" 
+		partner="approver" portType="apns:loanApprovalPT" 
+		operation="approve" 
+		inputVariable="request" 
+		outputVariable="approvalInfo">
+  </invoke>
+
+</process>

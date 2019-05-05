@@ -1,0 +1,10 @@
+This directory contains 3 examples where one and only one
+realizability condition is violated.
+
+autoerr.spec		autonomous property is violated
+joinerr.spec		lossless join property is violated
+comperr.spec		synchronous compatible property is violated
+
+1. to run
+
+	java wsat -FSA autoerr.spec -a

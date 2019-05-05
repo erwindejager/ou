@@ -1,0 +1,127 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `HandleRequest.bpel'
+------------------------------------------------------------------------------
+HandleRequest.bpel:228 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:274 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:322 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:361 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:402 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:467 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:512 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:552 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel:612 - [N00121]
+<throw> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+HandleRequest.bpel - [N00120]
+FTC handlers of <scope> activity are not modeled
+
+HandleRequest.bpel - [N00121]
+<compensate> activity is modeled by <empty> activity
+
+98 activities (61 basic, 37 structured, 0 scopes) + 30 implicit activities
+0 handlers (0 FH, 0 TH, 0 CH, 0 EH) + 28 implicit handlers
+0 links, 27 variables
+
+[SYNTAX ANALYSIS] No syntax errors found.
+[STATIC ANALYSIS] No errors found checking 51 statics analysis requirements.
+[OTHER ANALYSIS]  No other errors found.
+------------------------------------------------------------------------------
+|P|=73, |P_in|= 10, |P_out|= 10, |T|=65, |F|=156
+Error: HandleRequest_ch.dot: syntax error in line 3 near 'width'
+==============================================================================
+

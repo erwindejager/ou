@@ -1,0 +1,103 @@
+digraph N {
+ graph [fontname="Helvetica" nodesep=0.3 ranksep="0.2 equally" fontsize=10 label="Petri net generated from pick.bpel"]
+ node [fontname="Helvetica" fontsize=8  width=".3" height=".3" label="" style=filled fillcolor=white]
+ edge [fontname="Helvetica" fontsize=8 color=white arrowhead=none weight="20.0"]
+
+
+ // places
+ node [shape=circle];
+ p11  	[fillcolor=yellow]
+ p11_l	[shape=none];
+ p11 -> p11_l [taillabel="PickProvider.PickRequester.onResult"]
+ p12  	[fillcolor=yellow]
+ p12_l	[shape=none];
+ p12 -> p12_l [taillabel="AsyncBPELServiceRequester.AsyncBPELServiceProvider.initiate"]
+ p1  	[fillcolor=gray]
+ p1_l	[shape=none];
+ p1_l -> p1 [headlabel="p1"]
+ p2  	[]
+ p2_l	[shape=none];
+ p2_l -> p2 [headlabel="p2"]
+ p3  	[]
+ p3_l	[shape=none];
+ p3_l -> p3 [headlabel="p3"]
+ p4  	[]
+ p4_l	[shape=none];
+ p4_l -> p4 [headlabel="p4"]
+ p5  	[]
+ p5_l	[shape=none];
+ p5_l -> p5 [headlabel="p5"]
+ p6  	[]
+ p6_l	[shape=none];
+ p6_l -> p6 [headlabel="p6"]
+ p9  	[fillcolor=orange]
+ p9_l	[shape=none];
+ p9_l -> p9 [headlabel="PickRequester.PickProvider.initiate"]
+ p10  	[fillcolor=orange]
+ p10_l	[shape=none];
+ p10_l -> p10 [headlabel="AsyncBPELServiceProvider.AsyncBPELServiceRequester.onResult"]
+ p7  	[fillcolor=black peripheries=2 height=".2" width=".2" ]
+ p7_l	[shape=none];
+ p7_l -> p7 [headlabel="p7"]
+ p8  	[]
+ p8_l	[shape=none];
+ p8_l -> p8 [headlabel="p8"]
+
+ // transitions
+ node [shape=box]
+ t1  	[fillcolor=yellow label="invk"]
+ t1_l	[shape=none];
+ t1_l -> t1 [headlabel="t1"]
+ t2  	[label="on\nalarm" fillcolor=azure2]
+ t2_l	[shape=none];
+ t2_l -> t2 [headlabel="t2"]
+ t3  	[fillcolor=yellow label="invk"]
+ t3_l	[shape=none];
+ t3_l -> t3 [headlabel="t3"]
+ t4  	[label="asgn" fillcolor=gray]
+ t4_l	[shape=none];
+ t4_l -> t4 [headlabel="t4"]
+ t5  	[fillcolor=orange label="on\nmsg"]
+ t5_l	[shape=none];
+ t5_l -> t5 [headlabel="t5"]
+ t6  	[label="empty" fillcolor=gray]
+ t6_l	[shape=none];
+ t6_l -> t6 [headlabel="t6"]
+ t7  	[fillcolor=orange label="recv"]
+ t7_l	[shape=none];
+ t7_l -> t7 [headlabel="t7"]
+ t8  	[label="asgn" fillcolor=gray]
+ t8_l	[shape=none];
+ t8_l -> t8 [headlabel="t8"]
+
+ // cluster the inner of the net
+ subgraph cluster1
+ {
+  t1 t1_l t2 t2_l t3 t3_l t4 t4_l t5 t5_l t6 t6_l t7 t7_l t8 t8_l
+  p11 p11_l p12 p12_l p1 p1_l p2 p2_l p3 p3_l p4 p4_l p5 p5_l p6 p6_l p9 p9_l p10 p10_l p7 p8 p8_l
+  label="" style=dashed
+ }
+
+ // arcs
+ edge [fontname="Helvetica" fontsize=8 arrowhead=normal color=black]
+ p9 -> t7	[]
+ p4 -> t8	[weight=10000.0]
+ t2 -> p8	[weight=10000.0]
+ t6 -> p3	[weight=10000.0]
+ p8 -> t6	[weight=10000.0]
+ p10 -> t5	[]
+ p5 -> t1	[weight=10000.0]
+ p2 -> t2	[weight=10000.0]
+ t3 -> p1	[weight=10000.0]
+ p3 -> t3	[weight=10000.0]
+ t5 -> p4	[weight=10000.0]
+ t1 -> p12	[]
+ t8 -> p3	[weight=10000.0]
+ t3 -> p11	[]
+ p7 -> t7	[weight=10000.0]
+ t7 -> p6	[weight=10000.0]
+ t1 -> p2	[weight=10000.0]
+ p6 -> t4	[weight=10000.0]
+ p2 -> t5	[weight=10000.0]
+ t4 -> p5	[weight=10000.0]
+}

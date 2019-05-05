@@ -1,0 +1,69 @@
+PLACES:
+ID	TYPE		ROLES
+p1	internal	Flow.21.final
+			Flow.21.internal.final
+			Flow.23.final
+			Flow.23.internal.final
+out.LoanServiceRequester.LoanServiceProvider.initiate	internal	Flow.out.LoanServiceRequester.LoanServiceProvider.initiate
+p2	internal	Flow.24.initial
+			Flow.24.internal.initial
+			Flow.25.initial
+			Flow.25.internal.initial
+p3	internal	Flow.27.final
+			Flow.27.internal.final
+			Flow.31.initial
+			Flow.31.internal.initial
+p4	internal	Flow.21.initial
+			Flow.21.internal.initial
+			Flow.22.initial
+			Flow.22.internal.initial
+p5	internal	Flow.1.internal.final
+			Flow.14.final
+			Flow.14.internal.final
+			Flow.31.final
+			Flow.31.internal.final
+p6	internal	Flow.1.internal.initial
+			Flow.14.initial
+			Flow.14.internal.initial
+			Flow.15.initial
+			Flow.15.internal.initial
+out.FlowProvider.FlowRequester.onResult	internal	Flow.out.FlowProvider.FlowRequester.onResult
+p7	internal	Flow.25.final
+			Flow.25.internal.final
+			Flow.26.initial
+			Flow.26.internal.initial
+in.FlowRequester.FlowProvider.initiate	internal	Flow.in.FlowRequester.FlowProvider.initiate
+p8	internal	Flow.16.final
+			Flow.16.internal.final
+			Flow.20.initial
+			Flow.20.internal.initial
+p9	internal	Flow.24.final
+			Flow.24.internal.final
+			Flow.26.final
+			Flow.26.internal.final
+p10	internal	Flow.20.final
+			Flow.20.internal.final
+			Flow.27.initial
+			Flow.27.internal.initial
+p11	internal	Flow.22.final
+			Flow.22.internal.final
+			Flow.23.initial
+			Flow.23.internal.initial
+p12	internal	Flow.15.final
+			Flow.15.internal.final
+			Flow.16.initial
+			Flow.16.internal.initial
+in.LoanServiceProvider.LoanServiceRequester.onResult	internal	Flow.in.LoanServiceProvider.LoanServiceRequester.onResult
+
+TRANSITIONS:
+ID	ROLES
+t1	Flow.26.internal.receive
+t2	Flow.31.internal.invoke
+t3	Flow.22.internal.invoke
+t4	Flow.15.internal.receive
+t5	Flow.20.internal.split
+t6	Flow.23.internal.receive
+t7	Flow.25.internal.invoke
+t8	Flow.16.internal.assign
+t9	Flow.27.internal.assign
+t10	Flow.20.internal.join

@@ -1,0 +1,41 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `GitTestArtifacts.wsdl'
+------------------------------------------------------------------------------
+GitTestArtifacts.wsdl:22 - [SYNTAX]
+syntax error
+
+GitTestArtifacts.wsdl:99 - [W00123]
+syntax error in WSDL file
+
+0 imports, 0 types, 0 bindings, 0 properties
+0 messages, 0 portTypes, 0 operations, 0 partnerLinkTypes
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `GitTest.bpel'
+------------------------------------------------------------------------------
+GitTest.bpel:20 - [W00130]
+partnerLinkType `GitTest' was not defined in WSDL file
+
+GitTest.bpel:52 - [SA00005]
+portType `GitTest' referenced in <receive> does not match the portType specified by the combination of partnerLink and role in the WSDL description
+
+GitTest.bpel:52 - [SA00058]
+<receive> is using a variable of a wrong messageType
+
+GitTest.bpel:68 - [SA00005]
+portType `GitTest' referenced in <reply> does not match the portType specified by the combination of partnerLink and role in the WSDL description
+
+GitTest.bpel:68 - [SA00058]
+<reply> is using a variable of a wrong messageType
+
+------------------------------------------------------------------------------
+4 activities (3 basic, 1 structured, 0 scopes) + 3 implicit activities
+0 handlers (0 FH, 0 TH, 0 CH, 0 EH) + 1 implicit handlers
+0 links, 2 variables
+
+[SYNTAX ANALYSIS] No syntax errors found.
+[STATIC ANALYSIS] Found 4 errors using static analysis. A WS-BPEL engine must reject this process.
+[OTHER ANALYSIS]  No other errors found.
+==============================================================================
+

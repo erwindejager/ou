@@ -1,0 +1,25 @@
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `HandleRequestArtifacts.wsdl'
+------------------------------------------------------------------------------
+HandleRequestArtifacts.wsdl:11 - [W00127]
+<portType> `HandleRequestWS' referenced in <role> not defined before
+
+HandleRequestArtifacts.wsdl:14 - [SYNTAX]
+syntax error
+
+HandleRequestArtifacts.wsdl:13 - [W00123]
+syntax error in WSDL file
+
+0 imports, 0 types, 0 bindings, 0 properties
+0 messages, 0 portTypes, 0 operations, 1 partnerLinkTypes
+
+==============================================================================
+GNU BPEL2oWFN 2.0.3 reading from file `HandleRequest.bpel'
+------------------------------------------------------------------------------
+HandleRequest.bpel:4 - [SYNTAX]
+syntax error, unexpected X_NAME, expecting K_PROCESS
+
+HandleRequest.bpel:3 - [C00104]
+cannot proceed due to syntax errors
+

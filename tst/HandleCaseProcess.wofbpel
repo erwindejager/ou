@@ -1,0 +1,4 @@
+<wofbpel version="1.0.2" status="unreleased"><net file="HandleCaseProcessBPEL2PNML.xml"><behavior noftransitions="0"></behavior></net></wofbpel>+b 
+<wofbpel version="1.0.2" status="unreleased"><net file="HandleCaseProcessBPEL2PNML.xml"><action name="exit"></action></net></wofbpel>+l 
+<wofbpel version="1.0.2" status="unreleased"><net file="HandleCaseProcessBPEL2PNML.xml"></net></wofbpel>+m 
+<wofbpel version="1.0.2" status="unreleased"><net file="HandleCaseProcessBPEL2PNML.xml"><structure noftransitions="0"></structure></net></wofbpel>+s 

@@ -1,0 +1,5 @@
+fsp2lotos.exe -version
+1.2
+
+fsp2lotos.exe HandleRequest.lts
+c:\cadp\bin.win32\fsp2lotos.exe HandleRequest.lts

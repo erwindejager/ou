@@ -1,0 +1,152 @@
+PLACES:
+ID	TYPE		ROLES
+p1	internal	1.internal.initial
+p2	internal	1.internal.fault_in
+p3	internal	1.internal.exit
+p4	internal	1.internal.Active
+p5	internal	1.internal.!Active
+p6	internal	1.internal.Exiting
+p7	internal	1.internal.!Exiting
+p8	internal	1.internal.ch_fault_in
+p9	internal	11.internal.receive.buffer
+p10	internal	1.internal.deny_ch_fault
+p11	internal	11.internal.receive.received
+p12	internal	1.internal.accepted_ch_fault
+p13	internal	1.internal.take_ch_fault
+p14	internal	11.internal.faulted
+p15	internal	1.faultHandlers.branch
+p16	internal	1.faultHandlers.inner_finalized
+			22.final
+			22.internal.final
+			20.final
+			20.internal.final
+p17	internal	20.internal.faulted
+p18	internal	19.internal.reply.sent
+p19	internal	1.faultHandlers.inner_stopped
+			22.stopped
+			22.internal.stopped
+			21.stopped
+			21.internal.stopped
+			20.stopped
+			20.internal.stopped
+p20	internal	12.internal.copy.1.final
+p21	internal	12.internal.copy.1.p4
+p22	internal	19.internal.faulted
+p23	internal	12.internal.copy.2.p4
+p24	internal	1.faultHandlers.fault_up
+p25	internal	12.internal.copy.2.running
+p26	internal	1.internal.inner_stop
+			10.stop
+			10.internal.stop
+			11.stop
+			11.internal.stop
+			12.stop
+			12.internal.stop
+			19.stop
+			19.internal.stop
+			1.faultHandlers.stop
+			22.stop
+			22.internal.stop
+			21.stop
+			21.internal.stop
+			20.stop
+			20.internal.stop
+p27	internal	1.internal.fh_fault
+			1.faultHandlers.fault
+p28	internal	21.final
+			21.internal.final
+			20.initial
+			20.internal.initial
+p29	internal	21.internal.compensating
+p30	internal	19.internal.reply.buffer
+p31	internal	1.internal.eha_initial
+			10.initial
+			10.internal.initial
+			11.initial
+			11.internal.initial
+p32	internal	11.final
+			11.internal.final
+			12.initial
+			12.internal.initial
+p33	internal	12.final
+			12.internal.final
+			12.internal.copy.2.final
+			19.initial
+			19.internal.initial
+p34	internal	1.internal.eha_final
+			10.final
+			10.internal.final
+			19.final
+			19.internal.final
+p35	internal	1.internal.inner_stopped
+			10.stopped
+			10.internal.stopped
+			11.stopped
+			11.internal.stopped
+			12.stopped
+			12.internal.stopped
+			19.stopped
+			19.internal.stopped
+			1.faultHandlers.initial
+p36	internal	1.internal.final
+			1.faultHandlers.final
+			1.faultHandlers.stopped
+p37	internal	22.initial
+			22.internal.initial
+			21.initial
+			21.internal.initial
+in.client.process	input   	in.client.process
+out.client.process	output  	out.client.process
+
+TRANSITIONS:
+ID	ROLES
+t1	1.internal.initialize
+t2	1.internal.finalize
+t3	1.internal.ft
+t4	1.internal.ignore_fault
+t5	1.internal.exit_process
+t6	1.internal.exit_fh
+t7	1.internal.ignore_exit
+t8	1.internal.process_exited
+t9	1.internal.forced_exit
+t10	1.internal.handle_ch_fault
+t11	1.internal.pass_ch_fault
+t12	1.internal.block_ch_fault
+t13	11.internal.receive.receive
+t14	11.internal.receive.write_variable
+t15	11.internal.receive.finish
+t16	11.internal.stopped.receive.buffer
+t17	11.internal.stopped.receive.received
+t18	12.internal.copy.2.t2
+t19	19.internal.reply.finish
+t20	19.internal.stopped.reply.sent
+t21	12.internal.stopped.p4at1
+t22	19.internal.stopped.final
+t23	11.internal.stopped.final
+t24	19.internal.reply.send
+t25	11.internal.stopped.faulted
+t26	12.internal.copy.2.t1
+t27	19.internal.stopped.reply.buffer
+t28	19.internal.stopped.initial
+t29	12.internal.stopped.initial
+t30	19.internal.reply.read_variable
+t31	19.internal.stopped.faulted
+t32	11.internal.stopped.initial
+t33	12.internal.stopped.final
+t34	12.internal.copy.1.t2
+t35	12.internal.stopped.p4at2
+t36	1.faultHandlers.stopped_fh
+t37	1.faultHandlers.ch_evaluate
+t38	1.faultHandlers.finish_fh
+t39	21.internal.stopped.initial
+t40	20.internal.stopped.faulted
+t41	1.faultHandlers.catchAll
+t42	21.internal.finish
+t43	20.internal.rethrowFault.rethrow
+t44	20.internal.stopped.initial
+t45	1.faultHandlers.stop_initial
+t46	1.faultHandlers.std_evaluate
+t47	21.internal.stopped.final
+t48	1.faultHandlers.stop_branching
+t49	21.internal.call_ch
+t50	20.internal.final_rethrowFault.rethrow

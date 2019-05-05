@@ -1,0 +1,96 @@
+{ Petri net created by GNU BPEL2oWFN 2.0.3 reading flow.bpel }
+
+PLACE
+  p1,
+  out.LoanServiceRequester.LoanServiceProvider.initiate,
+  p2,
+  p3,
+  p4,
+  p5,
+  p6,
+  out.FlowProvider.FlowRequester.onResult,
+  p7,
+  in.FlowRequester.FlowProvider.initiate,
+  p8,
+  p9,
+  p10,
+  p11,
+  p12,
+  in.LoanServiceProvider.LoanServiceRequester.onResult
+;
+
+
+MARKING
+  p6:	1
+;
+
+
+TRANSITION t1
+CONSUME
+  p7:	1,
+  in.LoanServiceProvider.LoanServiceRequester.onResult:	1;
+PRODUCE
+  p9:	1;
+
+TRANSITION t2
+CONSUME
+  p3:	1;
+PRODUCE
+  p5:	1,
+  out.FlowProvider.FlowRequester.onResult:	1;
+
+TRANSITION t3
+CONSUME
+  p4:	1;
+PRODUCE
+  out.LoanServiceRequester.LoanServiceProvider.initiate:	1,
+  p11:	1;
+
+TRANSITION t4
+CONSUME
+  p6:	1,
+  in.FlowRequester.FlowProvider.initiate:	1;
+PRODUCE
+  p12:	1;
+
+TRANSITION t5
+CONSUME
+  p8:	1;
+PRODUCE
+  p2:	1,
+  p4:	1;
+
+TRANSITION t6
+CONSUME
+  p11:	1,
+  in.LoanServiceProvider.LoanServiceRequester.onResult:	1;
+PRODUCE
+  p1:	1;
+
+TRANSITION t7
+CONSUME
+  p2:	1;
+PRODUCE
+  out.LoanServiceRequester.LoanServiceProvider.initiate:	1,
+  p7:	1;
+
+TRANSITION t8
+CONSUME
+  p12:	1;
+PRODUCE
+  p8:	1;
+
+TRANSITION t9
+CONSUME
+  p10:	1;
+PRODUCE
+  p3:	1;
+
+TRANSITION t10
+CONSUME
+  p1:	1,
+  p9:	1;
+PRODUCE
+  p10:	1;
+
+{ END OF FILE }

@@ -1,0 +1,829 @@
+digraph N {
+ graph [fontname="Helvetica" nodesep=0.3 ranksep="0.2 equally" fontsize=10 label="Petri net generated from HandleCaseProcess.bpel"]
+ node [fontname="Helvetica" fontsize=8  width=".3" height=".3" label="" style=filled fillcolor=white]
+ edge [fontname="Helvetica" fontsize=8 color=white arrowhead=none weight="20.0"]
+
+
+ // places
+ node [shape=circle];
+ p1  	[]
+ p1_l	[shape=none];
+ p1_l -> p1 [headlabel="p1"]
+ p2  	[]
+ p2_l	[shape=none];
+ p2_l -> p2 [headlabel="p2"]
+ p3  	[]
+ p3_l	[shape=none];
+ p3_l -> p3 [headlabel="p3"]
+ p4  	[]
+ p4_l	[shape=none];
+ p4_l -> p4 [headlabel="p4"]
+ p5  	[]
+ p5_l	[shape=none];
+ p5_l -> p5 [headlabel="p5"]
+ p6  	[]
+ p6_l	[shape=none];
+ p6_l -> p6 [headlabel="p6"]
+ p7  	[]
+ p7_l	[shape=none];
+ p7_l -> p7 [headlabel="p7"]
+ p8  	[]
+ p8_l	[shape=none];
+ p8_l -> p8 [headlabel="p8"]
+ p9  	[]
+ p9_l	[shape=none];
+ p9_l -> p9 [headlabel="p9"]
+ p10  	[]
+ p10_l	[shape=none];
+ p10_l -> p10 [headlabel="p10"]
+ p11  	[]
+ p11_l	[shape=none];
+ p11_l -> p11 [headlabel="p11"]
+ p12  	[]
+ p12_l	[shape=none];
+ p12_l -> p12 [headlabel="p12"]
+ p13  	[]
+ p13_l	[shape=none];
+ p13_l -> p13 [headlabel="p13"]
+ p14  	[]
+ p14_l	[shape=none];
+ p14_l -> p14 [headlabel="p14"]
+ p15  	[]
+ p15_l	[shape=none];
+ p15_l -> p15 [headlabel="p15"]
+ p16  	[]
+ p16_l	[shape=none];
+ p16_l -> p16 [headlabel="p16"]
+ p17  	[]
+ p17_l	[shape=none];
+ p17_l -> p17 [headlabel="p17"]
+ p18  	[]
+ p18_l	[shape=none];
+ p18_l -> p18 [headlabel="p18"]
+ p19  	[]
+ p19_l	[shape=none];
+ p19_l -> p19 [headlabel="p19"]
+ p20  	[]
+ p20_l	[shape=none];
+ p20_l -> p20 [headlabel="p20"]
+ p21  	[]
+ p21_l	[shape=none];
+ p21_l -> p21 [headlabel="p21"]
+ p22  	[]
+ p22_l	[shape=none];
+ p22_l -> p22 [headlabel="p22"]
+ p23  	[]
+ p23_l	[shape=none];
+ p23_l -> p23 [headlabel="p23"]
+ p24  	[]
+ p24_l	[shape=none];
+ p24_l -> p24 [headlabel="p24"]
+ p25  	[]
+ p25_l	[shape=none];
+ p25_l -> p25 [headlabel="p25"]
+ p26  	[]
+ p26_l	[shape=none];
+ p26_l -> p26 [headlabel="p26"]
+ p27  	[]
+ p27_l	[shape=none];
+ p27_l -> p27 [headlabel="p27"]
+ p28  	[]
+ p28_l	[shape=none];
+ p28_l -> p28 [headlabel="p28"]
+ p29  	[]
+ p29_l	[shape=none];
+ p29_l -> p29 [headlabel="p29"]
+ p30  	[]
+ p30_l	[shape=none];
+ p30_l -> p30 [headlabel="p30"]
+ p31  	[]
+ p31_l	[shape=none];
+ p31_l -> p31 [headlabel="p31"]
+ p32  	[]
+ p32_l	[shape=none];
+ p32_l -> p32 [headlabel="p32"]
+ p33  	[]
+ p33_l	[shape=none];
+ p33_l -> p33 [headlabel="p33"]
+ p34  	[]
+ p34_l	[shape=none];
+ p34_l -> p34 [headlabel="p34"]
+ p35  	[]
+ p35_l	[shape=none];
+ p35_l -> p35 [headlabel="p35"]
+ p36  	[]
+ p36_l	[shape=none];
+ p36_l -> p36 [headlabel="p36"]
+ p37  	[]
+ p37_l	[shape=none];
+ p37_l -> p37 [headlabel="p37"]
+ p38  	[]
+ p38_l	[shape=none];
+ p38_l -> p38 [headlabel="p38"]
+ p39  	[]
+ p39_l	[shape=none];
+ p39_l -> p39 [headlabel="p39"]
+ p40  	[]
+ p40_l	[shape=none];
+ p40_l -> p40 [headlabel="p40"]
+ p41  	[]
+ p41_l	[shape=none];
+ p41_l -> p41 [headlabel="p41"]
+ p42  	[]
+ p42_l	[shape=none];
+ p42_l -> p42 [headlabel="p42"]
+ p43  	[]
+ p43_l	[shape=none];
+ p43_l -> p43 [headlabel="p43"]
+ p44  	[]
+ p44_l	[shape=none];
+ p44_l -> p44 [headlabel="p44"]
+ p45  	[]
+ p45_l	[shape=none];
+ p45_l -> p45 [headlabel="p45"]
+ p46  	[]
+ p46_l	[shape=none];
+ p46_l -> p46 [headlabel="p46"]
+ p47  	[]
+ p47_l	[shape=none];
+ p47_l -> p47 [headlabel="p47"]
+ p48  	[]
+ p48_l	[shape=none];
+ p48_l -> p48 [headlabel="p48"]
+ p49  	[]
+ p49_l	[shape=none];
+ p49_l -> p49 [headlabel="p49"]
+ p50  	[]
+ p50_l	[shape=none];
+ p50_l -> p50 [headlabel="p50"]
+ p51  	[]
+ p51_l	[shape=none];
+ p51_l -> p51 [headlabel="p51"]
+ p52  	[]
+ p52_l	[shape=none];
+ p52_l -> p52 [headlabel="p52"]
+ p53  	[]
+ p53_l	[shape=none];
+ p53_l -> p53 [headlabel="p53"]
+ p54  	[]
+ p54_l	[shape=none];
+ p54_l -> p54 [headlabel="p54"]
+ p55  	[]
+ p55_l	[shape=none];
+ p55_l -> p55 [headlabel="p55"]
+ p56  	[]
+ p56_l	[shape=none];
+ p56_l -> p56 [headlabel="p56"]
+ p57  	[]
+ p57_l	[shape=none];
+ p57_l -> p57 [headlabel="p57"]
+ p73  	[fillcolor=orange]
+ p73_l	[shape=none];
+ p73_l -> p73 [headlabel="HandleCasePL.createPayment"]
+ p74  	[fillcolor=orange]
+ p74_l	[shape=none];
+ p74_l -> p74 [headlabel="HandleCasePL.createObjectionCase"]
+ p75  	[fillcolor=orange]
+ p75_l	[shape=none];
+ p75_l -> p75 [headlabel="HandleCasePL.endCase"]
+ p58  	[fillcolor=gray]
+ p58_l	[shape=none];
+ p58_l -> p58 [headlabel="p58"]
+ p59  	[]
+ p59_l	[shape=none];
+ p59_l -> p59 [headlabel="p59"]
+ p60  	[]
+ p60_l	[shape=none];
+ p60_l -> p60 [headlabel="p60"]
+ p61  	[]
+ p61_l	[shape=none];
+ p61_l -> p61 [headlabel="p61"]
+ p62  	[]
+ p62_l	[shape=none];
+ p62_l -> p62 [headlabel="p62"]
+ p63  	[]
+ p63_l	[shape=none];
+ p63_l -> p63 [headlabel="p63"]
+ p64  	[]
+ p64_l	[shape=none];
+ p64_l -> p64 [headlabel="p64"]
+ p65  	[fillcolor=black peripheries=2 height=".2" width=".2" ]
+ p65_l	[shape=none];
+ p65_l -> p65 [headlabel="p65"]
+ p66  	[]
+ p66_l	[shape=none];
+ p66_l -> p66 [headlabel="p66"]
+ p67  	[]
+ p67_l	[shape=none];
+ p67_l -> p67 [headlabel="p67"]
+ p68  	[]
+ p68_l	[shape=none];
+ p68_l -> p68 [headlabel="p68"]
+ p69  	[]
+ p69_l	[shape=none];
+ p69_l -> p69 [headlabel="p69"]
+ p70  	[]
+ p70_l	[shape=none];
+ p70_l -> p70 [headlabel="p70"]
+ p71  	[]
+ p71_l	[shape=none];
+ p71_l -> p71 [headlabel="p71"]
+ p76  	[fillcolor=orange]
+ p76_l	[shape=none];
+ p76_l -> p76 [headlabel="HandleCasePL.checkProcessability"]
+ p72  	[]
+ p72_l	[shape=none];
+ p72_l -> p72 [headlabel="p72"]
+ p93  	[fillcolor=yellow]
+ p93_l	[shape=none];
+ p93 -> p93_l [taillabel="HandleCasePL.checkProcessability"]
+ p94  	[fillcolor=yellow]
+ p94_l	[shape=none];
+ p94 -> p94_l [taillabel="HandleCasePL.registerCase"]
+ p77  	[fillcolor=orange]
+ p77_l	[shape=none];
+ p77_l -> p77 [headlabel="HandleCasePL.registerObjectionCase"]
+ p95  	[fillcolor=yellow]
+ p95_l	[shape=none];
+ p95 -> p95_l [taillabel="HandleCasePL.registerObjectionCase"]
+ p96  	[fillcolor=yellow]
+ p96_l	[shape=none];
+ p96 -> p96_l [taillabel="HandleCasePL.validateCase"]
+ p97  	[fillcolor=yellow]
+ p97_l	[shape=none];
+ p97 -> p97_l [taillabel="HandleCasePL.sendLetter"]
+ p98  	[fillcolor=yellow]
+ p98_l	[shape=none];
+ p98 -> p98_l [taillabel="HandleCasePL.createObjectionCase"]
+ p78  	[fillcolor=orange]
+ p78_l	[shape=none];
+ p78_l -> p78 [headlabel="HandleCasePL.stopCase"]
+ p99  	[fillcolor=yellow]
+ p99_l	[shape=none];
+ p99 -> p99_l [taillabel="client.stopCase"]
+ p100  	[fillcolor=yellow]
+ p100_l	[shape=none];
+ p100 -> p100_l [taillabel="HandleCasePL.validateObjectionCase"]
+ p101  	[fillcolor=yellow]
+ p101_l	[shape=none];
+ p101 -> p101_l [taillabel="HandleCasePL.createCase"]
+ p102  	[fillcolor=yellow]
+ p102_l	[shape=none];
+ p102 -> p102_l [taillabel="HandleCasePL.createExceptionTask"]
+ p103  	[fillcolor=yellow]
+ p103_l	[shape=none];
+ p103 -> p103_l [taillabel="client.handleCase"]
+ p79  	[fillcolor=orange]
+ p79_l	[shape=none];
+ p79_l -> p79 [headlabel="client.stopCase"]
+ p80  	[fillcolor=orange]
+ p80_l	[shape=none];
+ p80_l -> p80 [headlabel="client.handleObjection"]
+ p104  	[fillcolor=yellow]
+ p104_l	[shape=none];
+ p104 -> p104_l [taillabel="HandleCasePL.createObjectionTask"]
+ p81  	[fillcolor=orange]
+ p81_l	[shape=none];
+ p81_l -> p81 [headlabel="HandleCasePL.validateCase"]
+ p105  	[fillcolor=yellow]
+ p105_l	[shape=none];
+ p105 -> p105_l [taillabel="client.handleParkedCase"]
+ p82  	[fillcolor=orange]
+ p82_l	[shape=none];
+ p82_l -> p82 [headlabel="HandleCasePL.sendLetter"]
+ p83  	[fillcolor=orange]
+ p83_l	[shape=none];
+ p83_l -> p83 [headlabel="HandleCasePL.validateObjectionCase"]
+ p84  	[fillcolor=orange]
+ p84_l	[shape=none];
+ p84_l -> p84 [headlabel="client.handleCase"]
+ p106  	[fillcolor=yellow]
+ p106_l	[shape=none];
+ p106 -> p106_l [taillabel="HandleCasePL.parkCase"]
+ p107  	[fillcolor=yellow]
+ p107_l	[shape=none];
+ p107 -> p107_l [taillabel="HandleCasePL.getCalculation"]
+ p108  	[fillcolor=yellow]
+ p108_l	[shape=none];
+ p108 -> p108_l [taillabel="HandleCasePL.endCase"]
+ p85  	[fillcolor=orange]
+ p85_l	[shape=none];
+ p85_l -> p85 [headlabel="HandleCasePL.registerCase"]
+ p109  	[fillcolor=yellow]
+ p109_l	[shape=none];
+ p109 -> p109_l [taillabel="client.reinjectCase"]
+ p110  	[fillcolor=yellow]
+ p110_l	[shape=none];
+ p110 -> p110_l [taillabel="client.handleObjection"]
+ p111  	[fillcolor=yellow]
+ p111_l	[shape=none];
+ p111 -> p111_l [taillabel="HandleCasePL.createPayment"]
+ p112  	[fillcolor=yellow]
+ p112_l	[shape=none];
+ p112 -> p112_l [taillabel="HandleCasePL.stopCase"]
+ p86  	[fillcolor=orange]
+ p86_l	[shape=none];
+ p86_l -> p86 [headlabel="client.reinjectCase"]
+ p87  	[fillcolor=orange]
+ p87_l	[shape=none];
+ p87_l -> p87 [headlabel="HandleCasePL.getCalculation"]
+ p88  	[fillcolor=orange]
+ p88_l	[shape=none];
+ p88_l -> p88 [headlabel="HandleCasePL.parkCase"]
+ p89  	[fillcolor=orange]
+ p89_l	[shape=none];
+ p89_l -> p89 [headlabel="HandleCasePL.createExceptionTask"]
+ p90  	[fillcolor=orange]
+ p90_l	[shape=none];
+ p90_l -> p90 [headlabel="HandleCasePL.createObjectionTask"]
+ p91  	[fillcolor=orange]
+ p91_l	[shape=none];
+ p91_l -> p91 [headlabel="HandleCasePL.createCase"]
+ p92  	[fillcolor=orange]
+ p92_l	[shape=none];
+ p92_l -> p92 [headlabel="client.handleParkedCase"]
+
+ // transitions
+ node [shape=box]
+ t1  	[label="case" fillcolor=azure2]
+ t1_l	[shape=none];
+ t1_l -> t1 [headlabel="t1"]
+ t2  	[label="case" fillcolor=azure2]
+ t2_l	[shape=none];
+ t2_l -> t2 [headlabel="t2"]
+ t3  	[fillcolor=yellow label="invk"]
+ t3_l	[shape=none];
+ t3_l -> t3 [headlabel="t3"]
+ t4  	[fillcolor=orange label="invk"]
+ t4_l	[shape=none];
+ t4_l -> t4 [headlabel="t4"]
+ t5  	[label="case" fillcolor=azure2]
+ t5_l	[shape=none];
+ t5_l -> t5 [headlabel="t5"]
+ t6  	[fillcolor=yellow label="invk"]
+ t6_l	[shape=none];
+ t6_l -> t6 [headlabel="t6"]
+ t7  	[label="case" fillcolor=azure2]
+ t7_l	[shape=none];
+ t7_l -> t7 [headlabel="t7"]
+ t8  	[fillcolor=orange label="invk"]
+ t8_l	[shape=none];
+ t8_l -> t8 [headlabel="t8"]
+ t9  	[fillcolor=yellow label="reply"]
+ t9_l	[shape=none];
+ t9_l -> t9 [headlabel="t9"]
+ t10  	[fillcolor=orange label="invk"]
+ t10_l	[shape=none];
+ t10_l -> t10 [headlabel="t10"]
+ t11  	[label="asgn" fillcolor=gray]
+ t11_l	[shape=none];
+ t11_l -> t11 [headlabel="t11"]
+ t12  	[label="asgn" fillcolor=gray]
+ t12_l	[shape=none];
+ t12_l -> t12 [headlabel="t12"]
+ t13  	[label="case" fillcolor=azure2]
+ t13_l	[shape=none];
+ t13_l -> t13 [headlabel="t13"]
+ t14  	[label="asgn" fillcolor=gray]
+ t14_l	[shape=none];
+ t14_l -> t14 [headlabel="t14"]
+ t15  	[label="case" fillcolor=azure2]
+ t15_l	[shape=none];
+ t15_l -> t15 [headlabel="t15"]
+ t16  	[fillcolor=orange label="invk"]
+ t16_l	[shape=none];
+ t16_l -> t16 [headlabel="t16"]
+ t17  	[label="case" fillcolor=azure2]
+ t17_l	[shape=none];
+ t17_l -> t17 [headlabel="t17"]
+ t18  	[fillcolor=orange label="invk"]
+ t18_l	[shape=none];
+ t18_l -> t18 [headlabel="t18"]
+ t19  	[fillcolor=yellow label="invk"]
+ t19_l	[shape=none];
+ t19_l -> t19 [headlabel="t19"]
+ t20  	[label="case" fillcolor=azure2]
+ t20_l	[shape=none];
+ t20_l -> t20 [headlabel="t20"]
+ t21  	[label="case" fillcolor=azure2]
+ t21_l	[shape=none];
+ t21_l -> t21 [headlabel="t21"]
+ t22  	[label="case" fillcolor=azure2]
+ t22_l	[shape=none];
+ t22_l -> t22 [headlabel="t22"]
+ t23  	[label="asgn" fillcolor=gray]
+ t23_l	[shape=none];
+ t23_l -> t23 [headlabel="t23"]
+ t24  	[fillcolor=yellow label="reply"]
+ t24_l	[shape=none];
+ t24_l -> t24 [headlabel="t24"]
+ t25  	[label="case" fillcolor=azure2]
+ t25_l	[shape=none];
+ t25_l -> t25 [headlabel="t25"]
+ t26  	[label="asgn" fillcolor=gray]
+ t26_l	[shape=none];
+ t26_l -> t26 [headlabel="t26"]
+ t27  	[label="asgn" fillcolor=gray]
+ t27_l	[shape=none];
+ t27_l -> t27 [headlabel="t27"]
+ t28  	[fillcolor=orange label="invk"]
+ t28_l	[shape=none];
+ t28_l -> t28 [headlabel="t28"]
+ t29  	[label="asgn" fillcolor=gray]
+ t29_l	[shape=none];
+ t29_l -> t29 [headlabel="t29"]
+ t30  	[fillcolor=yellow label="invk"]
+ t30_l	[shape=none];
+ t30_l -> t30 [headlabel="t30"]
+ t31  	[fillcolor=orange label="invk"]
+ t31_l	[shape=none];
+ t31_l -> t31 [headlabel="t31"]
+ t32  	[label="asgn" fillcolor=gray]
+ t32_l	[shape=none];
+ t32_l -> t32 [headlabel="t32"]
+ t33  	[label="asgn" fillcolor=gray]
+ t33_l	[shape=none];
+ t33_l -> t33 [headlabel="t33"]
+ t34  	[fillcolor=orange label="invk"]
+ t34_l	[shape=none];
+ t34_l -> t34 [headlabel="t34"]
+ t35  	[label="asgn" fillcolor=gray]
+ t35_l	[shape=none];
+ t35_l -> t35 [headlabel="t35"]
+ t36  	[fillcolor=orange label="on\nmsg"]
+ t36_l	[shape=none];
+ t36_l -> t36 [headlabel="t36"]
+ t37  	[fillcolor=orange label="on\nmsg"]
+ t37_l	[shape=none];
+ t37_l -> t37 [headlabel="t37"]
+ t38  	[fillcolor=orange label="on\nmsg"]
+ t38_l	[shape=none];
+ t38_l -> t38 [headlabel="t38"]
+ t39  	[label="asgn" fillcolor=gray]
+ t39_l	[shape=none];
+ t39_l -> t39 [headlabel="t39"]
+ t40  	[fillcolor=yellow label="invk"]
+ t40_l	[shape=none];
+ t40_l -> t40 [headlabel="t40"]
+ t41  	[label="asgn" fillcolor=gray]
+ t41_l	[shape=none];
+ t41_l -> t41 [headlabel="t41"]
+ t42  	[fillcolor=orange label="on\nmsg"]
+ t42_l	[shape=none];
+ t42_l -> t42 [headlabel="t42"]
+ t43  	[fillcolor=orange label="on\nmsg"]
+ t43_l	[shape=none];
+ t43_l -> t43 [headlabel="t43"]
+ t44  	[fillcolor=yellow label="invk"]
+ t44_l	[shape=none];
+ t44_l -> t44 [headlabel="t44"]
+ t45  	[label="case" fillcolor=azure2]
+ t45_l	[shape=none];
+ t45_l -> t45 [headlabel="t45"]
+ t46  	[fillcolor=yellow label="invk"]
+ t46_l	[shape=none];
+ t46_l -> t46 [headlabel="t46"]
+ t47  	[label="asgn" fillcolor=gray]
+ t47_l	[shape=none];
+ t47_l -> t47 [headlabel="t47"]
+ t48  	[label="asgn" fillcolor=gray]
+ t48_l	[shape=none];
+ t48_l -> t48 [headlabel="t48"]
+ t49  	[label="asgn" fillcolor=gray]
+ t49_l	[shape=none];
+ t49_l -> t49 [headlabel="t49"]
+ t50  	[label="case" fillcolor=azure2]
+ t50_l	[shape=none];
+ t50_l -> t50 [headlabel="t50"]
+ t51  	[label="case" fillcolor=azure2]
+ t51_l	[shape=none];
+ t51_l -> t51 [headlabel="t51"]
+ t52  	[label="case" fillcolor=azure2]
+ t52_l	[shape=none];
+ t52_l -> t52 [headlabel="t52"]
+ t53  	[label="asgn" fillcolor=gray]
+ t53_l	[shape=none];
+ t53_l -> t53 [headlabel="t53"]
+ t54  	[fillcolor=orange label="invk"]
+ t54_l	[shape=none];
+ t54_l -> t54 [headlabel="t54"]
+ t55  	[fillcolor=orange label="invk"]
+ t55_l	[shape=none];
+ t55_l -> t55 [headlabel="t55"]
+ t56  	[fillcolor=yellow label="invk"]
+ t56_l	[shape=none];
+ t56_l -> t56 [headlabel="t56"]
+ t57  	[label="case" fillcolor=azure2]
+ t57_l	[shape=none];
+ t57_l -> t57 [headlabel="t57"]
+ t58  	[fillcolor=yellow label="invk"]
+ t58_l	[shape=none];
+ t58_l -> t58 [headlabel="t58"]
+ t59  	[label="asgn" fillcolor=gray]
+ t59_l	[shape=none];
+ t59_l -> t59 [headlabel="t59"]
+ t60  	[label="asgn" fillcolor=gray]
+ t60_l	[shape=none];
+ t60_l -> t60 [headlabel="t60"]
+ t61  	[label="asgn" fillcolor=gray]
+ t61_l	[shape=none];
+ t61_l -> t61 [headlabel="t61"]
+ t62  	[label="case" fillcolor=azure2]
+ t62_l	[shape=none];
+ t62_l -> t62 [headlabel="t62"]
+ t63  	[fillcolor=orange label="invk"]
+ t63_l	[shape=none];
+ t63_l -> t63 [headlabel="t63"]
+ t64  	[label="asgn" fillcolor=gray]
+ t64_l	[shape=none];
+ t64_l -> t64 [headlabel="t64"]
+ t65  	[fillcolor=orange label="invk"]
+ t65_l	[shape=none];
+ t65_l -> t65 [headlabel="t65"]
+ t66  	[fillcolor=yellow label="invk"]
+ t66_l	[shape=none];
+ t66_l -> t66 [headlabel="t66"]
+ t67  	[fillcolor=yellow label="reply"]
+ t67_l	[shape=none];
+ t67_l -> t67 [headlabel="t67"]
+ t68  	[label="case" fillcolor=azure2]
+ t68_l	[shape=none];
+ t68_l -> t68 [headlabel="t68"]
+ t69  	[fillcolor=orange label="invk"]
+ t69_l	[shape=none];
+ t69_l -> t69 [headlabel="t69"]
+ t70  	[label="asgn" fillcolor=gray]
+ t70_l	[shape=none];
+ t70_l -> t70 [headlabel="t70"]
+ t71  	[fillcolor=orange label="invk"]
+ t71_l	[shape=none];
+ t71_l -> t71 [headlabel="t71"]
+ t72  	[label="asgn" fillcolor=gray]
+ t72_l	[shape=none];
+ t72_l -> t72 [headlabel="t72"]
+ t73  	[label="asgn" fillcolor=gray]
+ t73_l	[shape=none];
+ t73_l -> t73 [headlabel="t73"]
+ t74  	[fillcolor=yellow label="invk"]
+ t74_l	[shape=none];
+ t74_l -> t74 [headlabel="t74"]
+ t75  	[label="asgn" fillcolor=gray]
+ t75_l	[shape=none];
+ t75_l -> t75 [headlabel="t75"]
+ t76  	[fillcolor=yellow label="invk"]
+ t76_l	[shape=none];
+ t76_l -> t76 [headlabel="t76"]
+ t77  	[fillcolor=yellow label="invk"]
+ t77_l	[shape=none];
+ t77_l -> t77 [headlabel="t77"]
+ t78  	[label="case" fillcolor=azure2]
+ t78_l	[shape=none];
+ t78_l -> t78 [headlabel="t78"]
+ t79  	[fillcolor=yellow label="reply"]
+ t79_l	[shape=none];
+ t79_l -> t79 [headlabel="t79"]
+ t80  	[label="asgn" fillcolor=gray]
+ t80_l	[shape=none];
+ t80_l -> t80 [headlabel="t80"]
+ t81  	[label="asgn" fillcolor=gray]
+ t81_l	[shape=none];
+ t81_l -> t81 [headlabel="t81"]
+ t82  	[label="asgn" fillcolor=gray]
+ t82_l	[shape=none];
+ t82_l -> t82 [headlabel="t82"]
+ t83  	[fillcolor=yellow label="invk"]
+ t83_l	[shape=none];
+ t83_l -> t83 [headlabel="t83"]
+ t84  	[fillcolor=yellow label="invk"]
+ t84_l	[shape=none];
+ t84_l -> t84 [headlabel="t84"]
+ t85  	[fillcolor=yellow label="reply"]
+ t85_l	[shape=none];
+ t85_l -> t85 [headlabel="t85"]
+ t86  	[fillcolor=orange label="invk"]
+ t86_l	[shape=none];
+ t86_l -> t86 [headlabel="t86"]
+
+ // cluster the inner of the net
+ subgraph cluster1
+ {
+  t1 t1_l t2 t2_l t3 t3_l t4 t4_l t5 t5_l t6 t6_l t7 t7_l t8 t8_l t9 t9_l t10 t10_l t11 t11_l t12 t12_l t13 t13_l t14 t14_l t15 t15_l t16 t16_l t17 t17_l t18 t18_l t19 t19_l t20 t20_l t21 t21_l t22 t22_l t23 t23_l t24 t24_l t25 t25_l t26 t26_l t27 t27_l t28 t28_l t29 t29_l t30 t30_l t31 t31_l t32 t32_l t33 t33_l t34 t34_l t35 t35_l t36 t36_l t37 t37_l t38 t38_l t39 t39_l t40 t40_l t41 t41_l t42 t42_l t43 t43_l t44 t44_l t45 t45_l t46 t46_l t47 t47_l t48 t48_l t49 t49_l t50 t50_l t51 t51_l t52 t52_l t53 t53_l t54 t54_l t55 t55_l t56 t56_l t57 t57_l t58 t58_l t59 t59_l t60 t60_l t61 t61_l t62 t62_l t63 t63_l t64 t64_l t65 t65_l t66 t66_l t67 t67_l t68 t68_l t69 t69_l t70 t70_l t71 t71_l t72 t72_l t73 t73_l t74 t74_l t75 t75_l t76 t76_l t77 t77_l t78 t78_l t79 t79_l t80 t80_l t81 t81_l t82 t82_l t83 t83_l t84 t84_l t85 t85_l t86 t86_l
+  p1 p1_l p2 p2_l p3 p3_l p4 p4_l p5 p5_l p6 p6_l p7 p7_l p8 p8_l p9 p9_l p10 p10_l p11 p11_l p12 p12_l p13 p13_l p14 p14_l p15 p15_l p16 p16_l p17 p17_l p18 p18_l p19 p19_l p20 p20_l p21 p21_l p22 p22_l p23 p23_l p24 p24_l p25 p25_l p26 p26_l p27 p27_l p28 p28_l p29 p29_l p30 p30_l p31 p31_l p32 p32_l p33 p33_l p34 p34_l p35 p35_l p36 p36_l p37 p37_l p38 p38_l p39 p39_l p40 p40_l p41 p41_l p42 p42_l p43 p43_l p44 p44_l p45 p45_l p46 p46_l p47 p47_l p48 p48_l p49 p49_l p50 p50_l p51 p51_l p52 p52_l p53 p53_l p54 p54_l p55 p55_l p56 p56_l p57 p57_l p73 p73_l p74 p74_l p75 p75_l p58 p58_l p59 p59_l p60 p60_l p61 p61_l p62 p62_l p63 p63_l p64 p64_l p65 p66 p66_l p67 p67_l p68 p68_l p69 p69_l p70 p70_l p71 p71_l p76 p76_l p72 p72_l p93 p93_l p94 p94_l p77 p77_l p95 p95_l p96 p96_l p97 p97_l p98 p98_l p78 p78_l p99 p99_l p100 p100_l p101 p101_l p102 p102_l p103 p103_l p79 p79_l p80 p80_l p104 p104_l p81 p81_l p105 p105_l p82 p82_l p83 p83_l p84 p84_l p106 p106_l p107 p107_l p108 p108_l p85 p85_l p109 p109_l p110 p110_l p111 p111_l p112 p112_l p86 p86_l p87 p87_l p88 p88_l p89 p89_l p90 p90_l p91 p91_l p92 p92_l
+  label="" style=dashed
+ }
+
+ // arcs
+ edge [fontname="Helvetica" fontsize=8 arrowhead=normal color=black]
+ t40 -> p94	[]
+ p85 -> t34	[]
+ p80 -> t43	[]
+ t36 -> p54	[weight=10000.0]
+ t43 -> p52	[weight=10000.0]
+ p53 -> t34	[weight=10000.0]
+ p33 -> t39	[weight=10000.0]
+ p84 -> t37	[]
+ t79 -> p48	[weight=10000.0]
+ t67 -> p48	[weight=10000.0]
+ p25 -> t35	[weight=10000.0]
+ p14 -> t85	[weight=10000.0]
+ t13 -> p48	[weight=10000.0]
+ t45 -> p48	[weight=10000.0]
+ p92 -> t36	[]
+ t38 -> p41	[weight=10000.0]
+ t57 -> p48	[weight=10000.0]
+ t24 -> p58	[weight=10000.0]
+ t82 -> p14	[weight=10000.0]
+ t51 -> p64	[weight=10000.0]
+ p48 -> t22	[weight=10000.0]
+ p48 -> t2	[weight=10000.0]
+ p54 -> t80	[weight=10000.0]
+ t59 -> p7	[weight=10000.0]
+ t40 -> p53	[weight=10000.0]
+ t85 -> p48	[weight=10000.0]
+ t42 -> p25	[weight=10000.0]
+ p65 -> t36	[weight=10000.0]
+ t66 -> p8	[weight=10000.0]
+ p52 -> t41	[weight=10000.0]
+ t9 -> p48	[weight=10000.0]
+ p79 -> t42	[]
+ t32 -> p20	[weight=10000.0]
+ t66 -> p93	[]
+ t52 -> p70	[weight=10000.0]
+ p41 -> t29	[weight=10000.0]
+ p78 -> t86	[]
+ t37 -> p33	[weight=10000.0]
+ p65 -> t38	[weight=10000.0]
+ p65 -> t37	[weight=10000.0]
+ p65 -> t42	[weight=10000.0]
+ p11 -> t82	[weight=10000.0]
+ p87 -> t54	[]
+ p86 -> t38	[]
+ p69 -> t74	[weight=10000.0]
+ t74 -> p6	[weight=10000.0]
+ t5 -> p48	[weight=10000.0]
+ t7 -> p48	[weight=10000.0]
+ p65 -> t43	[weight=10000.0]
+ t6 -> p111	[]
+ t49 -> p9	[weight=10000.0]
+ t60 -> p22	[weight=10000.0]
+ t1 -> p5	[weight=10000.0]
+ p76 -> t69	[]
+ p24 -> t81	[weight=10000.0]
+ p45 -> t79	[weight=10000.0]
+ p10 -> t54	[weight=10000.0]
+ t74 -> p112	[]
+ t61 -> p69	[weight=10000.0]
+ t58 -> p10	[weight=10000.0]
+ p8 -> t69	[weight=10000.0]
+ t19 -> p97	[]
+ t56 -> p19	[weight=10000.0]
+ p73 -> t55	[]
+ t6 -> p60	[weight=10000.0]
+ p7 -> t58	[weight=10000.0]
+ p27 -> t50	[weight=10000.0]
+ t28 -> p51	[weight=10000.0]
+ t31 -> p26	[weight=10000.0]
+ t8 -> p51	[weight=10000.0]
+ p6 -> t86	[weight=10000.0]
+ p27 -> t57	[weight=10000.0]
+ p20 -> t33	[weight=10000.0]
+ t58 -> p107	[]
+ t79 -> p99	[]
+ p26 -> t47	[weight=10000.0]
+ t14 -> p45	[weight=10000.0]
+ t71 -> p27	[weight=10000.0]
+ p2 -> t66	[weight=10000.0]
+ t72 -> p2	[weight=10000.0]
+ p64 -> t14	[weight=10000.0]
+ t11 -> p13	[weight=10000.0]
+ p3 -> t59	[weight=10000.0]
+ p67 -> t45	[weight=10000.0]
+ p5 -> t60	[weight=10000.0]
+ t69 -> p38	[weight=10000.0]
+ t68 -> p40	[weight=10000.0]
+ t54 -> p18	[weight=10000.0]
+ t44 -> p21	[weight=10000.0]
+ t20 -> p17	[weight=10000.0]
+ p82 -> t18	[]
+ t19 -> p59	[weight=10000.0]
+ p22 -> t6	[weight=10000.0]
+ p4 -> t48	[weight=10000.0]
+ t56 -> p108	[]
+ p49 -> t44	[weight=10000.0]
+ p60 -> t55	[weight=10000.0]
+ p51 -> t25	[weight=10000.0]
+ p40 -> t11	[weight=10000.0]
+ p18 -> t72	[weight=10000.0]
+ p67 -> t51	[weight=10000.0]
+ t2 -> p46	[weight=10000.0]
+ p19 -> t10	[weight=10000.0]
+ p70 -> t61	[weight=10000.0]
+ p9 -> t19	[weight=10000.0]
+ t86 -> p67	[weight=10000.0]
+ t78 -> p3	[weight=10000.0]
+ t67 -> p105	[]
+ p75 -> t10	[]
+ p37 -> t56	[weight=10000.0]
+ t44 -> p95	[]
+ t10 -> p32	[weight=10000.0]
+ p59 -> t18	[weight=10000.0]
+ t48 -> p37	[weight=10000.0]
+ t21 -> p34	[weight=10000.0]
+ t76 -> p56	[weight=10000.0]
+ t22 -> p58	[weight=10000.0]
+ p32 -> t68	[weight=10000.0]
+ p62 -> t77	[weight=10000.0]
+ p57 -> t28	[weight=10000.0]
+ p34 -> t12	[weight=10000.0]
+ p38 -> t20	[weight=10000.0]
+ t76 -> p100	[]
+ t3 -> p112	[]
+ p90 -> t28	[]
+ t46 -> p98	[]
+ p32 -> t7	[weight=10000.0]
+ p42 -> t53	[weight=10000.0]
+ t75 -> p49	[weight=10000.0]
+ p17 -> t49	[weight=10000.0]
+ p21 -> t4	[weight=10000.0]
+ t55 -> p17	[weight=10000.0]
+ t4 -> p42	[weight=10000.0]
+ t18 -> p4	[weight=10000.0]
+ p50 -> t46	[weight=10000.0]
+ p38 -> t1	[weight=10000.0]
+ p74 -> t63	[]
+ t46 -> p68	[weight=10000.0]
+ p51 -> t13	[weight=10000.0]
+ t26 -> p66	[weight=10000.0]
+ t64 -> p50	[weight=10000.0]
+ p13 -> t67	[weight=10000.0]
+ p68 -> t63	[weight=10000.0]
+ t24 -> p109	[]
+ p77 -> t4	[]
+ p47 -> t32	[weight=10000.0]
+ p35 -> t3	[weight=10000.0]
+ p36 -> t8	[weight=10000.0]
+ p83 -> t16	[]
+ t77 -> p104	[]
+ t35 -> p61	[weight=10000.0]
+ t12 -> p62	[weight=10000.0]
+ t70 -> p71	[weight=10000.0]
+ p31 -> t23	[weight=10000.0]
+ p71 -> t76	[weight=10000.0]
+ p46 -> t26	[weight=10000.0]
+ t17 -> p44	[weight=10000.0]
+ t3 -> p36	[weight=10000.0]
+ t53 -> p63	[weight=10000.0]
+ t23 -> p35	[weight=10000.0]
+ t15 -> p31	[weight=10000.0]
+ t30 -> p43	[weight=10000.0]
+ p56 -> t16	[weight=10000.0]
+ p91 -> t31	[]
+ t41 -> p61	[weight=10000.0]
+ t77 -> p57	[weight=10000.0]
+ t63 -> p28	[weight=10000.0]
+ p78 -> t8	[]
+ p61 -> t5	[weight=10000.0]
+ p55 -> t21	[weight=10000.0]
+ p61 -> t17	[weight=10000.0]
+ p43 -> t31	[weight=10000.0]
+ t30 -> p101	[]
+ t34 -> p47	[weight=10000.0]
+ p66 -> t24	[weight=10000.0]
+ t80 -> p61	[weight=10000.0]
+ t39 -> p61	[weight=10000.0]
+ t9 -> p110	[]
+ p29 -> t9	[weight=10000.0]
+ p39 -> t30	[weight=10000.0]
+ t25 -> p30	[weight=10000.0]
+ t33 -> p39	[weight=10000.0]
+ t83 -> p96	[]
+ t62 -> p24	[weight=10000.0]
+ p28 -> t70	[weight=10000.0]
+ t73 -> p12	[weight=10000.0]
+ t83 -> p15	[weight=10000.0]
+ t65 -> p16	[weight=10000.0]
+ p1 -> t83	[weight=10000.0]
+ p61 -> t52	[weight=10000.0]
+ p88 -> t71	[]
+ t16 -> p55	[weight=10000.0]
+ p23 -> t40	[weight=10000.0]
+ t27 -> p29	[weight=10000.0]
+ p30 -> t27	[weight=10000.0]
+ t29 -> p61	[weight=10000.0]
+ p61 -> t62	[weight=10000.0]
+ p61 -> t78	[weight=10000.0]
+ p12 -> t84	[weight=10000.0]
+ p55 -> t15	[weight=10000.0]
+ p63 -> t64	[weight=10000.0]
+ t47 -> p1	[weight=10000.0]
+ t50 -> p11	[weight=10000.0]
+ t81 -> p23	[weight=10000.0]
+ t84 -> p106	[]
+ t84 -> p72	[weight=10000.0]
+ p72 -> t71	[weight=10000.0]
+ p15 -> t65	[weight=10000.0]
+ p81 -> t65	[]
+ t85 -> p103	[]
+ p44 -> t75	[weight=10000.0]
+ p16 -> t73	[weight=10000.0]
+}

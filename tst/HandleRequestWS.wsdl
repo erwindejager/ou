@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://request.ws.ou" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://request.ws.ou" xmlns:intf="http://request.ws.ou" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://request.ws.ou" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="processRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="WsRequest">
+    <sequence>
+     <element name="payload" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="processRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="processRequestReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="WsResponse">
+    <sequence>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="WsFault">
+    <sequence>
+     <element name="faultCode" nillable="true" type="xsd:string"/>
+     <element name="faultString" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="WsException">
+    <sequence>
+     <element name="faultInfo" nillable="true" type="impl:WsFault"/>
+    </sequence>
+   </complexType>
+   <element name="fault" type="impl:WsException"/>
+   <element name="checkProcessability">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkProcessabilityResponse">
+    <complexType>
+     <sequence>
+      <element name="checkProcessabilityReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createExceptionTask">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsExceptionTaskRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="WsExceptionTaskRequest">
+    <sequence>
+     <element name="exceptionPoint" nillable="true" type="xsd:string"/>
+     <element name="payload" nillable="true" type="xsd:string"/>
+     <element name="triggerEvent" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="createExceptionTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="createExceptionTaskReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="classifyRequest">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="classifyRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="classifyRequestReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createManualTask">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createManualTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="createManualTaskReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rejectRequestWS">
+    <complexType>
+     <sequence>
+      <element name="requestInput" type="impl:WsRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rejectRequestWSResponse">
+    <complexType>
+     <sequence>
+      <element name="rejectRequestWSReturn" type="impl:WsResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="checkProcessabilityResponse">
+
+      <wsdl:part element="impl:checkProcessabilityResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createExceptionTaskResponse">
+
+      <wsdl:part element="impl:createExceptionTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createManualTaskResponse">
+
+      <wsdl:part element="impl:createManualTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="processRequestRequest">
+
+      <wsdl:part element="impl:processRequest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createExceptionTaskRequest">
+
+      <wsdl:part element="impl:createExceptionTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="rejectRequestWSRequest">
+
+      <wsdl:part element="impl:rejectRequestWS" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="classifyRequestRequest">
+
+      <wsdl:part element="impl:classifyRequest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="classifyRequestResponse">
+
+      <wsdl:part element="impl:classifyRequestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="processRequestResponse">
+
+      <wsdl:part element="impl:processRequestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkProcessabilityRequest">
+
+      <wsdl:part element="impl:checkProcessability" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="WsException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createManualTaskRequest">
+
+      <wsdl:part element="impl:createManualTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="rejectRequestWSResponse">
+
+      <wsdl:part element="impl:rejectRequestWSResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HandleRequestWS">
+
+      <wsdl:operation name="processRequest">
+
+         <wsdl:input message="impl:processRequestRequest" name="processRequestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:processRequestResponse" name="processRequestResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkProcessability">
+
+         <wsdl:input message="impl:checkProcessabilityRequest" name="checkProcessabilityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkProcessabilityResponse" name="checkProcessabilityResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createExceptionTask">
+
+         <wsdl:input message="impl:createExceptionTaskRequest" name="createExceptionTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createExceptionTaskResponse" name="createExceptionTaskResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="classifyRequest">
+
+         <wsdl:input message="impl:classifyRequestRequest" name="classifyRequestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:classifyRequestResponse" name="classifyRequestResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createManualTask">
+
+         <wsdl:input message="impl:createManualTaskRequest" name="createManualTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createManualTaskResponse" name="createManualTaskResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="rejectRequestWS">
+
+         <wsdl:input message="impl:rejectRequestWSRequest" name="rejectRequestWSRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:rejectRequestWSResponse" name="rejectRequestWSResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:WsException" name="WsException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HandleRequestWSSoapBinding"
+   	type="impl:HandleRequestWS">
+
+
+   	<wsdlsoap:binding style="document"
+   		transport="http://schemas.xmlsoap.org/soap/http" />
+   	<wsdl:operation name="processRequest">
+
+
+   		<wsdlsoap:operation
+   			soapAction="http://request.ws.ou/processRequest" />
+   		<wsdl:input name="processRequestRequest">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
+
+   		<wsdl:output name="processRequestResponse">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
+
+   		<wsdl:fault name="WsException">
+
+
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
+
+   	</wsdl:operation>
+
+   	<wsdl:operation name="checkProcessability">
+
+
+   		<wsdlsoap:operation
+   			soapAction="http://request.ws.ou/checkProcessability" />
+   		<wsdl:input name="checkProcessabilityRequest">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
+
+   		<wsdl:output name="checkProcessabilityResponse">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
+
+   		<wsdl:fault name="WsException">
+
+
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
+
+   	</wsdl:operation>
+
+   	<wsdl:operation name="createExceptionTask">
+
+
+   		<wsdlsoap:operation
+   			soapAction="http://request.ws.ou/createExceptionTask" />
+   		<wsdl:input name="createExceptionTaskRequest">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
+
+   		<wsdl:output name="createExceptionTaskResponse">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
+
+   		<wsdl:fault name="WsException">
+
+
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
+
+   	</wsdl:operation>
+
+   	<wsdl:operation name="classifyRequest">
+
+
+   		<wsdlsoap:operation
+   			soapAction="http://request.ws.ou/classifyRequest" />
+   		<wsdl:input name="classifyRequestRequest">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
+
+   		<wsdl:output name="classifyRequestResponse">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
+
+   		<wsdl:fault name="WsException">
+
+
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
+
+   	</wsdl:operation>
+
+   	<wsdl:operation name="createManualTask">
+
+
+   		<wsdlsoap:operation
+   			soapAction="http://request.ws.ou/createManualTask" />
+   		<wsdl:input name="createManualTaskRequest">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
+
+   		<wsdl:output name="createManualTaskResponse">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
+
+   		<wsdl:fault name="WsException">
+
+
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
+
+   	</wsdl:operation>
+
+   	<wsdl:operation name="rejectRequestWS">
+
+
+   		<wsdlsoap:operation
+   			soapAction="http://request.ws.ou/rejectRequestWS" />
+   		<wsdl:input name="rejectRequestWSRequest">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:input>
+
+   		<wsdl:output name="rejectRequestWSResponse">
+
+
+   			<wsdlsoap:body use="literal" />
+   		</wsdl:output>
+
+   		<wsdl:fault name="WsException">
+
+
+   			<wsdlsoap:fault use="literal" name="WsException" />
+   		</wsdl:fault>
+
+   	</wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HandleRequestWSService">
+
+      <wsdl:port binding="impl:HandleRequestWSSoapBinding" name="HandleRequestWS">
+
+         <wsdlsoap:address location="http://localhost:9080/RequestWS/services/HandleRequestWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,153 @@
+
+c:\ws\tst>lola --formula="(AG NOT DEADLOCK)" HandleRequest_pn.lola -s -p
+lola: NET
+lola:   reading net from HandleRequest_pn.lola
+lola:   finished parsing
+lola:   closed net file HandleRequest_pn.lola
+lola:   1569/65536 symbol table entries, 0 collisions
+lola:   preprocessing...
+lola:   finding significant places
+lola:   648 places, 921 transitions, 563 significant places
+lola:   computing forward-conflicting sets
+lola:   computing back-conflicting sets
+lola:   951 transition conflict sets
+lola: TASK
+lola:   read: AG (!(DEADLOCK))
+lola:   formula length: 16
+lola:   checking absence of deadlocks
+lola:   Planning: workflow for deadlock check: search (--findpath=off,--siphontrap=off)
+lola: STORE
+lola:   using a bit-perfect encoder (--encoder=bit)
+lola:   using 2252 bytes per marking, with 0 unused bits
+lola:   using a prefix tree store (--store=prefix)
+lola: SEARCH
+lola:   using reachability graph (--search=depth)
+lola:   using deadlock preserving stubborn set method with insertion algorithm(--stubborn=tarjan)
+lola: RUNNING
+lola: RESULT
+lola:   result: no
+lola:   The net is not deadlock-free.
+lola:   18 markings, 17 edges
+lola:   print witness state (--state)
+lola:   writing witness state to stdout
+p4 : 1					
+p105 : 1
+p113 : 1
+p155 : 1
+p206 : 1
+p317 : 1
+p320 : 1
+p328 : 1
+p438 : 1
+p467 : 1
+p520 : 1
+p551 : 1
+p23 : 1
+p623 : 1
+p10 : 1
+p27 : 1
+p519 : 1
+p517 : 1
+p496 : 1
+p478 : 1
+p474 : 1
+p42 : 1
+p451 : 1
+p448 : 1
+p444 : 1
+p409 : 1
+p405 : 1
+p335 : 1
+p299 : 1
+p266 : 1
+p73 : 1
+p223 : 1
+p81 : 1
+p217 : 1
+p171 : 1
+p166 : 1
+p91 : 1
+p152 : 1
+p150 : 1
+p6 : 1
+lola:   closed witness state file stdout
+lola:   print witness path (--path)
+lola:   writing witness path to stdout
+t1
+t36
+t47
+t51
+t50
+t58
+t59
+t887
+t889
+t903
+t879
+t881
+t882
+t888
+t892
+t912
+t2
+lola:   closed witness path file stdout
+
+==========================
+t1		1.internal.initialize 				<process id="1"
+t36		38.internal.onMessage_3 			<pick id="38" createInstance="yes" name="HandleService" suppressJoinFailure="yes">
+t47		68.internal.copy.1.t2				<assign id="68" name="PrepareRejectRequest" suppressJoinFailure="yes">
+t51		68.internal.copy.2.t2
+t50		68.internal.copy.3.t2
+t58		68.internal.copy.4.t1
+t59		68.internal.copy.4.t2
+t887	95.internal.caseo					<if id="95" name="HandleService" suppressJoinFailure="yes">
+t889	367.internal.copy.1.t2				<assign id="367" name="UnknownRequest" suppressJoinFailure="yes">
+t903	373.internal.case1					<if id="373" name="IfReinject" suppressJoinFailure="yes">
+t879	376.internal.copy.1.t2				<assign id="376" name="PrepareReinjectRequestReply" suppressJoinFailure="yes">
+t881	376.internal.copy.2.t1
+t882	376.internal.copy.2.t2
+t888	383.internal.reply.read_variable	<reply id="383" name="ReinjectRequestReply" operation="reinjectRequest" partnerLink="client" portType="HandleRequest" suppressJoinFailure="yes" variable="reinjectRequestOutput">
+t892	383.internal.reply.send
+t912	383.internal.reply.finish
+t2		1.internal.finalize 				<process id="1"
+
+p4 : 1		i			   p1:		1, *
+p105 : 1    i              p4:		1, 
+p113 : 1    i              p6:		1, 
+p155 : 1    i              p10:		1,
+p206 : 1    i              p23:		1,
+p317 : 1    i              p27:		1,
+p320 : 1    i              p42:		1,
+p328 : 1    i              p73:		1,
+p438 : 1    i              p81:		1,
+p467 : 1    i              p91:		1,
+p520 : 1    i              p105:	1,
+p551 : 1    i              p113:	1,
+p23 : 1     i              p150:	1,
+p623 : 1    **             p152:	1,
+p10 : 1     i              p155:	1,
+p27 : 1     i              p166:	1,
+p519 : 1    i              p171:	1,
+p517 : 1    i              p206:	1, 
+p496 : 1    i              p217:	1,
+p478 : 1    i              p223:	1,
+p474 : 1    i              p266:	1, 
+p42 : 1     i              p299:	1,
+p451 : 1    i              p317:	1,
+p448 : 1    i              p320:	1,
+p444 : 1    i              p328:	1,
+p409 : 1    i              p335:	1,
+p405 : 1    i              p405:	1,
+p335 : 1    i              p409:	1,
+p299 : 1    i              p438:	1,
+p266 : 1    i              p444:	1,
+p73 : 1     i              p448:	1,
+p223 : 1    i              p451:	1,
+p81 : 1     i              p467:	1,
+p217 : 1    i              p474:	1,
+p171 : 1    i              p478:	1,
+p166 : 1    i              p496:	1,
+p91 : 1     i              p517:	1,
+p152 : 1    i              p519:	1,
+p150 : 1    i              p520:	1,
+p6 : 1      i              p551:	1

@@ -1,0 +1,129 @@
+digraph N {
+ graph [fontname="Helvetica" nodesep=0.3 ranksep="0.2 equally" fontsize=10 label="Petri net generated from flow.bpel"]
+ node [fontname="Helvetica" fontsize=8  width=".3" height=".3" label="" style=filled fillcolor=white]
+ edge [fontname="Helvetica" fontsize=8 color=white arrowhead=none weight="20.0"]
+
+
+ // places
+ node [shape=circle];
+ p1  	[]
+ p1_l	[shape=none];
+ p1_l -> p1 [headlabel="p1"]
+ p15  	[fillcolor=yellow]
+ p15_l	[shape=none];
+ p15 -> p15_l [taillabel="LoanServiceRequester.LoanServiceProvider.initiate"]
+ p2  	[]
+ p2_l	[shape=none];
+ p2_l -> p2 [headlabel="p2"]
+ p3  	[]
+ p3_l	[shape=none];
+ p3_l -> p3 [headlabel="p3"]
+ p4  	[]
+ p4_l	[shape=none];
+ p4_l -> p4 [headlabel="p4"]
+ p5  	[fillcolor=gray]
+ p5_l	[shape=none];
+ p5_l -> p5 [headlabel="p5"]
+ p6  	[fillcolor=black peripheries=2 height=".2" width=".2" ]
+ p6_l	[shape=none];
+ p6_l -> p6 [headlabel="p6"]
+ p16  	[fillcolor=yellow]
+ p16_l	[shape=none];
+ p16 -> p16_l [taillabel="FlowProvider.FlowRequester.onResult"]
+ p7  	[]
+ p7_l	[shape=none];
+ p7_l -> p7 [headlabel="p7"]
+ p13  	[fillcolor=orange]
+ p13_l	[shape=none];
+ p13_l -> p13 [headlabel="FlowRequester.FlowProvider.initiate"]
+ p8  	[]
+ p8_l	[shape=none];
+ p8_l -> p8 [headlabel="p8"]
+ p9  	[]
+ p9_l	[shape=none];
+ p9_l -> p9 [headlabel="p9"]
+ p10  	[]
+ p10_l	[shape=none];
+ p10_l -> p10 [headlabel="p10"]
+ p11  	[]
+ p11_l	[shape=none];
+ p11_l -> p11 [headlabel="p11"]
+ p12  	[]
+ p12_l	[shape=none];
+ p12_l -> p12 [headlabel="p12"]
+ p14  	[fillcolor=orange]
+ p14_l	[shape=none];
+ p14_l -> p14 [headlabel="LoanServiceProvider.LoanServiceRequester.onResult"]
+
+ // transitions
+ node [shape=box]
+ t1  	[fillcolor=orange label="recv"]
+ t1_l	[shape=none];
+ t1_l -> t1 [headlabel="t1"]
+ t2  	[fillcolor=yellow label="invk"]
+ t2_l	[shape=none];
+ t2_l -> t2 [headlabel="t2"]
+ t3  	[fillcolor=yellow label="invk"]
+ t3_l	[shape=none];
+ t3_l -> t3 [headlabel="t3"]
+ t4  	[fillcolor=orange label="recv"]
+ t4_l	[shape=none];
+ t4_l -> t4 [headlabel="t4"]
+ t5  	[label="flow\nsplit" fillcolor=azure2]
+ t5_l	[shape=none];
+ t5_l -> t5 [headlabel="t5"]
+ t6  	[fillcolor=orange label="recv"]
+ t6_l	[shape=none];
+ t6_l -> t6 [headlabel="t6"]
+ t7  	[fillcolor=yellow label="invk"]
+ t7_l	[shape=none];
+ t7_l -> t7 [headlabel="t7"]
+ t8  	[label="asgn" fillcolor=gray]
+ t8_l	[shape=none];
+ t8_l -> t8 [headlabel="t8"]
+ t9  	[label="asgn" fillcolor=gray]
+ t9_l	[shape=none];
+ t9_l -> t9 [headlabel="t9"]
+ t10  	[label="flow\njoin" fillcolor=azure2]
+ t10_l	[shape=none];
+ t10_l -> t10 [headlabel="t10"]
+
+ // cluster the inner of the net
+ subgraph cluster1
+ {
+  t1 t1_l t2 t2_l t3 t3_l t4 t4_l t5 t5_l t6 t6_l t7 t7_l t8 t8_l t9 t9_l t10 t10_l
+  p1 p1_l p15 p15_l p2 p2_l p3 p3_l p4 p4_l p5 p5_l p6 p16 p16_l p7 p7_l p13 p13_l p8 p8_l p9 p9_l p10 p10_l p11 p11_l p12 p12_l p14 p14_l
+  label="" style=dashed
+ }
+
+ // arcs
+ edge [fontname="Helvetica" fontsize=8 arrowhead=normal color=black]
+ p8 -> t5	[weight=10000.0]
+ p7 -> t1	[weight=10000.0]
+ p1 -> t10	[weight=10000.0]
+ t5 -> p4	[weight=10000.0]
+ p6 -> t4	[weight=10000.0]
+ p9 -> t10	[weight=10000.0]
+ t6 -> p1	[weight=10000.0]
+ p14 -> t6	[]
+ t4 -> p12	[weight=10000.0]
+ t10 -> p10	[weight=10000.0]
+ p11 -> t6	[weight=10000.0]
+ t3 -> p11	[weight=10000.0]
+ t2 -> p5	[weight=10000.0]
+ t5 -> p2	[weight=10000.0]
+ t3 -> p15	[]
+ t9 -> p3	[weight=10000.0]
+ p4 -> t3	[weight=10000.0]
+ t8 -> p8	[weight=10000.0]
+ p3 -> t2	[weight=10000.0]
+ t2 -> p16	[]
+ p14 -> t1	[]
+ p13 -> t4	[]
+ p12 -> t8	[weight=10000.0]
+ t7 -> p7	[weight=10000.0]
+ p2 -> t7	[weight=10000.0]
+ t7 -> p15	[]
+ t1 -> p9	[weight=10000.0]
+ p10 -> t9	[weight=10000.0]
+}

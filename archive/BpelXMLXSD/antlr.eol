@@ -1,0 +1,76 @@
+operation antlrHeader(sb : Any) {
+  	sb.append("@header {"); newline(sb);
+  	sb.append("import java.util.HashMap;"); newline(sb);
+  	sb.append("import java.util.Map;"); newline(sb);
+  	sb.append("import java.util.List;"); newline(sb);
+  	sb.append("import java.util.ArrayList;"); newline(sb);
+  	sb.append("import org.apache.commons.jxpath.AbstractFactory;"); newline(sb);
+  	sb.append("import org.apache.commons.jxpath.JXPathContext;"); newline(sb);
+  	sb.append("import org.apache.commons.jxpath.Pointer;"); newline(sb);
+  	sb.append("}"); newline(sb); newline(sb);
+}
+
+operation antlrMembers(sb : Any) {
+  	sb.append("@members {"); newline(sb);
+	sb.append("Map<String,Object> varMap = new HashMap();\n"); 
+	sb.append("Map<String,String> vMap = new HashMap();\n");
+	sb.append("String catchExceptionPoint = \"\";\n");
+	newline(sb);
+	transformTypes();
+  	transformMessages();
+  	getVariables().transformMembers(sb);newline(sb);
+  	sb.append("}"); newline(sb); newline(sb);
+}
+
+operation antlrCallVerify(sb : Any) {
+	sb.append("  if (!Utils.verify(vMap, varMap)) {\n");
+	sb.append("	    throw new ParseCatchException(\"ERROR: unexpected output\", true);\n");
+    sb.append("  }\n");
+}
+operation antlrOptions(sb : Any) {
+  	sb.append("options {language=Java;}"); newline(sb); newline(sb);
+}
+
+operation antlrV(sb : Any) {
+	newline(sb); newline(sb);
+  	sb.append("v0	: '(' kvpi (',' kvpi) + ')' ;\n\n");
+  	sb.append("v :  '(' kvpo (',' kvpo) + ')'\n");
+  	sb.append("{\n");
+  	antlrCallVerify(sb);
+    sb.append("};\n");
+}
+
+operation antlrKV(sb : Any) {
+	newline(sb); 
+  	sb.append("kvpi : '<' key ',' value '>'\n");
+  	sb.append("{\n");
+    sb.append("Utils.setVarValue($key.text, Utils.trimQuote($value.text), varMap);\n");
+    sb.append("};\n\n");
+  	sb.append("kvpo : '<' key ',' value '>'\n");
+  	sb.append("{\n");
+    sb.append("vMap.put($key.text, $value.text);\n");
+    sb.append("};\n");
+}
+
+operation antlrTypes(sb : Any) {
+	newline(sb); 
+	sb.append("exit: v\n");
+	sb.append("{ throw new ParseCatchException(catchExceptionPoint,false); };\n");
+  	sb.append("key : varname ;\n");
+  	sb.append("value : STRING ;\n");
+  	sb.append("index : '[' NUMBER ']' ;\n");
+  	sb.append("varname  : (LETTERS | ALFA) (LETTERS | NUMBER | ALFA | index)* ;\n");
+  	sb.append("LETTERS : ('a' .. 'z' | 'A' .. 'Z') + ;\n");
+  	sb.append("NUMBER  : ('1' .. '9') + ;\n");
+  	sb.append("ALFA	: ('_' | '.') + ;\n");
+  	sb.append("INT 	: ([0-9|?])+ ;\n");
+  	sb.append("STRING : '\\'' .*? '\\'';\n");
+  	sb.append("WS 	: [ \\t\\r\\n]+ -> skip ;\n");
+}
+
+
+operation transformChildrenMembers(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformMembers(sb);
+	}
+}

@@ -1,0 +1,4 @@
+operation BPEL!t_onMessage transform(sb : Any, context : Map) {
+	//terminal(sb, self.a_operation);
+	transformChildren(sb, context, self);
+} 

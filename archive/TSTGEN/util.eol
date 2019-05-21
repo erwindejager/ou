@@ -1,0 +1,162 @@
+operation trimNs(s : String) : String {
+	var result = s;
+	if (result.contains(":")) {
+		result = s.split(":").last();
+	}
+	return result;
+}
+
+operation trimAllNs(s : String) : String {
+	var path = s.split("\\.");
+	path = path.collect(o | trimNs(o));
+	return path.concat(".");
+}
+
+operation trimAllNsInPath(s : String) : String {
+	var path = s.split("\\/");
+	path = path.collect(o | trimNs(o));
+	return path.concat(".");
+}
+
+operation getLeaf(s : String) : String {
+	return s.split("\\.").last();
+}
+
+operation trimLiteral(s : String) : String {
+	var result = s;
+	if (s <> null and s.length() > 0) {
+		result = s.replace("literal.","");
+		result = result.replace("literal","");
+	}
+	return result;
+}
+
+operation isFirstChildSingleLiteral(e : Any) : Boolean {
+ 	var result = false;
+ 	if (e.children.size() == 1 and trimNs(e.children.first().tagname).startsWith("literal")) { 
+ 		if (e.children.first().children.size() > 0) // literal value
+		result = true;
+	}
+	return result;
+}
+
+operation isFirstChildLiteral(e : Any) : Boolean {
+ 	var result = false;
+ 	if (e.children.size() == 1 and trimNs(e.children.first().tagname).startsWith("literal")) { 
+		result = true;
+	}
+	return result;
+}
+
+operation replaceSlash(s : String) : String {
+	return s.replace("/",".");
+}
+
+operation replaceSingleQuote(s : String) : String {
+	return s.replace("'","\"");
+}
+
+operation removeQuote(s : String) : String {
+	var result = s.replace("'","");
+	return result.replace("\"","");
+}
+
+operation makePath(s : String) : String {
+	return s.replace("\\.","/");
+}
+
+operation asString(s : String) : String {
+	return "\"" + s + "\"";
+}
+
+operation transformChildren(sb : Any, context : Map, e : Any) {
+	for (c in e.children) {
+ 		c.transform(sb, context);
+	}
+}
+
+operation getTypeChildren(path : String, e : Any) : String{
+	for (c in e.children) {
+		var result = c.getType(path);
+		if (not "".equals(result)) {
+			return result;
+		}
+	}
+	return "";
+}
+
+operation transformLiteralChildren(sb : Any, context : Map, e : Any) {
+	var path : String = getPath(context);
+	if (path <> null and path.length() > 0) {
+		path = path + ".";
+	}
+	if (e.children.size() == 0) {
+		sb.append(trimLiteral(path + trimNs(e.tagname).firstToLowerCase()));
+		sb.append(" = ");
+		if ("String".equals(getJavaType_(trimNs(e.tagname).firstToLowerCase()))) {
+			sb.append("\"" + e.text + "\"");
+		} else {
+			sb.append(e.text);
+		}
+		sb.append(";");
+		newline(sb);
+	}
+	else {
+		for (c in e.children) {
+			addPath(context, path + trimNs(e.tagname).firstToLowerCase());
+	 		transformLiteralChildren(sb, context, c);
+		}
+	}
+}
+
+operation transformChildrenPath(sb : Any, context : Map, e : Any) {
+	var path : String = getPath(context);
+	if (path <> null and path.length() > 0) {
+		path = path + ".";
+	}
+	addPath(context, path + trimNs(e.tagname).firstToLowerCase());
+	for (c in e.children) {
+ 		transformChildrenPath(sb, context, c);
+	}
+}
+
+operation transformChildrenTerminal(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformTerminal(sb);
+	}
+}
+
+operation transformChildrenTerminal_(sb : Any, e : Any) {
+	for (c in e.children) {
+ 		c.transformTerminal_(sb);
+	}
+}
+
+operation hasChild(e : Any, cn : String) : Boolean {
+	var result = false;
+	for (c in e.children) {
+		if (cn.equals(trimNs(c.tagName))) {
+			result = true;
+		} else {
+	 		result = hasChild(c, cn);
+		}
+ 		if (result) {
+ 			return result;
+ 		}
+	}
+	return result;
+}
+
+operation containsCondtionVar(expr : String) : Boolean {
+	return getConditionVars().select(e|expr.startsWith(e)).size() > 0 ;
+}
+
+operation isCondtionVar(expr : String) : Boolean {
+	return getConditionVars().select(e|expr.matches(e)).size() > 0 ;
+}
+
+operation getConditionVars() : Sequence {
+	return "caseHandlingTrigger,noreinjection".split(",");
+}
+
+

@@ -1,0 +1,16 @@
+
+
+operation BPEL!t_literal transform(sb : Any, context : Map) {
+	if (self.children.size() == 0) {
+		var toType = getType(context);
+		if (toType <> null and toType.length() > 0 and ("int".equals(toType) or "boolean".equals(toType)))
+		{
+			sb.append(self.text.trim());
+		} else {
+			sb.append("\"" + self.text.trim() + "\"");
+		}
+	} else {
+		transformLiteralChildren(sb, context, self);
+	}
+}
+

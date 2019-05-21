@@ -1,0 +1,205 @@
+1 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+2 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+3 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+4 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+5 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+6 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+7 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+8 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+9 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+10 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+11 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+12 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+13 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+14 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+15 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+16 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+17 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+18 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+19 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+20 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+21 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+22 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+23 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+24 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+25 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+26 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+27 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+28 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+29 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+30 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+31 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+32 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+33 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+34 FAIL : no viable alternative at input 'Reinjected'
+35 FAIL : no viable alternative at input 'Reinjected'
+36 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleCaseInput . payload . id)) , (value '123') >) , (kvpi < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleCaseOutput . payload . result)) , (value '?') >) )) HandleRequest InitHandleCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase IfNotReinjectedCase PrepareReplyHandleCase ReplyHandleCase Reinjected (v ( (kvpo < (key (varname handleCaseInput . payload . id)) , (value '123') >) , (kvpo < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleCaseOutput . payload . result)) , (value 'pid') >) )))
+37 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+38 PASSED : Handle catch : InvokeParkCase
+39 PASSED : Handle catch : InvokeValidateCase
+40 PASSED : Handle catch : InvokeCreateCase
+41 PASSED : Handle catch : InvokeRegisterCase
+42 FAIL : no viable alternative at input 'Reinjected'
+43 FAIL : no viable alternative at input 'Reinjected'
+44 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleParkedCaseInput . parameters . type)) , (value 'P') >) , (kvpi < (key (varname handleParkedCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleParkedCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase PrepareReplyHandleParkedCase ReplyHandleParkedCase Reinjected (v ( (kvpo < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleParkedCaseInput . parameters . type)) , (value 'P') >) , (kvpo < (key (varname handleParkedCaseOutput . parameters . result)) , (value 'pid') >) )))
+45 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+46 PASSED : Handle catch : InvokeEndCase
+47 PASSED : Handle catch : InvokeSendLetter
+48 FAIL : no viable alternative at input 'Reinjected'
+49 FAIL : no viable alternative at input 'Reinjected'
+50 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleParkedCaseInput . parameters . type)) , (value 'D') >) , (kvpi < (key (varname handleParkedCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleParkedCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase PrepareReplyHandleParkedCase ReplyHandleParkedCase Reinjected (v ( (kvpo < (key (varname handleParkedCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleParkedCaseInput . parameters . type)) , (value 'D') >) , (kvpo < (key (varname handleParkedCaseOutput . parameters . result)) , (value 'pid') >) )))
+51 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+52 PASSED : Handle catch : InvokeEndCase
+53 PASSED : Handle catch : InvokeSendLetter
+54 PASSED : Handle catch : InvokeCreatePayment
+55 PASSED : Handle catch : InvokeCheckProcessability
+56 PASSED : Handle catch : InvokeGetCalculation
+57 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+58 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+59 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+60 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+61 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+62 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+63 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+64 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+65 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+66 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+67 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+68 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+69 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+70 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+71 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+72 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+73 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+74 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+75 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+76 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+77 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+78 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+79 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+80 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+81 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+82 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+83 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+84 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+85 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+86 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+87 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+88 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+89 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+90 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+91 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+92 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+93 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+94 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+95 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+96 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+97 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+98 FAIL : no viable alternative at input 'Reinjected'
+99 FAIL : no viable alternative at input 'Reinjected'
+100 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname stopCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname stopCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitStopCase HandleReceivedCaseRequest PrepareInvokeStopCase InvokeStopCase IfNotReinjectedStopCase PrepareReplyStopCase ReplyStopCase Reinjected (v ( (kvpo < (key (varname stopCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname stopCaseOutput . parameters . result)) , (value 'pid') >) )))
+101 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+102 PASSED : Handle catch : InvokeStopCase
+103 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+104 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+105 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+106 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+107 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+108 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+109 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+110 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+111 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+112 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+113 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+114 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+115 FAIL : no viable alternative at input 'PrepareRegisterObjectionCase'
+116 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+117 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+118 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+119 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+120 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+121 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+122 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+123 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+124 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+125 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+126 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+127 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+128 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+129 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+130 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+131 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+132 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+133 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+134 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+135 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+136 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+137 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+138 FAIL : no viable alternative at input 'PrepareInvokeGetCalculation'
+139 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+140 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+141 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+142 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+143 FAIL : no viable alternative at input 'PrepareInvokeStopCase'
+144 FAIL : no viable alternative at input 'Reinjected'
+145 FAIL : no viable alternative at input 'Reinjected'
+146 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleObjectionInput . parameters . type)) , (value 'Old') >) , (kvpi < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleObjectionOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleObjection HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareInvokeStopObjectionCase InvokeStopObjectionCase IfNotReinjectedObjectionCase PrepareReplyHandleObjection ReplyHandleObjection Reinjected (v ( (kvpo < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleObjectionInput . parameters . type)) , (value 'Old') >) , (kvpo < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleObjectionOutput . parameters . result)) , (value 'pid') >) )))
+147 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+148 PASSED : Handle catch : InvokeStopObjectionCase
+149 FAIL : no viable alternative at input 'Reinjected'
+150 FAIL : no viable alternative at input 'Reinjected'
+151 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname handleObjectionInput . parameters . type)) , (value 'New') >) , (kvpi < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname handleObjectionOutput . parameters . result)) , (value '?') >) )) HandleRequest InitHandleObjection HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask IfNotReinjectedObjectionCase PrepareReplyHandleObjection ReplyHandleObjection Reinjected (v ( (kvpo < (key (varname handleObjectionInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname handleObjectionInput . parameters . type)) , (value 'New') >) , (kvpo < (key (varname registerObjectionCaseReply . parameters . registerObjectionCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname handleObjectionOutput . parameters . result)) , (value 'pid') >) )))
+152 FAIL : no viable alternative at input 'PrepareReplyReinjectCase'
+153 PASSED : Handle catch : InvokeCreateObjectionTask
+154 PASSED : Handle catch : InvokeValidateObjectionCase
+155 PASSED : Handle catch : InvokeCreateObjectionCase
+156 PASSED : Handle catch : InvokeRegisterObjectionCase
+157 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+158 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+159 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+160 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+161 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+162 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+163 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+164 FAIL : no viable alternative at input 'PrepareInvokeRegisterCase'
+165 FAIL : no viable alternative at input '('
+166 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'P') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'P') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+167 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+168 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+169 PASSED : Handle catch : InvokeEndCase
+170 PASSED : Handle catch : InvokeSendLetter
+171 FAIL : no viable alternative at input '('
+172 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'D') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeGetCalculation InvokeGetCalculation PrepareInvokeCheckProcessability InvokeCheckProcessability IfDegree PrepareInvokeCreatePayment InvokeCreatePayment PrepareInvokeSendLetter InvokeSendLetter PrepareInvokeEndCase InvokeEndCase IfNotReinjectedParkedCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '12345') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'D') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleParkedCase') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+173 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+174 FAIL : no viable alternative at input 'PrepareReplyHandleParkedCase'
+175 PASSED : Handle catch : InvokeEndCase
+176 PASSED : Handle catch : InvokeSendLetter
+177 PASSED : Handle catch : InvokeCreatePayment
+178 PASSED : Handle catch : InvokeCheckProcessability
+179 PASSED : Handle catch : InvokeGetCalculation
+180 FAIL : no viable alternative at input '('
+181 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'stopCase') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeStopCase InvokeStopCase IfNotReinjectedStopCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'stopCase') >) )))
+182 FAIL : no viable alternative at input 'PrepareReplyStopCase'
+183 FAIL : no viable alternative at input 'PrepareReplyStopCase'
+184 PASSED : Handle catch : InvokeStopCase
+185 FAIL : no viable alternative at input '('
+186 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'WithDrawn') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareInvokeStopObjectionCase InvokeStopObjectionCase IfNotReinjectedObjectionCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'WithDrawn') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+187 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+188 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+189 PASSED : Handle catch : InvokeStopObjectionCase
+190 FAIL : no viable alternative at input '('
+191 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value 'New') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareRegisterObjectionCase InvokeRegisterObjectionCase SaveObjectionTicket PrepareCreateObjectionCase InvokeCreateObjectionCase PrepareInvokeValidateObjectionCase InvokeValidateObjectionCase IfNewObjection PrepareCreateObjectionTask InvokeCreateObjectionTask IfNotReinjectedObjectionCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleObjection') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value 'New') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+192 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+193 FAIL : no viable alternative at input 'PrepareReplyHandleObjection'
+194 PASSED : Handle catch : InvokeCreateObjectionTask
+195 PASSED : Handle catch : InvokeValidateObjectionCase
+196 PASSED : Handle catch : InvokeCreateObjectionCase
+197 PASSED : Handle catch : InvokeRegisterObjectionCase
+198 FAIL : no viable alternative at input '('
+199 PASSED : (handlecaseprocess (v0 ( (kvpi < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpi < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleCase') >) , (kvpi < (key (varname reinjectCaseInput . parameters . type)) , (value '?') >) , (kvpi < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpi < (key (varname reinjectCaseOutput . parameters . result)) , (value '?') >) )) HandleRequest InitReinjectCase HandleReceivedCaseRequest PrepareInvokeRegisterCase InvokeRegisterCase SaveTicket PrepareInvokeCreateCase InvokeCreateCase PrepareInvokeValidateCase InvokeValidateCase PrepareInvokeParkCase InvokeParkCase IfNotReinjectedCase Reinjected PrepareReplyReinjectCase ReplyReinjectCase (v ( (kvpo < (key (varname reinjectCaseInput . parameters . id)) , (value '123') >) , (kvpo < (key (varname reinjectCaseInput . parameters . trigger)) , (value 'handleCase') >) , (kvpo < (key (varname reinjectCaseInput . parameters . type)) , (value '?') >) , (kvpo < (key (varname registerCaseReply . parameters . registerCaseReturn . ticketId)) , (value '456') >) , (kvpo < (key (varname reinjectCaseOutput . parameters . result)) , (value 'pid') >) )))
+200 FAIL : no viable alternative at input 'PrepareReplyHandleCase'
+201 FAIL : no viable alternative at input 'PrepareReplyHandleCase'
+202 PASSED : Handle catch : InvokeParkCase
+203 PASSED : Handle catch : InvokeValidateCase
+204 PASSED : Handle catch : InvokeCreateCase
+205 PASSED : Handle catch : InvokeRegisterCase

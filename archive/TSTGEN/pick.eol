@@ -1,0 +1,25 @@
+import "onmessage.eol";
+
+operation BPEL!t_pick transform(sb : Any, context : Map) {
+	newline(sb); terminal(sb, self.a_name); newline(sb);
+	newline(sb); sb.append("("); 
+	transformFirstonMessageChild(sb, context, self);
+	transformNextonMessageChildren(sb, context, self);
+	newline(sb); sb.append(")");
+} 
+
+operation transformFirstonMessageChild(sb : Any, context : Map, e : Any) {
+ 	e.children.first().transform(sb, context);
+}
+
+operation transformNextonMessageChildren(sb : Any, context : Map, e : Any) {
+ 	var pe = e.children;
+ 	pe.remove(e.children.first());
+ 	for (c in pe) {
+ 		newline(sb);newline(sb); sb.append("|"); space(sb); 
+ 		c.transform(sb, context);
+	}
+ 	
+}
+
+ 

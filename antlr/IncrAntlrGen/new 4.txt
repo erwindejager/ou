@@ -1,6 +1,0 @@
-<picksample> -> <v0> Pick sayHello AssignHello replyHello | <v0> Pick sayGoodbye AssignGoodbye ReplyBye <v>
-<v0> -> ( <kvpis> )
-<kvpis> -> ( keyi , valuei ) | ( keyi , valuei ) , <kvpis>
-<v> -> ( <kvpos> )
-<kvpos> -> ( keyo , valueo ) | ( keyo , valueo ) , <kvpos>
-

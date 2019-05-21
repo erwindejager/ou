@@ -1,0 +1,4 @@
+
+operation BPEL!t_query transform(sb : Any, context : Map) {
+	sb.append( trimAllNsInPath(self.text.trim()) );
+}

@@ -1,0 +1,8 @@
+//operation BPEL!t_reply expand() {
+//	self.println();
+//	self.a_name.println();
+//} 
+
+operation BPEL!t_reply transform(sb : Any, context : Map) {
+	newline(sb); newline(sb); terminal(sb, self.a_name);
+} 

@@ -1,0 +1,52 @@
+import "from.eol";
+import "to.eol";
+
+operation BPEL!t_copy transform(sb : Any, context : Map) {
+	var sbl := new Native("java.lang.StringBuilder");
+	newline(sb);
+	var to = getFromPath(sb, context, self);
+	var toType = getToType(self);
+	
+	if (to <> null and to.length() > 0) {
+		//sb.append(to); 
+		sbl.append(to);
+	} else {
+		if (not isFirstChildSingleLiteral(getFrom(self))) {
+			//getTo(self).transform(sb, context); 
+			getTo(self).transform(sbl, context);
+		}
+	}
+
+	var condVar = "";
+	if (sbl.length() > 0) {
+		if (isCondtionVar(sbl.toString())) {
+			condVar = sbl.toString();
+		}
+		PathTypes.put(sbl.asString(), toType);
+		sbl.setLength(0);
+	}
+	
+	if (not isFirstChildSingleLiteral(getFrom(self))) {
+		if (condVar.length > 0) {
+			sb.append(condVar + " = ");
+		}
+	}
+	//getFrom(self).transform(sb, context, toType); 
+	getFrom(self).transform(sbl, context, toType);
+	if (not isFirstChildSingleLiteral(getFrom(self))) {
+		if (condVar.length > 0) {
+			sb.append(sbl.toString() + ";");
+		}
+	}
+	getType(context);
+
+	if (not isFirstChildLiteral(getFrom(self)) and sbl.length() > 0) {
+		PathTypes.put(sbl.asString(), toType);
+	}
+} 
+
+operation getToType(to : Any) : String {
+	var sbTo := new Native("java.lang.StringBuilder");
+	getTo(to).transform(sbTo, context);
+	return getType_(getLeaf(sbTo.toString()));
+}

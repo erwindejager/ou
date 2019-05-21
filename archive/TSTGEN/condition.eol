@@ -1,0 +1,52 @@
+import "variables.eol";
+
+
+// var logical operator value
+operation BPEL!t_condition transform(sb : Any, context : Map) {
+	var operator = getComparisonOperator(self.text);
+	var expr : Sequence = self.text.split(operator);
+	var cond = getLRValue(expr.first()) + tranlateComparisonOperatorToJava(operator, 
+												getLRValue(expr.second()),getType_(getLRValue(expr.first())));
+	addCondition(context, cond);
+	if (containsCondtionVar(cond)) { 
+	  	sb.append("{ " + cond + " }?");
+	}
+	PathValues.put(expr.first().subString(1) + ":" + expr.second(), expr.second());
+}
+
+operation getLRValue(value : String) : String {
+	var result = trimXpathPrefix(value);
+	result = replaceSlash(result);
+	return trimAllNs(result);
+}
+
+operation getComparisonOperator(expr : String) : String {
+	return getComparisonOperators().select(e|expr.matches(".*" + e + ".*")).first();
+}
+
+operation getComparisonOperators() : Sequence {
+	return "<>,>=,<=,=,<,>".split(",");
+}
+
+operation tranlateComparisonOperatorToJava(operator : String, parameter : String, type : String) : String {
+	var result = operator;
+	if (result = "=") {
+		if (type <> null and type.length() > 0 and "int".equals(type)) {
+			result = ".equals(" + removeQuote(parameter) + ")";
+		} else if (type <> null and type.length() > 0 and "boolean".equals(type)) {
+			result = "";
+		} else {
+			result = ".equals(" + replaceSingleQuote(parameter) + ")";
+		}
+	} else 	{
+		result = " " + operator + " " + parameter;
+	} 
+	return result;
+}
+
+
+
+
+
+
+

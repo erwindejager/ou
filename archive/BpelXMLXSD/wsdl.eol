@@ -1,0 +1,196 @@
+
+operation transformWsdl(e : Any, sb : Any, context : Map) {
+//sb.append("================ transform8 B =================\n");
+
+	if (e.toString().contains("types")) {
+		transformTypes(e, sb, context);
+	} else if (e.toString().contains("schema")) {
+		transformSchema(e, sb, context);
+	} else if (e.toString().contains("sequence")) {
+		transformSequence(e, sb, context);
+	} else if (e.toString().contains("complexContent")) {
+		transformComplexContent(e, sb, context);
+	} else if (e.toString().contains("complexType")) {
+		transformComplexType(e, sb, context);
+	}  else if (e.toString().contains("element")) {
+		transformElement(e, sb, context);
+	}   else if (e.toString().contains("message")) {
+		transformMessage(e, sb, context);
+	}   else if (e.toString().contains("part")) {
+		transformPart(e, sb, context);
+	}   else if (e.toString().contains("extension")) {
+		transformExtention(e, sb, context);
+	} 
+//sb.append("================ transform8 E =================\n");
+}
+
+operation transformChildrenWsdl(sb : Any, context : Map, e : Any) {
+	for (c in e.children) {
+ 		transformWsdl(c, sb, context);
+	}
+}
+
+operation transformTypes(e : Any, sb : Any, context : Map) {
+	transformChildrenWsdl(sb, context, e);
+}
+
+
+operation transformSchema(e : Any, sb : Any, context : Map) {
+	transformChildrenWsdl(sb, context, e);
+}
+
+
+operation transformSequence(e : Any, sb : Any, context : Map) {
+	if (e.a_maxOccurs <> null and e.a_maxOccurs.length() > 0) {
+		addCollection(context, "WSDL");
+	}
+	transformChildrenWsdl(sb, context, e);
+}
+
+operation transformComplexContent(e : Any, sb : Any, context : Map) {
+	transformChildrenWsdl(sb, context, e);
+}
+
+operation transformComplexType(e : Any, sb : Any, context : Map) {
+	if (e.a_name.length > 0) {
+		sb.append("public class " + e.a_name);
+		if (not hasChild(e, "extension")) {
+			sb.append(" {");newline(sb);
+		}
+	}
+	transformChildrenWsdl(sb, context, e);
+	if (e.a_name.length > 0) {
+		sb.append("}");newline(sb);
+	}
+}
+
+operation transformElement(e : Any, sb : Any, context : Map) {
+	if ("schema".equals(e.parentNode.tagName) and e.children.size() == 0) {
+		sb.append("public class " + e.a_name.firstToUpperCase());
+		sb.append(" extends " + trimNs(e.a_type)); 
+		sb.append(" {}");newline(sb);		
+	}
+	if (e.a_type.length > 0) { // primitive type / leaf
+		var coll = getCollection(context);
+		if (coll <> null and coll.length() > 0) {
+			//	List<?> <var> = new ArrayList<?>();
+			addCollectionType(context, tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())));
+			addCollectionName(context, e.a_name);
+			addCollectionNameUpper(context, e.a_name.firstToUpperCase());
+			sb.append("List<"); 
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())));
+			sb.append(">");space(sb);
+			sb.append(e.a_name.firstToLowerCase() + " = new ArrayList<");
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())));
+			sb.append(">();");newline(sb);
+			//public List<?> get<var>() { return <var>; }
+			sb.append("public List<"); 
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())));
+			sb.append("> get");
+			sb.append(e.a_name.toLowercase().firstToUpperCase() + "() { return ");
+			sb.append(e.a_name.firstToLowerCase() + "; }\n");
+			//public void set<var>Input(? s) { <var>.add(s); }
+			sb.append("public void set"); 
+			sb.append(e.a_name.toLowercase().firstToUpperCase() + "(");
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())) + " s" + ") { ");
+			sb.append(e.a_name.firstToLowerCase() + ".add(s); }\n");
+		}	
+		else {
+			sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())));space(sb);
+			sb.append(e.a_name.firstToLowerCase());
+			if (isPrimitiveXmlType(trimNs(e.a_type))) {
+				sb.append(";");newline(sb);
+			} else {
+				sb.append(" = new " + tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())) + "();");newline(sb);			
+			}
+			sb.append("public " + tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase())) +" get" + e.a_name.firstToUpperCase() + "() { return ");
+			sb.append(e.a_name.firstToLowerCase() + "; }\n");
+			sb.append("public void set" + e.a_name.firstToUpperCase() + "(" + tranlateXmlPrimitiveTypesToJava(trimNs(e.a_type.firstToLowerCase()))+ " s) { ");
+			sb.append(e.a_name.firstToLowerCase() + " = s; }\n");		
+		}	
+ 	} else {
+		sb.append("public class " + e.a_name.firstToUpperCase());sb.append(" {");newline(sb);
+ 	}
+	transformChildrenWsdl(sb, context, e);
+	if (e.a_type.length == 0) {
+		sb.append("}");newline(sb);
+		sb.append(e.a_name.firstToUpperCase());space(sb);	
+		sb.append(e.a_name.firstToLowerCase());
+		sb.append(" = new ");	
+		sb.append(e.a_name.firstToUpperCase() + "();");newline(sb);newline(sb);	
+		
+		//class PeopleFactory extends AbstractFactory {
+		var facType = getCollectionType(context);
+		if (facType <> null and facType.length() > 0) {
+			var varName = getCollectionName(context); 
+			var varNameUpper = getCollectionNameUpper(context); 
+			sb.append("class " + facType + "Factory extends AbstractFactory {\n");
+			sb.append("public boolean createObject(JXPathContext context, Pointer pointer, Object parent, String name, int index) {\n");
+			sb.append("if ((parent instanceof " + e.a_name.firstToUpperCase() + ") && name.equals(\""); 
+			sb.append(varName + "\")) { ((" + e.a_name.firstToUpperCase() + ")parent).set" + varNameUpper); 
+			sb.append("(new " + facType + "()); return true; }\n"); 
+			sb.append("return false; }}"); 
+			newline(sb);newline(sb);
+			addFactory(context, facType + "Factory");
+		}	
+ 	}		
+}
+
+
+operation transformMessages()  {
+//sb.append("================ transformMessages1 B =================\n");
+	for (mod in allModels) {
+		for (e in mod!t_message.allInstances()) {
+ 			transformWsdl(e, sb, context);
+ 		}
+	}
+//sb.append("================ transformMessages1 e =================\n");
+}
+
+
+operation transformMessage(e : Any, sb : Any, context : Map) {
+	sb.append("public class " + e.a_name.firstToUpperCase() + "_");space(sb);
+	sb.append("{");newline(sb);
+	transformChildrenWsdl(sb, context, e);
+	sb.append("}");newline(sb);
+	
+	sb.append(e.a_name.firstToUpperCase() + "_");space(sb);	
+	sb.append(e.a_name.firstToLowerCase() + "_");
+	sb.append(" = new ");	
+	sb.append(e.a_name.firstToUpperCase() + "_();");newline(sb);newline(sb);		
+}
+
+operation transformPart(e : Any, sb : Any, context : Map) {
+	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_element)).firstToUpperCase());space(sb);
+	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_name.firstToLowerCase())) + " = new ");
+	sb.append(tranlateXmlPrimitiveTypesToJava(trimNs(e.a_element).firstToUpperCase()) + "();");newline(sb);	
+	sb.append("public " + tranlateXmlPrimitiveTypesToJava(trimNs(e.a_element).firstToUpperCase()) + " get");
+	sb.append(e.a_name.toLowercase().firstToUpperCase() + "() { return "+ e.a_name.firstToLowerCase() + "; }\n");
+}
+
+operation transformExtention(e : Any, sb : Any, context : Map) {
+	sb.append(" extends " + trimNs(e.a_base) + " {\n");
+	transformChildrenWsdl(sb, context, e);
+}
+
+operation getXmlPrimitiveTypes() : Sequence {
+	return "string,int".split(",");
+}
+
+operation tranlateXmlPrimitiveTypesToJava(xmlPrimitiveType : String) : String {
+	var result = xmlPrimitiveType;
+	if ("string".equals(result)) {
+		result = "String";
+	}
+	return result;
+}
+
+operation isPrimitiveXmlType(xmlPrimitiveType : String) : Boolean {
+	var result = false;
+	if ("string".equals(xmlPrimitiveType)) {
+		result = true;
+	} else 	if ("int".equals(xmlPrimitiveType)) {
+		result = true;
+	} 
+	return result;
+}

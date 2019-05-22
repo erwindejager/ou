@@ -1,1 +1,0 @@
-lola --formula="ALLPATH ALWAYS EXPATH EVENTUALLY (p583 > 0)" HandleRequest.lola

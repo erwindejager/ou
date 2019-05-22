@@ -1,1 +1,0 @@
-lola --formula="ALLPATH ALWAYS EXPATH EVENTUALLY (p37 > 0)" GitTest.lola

@@ -1,5 +1,0 @@
-{ AG EF (HandleRequest.1.internal.final) }
-
-FORMULA
-  ALLPATH ALWAYS EXPATH EVENTUALLY (p40 > 0)
-

@@ -1,0 +1,103 @@
+lola: NET
+lola:   reading net from GitTest_ch.lola
+lola:   finished parsing
+lola:   closed net file GitTest_ch.lola
+lola:   9/65536 symbol table entries, 0 collisions
+lola:   preprocessing... 
+lola:   finding significant places
+lola:   6 places, 3 transitions, 3 significant places
+lola:   computing forward-conflicting sets
+lola:   computing back-conflicting sets
+lola:   4 transition conflict sets
+lola: TASK
+lola:   read: (in.client.process > 0 -> AG (EF (p4 > 0)))
+lola:   formula length: 43
+lola:   checking a Boolean combination of subproblems
+lola: RUNNING
+lola:   ========================================
+lola:   ...considering subproblem: in.client.process <= 0
+lola:   ========================================
+lola:   SUBTASK
+lola:     checking initial satisfaction
+lola:     processed formula with 1 atomic propositions
+lola:   RUNNING
+lola:   SUBRESULT
+lola:     result: yes
+lola:     The net satisfies the property already in its initial state.
+lola:     0 markings, 0 edges
+lola:   ========================================
+lola: RESULT
+lola:   result: yes
+lola:   The Boolean predicate is true.
+lola: NET
+lola:   reading net from GitTest_ch.lola
+lola:   finished parsing
+lola:   closed net file GitTest_ch.lola
+lola:   9/65536 symbol table entries, 0 collisions
+lola:   preprocessing... 
+lola:   finding significant places
+lola:   6 places, 3 transitions, 3 significant places
+lola:   computing forward-conflicting sets
+lola:   computing back-conflicting sets
+lola:   4 transition conflict sets
+lola: TASK
+lola:   read: (in.client.process > 0 -> AG (EF ((p4 > 0 AND out.client.process > 0))))
+lola:   formula length: 72
+lola:   checking a Boolean combination of subproblems
+lola: RUNNING
+lola:   ========================================
+lola:   ...considering subproblem: in.client.process <= 0
+lola:   ========================================
+lola:   SUBTASK
+lola:     checking initial satisfaction
+lola:     processed formula with 1 atomic propositions
+lola:   RUNNING
+lola:   SUBRESULT
+lola:     result: yes
+lola:     The net satisfies the property already in its initial state.
+lola:     0 markings, 0 edges
+lola:   lola: RESULT
+========================================lola:   result: 
+yes
+lola:   The Boolean predicate is true.
+lola: NET
+lola:   reading net from GitTest_ch.lola
+lola:   finished parsing
+lola:   closed net file GitTest_ch.lola
+lola:   9/65536 symbol table entries, 0 collisions
+lola:   preprocessing... 
+lola:   finding significant places
+lola:   6 places, 3 transitions, 3 significant places
+lola:   computing forward-conflicting sets
+lola:   computing back-conflicting sets
+lola:   4 transition conflict sets
+lola: TASK
+lola:   read: (in.client.process > 0 -> AG (!(DEADLOCK)))
+lola:   formula length: 43
+lola:   checking a Boolean combination of subproblems
+lola: RUNNING
+lola:   ========================================
+lola:   ...considering subproblem: in.client.process <= 0
+lola:   ========================================
+lola:   SUBTASK
+lola:     checking initial satisfaction
+lola:     processed formula with 1 atomic propositions
+lola:   RUNNING
+lola:   SUBRESULT
+lola:     result: yes
+lola:     The net satisfies the property already in its initial state.
+lola:     print witness state (--state)
+lola:     writing witness state to stdout
+lola:     closed witness state file stdout
+lola:     print witness path (--path)
+lola:     writing witness path to stdout
+lola:     closed witness path file stdout
+lola:     0 markings, 0 edges
+lola:   lola: RESULT
+========================================lola: 
+  result: yes
+lola:   The Boolean predicate is true.
+lola:   print witness state (--state)
+lola:   writing witness state to stdout
+lola:   no witness state generated
+lola:   closed witness state file stdout
